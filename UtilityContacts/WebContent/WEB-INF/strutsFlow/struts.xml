@@ -9,6 +9,8 @@
 	<package name="default" namespace="" extends="struts-default">
 	</package>
 	
-	<include file="*subapp*"></include>
+	<!-- <include file="subapp-flow-example.xml"></include> -->
+	<include file="subapp-flow-login.xml"></include>
+	
 
 </struts>
