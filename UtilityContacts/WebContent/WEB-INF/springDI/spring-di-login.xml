@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="loginAction" class="com.action.LoginAction">
+		<property name="userFunctionsAppService" ref="userFunctionsAppService" />
+	</bean>
+
+	<bean id="userFunctionsAppService" class="com.appService.impl.UserFunctionsAppServiceImpl">
+		<property name="userFunctionsDao" ref="userFunctionsDao" />
+	</bean>
+	
+	<bean id="userFunctionsDao" class="com.dao.impl.UserFunctionsDaoImpl">
+			<property name="template" ref="template"></property>
+	</bean>
+
+</beans>
