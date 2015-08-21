@@ -6,10 +6,10 @@
 <struts>
 	<constant name="struts.devMode" value="false" />
 
-	<package name="default" namespace="" extends="struts-default">
+	<package name="examplePackage" namespace="/examplePackage" extends="struts-default">
 
 		<action name="example" class="exampleAction" method="exampleFunctionAction">
-			<result name="success">WEB-INF/jsp/welcome.jsp</result>
+			<result name="success">../WEB-INF/jsp/welcome.jsp</result>
 		</action>
 
 	</package>
