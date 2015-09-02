@@ -1,6 +1,6 @@
-package com.appService.inputBean;
+package com.dao.inputBean;
 
-public class ContacsFunctionAppSrvcIB {
+public class ContactFunctionsDaoIB {
 	
 	String name;
 	String type;
@@ -48,5 +48,6 @@ public class ContacsFunctionAppSrvcIB {
 	}
 	
 	
+
 
 }

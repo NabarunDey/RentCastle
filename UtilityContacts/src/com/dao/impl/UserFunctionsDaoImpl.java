@@ -30,7 +30,7 @@ public class UserFunctionsDaoImpl implements UserFunctionsDao {
 
 	
 	public List<UserLoginDBBean> getAllUserLogin(){  
-	    List<UserLoginDBBean> list=new ArrayList<UserLoginDBBean>();  
+	    List<UserLoginDBBean> list; 
 	    list=template.loadAll(UserLoginDBBean.class);  
 	    return list;  
 	}  

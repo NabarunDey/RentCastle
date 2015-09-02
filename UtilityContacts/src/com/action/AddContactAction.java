@@ -1,7 +1,8 @@
 package com.action;
 
-import com.appService.UserFunctionsAppService;
-import com.appService.inputBean.UserFunctionsAppSrvcIB;
+import com.appService.ContactFunctionsAppService;
+import com.appService.inputBean.ContactFunctionsAppSrvcIB;
+import com.appService.outputBean.ContactFunctionsAppSrvcOB;
 
 
 
@@ -15,16 +16,20 @@ public class AddContactAction {
 	String state;
 	String mobile;
 	
-	UserFunctionsAppService userFunctionsAppService; 
+	ContactFunctionsAppService contactFunctionsAppService; 
 	
 	
-	public String loginFunction()
+	public String execute()
 	{
-		UserFunctionsAppSrvcIB userFunctionsAppSrvcIB = new UserFunctionsAppSrvcIB();
-		/*userFunctionsAppSrvcIB.setUsername(username);
-		userFunctionsAppSrvcIB.setPassword(password);*/
+		ContactFunctionsAppSrvcIB contactFunctionsAppSrvcIB = new  ContactFunctionsAppSrvcIB();
+		contactFunctionsAppSrvcIB.setName(name);
+		contactFunctionsAppSrvcIB.setCity(city);
+		contactFunctionsAppSrvcIB.setLocation(location);
+		contactFunctionsAppSrvcIB.setMobile(mobile);
+		contactFunctionsAppSrvcIB.setState(state);
+		contactFunctionsAppSrvcIB.setType(type);
 		
-		userFunctionsAppService.login(userFunctionsAppSrvcIB);
+		ContactFunctionsAppSrvcOB contactFunctionsAppSrvcOB= contactFunctionsAppService.addContact(contactFunctionsAppSrvcIB);
 		
 		return "success";		
 	}
@@ -90,15 +95,14 @@ public class AddContactAction {
 	}
 
 
-	public UserFunctionsAppService getUserFunctionsAppService() {
-		return userFunctionsAppService;
+	public ContactFunctionsAppService getContactFunctionsAppService() {
+		return contactFunctionsAppService;
 	}
 
 
-	public void setUserFunctionsAppService(
-			UserFunctionsAppService userFunctionsAppService) {
-		this.userFunctionsAppService = userFunctionsAppService;
+	public void setContactFunctionsAppService(
+			ContactFunctionsAppService contactFunctionsAppService) {
+		this.contactFunctionsAppService = contactFunctionsAppService;
 	}
 
-	
 }

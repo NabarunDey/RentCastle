@@ -5,7 +5,9 @@
 
 <hibernate-mapping>
 	<class name="com.databaseBeans.ContactsDBBean" table="contacts">
-		<id name="contact_id"></id>
+		<id name="contact_id">
+		<generator class="increment"></generator> 
+		</id>
 		<property name="type"></property>
 		<property name="name"></property>
 		<property name="location"></property>

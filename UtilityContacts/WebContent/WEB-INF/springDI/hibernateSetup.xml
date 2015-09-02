@@ -18,6 +18,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="mappingResources">
 			<list>
 				<value>UserLogin.hbm.xml</value>
+				<value>Contacts.hbm.xml</value>
 			</list>
 		</property>
 

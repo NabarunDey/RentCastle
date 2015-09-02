@@ -1,31 +1,26 @@
-package com.databaseBeans;
+package com.appService.inputBean;
 
-public class ContactsDBBean {
+public class ContactFunctionsAppSrvcIB {
 	
-	Integer contact_id;
-	String type;
 	String name;
+	String type;
 	String location;
 	String city;
 	String state;
 	String mobile;
-	public Integer getContact_id() {
-		return contact_id;
+	
+	
+	public String getName() {
+		return name;
 	}
-	public void setContact_id(Integer contact_id) {
-		this.contact_id = contact_id;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public String getLocation() {
 		return location;
@@ -53,4 +48,5 @@ public class ContactsDBBean {
 	}
 	
 	
+
 }

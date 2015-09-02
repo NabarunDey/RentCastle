@@ -6,14 +6,12 @@
 <struts>
 	<constant name="struts.devMode" value="false" />
 
-	<package name="default" namespace="" extends="struts-default">
+	<package name="contactPackage" namespace="/contactPackage" extends="struts-default">
+
+		<action name="addContact" class="addContactAction" method="">
+			<result name="success">../WEB-INF/jsp/welcome.jsp</result>
+		</action>
+
 	</package>
-	
-	<include file="subapp-flow-example.xml"></include> 
-	<include file="subapp-flow-login.xml"></include>
-	<include file="subapp-flow-contacts.xml"></include>
-	
-	
-	
 
 </struts>

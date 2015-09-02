@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="addContactAction" class="com.action.AddContactAction">
+		<property name="contactFunctionsAppService" ref="contactFunctionsAppService" />
+	</bean>
+
+	<bean id="contactFunctionsAppService" class="com.appService.impl.ContactFunctionsAppServiceImpl">
+		<property name="contactFunctionsDao" ref="contactFunctionsDao" />
+	</bean>
+	
+	<bean id="contactFunctionsDao" class="com.dao.impl.ContactFunctionsDaoImpl">
+			<property name="template" ref="template"></property>
+	</bean>
+
+</beans>
