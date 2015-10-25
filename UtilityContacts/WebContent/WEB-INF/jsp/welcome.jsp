@@ -18,7 +18,7 @@ body {
 </head>
 <body>${message}
 
-	Welcome, <s:property value="firstName" />
+	Welcome, <s:property value="username" />
 	<br />
 </body>
 </html>

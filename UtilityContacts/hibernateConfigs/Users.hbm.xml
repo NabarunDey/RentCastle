@@ -4,7 +4,7 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.databaseBeans.ContactsDBBean" table="contacts">
+	<class name="userRegistration.dao.databaseBeans.UsersDBBean" table="contacts">
 		<id name="contact_id">
 		<generator class="increment"></generator> 
 		</id>

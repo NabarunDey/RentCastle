@@ -4,11 +4,11 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	<bean id="addContactAction" class="com.action.AddContactAction">
+	<bean id="addContactAction" class="userRegistration.action">
 		<property name="contactFunctionsAppService" ref="contactFunctionsAppService" />
 	</bean>
 
-	<bean id="contactFunctionsAppService" class="com.appService.impl.ContactFunctionsAppServiceImpl">
+	<bean id="contactFunctionsAppService" class="userRegistration.appService">
 		<property name="contactFunctionsDao" ref="contactFunctionsDao" />
 	</bean>
 	

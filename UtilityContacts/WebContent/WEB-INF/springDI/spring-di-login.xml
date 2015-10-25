@@ -4,15 +4,15 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	<bean id="loginAction" class="com.action.LoginAction">
-		<property name="userFunctionsAppService" ref="userFunctionsAppService" />
+	<bean id="loginAction" class="login.action.LoginAction">
+		<property name="loginAppService" ref="loginAppService" />
 	</bean>
 
-	<bean id="userFunctionsAppService" class="com.appService.impl.UserFunctionsAppServiceImpl">
-		<property name="userFunctionsDao" ref="userFunctionsDao" />
+	<bean id="loginAppService" class="login.appService.LoginAppService">
+		<property name="loginDao" ref="loginDao" />
 	</bean>
 	
-	<bean id="userFunctionsDao" class="com.dao.impl.UserFunctionsDaoImpl">
+	<bean id="loginDao" class="login.dao.LoginDao">
 			<property name="template" ref="template"></property>
 	</bean>
 

@@ -5,11 +5,11 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
 	
-<import resource="spring-di-example.xml"/>
+<!-- <import resource="spring-di-example.xml"/>
+<import resource="spring-di-contacts.xml"/>-->
 <import resource="hibernateSetup.xml"/>
-
 <import resource="spring-di-login.xml"/>
-<import resource="spring-di-contacts.xml"/>
+
 
 
 </beans>

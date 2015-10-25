@@ -8,7 +8,7 @@
 
 	<package name="loginPackage" namespace="/loginPackage" extends="struts-default">
 
-		<action name="login" class="loginAction" method="loginFunction">
+		<action name="login" class="LoginAction" method="loginFunction">
 			<result name="success">../WEB-INF/jsp/welcome.jsp</result>
 		</action>
 

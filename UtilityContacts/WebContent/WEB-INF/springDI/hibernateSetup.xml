@@ -6,7 +6,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+		<property name="url" value="jdbc:oracle:thin:@192.168.0.102:1521:xe"></property>
 		<property name="username" value="UtilityContacts"></property>
 		<property name="password" value="UtilityContacts"></property>
 	</bean>
@@ -18,7 +18,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="mappingResources">
 			<list>
 				<value>UserLogin.hbm.xml</value>
-				<value>Contacts.hbm.xml</value>
+			
 			</list>
 		</property>
 
@@ -36,11 +36,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="sessionFactory" ref="mysessionFactory"></property>
 	</bean>
 
-	<bean id="userLoginDBBean" class="com.databaseBeans.UserLoginDBBean">
+	<bean id="userLoginDBBean" class="login.dao.databaseBeans.UserLoginDBBean">
 	</bean>
 
-	<bean id="contactsDBBean" class="com.databaseBeans.ContactsDBBean">
-	</bean>
-
+	
 
 </beans>
