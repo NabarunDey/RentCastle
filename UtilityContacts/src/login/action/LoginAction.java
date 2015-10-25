@@ -3,9 +3,6 @@ package login.action;
 import login.appService.LoginAppService;
 import login.appService.inputBeans.LoginAppServiceIB;
 
-import com.appService.UserFunctionsAppService;
-import com.appService.inputBean.UserFunctionsAppSrvcIB;
-
 
 
 public class LoginAction {

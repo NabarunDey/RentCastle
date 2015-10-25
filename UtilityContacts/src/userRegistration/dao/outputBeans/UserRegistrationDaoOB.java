@@ -1,6 +1,6 @@
-package com.dao.outputBean;
+package userRegistration.dao.outputBeans;
 
-public class ContactFunctionsDaoOB {
+public class UserRegistrationDaoOB {
 	
 	boolean contactInserted;
 
@@ -11,7 +11,5 @@ public class ContactFunctionsDaoOB {
 	public void setContactInserted(boolean contactInserted) {
 		this.contactInserted = contactInserted;
 	}
-	
-	
 
 }
