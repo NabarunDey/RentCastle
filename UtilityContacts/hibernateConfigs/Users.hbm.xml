@@ -5,15 +5,17 @@
 
 <hibernate-mapping>
 	<class name="userRegistration.dao.databaseBeans.UsersDBBean" table="contacts">
-		<id name="contact_id">
-		<generator class="increment"></generator> 
-		</id>
-		<property name="type"></property>
-		<property name="name"></property>
+		<id name="username"></id>
+		<property name="usertype"></property>
+		<property name="firstname"></property>
+		<property name="lastname"></property>
 		<property name="location"></property>
 		<property name="city"></property>
 		<property name="state"></property>
-		<property name="mobile"></property>
+		<property name="phonenumber"></property>
+		<property name="mobilenumber1"></property>
+		<property name="mobilenumber2"></property>
+		
 	</class>
 
 </hibernate-mapping>  	
