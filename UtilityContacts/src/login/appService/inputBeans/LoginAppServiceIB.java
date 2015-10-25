@@ -1,6 +1,7 @@
-package com.databaseBeans;
+package login.appService.inputBeans;
 
-public class UserLoginDBBean {
+public class LoginAppServiceIB {
+
 	
 	String username;
 	String password;
@@ -10,7 +11,6 @@ public class UserLoginDBBean {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -18,6 +18,4 @@ public class UserLoginDBBean {
 		this.password = password;
 	}
 	
-	
-
 }

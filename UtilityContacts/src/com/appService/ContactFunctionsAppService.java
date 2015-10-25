@@ -6,5 +6,6 @@ import com.appService.outputBean.ContactFunctionsAppSrvcOB;
 public interface ContactFunctionsAppService {
 	
 	public ContactFunctionsAppSrvcOB addContact(ContactFunctionsAppSrvcIB contactFunctionsAppSrvcIB);
+	public ContactFunctionsAppSrvcOB viewAllContact();
 
 }

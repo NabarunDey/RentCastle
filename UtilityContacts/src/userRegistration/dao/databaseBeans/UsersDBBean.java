@@ -1,7 +1,7 @@
-package com.databaseBeans;
+package userRegistration.dao.databaseBeans;
 
-public class ContactsDBBean {
-	
+public class UsersDBBean {
+
 	String username;
 	String type;
 	String name;
@@ -54,6 +54,5 @@ public class ContactsDBBean {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	
 	
 }

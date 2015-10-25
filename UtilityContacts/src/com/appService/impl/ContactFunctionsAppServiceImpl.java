@@ -25,6 +25,15 @@ public class ContactFunctionsAppServiceImpl implements ContactFunctionsAppServic
 		
 		return contactFunctionsAppSrvcOB;
 	}
+	
+
+	@Override
+	public ContactFunctionsAppSrvcOB viewAllContact() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 
 	public ContactFunctionsDao getContactFunctionsDao() {
 		return contactFunctionsDao;
@@ -33,6 +42,9 @@ public class ContactFunctionsAppServiceImpl implements ContactFunctionsAppServic
 	public void setContactFunctionsDao(ContactFunctionsDao contactFunctionsDao) {
 		this.contactFunctionsDao = contactFunctionsDao;
 	}
+
+
+
 
 
 }

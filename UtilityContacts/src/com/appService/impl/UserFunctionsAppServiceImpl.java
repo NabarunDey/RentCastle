@@ -2,6 +2,8 @@ package com.appService.impl;
 
 import java.util.List;
 
+import login.dao.LoginDao;
+
 import org.apache.commons.lang3.StringUtils;
 
 import com.appService.UserFunctionsAppService;
@@ -70,4 +72,13 @@ public class UserFunctionsAppServiceImpl implements UserFunctionsAppService {
 	public void setUserFunctionsDao(UserFunctionsDao userFunctionsDao) {
 		this.userFunctionsDao = userFunctionsDao;
 	}
+	
+	public LoginDao getLoginDao() {
+		return loginDao;
+	}
+
+	public void setLoginDao(LoginDao loginDao) {
+		this.loginDao = loginDao;
+	}
+
 }
