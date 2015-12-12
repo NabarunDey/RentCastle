@@ -36,7 +36,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="sessionFactory" ref="mysessionFactory"></property>
 	</bean>
 
-	<bean id="userLoginDBBean" class="login.dao.databaseBeans.UserLoginDBBean">
+	<bean id="userLoginDBBean" class="com.databaseBeans.UserLoginDBBean">
 	</bean>
 
 	
