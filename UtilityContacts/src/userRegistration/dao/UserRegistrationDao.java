@@ -2,10 +2,10 @@ package userRegistration.dao;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import userRegistration.dao.databaseBeans.UsersDBBean;
-import userRegistration.dao.inputBeans.UserRegistrationDaoIB;
+import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
 import userRegistration.dao.outputBeans.UserRegistrationDaoOB;
 
+import com.databaseBeans.UsersDBBean;
 import com.util.CommonUtility;
 
 public class UserRegistrationDao {
@@ -26,10 +26,10 @@ public class UserRegistrationDao {
 		
 	
 	public UserRegistrationDaoOB addUser(
-			UserRegistrationDaoIB userRegistrationDaoIB) {
+			UserRegistrationAppServiceIB userRegistrationAppServiceIB) {
 
 		UsersDBBean usersDBBean = new  UsersDBBean();
-		CommonUtility.copyBean(userRegistrationDaoIB, usersDBBean);
+		CommonUtility.copyBean(userRegistrationAppServiceIB, usersDBBean);
 		
 		
 		saveContacts(usersDBBean);

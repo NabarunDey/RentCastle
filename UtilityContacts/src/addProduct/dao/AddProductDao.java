@@ -2,9 +2,10 @@ package addProduct.dao;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import userRegistration.dao.outputBeans.UserRegistrationDaoOB;
+import addProduct.appService.inputBeans.AddProductAppServiceIB;
+import addProduct.dao.outputBeans.AddProductDaoOB;
 
-import com.databaseBeans.UsersDBBean;
+import com.databaseBeans.ProductsDBBean;
 import com.util.CommonUtility;
 
 public class AddProductDao {
@@ -13,28 +14,27 @@ public class AddProductDao {
 	public void setTemplate(HibernateTemplate template) {  
 	    this.template = template;  
 	}  
-	public void saveContacts(UsersDBBean usersDBBean){  
-	    template.save(usersDBBean);  
+	public void saveContacts(ProductsDBBean productsDBBean){  
+	    template.save(productsDBBean);  
 	}  
-	public void updateContacts(UsersDBBean usersDBBean){  
-	    template.update(usersDBBean);  
+	public void updateContacts(ProductsDBBean productsDBBean){  
+	    template.update(productsDBBean);  
 	}  
-	public void deleteContacts(UsersDBBean usersDBBean){  
-	    template.delete(usersDBBean);  
+	public void deleteContacts(ProductsDBBean productsDBBean){  
+	    template.delete(productsDBBean);  
 	}  
 		
 	
-	public UserRegistrationDaoOB addUser(
-			UserRegistrationDaoIB userRegistrationDaoIB) {
+	public AddProductDaoOB addProduct(
+			AddProductAppServiceIB addProductAppServiceIB) {
 
-		UsersDBBean usersDBBean = new  UsersDBBean();
-		CommonUtility.copyBean(userRegistrationDaoIB, usersDBBean);
+		ProductsDBBean productsDBBean = new  ProductsDBBean();
+		CommonUtility.copyBean(addProductAppServiceIB, productsDBBean);
 		
 		
-		saveContacts(usersDBBean);
-		UserRegistrationDaoOB userRegistrationDaoOB =new UserRegistrationDaoOB();
-		userRegistrationDaoOB.setContactInserted(true);
-		return userRegistrationDaoOB;
+		saveContacts(productsDBBean);
+		AddProductDaoOB addProductDaoOB =new AddProductDaoOB();
+		return addProductDaoOB;
 	}
 
 }

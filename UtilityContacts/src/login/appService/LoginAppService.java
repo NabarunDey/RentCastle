@@ -4,6 +4,8 @@ import java.util.List;
 
 import login.appService.inputBeans.LoginAppServiceIB;
 import login.dao.LoginDao;
+import login.dao.outputBeans.LoginDaoOB;
+import login.projector.LoginProjector;
 import login.projector.outputBeans.LoginProjectorOB;
 
 import org.apache.commons.lang3.StringUtils;
@@ -13,27 +15,31 @@ import com.databaseBeans.UserLoginDBBean;
 
 public class LoginAppService {
 	
-	public LoginDao loginDao;
+	private LoginDao loginDao;
+	private LoginProjector loginProjector;
+	
 	
 	public LoginProjectorOB login(LoginAppServiceIB loginAppServiceIB) {
+		
+		LoginDaoOB loginDaoOB =  loginDao.getAllUserLogin();
 
-		List<UserLoginDBBean> userLoginDBBeans =loginDao.getAllUserLogin();
+		List<UserLoginDBBean> userLoginDBBeans = loginDaoOB.getUserLoginDBBeans();
 
 		if( null!= userLoginDBBeans && null != loginAppServiceIB 
 				&& StringUtils.isNotEmpty(loginAppServiceIB.getUsername()) && StringUtils.isNotEmpty(loginAppServiceIB.getPassword()))
 		{
 			if(checkIfUserExists(userLoginDBBeans, loginAppServiceIB))
 			{
-				loginAppServiceOB.setUserExists(true);
+				loginDaoOB.setUserExists(true);
 				if(checkCredential(userLoginDBBeans, loginAppServiceIB))
 				{
-					loginAppServiceOB.setCredentialMatch(true);
-					
+					loginDaoOB.setCredentialMatch(true);
 				}
-
 			}
 		}
-		return loginAppServiceOB;
+		
+		LoginProjectorOB loginProjectorOB = loginProjector.getConfirmationScreen(loginDaoOB);
+		return loginProjectorOB;
 	}
 
 	private boolean checkIfUserExists(List<UserLoginDBBean> userLoginDBBeans, LoginAppServiceIB loginAppServiceIB)

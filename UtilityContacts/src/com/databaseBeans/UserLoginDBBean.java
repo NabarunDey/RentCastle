@@ -1,4 +1,4 @@
-package login.dao.databaseBeans;
+package com.databaseBeans;
 
 public class UserLoginDBBean {
 	

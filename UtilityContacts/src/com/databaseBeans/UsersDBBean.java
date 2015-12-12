@@ -1,4 +1,4 @@
-package userRegistration.dao.databaseBeans;
+package com.databaseBeans;
 
 public class UsersDBBean {
 

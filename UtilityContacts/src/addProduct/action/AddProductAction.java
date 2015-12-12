@@ -1,25 +1,39 @@
 package addProduct.action;
 
-import userRegistration.appService.UserRegistrationAppService;
-import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
+import addProduct.appService.AddProductAppService;
+import addProduct.appService.inputBeans.AddProductAppServiceIB;
+import addProduct.projector.outputBeans.AddProductProjectorOB;
 
 public class AddProductAction {
 
-	public UserRegistrationAppService userRegistrationAppService;
+	public AddProductAppService addProductAppService;
 	
-	public String execute()
+	public String addProductInput()
 	{
-		Addp AppServiceIB userRegistrationAppServiceIB = new UserRegistrationAppServiceIB();
+		
+		return "SUCCESS";
+	}
+	
+	public String addProductRecap()
+	{
+		return "SUCCESS";
+	}
+	
+	public String addProductConfirmation()
+	{
+		AddProductAppServiceIB addProductAppServiceIB = new AddProductAppServiceIB();
+		AddProductProjectorOB addProductProjectorOB = addProductAppService.addProduct(addProductAppServiceIB);
 		return "SUCCESS";
 	}
 
-	public UserRegistrationAppService getUserRegistrationAppService() {
-		return userRegistrationAppService;
+	public AddProductAppService getAddProductAppService() {
+		return addProductAppService;
 	}
 
-	public void setUserRegistrationAppService(
-			UserRegistrationAppService userRegistrationAppService) {
-		this.userRegistrationAppService = userRegistrationAppService;
+	public void setAddProductAppService(AddProductAppService addProductAppService) {
+		this.addProductAppService = addProductAppService;
 	}
+
+   
 	
 }

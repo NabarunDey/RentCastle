@@ -2,9 +2,11 @@ package login.dao;
 
 import java.util.List;
 
-import login.dao.databaseBeans.UserLoginDBBean;
+import login.dao.outputBeans.LoginDaoOB;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
+
+import com.databaseBeans.UserLoginDBBean;
 
 public class LoginDao {
 	
@@ -27,10 +29,12 @@ public class LoginDao {
 	}  
 
 	
-	public List<UserLoginDBBean> getAllUserLogin(){  
+	public LoginDaoOB getAllUserLogin(){  
+		LoginDaoOB loginDaoOB =new LoginDaoOB();
 	    List<UserLoginDBBean> list; 
 	    list=template.loadAll(UserLoginDBBean.class);  
-	    return list;  
+	    loginDaoOB.setUserLoginDBBeans(list);
+	    return loginDaoOB;  
 	}  
 
 
