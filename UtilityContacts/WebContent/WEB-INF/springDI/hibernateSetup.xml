@@ -39,6 +39,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="userLoginDBBean" class="com.databaseBeans.UserLoginDBBean">
 	</bean>
 
+	<bean id="productsDBBean" class="com.databaseBeans.ProductsDBBean">
+	</bean>
 	
 
 </beans>

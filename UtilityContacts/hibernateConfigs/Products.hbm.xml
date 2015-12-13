@@ -4,16 +4,17 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.databaseBeans.ProductsDBBean" table="contacts">
-		<id name="contact_id">
+	<class name="com.databaseBeans.ProductsDBBean" table="products">
+		<id name="productid">
 		<generator class="increment"></generator> 
 		</id>
-		<property name="type"></property>
-		<property name="name"></property>
-		<property name="location"></property>
-		<property name="city"></property>
-		<property name="state"></property>
-		<property name="mobile"></property>
+		<property name="productname"></property>
+		<property name="producttype"></property>
+		<property name="username"></property>
+		<property name="quantity"></property>
+		<property name="images"></property>
+		<property name="status"></property>
+		<property name="securitymoney"></property>
 	</class>
 
 </hibernate-mapping>  	

@@ -73,6 +73,15 @@ public class LoginAppService {
 
 	public void setLoginDao(LoginDao loginDao) {
 		this.loginDao = loginDao;
+	}
+
+	public LoginProjector getLoginProjector() {
+		return loginProjector;
+	}
+
+	public void setLoginProjector(LoginProjector loginProjector) {
+		this.loginProjector = loginProjector;
 	}	
 
+	
 }

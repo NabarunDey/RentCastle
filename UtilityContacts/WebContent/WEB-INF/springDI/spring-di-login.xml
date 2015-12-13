@@ -10,10 +10,14 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="loginAppService" class="login.appService.LoginAppService">
 		<property name="loginDao" ref="loginDao" />
+		<property name="loginProjector" ref="loginProjector" />
 	</bean>
 	
 	<bean id="loginDao" class="login.dao.LoginDao">
 			<property name="template" ref="template"></property>
+	</bean>
+	
+	<bean id="loginProjector" class="login.projector.LoginProjector">
 	</bean>
 
 </beans>
