@@ -1,7 +1,9 @@
 package login.action;
 
+import login.LoginAppContext;
 import login.appService.LoginAppService;
 import login.appService.inputBeans.LoginAppServiceIB;
+import login.projector.outputBeans.LoginProjectorOB;
 
 
 
@@ -10,7 +12,12 @@ public class LoginAction {
 	String username;
 	String password;
 	LoginAppService loginAppService; 
+	LoginAppContext context;
 	
+	public String loginInput()
+	{
+		return "success";
+	}
 	
 	public String loginFunction()
 	{
@@ -18,8 +25,11 @@ public class LoginAction {
 		loginAppServiceIB.setUsername(username);
 		loginAppServiceIB.setPassword(password);
 		
-		loginAppService.login(loginAppServiceIB);
-		
+		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB);
+		context.setLoginProjectorOB(loginProjectorOB);
+		if(loginProjectorOB.isLoginFailure())
+			return "error";
+					
 		return "success";		
 	}
 
@@ -45,6 +55,14 @@ public class LoginAction {
 
 	public void setLoginAppService(LoginAppService loginAppService) {
 		this.loginAppService = loginAppService;
+	}
+
+	public LoginAppContext getContext() {
+		return context;
+	}
+
+	public void setContext(LoginAppContext context) {
+		this.context = context;
 	}
 	
 }

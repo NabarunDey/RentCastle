@@ -13,11 +13,7 @@
 	<h1>Hello World From Struts2 - Spring integration</h1>
 
 	
-	<s:form action="login" namespace="/loginPackage" method="post">
-		<s:textfield name="username" label="Username"></s:textfield>
-		<s:textfield name="password" label="Password"></s:textfield>
-		<s:submit value="login"></s:submit>
-	</s:form>
+	
  
 	<s:form action="addContact" namespace="/contactPackage" method="post">
 		<s:textfield name="type" label="Type"></s:textfield>

@@ -7,8 +7,27 @@ import com.databaseBeans.UserLoginDBBean;
 public class LoginDaoOB {
 	
 	private List<UserLoginDBBean> userLoginDBBeans;
-	private boolean userExists;
-	private boolean credentialMatch;
+
+	private String userNameEntered;
+	private String passwordEntered;
+	
+	
+
+	public String getUserNameEntered() {
+		return userNameEntered;
+	}
+
+	public void setUserNameEntered(String userNameEntered) {
+		this.userNameEntered = userNameEntered;
+	}
+
+	public String getPasswordEntered() {
+		return passwordEntered;
+	}
+
+	public void setPasswordEntered(String passwordEntered) {
+		this.passwordEntered = passwordEntered;
+	}
 
 	public List<UserLoginDBBean> getUserLoginDBBeans() {
 		return userLoginDBBeans;
@@ -17,24 +36,6 @@ public class LoginDaoOB {
 	public void setUserLoginDBBeans(List<UserLoginDBBean> userLoginDBBeans) {
 		this.userLoginDBBeans = userLoginDBBeans;
 	}
-	
-
-	public boolean isUserExists() {
-		return userExists;
-	}
-
-	public void setUserExists(boolean userExists) {
-		this.userExists = userExists;
-	}
-
-	public boolean isCredentialMatch() {
-		return credentialMatch;
-	}
-
-	public void setCredentialMatch(boolean credentialMatch) {
-		this.credentialMatch = credentialMatch;
-	}
-	
 	
 
 }

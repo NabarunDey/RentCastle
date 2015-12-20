@@ -23,49 +23,10 @@ public class LoginAppService {
 		
 		LoginDaoOB loginDaoOB =  loginDao.getAllUserLogin();
 
-		List<UserLoginDBBean> userLoginDBBeans = loginDaoOB.getUserLoginDBBeans();
-
-		if( null!= userLoginDBBeans && null != loginAppServiceIB 
-				&& StringUtils.isNotEmpty(loginAppServiceIB.getUsername()) && StringUtils.isNotEmpty(loginAppServiceIB.getPassword()))
-		{
-			if(checkIfUserExists(userLoginDBBeans, loginAppServiceIB))
-			{
-				loginDaoOB.setUserExists(true);
-				if(checkCredential(userLoginDBBeans, loginAppServiceIB))
-				{
-					loginDaoOB.setCredentialMatch(true);
-				}
-			}
-		}
-		
 		LoginProjectorOB loginProjectorOB = loginProjector.getConfirmationScreen(loginDaoOB);
 		return loginProjectorOB;
 	}
 
-	private boolean checkIfUserExists(List<UserLoginDBBean> userLoginDBBeans, LoginAppServiceIB loginAppServiceIB)
-	{
-		for(UserLoginDBBean userLoginDBBean : userLoginDBBeans)
-		{
-			if((loginAppServiceIB.getUsername()).equals(userLoginDBBean.getUsername()))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private boolean checkCredential(List<UserLoginDBBean> userLoginDBBeans, LoginAppServiceIB loginAppServiceIB)
-	{
-		for (UserLoginDBBean userLoginDBBean :userLoginDBBeans)
-		{
-			if(loginAppServiceIB.getUsername().equals(userLoginDBBean.getUsername())
-					&& loginAppServiceIB.getPassword().equals(userLoginDBBean.getPassword()))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
 
 	public LoginDao getLoginDao() {
 		return loginDao;
