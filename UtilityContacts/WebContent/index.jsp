@@ -14,20 +14,10 @@
 
 	
 	<p><a href="<s:url  action='loginInput'/>">Login</a></p>
-	<p><a href="<s:url  action='loginInput'/>">Login</a></p>
+	<p><a href="<s:url  action='addProductInput'/>">Add Product</a></p>
 	
  
-	<s:form action="addContact" namespace="/contactPackage" method="post">
-		<s:textfield name="type" label="Type"></s:textfield>
-		<s:textfield name="name" label="Name"></s:textfield>
-		<s:textfield name="location" label="l=Location"></s:textfield>
-		<s:textfield name="city" label="City"></s:textfield>
-		<s:textfield name="state" label="State"></s:textfield>
-		<s:textfield name="mobile" label="Mobile"></s:textfield>
-
-
-		<s:submit value="addContact"></s:submit>
-	</s:form>
+	
 
 </body>
 </html>

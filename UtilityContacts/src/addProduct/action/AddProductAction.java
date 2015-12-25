@@ -12,7 +12,7 @@ public class AddProductAction {
 	public String addProductInput()
 	{
 		
-		return "SUCCESS";
+		return "success";
 	}
 	
 	public String addProductRecap()
