@@ -6,9 +6,10 @@
 
 <html>
 <head>
+
 <title>Rentme</title>
 </head>
-<body>
+<body>abcdgg
 
 	<h1>Hello World From Struts2 - Spring integration</h1>
 
