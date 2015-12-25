@@ -17,10 +17,10 @@ Incorrect Passoword
 </s:elseif>
 
 
-	<s:form action="login" namespace="/loginPackage" method="post">
+	<s:form action="loginFunction" namespace="/" method="post">
 		<s:textfield name="username" label="Username"></s:textfield>
 		<s:textfield name="password" label="Password"></s:textfield>
-		<s:submit value="login"></s:submit>
+		<s:submit value="loginFunction"></s:submit>
 	</s:form>
 
 </body>

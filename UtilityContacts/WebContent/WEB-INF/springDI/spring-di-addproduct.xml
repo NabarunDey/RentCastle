@@ -10,10 +10,14 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="addProductAppService" class="addProduct.appService.AddProductAppService">
 		<property name="addProductDao" ref="addProductDao" />
+		<property name="addProductProjector" ref="addProductProjector" />
 	</bean>
-	
+
 	<bean id="addProductDao" class="addProduct.dao.AddProductDao">
-			<property name="template" ref="template"></property>
+		<property name="template" ref="template"></property>
+	</bean>
+
+	<bean id="addProductProjector" class="addProduct.projector.AddProductProjector">
 	</bean>
 
 </beans>
