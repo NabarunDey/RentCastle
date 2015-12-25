@@ -6,9 +6,9 @@
 
 <html>
 <head>
-<title>Hello World</title>
+<title>ghjghj</title>
 </head>
-<body>temp
+<body>abcdgg
 
 	<h1>Hello World From Struts2 - Spring integration</h1>
 
