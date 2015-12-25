@@ -8,7 +8,7 @@
 <head>
 <title>Hello World</title>
 </head>
-<body>
+<body>temp
 
 	<h1>Hello World From Struts2 - Spring integration</h1>
 
