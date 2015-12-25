@@ -6,9 +6,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://sql6.freemysqlhosting.net:3306/sql699595"></property>
-		<property name="username" value="sql699595"></property>
-		<property name="password" value="8xAczdFdZE"></property>
+		<property name="url" value="jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6100942"></property>
+		<property name="username" value="sql6100942"></property>
+		<property name="password" value="c2MdNjatuH"></property>
 	</bean>
 
 	<bean id="mysessionFactory"
