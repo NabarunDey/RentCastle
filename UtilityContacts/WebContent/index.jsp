@@ -13,7 +13,9 @@
 	<h1>Hello World From Struts2 - Spring integration</h1>
 
 	
-	<p><a href="<s:url  action='loginInput'/>">Hello World</a></p>
+	<p><a href="<s:url  action='loginInput'/>">Login</a></p>
+	<p><a href="<s:url  action='loginInput'/>">Login</a></p>
+	
  
 	<s:form action="addContact" namespace="/contactPackage" method="post">
 		<s:textfield name="type" label="Type"></s:textfield>

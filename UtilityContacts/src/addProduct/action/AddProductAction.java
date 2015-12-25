@@ -5,6 +5,7 @@ import addProduct.appService.inputBeans.AddProductAppServiceIB;
 import addProduct.projector.outputBeans.AddProductProjectorOB;
 
 public class AddProductAction {
+	
 
 	public AddProductAppService addProductAppService;
 	

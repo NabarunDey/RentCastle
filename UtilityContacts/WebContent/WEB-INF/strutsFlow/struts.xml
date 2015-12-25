@@ -11,7 +11,7 @@
 	
 	<include file="subapp-flow-example.xml"></include> 
 	<include file="subapp-flow-login.xml"></include>
-	<include file="subapp-flow-contacts.xml"></include>
+	<include file="subapp-flow-addproduct.xml"></include>
 	
 	
 	

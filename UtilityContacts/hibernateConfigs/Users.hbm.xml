@@ -4,7 +4,7 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.databaseBeans.UsersDBBean" table="contacts">
+	<class name="com.databaseBeans.UsersDBBean" table="users">
 		<id name="username"></id>
 		<property name="usertype"></property>
 		<property name="firstname"></property>

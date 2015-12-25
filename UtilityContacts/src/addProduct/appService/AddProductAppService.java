@@ -12,6 +12,13 @@ public class AddProductAppService {
 	public AddProductProjector addProductProjector;
 	public AddProductDao addProductDao;
 	
+	public AddProductProjectorOB verifyProduct(AddProductAppServiceIB addProductAppServiceIB)
+	{
+		AddProductProjectorOB addProductProjectorOB =new AddProductProjectorOB();
+		addProductProjectorOB.setValidaionSuccess(true);
+		return addProductProjectorOB;
+	}
+	
 	public AddProductProjectorOB addProduct(AddProductAppServiceIB addProductAppServiceIB)
 	{
 		AddProductDaoOB addProductDaoOB = addProductDao.addProduct(addProductAppServiceIB);
