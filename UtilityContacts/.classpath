@@ -19,6 +19,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/dev/repository/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Abhisek/.m2/repository/com/oracle/ojdbc14.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
