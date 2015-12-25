@@ -1,4 +1,4 @@
-package addProduct.dao;
+package com.dao;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -8,7 +8,7 @@ import addProduct.dao.outputBeans.AddProductDaoOB;
 import com.databaseBeans.ProductsDBBean;
 import com.util.CommonUtility;
 
-public class AddProductDao {
+public class ProductsDao {
 	
 	HibernateTemplate template;  
 	public void setTemplate(HibernateTemplate template) {  

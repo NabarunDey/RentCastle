@@ -3,15 +3,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
+	<bean id="productsDao" class="com.dao.ProductsDao">
+		<property name="template" ref="template"></property>
+	</bean>
 
-	
-
-<import resource="hibernateSetup.xml"/>
-<import resource="spring-di-login.xml"/>
-<import resource="spring-di-addproduct.xml"/>
-<import resource="spring-di-dao.xml"/>
- 
-
-
+	<bean id="loginDao" class="com.dao.LoginDao">
+		<property name="template" ref="template"></property>
+	</bean>
 
 </beans>

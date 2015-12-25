@@ -1,16 +1,17 @@
 package addProduct.appService;
 
 import addProduct.appService.inputBeans.AddProductAppServiceIB;
-import addProduct.dao.AddProductDao;
 import addProduct.dao.outputBeans.AddProductDaoOB;
 import addProduct.projector.AddProductProjector;
 import addProduct.projector.outputBeans.AddProductProjectorOB;
+
+import com.dao.ProductsDao;
 
 
 public class AddProductAppService {
 	
 	public AddProductProjector addProductProjector;
-	public AddProductDao addProductDao;
+	public ProductsDao productsDao;
 	
 	public AddProductProjectorOB verifyProduct(AddProductAppServiceIB addProductAppServiceIB)
 	{
@@ -21,7 +22,7 @@ public class AddProductAppService {
 	
 	public AddProductProjectorOB addProduct(AddProductAppServiceIB addProductAppServiceIB)
 	{
-		AddProductDaoOB addProductDaoOB = addProductDao.addProduct(addProductAppServiceIB);
+		AddProductDaoOB addProductDaoOB = productsDao.addProduct(addProductAppServiceIB);
 		AddProductProjectorOB addProductProjectorOB =addProductProjector.project(addProductDaoOB);
 		return addProductProjectorOB;
 	}
@@ -35,11 +36,13 @@ public class AddProductAppService {
 	public void setAddProductProjector(AddProductProjector addProductProjector) {
 		this.addProductProjector = addProductProjector;
 	}
-	public AddProductDao getAddProductDao() {
-		return addProductDao;
+
+	public ProductsDao getProductsDao() {
+		return productsDao;
 	}
-	public void setAddProductDao(AddProductDao addProductDao) {
-		this.addProductDao = addProductDao;
+
+	public void setProductsDao(ProductsDao productsDao) {
+		this.productsDao = productsDao;
 	}
 
 	

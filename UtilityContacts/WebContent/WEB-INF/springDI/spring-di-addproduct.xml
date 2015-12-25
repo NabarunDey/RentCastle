@@ -4,20 +4,17 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	<bean id="addProductAction" class="addProduct.action.AddProductAction">
+	<bean id="addProductAction" class="addProduct.action.AddProductAction" scope="request">
 		<property name="addProductAppService" ref="addProductAppService" />
 	</bean>
 
-	<bean id="addProductAppService" class="addProduct.appService.AddProductAppService">
-		<property name="addProductDao" ref="addProductDao" />
+	<bean id="addProductAppService" class="addProduct.appService.AddProductAppService" scope="request">
+		<property name="productsDao" ref="productsDao" />
 		<property name="addProductProjector" ref="addProductProjector" />
 	</bean>
 
-	<bean id="addProductDao" class="addProduct.dao.AddProductDao">
-		<property name="template" ref="template"></property>
-	</bean>
 
-	<bean id="addProductProjector" class="addProduct.projector.AddProductProjector">
+	<bean id="addProductProjector" class="addProduct.projector.AddProductProjector" scope="request">
 	</bean>
 
 </beans>
