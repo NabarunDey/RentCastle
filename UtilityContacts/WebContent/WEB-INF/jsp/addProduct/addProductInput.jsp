@@ -6,21 +6,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Product</title>
+<script>
+$(document).ready(function() {
+   $('#productType').change(function(event) {
+      var country = $("select#productType").val();
+      $.getJSON('ajaxAction', {
+        countryName : country
+      }, function(jsonResponse) {
+        $('#ajaxResponse').text(jsonResponse.dummyMsg);
+        var select = $('#category');
+        select.find('option').remove();
+        $.each(jsonResponse.stateMap, function(key, value) {
+          $('<option>').val(key).text(value).appendTo(select);
+        });
+      });
+      });
+});
+</script>
 </head>
 <body>
 
-	<s:form action="addProductInput" namespace="/" method="post">
-		<s:textfield name="type" label="Type"></s:textfield>
-		<s:textfield name="name" label="Name"></s:textfield>
-		<s:textfield name="location" label="Location"></s:textfield>
-		<s:textfield name="city" label="City"></s:textfield>
-		<s:textfield name="state" label="State"></s:textfield>
-		<s:textfield name="mobile" label="Mobile"></s:textfield>
-
-
-		<s:submit value="addContact"></s:submit>
-	</s:form>
+<center>
+		<s:select id="productType" name="productType"
+        list="{'Select Product Type','Electronics','Furniture'}" label="Select Product Type" />
+        <br/>
+        <br/>
+        <s:select id="category" name="category" list="{'Select category'}"
+        label="Select category" />
+   <br />
+   <br />
+   <div id="ajaxResponse"></div>
+</center>
 
 </body>
 </html>
