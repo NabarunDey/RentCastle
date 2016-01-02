@@ -11,6 +11,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="loginAppService" class="login.appService.LoginAppService" scope="request">
 		<property name="loginDao" ref="loginDao" />
 		<property name="loginProjector" ref="loginProjector" />
+		<property name="usersDao" ref="usersDao" />
+		
 	</bean>
 	
 	<bean id="loginProjector" class="login.projector.LoginProjector" scope="request"> 

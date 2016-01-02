@@ -8,8 +8,10 @@ import login.projector.outputBeans.LoginProjectorOB;
 import org.apache.commons.lang3.StringUtils;
 
 import com.databaseBeans.UserLoginDBBean;
+import com.sessionBeans.UserProfile;
 
 public class LoginProjector {
+	
 
 	public LoginProjectorOB getInputScreen(LoginDaoOB loginDaoOB)
 	{
@@ -17,7 +19,7 @@ public class LoginProjector {
 		return loginProjectorOB;
 	}
 
-	public LoginProjectorOB getConfirmationScreen(LoginDaoOB loginDaoOB)
+	public LoginProjectorOB validateCredentials(LoginDaoOB loginDaoOB)
 	{
 		LoginProjectorOB loginProjectorOB =new LoginProjectorOB();
 		loginProjectorOB.setInvalidCredentials(true);
@@ -47,5 +49,5 @@ public class LoginProjector {
 
 		return loginProjectorOB;
 	}
-
+	
 }

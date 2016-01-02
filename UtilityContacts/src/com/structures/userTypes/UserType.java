@@ -2,7 +2,7 @@ package com.structures.userTypes;
 
 public enum UserType {
 
-	SELLER("Seller"),
+	VENDOR("Vendor"),
 	CUSTOMER("Customer");
 
 	private String text;
@@ -14,4 +14,6 @@ public enum UserType {
 	public String getText() {
 		return text;
 	}
+	
+	
 }

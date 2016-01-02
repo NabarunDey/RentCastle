@@ -5,8 +5,17 @@ import com.structures.userTypes.UserType;
 public class UserProfile {
 	
 	String firstName;
+	String userName;
 	UserType userType;
 	
+	
+	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

@@ -4,14 +4,15 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	
 
-<import resource="hibernateSetup.xml"/>
-<import resource="spring-di-login.xml"/>
-<import resource="spring-di-addproduct.xml"/>
-<import resource="spring-di-dao.xml"/>
- 
 
+	<import resource="hibernateSetup.xml" />
+	<import resource="spring-di-login.xml" />
+	<import resource="spring-di-addproduct.xml" />
+	<import resource="spring-di-dao.xml" />
+
+	<bean id="userProfile" class="com.sessionBeans.UserProfile" scope="session">
+	</bean>
 
 
 </beans>

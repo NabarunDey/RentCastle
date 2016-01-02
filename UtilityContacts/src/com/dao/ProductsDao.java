@@ -14,15 +14,7 @@ public class ProductsDao {
 	public void setTemplate(HibernateTemplate template) {  
 	    this.template = template;  
 	}  
-	public void saveContacts(ProductsDBBean productsDBBean){  
-	    template.save(productsDBBean);  
-	}  
-	public void updateContacts(ProductsDBBean productsDBBean){  
-	    template.update(productsDBBean);  
-	}  
-	public void deleteContacts(ProductsDBBean productsDBBean){  
-	    template.delete(productsDBBean);  
-	}  
+
 		
 	
 	public AddProductDaoOB addProduct(
@@ -32,7 +24,7 @@ public class ProductsDao {
 		CommonUtility.copyBean(addProductAppServiceIB, productsDBBean);
 		
 		
-		saveContacts(productsDBBean);
+		template.save(productsDBBean);
 		AddProductDaoOB addProductDaoOB =new AddProductDaoOB();
 		return addProductDaoOB;
 	}

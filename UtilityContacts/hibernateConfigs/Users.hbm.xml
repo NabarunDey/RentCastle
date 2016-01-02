@@ -6,16 +6,23 @@
 <hibernate-mapping>
 	<class name="com.databaseBeans.UsersDBBean" table="users">
 		<id name="username"></id>
-		<property name="usertype"></property>
 		<property name="firstname"></property>
 		<property name="lastname"></property>
-		<property name="location"></property>
+		<property name="sex"></property>
+		<property name="address"></property>
 		<property name="city"></property>
 		<property name="state"></property>
-		<property name="phonenumber"></property>
-		<property name="mobilenumber1"></property>
-		<property name="mobilenumber2"></property>
-		
+		<property name="pinno"></property>
+		<property name="phoneno"></property>
+		<property name="mobileno1"></property>
+		<property name="mobileno2"></property>
+		<property name="status"></property>
+		<property name="usertype">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">com.structures.userTypes.UserType</param>
+				<!-- <param name="useNamed">true</param> -->
+			</type>
+		</property>
 	</class>
 
 </hibernate-mapping>  	

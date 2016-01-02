@@ -14,6 +14,7 @@ public class LoginAction {
 	LoginAppService loginAppService; 
 	LoginAppContext context;
 	
+	
 	public String loginInput()
 	{
 		return "success";

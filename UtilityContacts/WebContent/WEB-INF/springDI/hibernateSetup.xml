@@ -18,7 +18,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="mappingResources">
 			<list>
 				<value>UserLogin.hbm.xml</value>
-			
+				<value>Users.hbm.xml</value>
 			</list>
 		</property>
 
@@ -40,6 +40,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	</bean>
 
 	<bean id="productsDBBean" class="com.databaseBeans.ProductsDBBean">
+	</bean>
+	
+	<bean id="usersDBBean" class="com.databaseBeans.UsersDBBean">
 	</bean>
 	
 

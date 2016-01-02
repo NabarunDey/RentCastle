@@ -3,15 +3,26 @@ package login.dao.outputBeans;
 import java.util.List;
 
 import com.databaseBeans.UserLoginDBBean;
+import com.databaseBeans.UsersDBBean;
 
 public class LoginDaoOB {
 	
 	private List<UserLoginDBBean> userLoginDBBeans;
+	private UsersDBBean usersDBBean;
 
 	private String userNameEntered;
 	private String passwordEntered;
 	
 	
+	
+
+	public UsersDBBean getUsersDBBean() {
+		return usersDBBean;
+	}
+
+	public void setUsersDBBean(UsersDBBean usersDBBean) {
+		this.usersDBBean = usersDBBean;
+	}
 
 	public String getUserNameEntered() {
 		return userNameEntered;

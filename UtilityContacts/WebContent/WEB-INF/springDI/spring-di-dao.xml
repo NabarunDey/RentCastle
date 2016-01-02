@@ -10,5 +10,10 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="loginDao" class="com.dao.LoginDao">
 		<property name="template" ref="template"></property>
 	</bean>
+	
+	<bean id="usersDao" class="com.dao.UsersDao">
+		<property name="template" ref="template"></property>
+	</bean>
+	
 
 </beans>
