@@ -7,7 +7,7 @@ import com.databaseBeans.UsersDBBean;
 
 public class LoginDaoOB {
 	
-	private List<UserLoginDBBean> userLoginDBBeans;
+	private UserLoginDBBean userLoginDBBean;
 	private UsersDBBean usersDBBean;
 
 	private String userNameEntered;
@@ -40,13 +40,15 @@ public class LoginDaoOB {
 		this.passwordEntered = passwordEntered;
 	}
 
-	public List<UserLoginDBBean> getUserLoginDBBeans() {
-		return userLoginDBBeans;
+	public UserLoginDBBean getUserLoginDBBean() {
+		return userLoginDBBean;
 	}
 
-	public void setUserLoginDBBeans(List<UserLoginDBBean> userLoginDBBeans) {
-		this.userLoginDBBeans = userLoginDBBeans;
+	public void setUserLoginDBBean(UserLoginDBBean userLoginDBBean) {
+		this.userLoginDBBean = userLoginDBBean;
 	}
+
+	
 	
 
 }

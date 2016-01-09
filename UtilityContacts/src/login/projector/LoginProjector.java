@@ -1,14 +1,11 @@
 package login.projector;
 
-import java.util.List;
-
 import login.dao.outputBeans.LoginDaoOB;
 import login.projector.outputBeans.LoginProjectorOB;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.databaseBeans.UserLoginDBBean;
-import com.sessionBeans.UserProfile;
 
 public class LoginProjector {
 	
@@ -24,14 +21,12 @@ public class LoginProjector {
 		LoginProjectorOB loginProjectorOB =new LoginProjectorOB();
 		loginProjectorOB.setInvalidCredentials(true);
 		loginProjectorOB.setUserNotExist(true);
-		List<UserLoginDBBean> userLoginDBBeans = loginDaoOB.getUserLoginDBBeans();
+		UserLoginDBBean userLoginDBBean = loginDaoOB.getUserLoginDBBean();
 
-		if( null!= userLoginDBBeans && null != loginDaoOB 
+		if( null!= userLoginDBBean && null != loginDaoOB 
 				&& StringUtils.isNotEmpty(loginDaoOB.getUserNameEntered()) && StringUtils.isNotEmpty(loginDaoOB.getPasswordEntered()))
 		{
 
-			for(UserLoginDBBean userLoginDBBean : userLoginDBBeans)
-			{
 				if((loginDaoOB.getUserNameEntered()).equals(userLoginDBBean.getUsername()))
 				{
 					loginProjectorOB.setUserNotExist(false);
@@ -41,11 +36,9 @@ public class LoginProjector {
 						{
 							loginProjectorOB.setInvalidCredentials(false);;
 						}
-						break;
 					}
 				}
 			}
-		}
 
 		return loginProjectorOB;
 	}

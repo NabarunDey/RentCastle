@@ -1,12 +1,9 @@
 package com.dao;
 
-import java.util.List;
-
 import login.appService.inputBeans.LoginAppServiceIB;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import com.databaseBeans.UserLoginDBBean;
 import com.databaseBeans.UsersDBBean;
 
 public class UsersDao {
@@ -15,15 +12,9 @@ public class UsersDao {
 	
 	public UsersDBBean getUserDetails(LoginAppServiceIB loginAppServiceIB)
 	{
-		String sqlQuery= "from com.databaseBeans.UsersDBBean" ;//where username = ?";
-		Object[] queryParam = {loginAppServiceIB.getUsername()};
-		List<UsersDBBean> usersList= (List<UsersDBBean>) template.loadAll(UsersDBBean.class);//), loginAppServiceIB.getUsername());
+		UsersDBBean usersDBBean= (UsersDBBean) template.get(UsersDBBean.class,loginAppServiceIB.getUsername());
 		
-		if(null!= usersList && usersList.size() ==1)
-		{
-			return usersList.get(0);
-		}
-		return null;
+		return usersDBBean;
 	}
 	
 	public UsersDBBean getById(int id){  

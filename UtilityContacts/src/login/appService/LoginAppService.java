@@ -20,7 +20,7 @@ public class LoginAppService {
 	
 	public LoginProjectorOB login(LoginAppServiceIB loginAppServiceIB) {
 		
-		LoginDaoOB loginDaoOB =  loginDao.getAllUserLogin();
+		LoginDaoOB loginDaoOB =  loginDao.getByUsername(loginAppServiceIB.getUsername());
 		loginDaoOB.setUserNameEntered(loginAppServiceIB.getUsername());
 		loginDaoOB.setPasswordEntered(loginAppServiceIB.getPassword());
 		LoginProjectorOB loginProjectorOB = loginProjector.validateCredentials(loginDaoOB);

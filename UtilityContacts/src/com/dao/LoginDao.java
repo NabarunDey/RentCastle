@@ -1,7 +1,5 @@
 package com.dao;
 
-import java.util.List;
-
 import login.dao.outputBeans.LoginDaoOB;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -23,19 +21,21 @@ public class LoginDao {
 	public void deleteUserLogin(UserLoginDBBean e){  
 	    template.delete(e);  
 	}  
-	public UserLoginDBBean getById(int id){  
-		UserLoginDBBean e=(UserLoginDBBean)template.get(UserLoginDBBean.class,id);  
-	    return e;  
+	public LoginDaoOB getByUsername(String username){  
+		UserLoginDBBean userLoginDBBean=(UserLoginDBBean)template.get(UserLoginDBBean.class,username);  
+		LoginDaoOB loginDaoOB =new  LoginDaoOB();
+		loginDaoOB.setUserLoginDBBean(userLoginDBBean);
+	    return loginDaoOB;  
 	}  
 
 	
-	public LoginDaoOB getAllUserLogin(){  
+	/*public LoginDaoOB getAllUserLogin(){  
 		LoginDaoOB loginDaoOB =new LoginDaoOB();
 	    List<UserLoginDBBean> list; 
 	    list=template.loadAll(UserLoginDBBean.class);  
 	    loginDaoOB.setUserLoginDBBeans(list);
 	    return loginDaoOB;  
-	}  
+	}  */
 
 
 }
