@@ -8,7 +8,7 @@ import addProduct.projector.outputBeans.AddProductProjectorOB;
 import com.dao.ProductsDao;
 import com.sessionBeans.UserProfile;
 import com.structures.userTypes.UserType;
-import com.util.RentMeBeanFactory;
+import com.util.ApplicationContextProvider;
 
 
 public class AddProductAppService {
@@ -21,7 +21,10 @@ public class AddProductAppService {
 		AddProductProjectorOB addProductProjectorOB = null;
 		UserProfile userProfile = null;
 		try{
-			userProfile= (UserProfile) RentMeBeanFactory.getBean("userProfile");
+			
+			ApplicationContextProvider appContext = new ApplicationContextProvider();
+			userProfile = appContext.getApplicationContext().getBean("userProfile", UserProfile.class);
+			
 			if(UserType.VENDOR.equals(userProfile.getUserType()))
 			{
 				addProductProjectorOB = addProductProjector.getAddProductInput(addProductAppServiceIB);

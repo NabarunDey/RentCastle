@@ -6,6 +6,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="addProductAction" class="addProduct.action.AddProductAction" scope="request">
 		<property name="addProductAppService" ref="addProductAppService" />
+		<property name="context" ref="addProductContext" />
 	</bean>
 
 	<bean id="addProductAppService" class="addProduct.appService.AddProductAppService" scope="request">
@@ -16,5 +17,10 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="addProductProjector" class="addProduct.projector.AddProductProjector" scope="request">
 	</bean>
+	
+	<bean id="addProductContext" class="addProduct.AddProductAppContext" scope="session">
+	</bean>
+	
+	
 
 </beans>

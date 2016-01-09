@@ -14,8 +14,8 @@ public class AddProductAction {
 	public String addProductInput()
 	{
 		AddProductAppServiceIB addProductAppServiceIB = new AddProductAppServiceIB();
-	//	AddProductProjectorOB addProductProjectorOB = addProductAppService.getInputDetails(addProductAppServiceIB);
-	//	context.setAddProductProjectorOB(addProductProjectorOB);
+		AddProductProjectorOB addProductProjectorOB = addProductAppService.getInputDetails(addProductAppServiceIB);
+		context.setAddProductProjectorOB(addProductProjectorOB);
 		return "success";
 	}
 	
