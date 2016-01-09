@@ -1,8 +1,5 @@
 package com.databaseBeans;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-
 import com.structures.userTypes.UserType;
 
 public class UsersDBBean {

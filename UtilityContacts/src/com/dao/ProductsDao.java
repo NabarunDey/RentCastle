@@ -23,9 +23,15 @@ public class ProductsDao {
 		ProductsDBBean productsDBBean = new  ProductsDBBean();
 		CommonUtility.copyBean(addProductAppServiceIB, productsDBBean);
 		
-		
+		boolean success = true;
+		try{
 		template.save(productsDBBean);
+		}catch (Exception exception)
+		{
+			success= false;
+		}
 		AddProductDaoOB addProductDaoOB =new AddProductDaoOB();
+		addProductDaoOB.setSuccess(success);
 		return addProductDaoOB;
 	}
 

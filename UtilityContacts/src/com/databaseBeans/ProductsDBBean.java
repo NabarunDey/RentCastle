@@ -1,5 +1,7 @@
 package com.databaseBeans;
 
+import com.structures.status.ProductStatus;
+
 public class ProductsDBBean {
 
 	int productid;
@@ -8,7 +10,7 @@ public class ProductsDBBean {
 	String username;
 	String quantity;
 	String images;
-	String status;
+	ProductStatus status;
 	String securitymoney;
 	
 	public int getProductid() {
@@ -47,17 +49,17 @@ public class ProductsDBBean {
 	public void setImages(String images) {
 		this.images = images;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
 	public String getSecuritymoney() {
 		return securitymoney;
 	}
 	public void setSecuritymoney(String securitymoney) {
 		this.securitymoney = securitymoney;
+	}
+	public ProductStatus getStatus() {
+		return status;
+	}
+	public void setStatus(ProductStatus status) {
+		this.status = status;
 	}
 	
 	

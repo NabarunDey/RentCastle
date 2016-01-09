@@ -32,10 +32,7 @@ public class LoginAppService {
 			userProfile.setUserName(usersDBBean.getUsername());
 			userProfile.setUserType(usersDBBean.getUsertype());
 		}
-		else
-		{
-			
-		}
+		
 		return loginProjectorOB;
 	}
 
