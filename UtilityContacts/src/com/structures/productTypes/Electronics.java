@@ -1,21 +1,17 @@
 package com.structures.productTypes;
 
-public enum ProductType {
+public enum Electronics {
 
-	FURNITURE("Furniture"),
-	ELECTRONICS("Electronics");
+	REFRIGERATOR("Refrigerator"),
+	WASHINGMACHINE("WashingMachine");
 
 	private String text;
 
-	private ProductType(String text) {
+	private Electronics(String text) {
 		this.text = text;
 	}
 
 	public String getText() {
 		return text;
 	}
-
-
-
-
 }

@@ -7,7 +7,7 @@ import com.structures.productTypes.ProductType;
 
 public class AddProductProjectorOB {
 	
-	private Map<ProductType, List<ProductType>> productTypeMap;
+	private Map<ProductType, List<Object>> productTypeMap;
 	
 	private boolean loadInputDetailsSuccess;
 	
@@ -29,14 +29,15 @@ public class AddProductProjectorOB {
 		this.loadInputDetailsSuccess = loadInputDetailsSuccess;
 	}
 
-	public Map<ProductType, List<ProductType>> getProductTypeMap() {
+	public Map<ProductType, List<Object>> getProductTypeMap() {
 		return productTypeMap;
 	}
 
-	public void setProductTypeMap(Map<ProductType, List<ProductType>> productTypeMap) {
+	public void setProductTypeMap(Map<ProductType, List<Object>> productTypeMap) {
 		this.productTypeMap = productTypeMap;
 	}
 
+	
 
 	
 	
