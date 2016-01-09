@@ -3,6 +3,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
+	<bean id="userProfile" class="com.sessionBeans.UserProfile" scope= "session">
+	</bean>
+
 	<bean id="productsDao" class="com.dao.ProductsDao">
 		<property name="template" ref="template"></property>
 	</bean>
@@ -10,10 +13,12 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="loginDao" class="com.dao.LoginDao">
 		<property name="template" ref="template"></property>
 	</bean>
-	
+
 	<bean id="usersDao" class="com.dao.UsersDao">
 		<property name="template" ref="template"></property>
 	</bean>
-	
+
+
+
 
 </beans>

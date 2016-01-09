@@ -22,7 +22,14 @@ public class LoginDao {
 	    template.delete(e);  
 	}  
 	public LoginDaoOB getByUsername(String username){  
-		UserLoginDBBean userLoginDBBean=(UserLoginDBBean)template.get(UserLoginDBBean.class,username);  
+		
+		UserLoginDBBean userLoginDBBean= null;
+		try{
+			userLoginDBBean = (UserLoginDBBean)template.get(UserLoginDBBean.class,username);  
+		}catch(Exception exception)
+		{
+			
+		}
 		LoginDaoOB loginDaoOB =new  LoginDaoOB();
 		loginDaoOB.setUserLoginDBBean(userLoginDBBean);
 	    return loginDaoOB;  

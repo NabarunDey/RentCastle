@@ -6,19 +6,24 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="loginAction" class="login.action.LoginAction" scope="request">
 		<property name="loginAppService" ref="loginAppService" />
+		<property name="context" ref="loginAppContext" />
+
 	</bean>
 
-	<bean id="loginAppService" class="login.appService.LoginAppService" scope="request">
+	<bean id="loginAppService" class="login.appService.LoginAppService"
+		scope="request">
 		<property name="loginDao" ref="loginDao" />
 		<property name="loginProjector" ref="loginProjector" />
 		<property name="usersDao" ref="usersDao" />
-		
+		<property name="userProfile" ref="userProfile" />
+
 	</bean>
-	
-	<bean id="loginProjector" class="login.projector.LoginProjector" scope="request"> 
+
+	<bean id="loginProjector" class="login.projector.LoginProjector"
+		scope="request">
 	</bean>
-	
-	<bean id="context" class="login.LoginAppContext" scope="session">
+
+	<bean id="loginAppContext" class="login.LoginAppContext" scope="session">
 	</bean>
 
 </beans>

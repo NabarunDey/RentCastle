@@ -9,17 +9,22 @@ import com.databaseBeans.UsersDBBean;
 public class UsersDao {
 
 	HibernateTemplate template;  
-	
+
 	public UsersDBBean getUserDetails(LoginAppServiceIB loginAppServiceIB)
 	{
-		UsersDBBean usersDBBean= (UsersDBBean) template.get(UsersDBBean.class,loginAppServiceIB.getUsername());
-		
+		UsersDBBean usersDBBean = null;
+		try{
+			usersDBBean= (UsersDBBean) template.get(UsersDBBean.class,loginAppServiceIB.getUsername());
+		}catch(Exception exception)
+		{
+
+		}
 		return usersDBBean;
 	}
-	
+
 	public UsersDBBean getById(int id){  
 		UsersDBBean e=(UsersDBBean)template.get(UsersDBBean.class,id);  
-	    return e;  
+		return e;  
 	}  
 
 	public HibernateTemplate getTemplate() {
@@ -29,7 +34,7 @@ public class UsersDao {
 	public void setTemplate(HibernateTemplate template) {
 		this.template = template;
 	}
-	
-	
-	
+
+
+
 }

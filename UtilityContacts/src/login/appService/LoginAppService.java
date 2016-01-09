@@ -30,7 +30,11 @@ public class LoginAppService {
 			UsersDBBean usersDBBean = usersDao.getUserDetails(loginAppServiceIB);
 			userProfile.setFirstName(usersDBBean.getFirstname());
 			userProfile.setUserName(usersDBBean.getUsername());
-			//userProfile.setUserType(usersDBBean.getUsertype());
+			userProfile.setUserType(usersDBBean.getUsertype());
+		}
+		else
+		{
+			
 		}
 		return loginProjectorOB;
 	}
