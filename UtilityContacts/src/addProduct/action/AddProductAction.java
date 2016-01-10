@@ -21,7 +21,7 @@ public class AddProductAction {
 	
 	public String addProductRecap()
 	{
-		return "SUCCESS";
+		return "success";
 	}
 	
 	public String addProductConfirmation()
