@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -118,33 +119,26 @@ ul li a{ box-shadow: 0px 1px 1px #999; }
 <div id="content" >
 <h1 style="italics">Add Product</h1>
 
-<form>
-<table border-spacing:5px>
-<p>
-<tr>Product Id :<input type="text"></tr><br>
-</p>
-<p>
-<tr>Product Type:<input type="text"></tr>
-</p>
-<p>
-<tr>Username  :<input type="text"></tr>
-</p>
-<p>
-<tr>Quantity  :<input type="text"></tr>
-</p>
-<p>
-<tr>Images  :<input type="text"></tr>
-</p>
-<p>
-<tr>status  :<input type="text"></tr>
-</p>
-<p>
-<tr>Security Money  :<input type="text"></tr>
-</p>
-</table>
+<s:form theme="xhtml" enctype="multipart/form-data">
+<table >
 
-</form>
-</p>
+<tr><s:textfield key="Product Id " name="from" /></tr>
+<tr><s:textfield key="Product Type" name="from" /></tr>
+<tr><s:textfield key="Username " name="from" /></tr>
+<tr><s:textfield key="Quantity" name="from" /></tr>
+<tr>
+<td>Image :</td>
+<td><s:label for="attachment" value="upload your image"/>
+<s:file name="attachment" accept="text/html,text/plain" /></td>
+</tr>
+<tr><s:textfield key="status  " name="from" /></tr>
+<tr><s:textfield key="Security Money " name="from" /></tr>
+<tr>
+<td><s:submit type="button" name="submit" theme="simple"  />
+<s:reset type="button" name="reset" theme="simple" /></td>
+</tr>
+</table>
+</s:form>
 
 </div>
 <div id="footer">
