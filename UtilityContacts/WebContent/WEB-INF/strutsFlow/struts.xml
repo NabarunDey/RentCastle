@@ -11,6 +11,7 @@
 	
 	<include file="subapp-flow-login.xml"></include>
 	<include file="subapp-flow-addproduct.xml"></include>
+	<include file="subapp-flow-userregistration.xml"></include>
 	
 	
 	
