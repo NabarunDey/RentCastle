@@ -13,9 +13,8 @@
 
 	<h1>Hello World From Struts2 - Spring integration</h1>
 
-	
-	<p><a href="<s:url  action='loginInput'/>">Login</a></p>
 	<p><a href="<s:url  action='addProductInput'/>">Add Product</a></p>
+	<p><a href="<s:url  action='loginInput'/>">Login</a></p>
 	
  
 	

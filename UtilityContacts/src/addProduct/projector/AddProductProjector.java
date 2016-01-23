@@ -42,7 +42,7 @@ public class AddProductProjector {
 				productTypeMap.put(productType, subProductTypeList);
 			}
 		}
-
+		addProductProjectorOB.setProductTypeMap(productTypeMap);
 		return addProductProjectorOB;
 	}
 }

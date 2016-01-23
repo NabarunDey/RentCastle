@@ -21,5 +21,6 @@ body {
 
 	Welcome, <s:property value="username" />
 	<br />
+	<p><a href="<s:url  action='addProductInput'/>">Add Product</a></p>
 </body>
 </html>
