@@ -124,7 +124,7 @@ ul li a{ box-shadow: 0px 1px 1px #999; }
 <div id="content" >
 <h1 style="italics">Add Product</h1>
 
-<s:form theme="xhtml" enctype="multipart/form-data">
+<s:form theme="xhtml" method="post" enctype="multipart/form-data" action="addProductRecap">
 <table >
 
 <tr><s:textfield key="Product Id " name="from" /></tr>
@@ -137,7 +137,7 @@ ul li a{ box-shadow: 0px 1px 1px #999; }
 <tr>
 <td>Image :</td>
 <td><s:label for="attachment" value="upload your image"/>
-<s:file name="attachment" accept="text/html,text/plain" /></td>
+<s:file name="image"  /></td>
 </tr>
 <tr><s:textfield key="status  " name="from" /></tr>
 <tr><s:textfield key="Security Money " name="from" /></tr>
