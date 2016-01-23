@@ -1,5 +1,11 @@
 package addProduct.appService;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
+
 import addProduct.appService.inputBeans.AddProductAppServiceIB;
 import addProduct.dao.outputBeans.AddProductDaoOB;
 import addProduct.projector.AddProductProjector;
@@ -36,11 +42,20 @@ public class AddProductAppService {
 		return addProductProjectorOB;
 	}
 
-	public AddProductProjectorOB verifyProduct(AddProductAppServiceIB addProductAppServiceIB)
+	public AddProductProjectorOB getRecapDetails(AddProductAppServiceIB addProductAppServiceIB)
 	{
 		AddProductProjectorOB addProductProjectorOB =new AddProductProjectorOB();
+		String contextPath =  ServletActionContext.getServletContext().getRealPath("/images") ;
 
-		addProductProjectorOB.setValidaionSuccess(true);
+		 File destFile  = new File(contextPath+"images", "abc.jpg");
+    	 try {
+			FileUtils.copyFile(addProductAppServiceIB.getFileBeans().get(0).getFile(), destFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
 		return addProductProjectorOB;
 	}
 

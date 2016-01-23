@@ -21,5 +21,10 @@
       <put-attribute name="title"  value="Recap"/>
       <put-attribute name="body"   value="/WEB-INF/jsp/addProduct/addProductRecap.jsp"/>      
    </definition>
+   
+   <definition name="userRegistrationInput" extends="baseLayout">
+      <put-attribute name="title"  value="Register User"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/userRegistration/userRegistrationInput.jsp"/>      
+   </definition>
 
 </tiles-definitions>

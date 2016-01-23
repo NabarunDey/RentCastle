@@ -1,5 +1,7 @@
 package addProduct.appService.inputBeans;
 
+import java.util.List;
+
 import com.structures.status.ProductStatus;
 
 public class AddProductAppServiceIB {
@@ -8,7 +10,7 @@ public class AddProductAppServiceIB {
 	String producttype;
 	String username;
 	String quantity;
-	String images;
+	List<FileBean> fileBeans;
 	ProductStatus status;
 	String securitymoney;
 	
@@ -37,12 +39,6 @@ public class AddProductAppServiceIB {
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
-	public String getImages() {
-		return images;
-	}
-	public void setImages(String images) {
-		this.images = images;
-	}
 	public String getSecuritymoney() {
 		return securitymoney;
 	}
@@ -54,6 +50,12 @@ public class AddProductAppServiceIB {
 	}
 	public void setStatus(ProductStatus status) {
 		this.status = status;
+	}
+	public List<FileBean> getFileBeans() {
+		return fileBeans;
+	}
+	public void setFileBeans(List<FileBean> fileBeans) {
+		this.fileBeans = fileBeans;
 	}
 	
 	

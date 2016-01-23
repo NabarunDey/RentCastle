@@ -7,10 +7,10 @@ public class UserRegistrationAction {
 
 	public UserRegistrationAppService userRegistrationAppService;
 	
-	public String execute()
+	public String userRegistrationInput()
 	{
 		UserRegistrationAppServiceIB userRegistrationAppServiceIB = new UserRegistrationAppServiceIB();
-		return "SUCCESS";
+		return "success";
 	}
 
 	public UserRegistrationAppService getUserRegistrationAppService() {

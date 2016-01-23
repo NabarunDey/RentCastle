@@ -1,12 +1,19 @@
 package addProduct.action;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.servlet.ServletContext;
+
+import org.apache.struts2.ServletActionContext;
 
 import addProduct.AddProductAppContext;
 import addProduct.appService.AddProductAppService;
 import addProduct.appService.inputBeans.AddProductAppServiceIB;
+import addProduct.appService.inputBeans.FileBean;
 import addProduct.projector.outputBeans.AddProductProjectorOB;
 
 public class AddProductAction {
@@ -33,6 +40,17 @@ public class AddProductAction {
 		recapDisplayMap.put("ProductType", "Refrijerator");
 		recapDisplayMap.put("Price", "20000");
 		context.getAddProductProjectorOB().setRecapDisplayMap(recapDisplayMap);
+		
+		List<FileBean> fileBeans = new ArrayList<FileBean>();
+		FileBean fileBean = new FileBean();
+		fileBean.setFile(image);
+		fileBean.setFileType(imageContentType);
+		fileBeans.add(fileBean);
+
+		AddProductAppServiceIB addProductAppServiceIB =new AddProductAppServiceIB();
+		addProductAppServiceIB.setFileBeans(fileBeans);
+		AddProductProjectorOB addProductProjectorOB = addProductAppService.getRecapDetails(addProductAppServiceIB);
+		context.setAddProductProjectorOB(addProductProjectorOB);
 		return "success";
 	}
 
