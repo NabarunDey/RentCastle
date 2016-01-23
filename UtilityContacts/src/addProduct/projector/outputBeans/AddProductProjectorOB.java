@@ -8,6 +8,7 @@ import com.structures.productTypes.ProductType;
 public class AddProductProjectorOB {
 	
 	private Map<ProductType, List<Object>> productTypeMap;
+	private Map<String, String> recapDisplayMap;
 	
 	private boolean loadInputDetailsSuccess;
 	
@@ -16,6 +17,17 @@ public class AddProductProjectorOB {
 	public boolean isValidaionSuccess() {
 		return validaionSuccess;
 	}
+	
+
+	public Map<String, String> getRecapDisplayMap() {
+		return recapDisplayMap;
+	}
+
+
+	public void setRecapDisplayMap(Map<String, String> recapDisplayMap) {
+		this.recapDisplayMap = recapDisplayMap;
+	}
+
 
 	public void setValidaionSuccess(boolean validaionSuccess) {
 		this.validaionSuccess = validaionSuccess;

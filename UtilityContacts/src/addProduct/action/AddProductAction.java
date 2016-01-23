@@ -1,6 +1,8 @@
 package addProduct.action;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 import addProduct.AddProductAppContext;
 import addProduct.appService.AddProductAppService;
@@ -26,6 +28,11 @@ public class AddProductAction {
 
 	public String addProductRecap()
 	{
+		Map<String, String> recapDisplayMap = new HashMap<String, String>();
+		recapDisplayMap.put("ProductName", "Godrej Fridje");
+		recapDisplayMap.put("ProductType", "Refrijerator");
+		recapDisplayMap.put("Price", "20000");
+		context.getAddProductProjectorOB().setRecapDisplayMap(recapDisplayMap);
 		return "success";
 	}
 
