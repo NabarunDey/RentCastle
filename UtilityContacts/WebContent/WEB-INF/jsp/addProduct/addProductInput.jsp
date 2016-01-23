@@ -124,6 +124,14 @@ ul li a{ box-shadow: 0px 1px 1px #999; }
 <div id="content" >
 <h1 style="italics">Add Product</h1>
 
+
+<s:if test="context.addProductProjectorOB.loadInputDetailsSuccess">
+abc
+</s:if>
+<s:else>
+def
+</s:else>
+
 <s:form theme="xhtml" method="post" enctype="multipart/form-data" action="addProductRecap">
 <table >
 

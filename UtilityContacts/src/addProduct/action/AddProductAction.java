@@ -17,9 +17,12 @@ public class AddProductAction {
 	private File image;
 	private String imageContentType;
 	private String imageFileName;
+	
+	String text ;
 
 	public String addProductInput()
 	{
+		text = "abhisek";
 		AddProductAppServiceIB addProductAppServiceIB = new AddProductAppServiceIB();
 		AddProductProjectorOB addProductProjectorOB = addProductAppService.getInputDetails(addProductAppServiceIB);
 		context.setAddProductProjectorOB(addProductProjectorOB);
@@ -81,6 +84,14 @@ public class AddProductAction {
 
 	public void setImageFileName(String imageFileName) {
 		this.imageFileName = imageFileName;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
 	}
 
 

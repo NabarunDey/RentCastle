@@ -10,7 +10,19 @@
 
 </head>
 <body>
-hello from recap
+<table>
+<!-- <tr>
+<th>abc</th>
+<th>tgb</th>
+</tr> -->
+<s:iterator value="context.addProductProjectorOB.recapDisplayMap">
 
+<tr>
+	<td><s:property value="key"/></td>
+	<td><s:property value="value"/></td>
+	</tr> 
+
+</s:iterator>
+</table>
 </body>
 </html>
