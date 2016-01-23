@@ -14,6 +14,11 @@
 
 <!-- you should always add your stylesheet (css) in the head tag so that it starts loading before the page html is being displayed -->
 <link rel="stylesheet" href="style.css" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.4.1.min.js"></script>
+<script type="text/javascript" src="js/addProduct/addProduct.js"></script>
+<script type="text/javascript">
+
+</script>
 <style>
 /*
 * multi-line comment
@@ -123,7 +128,10 @@ ul li a{ box-shadow: 0px 1px 1px #999; }
 <table >
 
 <tr><s:textfield key="Product Id " name="from" /></tr>
-<tr><s:textfield key="Product Type" name="from" /></tr>
+<tr><s:textfield key="Product Type" name="from" />
+<s:select id= "productTypeId" name="productTypeId" list="context.addProductProjectorOB.productTypeMap" listKey="key" listValue="key" />
+
+</tr>
 <tr><s:textfield key="Username " name="from" /></tr>
 <tr><s:textfield key="Quantity" name="from" /></tr>
 <tr>
