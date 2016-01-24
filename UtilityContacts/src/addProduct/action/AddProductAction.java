@@ -6,10 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletContext;
-
-import org.apache.struts2.ServletActionContext;
-
 import addProduct.AddProductAppContext;
 import addProduct.appService.AddProductAppService;
 import addProduct.appService.inputBeans.AddProductAppServiceIB;

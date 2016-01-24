@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+bbb
+<%-- 
 <s:form>
 <table >
 
@@ -31,6 +33,6 @@
 </tr>
 </table>
 </s:form>
-
+ --%>
 </body>
 </html>

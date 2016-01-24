@@ -3,6 +3,8 @@ package addProduct.appService;
 import java.io.File;
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
@@ -46,8 +48,7 @@ public class AddProductAppService {
 	{
 		AddProductProjectorOB addProductProjectorOB =new AddProductProjectorOB();
 		String contextPath =  ServletActionContext.getServletContext().getRealPath("/images") ;
-
-		 File destFile  = new File(contextPath+"images", "abc.jpg");
+		 File destFile  = new File(contextPath+"images", "abcd.jpg");
     	 try {
 			FileUtils.copyFile(addProductAppServiceIB.getFileBeans().get(0).getFile(), destFile);
 		} catch (IOException e) {
