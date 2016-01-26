@@ -190,6 +190,10 @@ body {
 						<td><s:submit type="button" name="submit" theme="simple" />
 							<s:reset type="button" name="reset" theme="simple" /></td>
 					</tr>
+					<tr>
+						<td><s:submit type="button" name="submit" theme="simple" />
+							<s:reset type="button" name="reset" theme="simple" /></td>
+					</tr>
 				</table>
 			</s:form>
 
