@@ -15,7 +15,7 @@ public class UserRegistrationAction {
 	
 	public String userRegistraionConfirm()
 	{
-		
+		return "success";
 	}
 
 	public UserRegistrationAppService getUserRegistrationAppService() {

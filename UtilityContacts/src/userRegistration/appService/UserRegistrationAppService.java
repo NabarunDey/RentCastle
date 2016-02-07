@@ -11,7 +11,8 @@ public class UserRegistrationAppService {
 	
 	public UserRegistrationProjectorOB addUser(UserRegistrationAppServiceIB userRegistrationAppServiceIB)
 	{
-		
+		UserRegistrationProjectorOB registrationProjectorOB = null;
+		return registrationProjectorOB;
 	}
 
 
