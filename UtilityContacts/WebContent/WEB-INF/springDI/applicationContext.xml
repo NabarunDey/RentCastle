@@ -7,10 +7,17 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
 	<import resource="hibernateSetup.xml" />
+	<import resource="spring-di-dao.xml" />
+	
+	<!--Modules Start  -->
 	<import resource="spring-di-login.xml" />
 	<import resource="spring-di-addproduct.xml" />
 	<import resource="spring-di-userregistration.xml" />
-	<import resource="spring-di-dao.xml" />
+	<import resource="spring-di-viewproduct.xml" />
+	
+	<!-- Modules End  -->
+	
+	
 
 	<bean id="userProfile" class="com.sessionBeans.UserProfile" scope="session">
 	</bean>
