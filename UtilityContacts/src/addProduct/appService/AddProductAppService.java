@@ -1,18 +1,12 @@
 package addProduct.appService;
 
-import java.io.File;
-import java.io.IOException;
-
-import javax.servlet.ServletContext;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.struts2.ServletActionContext;
-
 import addProduct.appService.inputBeans.AddProductAppServiceIB;
 import addProduct.dao.outputBeans.AddProductDaoOB;
+import addProduct.dao.outputBeans.ImagesDaoOB;
 import addProduct.projector.AddProductProjector;
 import addProduct.projector.outputBeans.AddProductProjectorOB;
 
+import com.dao.ImagesDao;
 import com.dao.ProductsDao;
 import com.sessionBeans.UserProfile;
 import com.structures.userTypes.UserType;
@@ -23,6 +17,7 @@ public class AddProductAppService {
 
 	private AddProductProjector addProductProjector;
 	private ProductsDao productsDao;
+	private ImagesDao imagesDao;
 
 	public AddProductProjectorOB getInputDetails(AddProductAppServiceIB addProductAppServiceIB)
 	{
@@ -44,24 +39,10 @@ public class AddProductAppService {
 		return addProductProjectorOB;
 	}
 
-	public AddProductProjectorOB getRecapDetails(AddProductAppServiceIB addProductAppServiceIB)
-	{
-		AddProductProjectorOB addProductProjectorOB =new AddProductProjectorOB();
-		String contextPath =  ServletActionContext.getServletContext().getRealPath("/images") ;
-		 File destFile  = new File(contextPath+"images", "abcd.jpg");
-    	 try {
-			FileUtils.copyFile(addProductAppServiceIB.getFileBeans().get(0).getFile(), destFile);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-
-		return addProductProjectorOB;
-	}
-
 	public AddProductProjectorOB addProduct(AddProductAppServiceIB addProductAppServiceIB)
 	{
+		ImagesDaoOB imagesDaoOB= imagesDao.insertMultipleImages(addProductAppServiceIB);
+		addProductAppServiceIB.setImageIdsList(imagesDaoOB.getImageIdsList());
 		AddProductDaoOB addProductDaoOB = productsDao.addProduct(addProductAppServiceIB);
 		AddProductProjectorOB addProductProjectorOB =null;
 		return addProductProjectorOB;
@@ -83,6 +64,14 @@ public class AddProductAppService {
 
 	public void setProductsDao(ProductsDao productsDao) {
 		this.productsDao = productsDao;
+	}
+
+	public ImagesDao getImagesDao() {
+		return imagesDao;
+	}
+
+	public void setImagesDao(ImagesDao imagesDao) {
+		this.imagesDao = imagesDao;
 	}
 
 

@@ -19,6 +19,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 			<list>
 				<value>UserLogin.hbm.xml</value>
 				<value>Users.hbm.xml</value>
+				<value>Products.hbm.xml</value>
+				<value>Images.hbm.xml</value>
+				
 			</list>
 		</property>
 
@@ -43,6 +46,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	</bean>
 	
 	<bean id="usersDBBean" class="com.databaseBeans.UsersDBBean">
+	</bean>
+	
+	<bean id="imagesDBBean" class="com.databaseBeans.ImagesDBBean">
 	</bean>
 	
 

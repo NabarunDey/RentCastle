@@ -13,8 +13,17 @@ public class AddProductAppServiceIB {
 	List<FileBean> fileBeans;
 	ProductStatus status;
 	String securitymoney;
+	List<String> imageIdsList;
 	
 	
+	
+	
+	public List<String> getImageIdsList() {
+		return imageIdsList;
+	}
+	public void setImageIdsList(List<String> imageIdsList) {
+		this.imageIdsList = imageIdsList;
+	}
 	public String getProductname() {
 		return productname;
 	}

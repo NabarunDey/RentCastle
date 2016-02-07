@@ -5,7 +5,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="userProfile" class="com.sessionBeans.UserProfile" scope="session">
 	</bean>
-	
+
 	<bean id="applicationContextProvder" class="com.util.ApplicationContextProvider" />
 
 	<bean id="productsDao" class="com.dao.ProductsDao">
@@ -20,6 +20,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="template" ref="template"></property>
 	</bean>
 
+	<bean id="imagesDao" class="com.dao.ImagesDao">
+		<property name="template" ref="template"></property>
+	</bean>
 
 
 

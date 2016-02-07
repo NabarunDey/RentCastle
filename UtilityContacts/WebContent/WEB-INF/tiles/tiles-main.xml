@@ -25,10 +25,10 @@
 		</put-list-attribute>
 	</definition>
 
-	<definition name="addProductRecap" extends="baseLayout">
-		<put-attribute name="title" value="Recap" />
+	<definition name="addProductConfirm" extends="baseLayout">
+		<put-attribute name="title" value="Confirm" />
 		<put-attribute name="body"
-			value="/WEB-INF/jsp/addProduct/addProductRecap.jsp" />
+			value="/WEB-INF/jsp/addProduct/addProductConfirm.jsp" />
 	</definition>
 
 	<definition name="userRegistrationInput" extends="baseLayout">
