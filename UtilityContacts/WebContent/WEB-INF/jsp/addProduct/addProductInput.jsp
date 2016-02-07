@@ -149,35 +149,36 @@ body {
 		<div id="content">
 			<h1 style="">Add Product</h1>
 
+			<table>
+				<s:form theme="xhtml" method="post" enctype="multipart/form-data"
+					action="addProductConfirm">
 
-			<s:form theme="xhtml" method="post" enctype="multipart/form-data"
-				action="addProductRecap">
-				<table>
 
 					<tr>
-						<s:textfield key="Product Id " name="from" />
+						<td>Product Type :</td>
+						<td><s:select id="productTypeId" name="productTypeId"
+								list="context.addProductProjectorOB.productTypeMap"
+								listKey="key" listValue="key" /></td>
 					</tr>
-					<tr>
-						<s:textfield key="Product Type" name="from" />
-						<s:select id="productTypeId" name="productTypeId"
-							list="context.addProductProjectorOB.productTypeMap" listKey="key"
-							listValue="key" />
-						
-					</tr>
-					<tr>
-						<s:textfield key="Username " name="from" />
-					</tr>
+
 					<tr>
 						<s:textfield key="Quantity" name="from" />
 					</tr>
 					<tr>
 						<td>Image :</td>
-						<td><s:label for="attachment" value="upload your image" /> <s:file
-								id = "image" name="image" onchange="previewImage(this)"/></td>
-								<img id="previewImage" src="#" style="height: 100px;">
+						<td><s:file id="image1" name="image" /> <s:file id="image2"
+								name="image" /> <s:file id="image3" name="image" /> <s:file
+								id="image4" name="image" /> <s:file id="image5" name="image" />
+ 
+						</td>
+						<img id="previewImage1" src="#" style="height: 100px;">
+						<img id="previewImage2" src="#" style="height: 100px;">
+						<img id="previewImage3" src="#" style="height: 100px;">
+						<img id="previewImage4" src="#" style="height: 100px;">
+						<img id="previewImage5" src="#" style="height: 100px;">
 					</tr>
 					<tr>
-						<s:textfield key="status  " name="from" />
+						<s:textfield key="Status" name="from" />
 					</tr>
 					<tr>
 						<s:textfield key="Security Money " name="from" />
@@ -186,8 +187,9 @@ body {
 						<td><s:submit type="button" name="submit" theme="simple" />
 							<s:reset type="button" name="reset" theme="simple" /></td>
 					</tr>
-				</table>
-			</s:form>
+				</s:form>
+			</table>
+
 
 		</div>
 		<div id="footer">

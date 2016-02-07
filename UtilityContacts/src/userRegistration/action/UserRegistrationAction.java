@@ -12,6 +12,11 @@ public class UserRegistrationAction {
 		UserRegistrationAppServiceIB userRegistrationAppServiceIB = new UserRegistrationAppServiceIB();
 		return "success";
 	}
+	
+	public String userRegistraionConfirm()
+	{
+		
+	}
 
 	public UserRegistrationAppService getUserRegistrationAppService() {
 		return userRegistrationAppService;

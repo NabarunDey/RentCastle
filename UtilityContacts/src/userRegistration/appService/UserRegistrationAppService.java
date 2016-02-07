@@ -1,20 +1,28 @@
 package userRegistration.appService;
 
-import userRegistration.dao.outputBeans.UserRegistrationDaoOB;
+import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
+import userRegistration.dao.UserRegistrationDao;
+import userRegistration.projector.outputBeans.UserRegistrationProjectorOB;
 
 public class UserRegistrationAppService {
 	
-	public UserRegistrationDaoOB userRegistrationDaoOB;
+	public UserRegistrationDao userRegistrationDao;
 
-	//public 
 	
-	public UserRegistrationDaoOB getUserRegistrationDaoOB() {
-		return userRegistrationDaoOB;
+	public UserRegistrationProjectorOB addUser(UserRegistrationAppServiceIB userRegistrationAppServiceIB)
+	{
+		
 	}
 
-	public void setUserRegistrationDaoOB(UserRegistrationDaoOB userRegistrationDaoOB) {
-		this.userRegistrationDaoOB = userRegistrationDaoOB;
-	}
-	
 
+	public UserRegistrationDao getUserRegistrationDao() {
+		return userRegistrationDao;
+	}
+
+
+	public void setUserRegistrationDao(UserRegistrationDao userRegistrationDao) {
+		this.userRegistrationDao = userRegistrationDao;
+	}
+
+	
 }

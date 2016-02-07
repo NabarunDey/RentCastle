@@ -14,19 +14,14 @@
 
 
 		<action name="addProductInput" class="addProductAction" method="addProductInput">
-		<!-- 	<result name="success">/WEB-INF/jsp/addProduct/addProductInput.jsp</result> -->
-			 <result name="success" type="tiles">addProductInput</result>
-			 
-		</action>
+			<!-- <result name="success">/WEB-INF/jsp/addProduct/addProductInput.jsp</result> -->
+			<result name="success" type="tiles">addProductInput</result>
 
-		<action name="addProductRecap" class="addProductAction" method="addProductRecap">
-			<result name="success" type="tiles">addProductRecap</result>
 		</action>
 
 		<action name="addProductConfirm" class="addProductAction"
 			method="addProductConfirm">
-			<result name="success">/WEB-INF/jsp/addProduct/addProductConfirm.jsp
-			</result>
+			<result name="success" type="tiles">addProductConfirm</result>
 		</action>
 
 	</package>
