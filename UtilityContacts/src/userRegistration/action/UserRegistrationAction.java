@@ -14,6 +14,7 @@ public class UserRegistrationAction {
 	String firstname;
 	String lastname;
 	String sex;
+	String password;
 	UserType usertype;
 	String address;
 	String city;
@@ -161,6 +162,14 @@ public class UserRegistrationAction {
 	public void setUserRegistrationContext(
 			UserRegistrationAppContext userRegistrationContext) {
 		this.userRegistrationContext = userRegistrationContext;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

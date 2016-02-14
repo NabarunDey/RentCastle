@@ -17,6 +17,16 @@ public class UserRegistrationAppServiceIB {
 	String mobileno1;
 	String mobileno2;
 	String status;
+	String password;
+	
+	
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getUsername() {
 		return username;
 	}

@@ -12,6 +12,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="userRegistrationAppService" class="userRegistration.appService.UserRegistrationAppService"
 		scope="request">
 		<property name="usersDao" ref="usersDao" />
+		<property name="loginDao" ref="loginDao" />
 		<property name="userRegistrationProjector" ref="userRegistrationProjector" />
 	</bean>
 

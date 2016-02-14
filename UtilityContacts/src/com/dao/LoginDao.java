@@ -4,7 +4,10 @@ import login.dao.outputBeans.LoginDaoOB;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
+import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
+
 import com.databaseBeans.UserLoginDBBean;
+import com.util.CommonUtility;
 
 public class LoginDao {
 	
@@ -35,6 +38,14 @@ public class LoginDao {
 	    return loginDaoOB;  
 	}  
 
+	public LoginDaoOB addUserLogin(UserRegistrationAppServiceIB userRegistrationAppServiceIB)
+	{
+		LoginDaoOB loginDaoOB = new LoginDaoOB();
+		UserLoginDBBean userLoginDBBean = new UserLoginDBBean();
+		CommonUtility.copyBean(userRegistrationAppServiceIB, userLoginDBBean);
+		saveUserLogin(userLoginDBBean);
+		return loginDaoOB;
+	}
 	
 	/*public LoginDaoOB getAllUserLogin(){  
 		LoginDaoOB loginDaoOB =new LoginDaoOB();
