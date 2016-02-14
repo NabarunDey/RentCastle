@@ -14,18 +14,20 @@
 </head>
 <body>
 
-<s:form>
+<s:form action="userRegistrationConfirm">
 
 <table >
-
-<tr><s:textfield key="First Name"  /></tr>
-<tr><s:textfield key="Last Name"  /></tr>
-<tr><s:password key="password" /></tr>
-<tr><s:select label="Gender" headerKey="-1" headerValue="Gender" list="#{'Gender1':'Male', 'Gender2':'Female'}" name="yourName" value = "#{'Gender'}"/></tr>     
+<tr><s:textfield key="Email Id"  name="username"/></tr>
+<tr><s:textfield key="First Name"  name="firstname"/></tr>
+<tr><s:textfield key="Last Name" name="lastname" /></tr>
+<tr><s:password key="Password" name="password" /></tr>
+<tr><s:password key="Re-enter Password" name="rePassword" /></tr>
+<tr><s:select label="User Type" headerKey="-1"  list="#{'CUSTOMER':'Customer', 'VENDOR':'Vendor'}" name="usertype" value = "#{'usertype'}"/></tr>     
+<tr><s:select label="Gender" headerKey="-1"  list="#{'Gender1':'Male', 'Gender2':'Female'}" name="yourName" value = "#{'Gender'}"/></tr>     
 <s:textarea label="Address" name="address" />
-<tr><s:select label="city" headerKey="-1" headerValue="city" list="#{'city1':'kolkata', 'city2':'delhi'}" name="yourName" value = "#{'city'}"/></tr>  
-<tr><s:select label="state" headerKey="-1" headerValue="state" list="#{'state1':'west bengal', 'state2':'delhi'}" name="yourName" value = "#{'state'}"/></tr>
-<tr><s:textfield key="Pincode"  /></tr>
+<tr><s:select label="City" headerKey="-1" list="#{'Kolkata':'Kolkata', 'Siliguri':'Siliguri'}" name="city" value = "#{'city'}"/></tr>  
+<tr><s:select label="State" headerKey="-1"  list="#{'West Bengal':'West Bengal', 'Assam':'Assam'}" name="state" value = "#{'state'}"/></tr>
+<tr><s:textfield key="Pincode" name = "pincode" /></tr>
 <tr>
 <td><s:submit type="button" name="submit" theme="simple" />
 <s:reset type="button" name="reset" theme="simple" /></td>

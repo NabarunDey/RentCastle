@@ -27,7 +27,7 @@ public class LoginAppService {
 		
 		if(!loginProjectorOB.isInvalidCredentials())
 		{
-			UsersDBBean usersDBBean = usersDao.getUserDetails(loginAppServiceIB);
+			UsersDBBean usersDBBean = usersDao.getUserDetails(loginAppServiceIB.getUsername());
 			userProfile.setFirstName(usersDBBean.getFirstname());
 			userProfile.setUserName(usersDBBean.getUsername());
 			userProfile.setUserType(usersDBBean.getUsertype());

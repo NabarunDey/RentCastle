@@ -6,19 +6,25 @@
 <struts>
 	<constant name="struts.devMode" value="false" />
 
-	<package name="userRegistrationPackage" namespace="/" extends="struts-default">
+	<package name="userRegistrationPackage" namespace="/"
+		extends="struts-default">
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
 
 
-		<action name="userRegistrationInput" class="userRegistrationAction" method="userRegistrationInput">
-			 <result name="success" type="tiles">userRegistrationInput</result>
-			 
+		<action name="userRegistrationInput" class="userRegistrationAction"
+			method="userRegistrationInput">
+			<result name="success" type="tiles">userRegistrationInput</result>
 		</action>
 
-		
+		<action name="userRegistrationConfirm" class="userRegistrationAction"
+			method="userRegistrationConfirm">
+			<result name="success" type="tiles">userRegistrationConfirm</result>
+		</action>
+
+
 
 	</package>
 

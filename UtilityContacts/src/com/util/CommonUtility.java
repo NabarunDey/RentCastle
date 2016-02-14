@@ -36,6 +36,12 @@ public class CommonUtility {
 				Object value = null;
 				try {
 					value = PropertyUtils.getProperty(sourceBean, element);
+
+					if(null!= value)
+					{
+
+						PropertyUtils.setProperty(destinationBean, element, value);
+					}
 				} catch (IllegalAccessException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -46,26 +52,10 @@ public class CommonUtility {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
-				if(null!= value)
-				{
-					try {
-						PropertyUtils.setProperty(destinationBean, element, value);
-					} catch (IllegalAccessException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (InvocationTargetException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (NoSuchMethodException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
 			}
 		}
 	}
 
-	
+
 
 }

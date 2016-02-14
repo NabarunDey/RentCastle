@@ -4,11 +4,24 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	<bean id="userRegistrationAction" class="userRegistration.action.UserRegistrationAction" scope="request">
-		
+	<bean id="userRegistrationAction" class="userRegistration.action.UserRegistrationAction"
+		scope="request">
+		<property name="userRegistrationAppService" ref="userRegistrationAppService" />
 	</bean>
 
-	
-	
+	<bean id="userRegistrationAppService" class="userRegistration.appService.UserRegistrationAppService"
+		scope="request">
+		<property name="usersDao" ref="usersDao" />
+		<property name="userRegistrationProjector" ref="userRegistrationProjector" />
+	</bean>
+
+	<bean id="userRegistrationProjector" class="userRegistration.projector.UserRegistrationProjector"
+		scope="request">
+	</bean>
+
+	<bean id="userRegistrationContext" class="userRegistration.UserRegistrationAppContext"
+		scope="session">
+	</bean>
+
 
 </beans>

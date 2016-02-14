@@ -1,20 +1,32 @@
 package com.dao;
 
-import login.appService.inputBeans.LoginAppServiceIB;
-
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
+import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
+import userRegistration.dao.outputBeans.UserRegistrationDaoOB;
+
 import com.databaseBeans.UsersDBBean;
+import com.util.CommonUtility;
 
 public class UsersDao {
 
 	HibernateTemplate template;  
+	public void saveUser(UsersDBBean usersDBBean){  
+		template.save(usersDBBean);  
+	}  
+	public void updateUser(UsersDBBean usersDBBean){  
+		template.update(usersDBBean);  
+	}  
+	public void deleteUser(UsersDBBean usersDBBean){  	
+		template.delete(usersDBBean);  
+	}  
 
-	public UsersDBBean getUserDetails(LoginAppServiceIB loginAppServiceIB)
+
+	public UsersDBBean getUserDetails(String userName)
 	{
 		UsersDBBean usersDBBean = null;
 		try{
-			usersDBBean= (UsersDBBean) template.get(UsersDBBean.class,loginAppServiceIB.getUsername());
+			usersDBBean= (UsersDBBean) template.get(UsersDBBean.class,userName);
 		}catch(Exception exception)
 		{
 
@@ -22,10 +34,18 @@ public class UsersDao {
 		return usersDBBean;
 	}
 
-	public UsersDBBean getById(int id){  
-		UsersDBBean e=(UsersDBBean)template.get(UsersDBBean.class,id);  
-		return e;  
-	}  
+	public UserRegistrationDaoOB addUser(
+			UserRegistrationAppServiceIB userRegistrationAppServiceIB) {
+
+		UsersDBBean usersDBBean = new  UsersDBBean();
+		CommonUtility.copyBean(userRegistrationAppServiceIB, usersDBBean);
+		saveUser(usersDBBean);
+		UserRegistrationDaoOB userRegistrationDaoOB =new UserRegistrationDaoOB();
+		userRegistrationDaoOB.setContactInserted(true);
+		return userRegistrationDaoOB;
+	}
+
+
 
 	public HibernateTemplate getTemplate() {
 		return template;
