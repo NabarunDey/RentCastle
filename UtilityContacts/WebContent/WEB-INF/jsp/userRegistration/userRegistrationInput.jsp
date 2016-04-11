@@ -23,11 +23,14 @@
 <tr><s:password key="Password" name="password" /></tr>
 <tr><s:password key="Re-enter Password" name="rePassword" /></tr>
 <tr><s:select label="User Type" headerKey="-1"  list="#{'CUSTOMER':'Customer', 'VENDOR':'Vendor'}" name="usertype" value = "#{'usertype'}"/></tr>     
-<tr><s:select label="Gender" headerKey="-1"  list="#{'Gender1':'Male', 'Gender2':'Female'}" name="yourName" value = "#{'Gender'}"/></tr>     
+<tr><s:select label="Gender" headerKey="-1"  list="#{'Male':'Male', 'Female':'Female'}" name="sex" value = "#{'Gender'}"/></tr>
+<tr><s:textfield key="Phone Number" name="phoneno" /></tr>
+<tr><s:textfield key="Mobile 1" name="mobileno1" /></tr>
+<tr><s:textfield key="Mobile 2" name="mobileno2" /></tr>
 <s:textarea label="Address" name="address" />
 <tr><s:select label="City" headerKey="-1" list="#{'Kolkata':'Kolkata', 'Siliguri':'Siliguri'}" name="city" value = "#{'city'}"/></tr>  
 <tr><s:select label="State" headerKey="-1"  list="#{'West Bengal':'West Bengal', 'Assam':'Assam'}" name="state" value = "#{'state'}"/></tr>
-<tr><s:textfield key="Pincode" name = "pincode" /></tr>
+<tr><s:textfield key="Pincode" name = "pinno" /></tr>
 <tr>
 <td><s:submit type="button" name="submit" theme="simple" />
 <s:reset type="button" name="reset" theme="simple" /></td>

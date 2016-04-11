@@ -19,7 +19,7 @@ Incorrect Passoword
 
 	<s:form action="loginFunction" namespace="/" method="post">
 		<s:textfield name="username" label="Username"></s:textfield>
-		<s:textfield name="password" label="Password"></s:textfield>
+		<s:password name="password" label="Password"></s:password>
 		<s:submit value="loginFunction"></s:submit>
 	</s:form>
 

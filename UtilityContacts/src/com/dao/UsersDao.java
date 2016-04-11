@@ -29,6 +29,7 @@ public class UsersDao {
 			usersDBBean= (UsersDBBean) template.get(UsersDBBean.class,userName);
 		}catch(Exception exception)
 		{
+			System.out.println("Error in fetchin UserDBBean");
 
 		}
 		return usersDBBean;
