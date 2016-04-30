@@ -9,6 +9,7 @@
 	<package name="default" namespace="" extends="struts-default">
 	</package>
 	
+	<include file="subapp-flow-index.xml"></include>
 	<include file="subapp-flow-login.xml"></include>
 	<include file="subapp-flow-addproduct.xml"></include>
 	<include file="subapp-flow-userregistration.xml"></include>

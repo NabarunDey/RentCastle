@@ -8,12 +8,26 @@
 
 	<definition name="baseLayout" template="/WEB-INF/baseLayout.jsp">
 		<put-attribute name="title" value="Base Layout" />
-		<put-attribute name="menu" value="/WEB-INF/jsp/login/welcome.jsp" />
-		<put-attribute name="body" value="/WEB-INF/index.html" />
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/common/menubar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/home/index.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp" />
 		<put-list-attribute name="jsList" cascade="true">
 			<add-attribute value="/js/jquery-1.4.1.min.js" />
+			<add-attribute value="js/jquery-ui.min.js" />
+			<add-attribute value="js/fwslider.js"/>
+			<add-attribute value="js/menu_jquery.js"/>
+			<add-attribute value="js/jquery-1.11.1.min.js"/>
+			<add-attribute value="js/megamenu.js"/>
 		</put-list-attribute>
 	</definition>
+	
+	<definition name="loadIndex" extends="baseLayout">
+		<put-attribute name="title" value="Add Product Input" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/home/index.jsp" />
+	</definition>
+	
 
 	<definition name="addProductInput" extends="baseLayout">
 		<put-attribute name="title" value="Add Product Input" />

@@ -12,12 +12,19 @@
 </head>
 <body>abcdgg
 
-	<h1>Hello World From Struts2 - Spring integration</h1>
+<% 
+response.sendRedirect("/UtilityContacts/loadIndex.action");
+%> 
+
+<%-- <jsp:forward page="/loadIndex.action" />
+ --%>	<h1>Hello World From Struts2 - Spring integration</h1> 
 
 	<p><a href="<s:url  action='addProductInput'/>">Add Product</a></p>
 	<p><a href="<s:url  action='loginInput'/>">Login</a></p>
 	<p><a href="<s:url  action='userRegistrationInput'/>">User Registration</a></p>
 	<p><a href="<s:url  action='viewProduct'/>">View Product</a></p>
+	<p><a href="<s:url  action='loadIndex'/>">Index</a></p>
+	
 	
  
 	

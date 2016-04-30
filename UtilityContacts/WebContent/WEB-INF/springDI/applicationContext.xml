@@ -10,6 +10,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="spring-di-dao.xml" />
 	
 	<!--Modules Start  -->
+	<import resource="spring-di-index.xml" />
 	<import resource="spring-di-login.xml" />
 	<import resource="spring-di-addproduct.xml" />
 	<import resource="spring-di-userregistration.xml" />
