@@ -10,7 +10,7 @@
 
 <title>Rentme</title>
 </head>
-<body>abcdgg
+<body>
 
 <% 
 response.sendRedirect("/UtilityContacts/loadIndex.action");

@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <div class="header_bg">
 <div class="container">
 	<div class="header">
@@ -16,7 +17,7 @@
 		<!-- start header_right -->
 		<div class="header_right">
 		<div class="create_btn">
-			<a class="arrow"  href="registration.html">create account <img src="images/right_arrow.png" alt=""/>  </a>
+			<a class="arrow"  href="userRegistrationInput.action">create account <img src="images/right_arrow.png" alt=""/>  </a>
 		</div>
 		<ul class="icon1 sub-icon1 profile_img">
 			<li><a class="active-icon c2" href="#"> </a>
@@ -44,7 +45,7 @@
 		</div>
 		<!-- start header menu -->
 		<ul class="megamenu skyblue">
-			<li><a class="color1" href="index.html">Home</a></li>
+			<li><a class="color1" href="loadIndex.action">Home</a></li>
 			<li class="grid"><a class="color2" href="#">new arrivals</a>
 				<div class="megapanel">
 					<div class="row">

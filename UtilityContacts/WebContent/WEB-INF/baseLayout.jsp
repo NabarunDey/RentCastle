@@ -2,6 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <tiles:importAttribute name="jsList" />
@@ -24,26 +26,16 @@
 <!-- start slider -->
 <link rel="stylesheet" href="css/fwslider.css" media="all">
 
-
-</head>
-<body>
 	<c:forEach var="jsfile" items="${jsList}">
 		<script src="<c:url value="${jsfile}"/>"></script>
 	</c:forEach>
 
-	hello from base layout
+</head>
+<body>
 
-	<hr />
 	<tiles:insertAttribute name="header" />
-	<br />
-	<hr />
 	<tiles:insertAttribute name="menu" />
-	<br />
-	<hr />
 	<tiles:insertAttribute name="body" />
-	<br />
-	<hr />
 	<tiles:insertAttribute name="footer" />
-	<br />
 </body>
 </html>
