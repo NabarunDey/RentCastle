@@ -25,7 +25,7 @@
 				<!-- grids_of_3 -->
 				<div class="row grids">
 					<div class="col-md-3 grid1">
-						<a href="details.html"> <img src="images/pic1.jpg"
+						<a href="viewProduct.action"> <img src="images/pic1.jpg"
 							class="img-responsive" alt="" />
 							<div class="look">
 								<h4>get scraves</h4>
