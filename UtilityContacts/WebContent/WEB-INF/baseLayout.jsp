@@ -12,6 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+
 <!-- jQuery (necessary JavaScript plugins) -->
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -24,13 +25,13 @@
 <!-- start menu -->
 <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+
 <!-- start slider -->
 <link rel="stylesheet" href="css/fwslider.css" media="all">
 
 	<c:forEach var="jsfile" items="${jsList}">
 		<script src="<c:url value="${jsfile}"/>"></script>
 	</c:forEach>
-
 </head>
 <body>
 
