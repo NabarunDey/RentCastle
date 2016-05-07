@@ -14,6 +14,8 @@
 	<include file="subapp-flow-addproduct.xml"></include>
 	<include file="subapp-flow-userregistration.xml"></include>
 	<include file="subapp-flow-viewproduct.xml"></include>
+	<include file="subapp-flow-search.xml"></include>
+	
 	
 	
 	

@@ -20,6 +20,7 @@
 			<add-attribute value="js/jquery-1.11.1.min.js"/>
 			<add-attribute value="js/megamenu.js"/>
 			<add-attribute value="js/jquery.etalage.min.js"/>
+			<add-attribute value="js/jquery.jscrollpane.min.js"/>
 		</put-list-attribute>
 	</definition>
 	
@@ -62,6 +63,12 @@
 		<put-attribute name="title" value="View Product" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/viewProduct/viewProduct.jsp" />
+	</definition>
+	
+	<definition name="searchResult" extends="baseLayout">
+		<put-attribute name="title" value="Search" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/search/search.jsp" />
 	</definition>
 
 </tiles-definitions>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+        <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,10 +37,10 @@
 			</li>
 		</ul>
 		<div class="search">
-		    <form>
+		    <s:form action = "searchAction">
 		    	<input type="text" value="" placeholder="search...">
-				<input type="submit" value="">
-			</form>
+				<s:submit type="submit" value=""/>
+			</s:form>
 		</div>
 		<div class="clearfix"> </div>
 		</div>

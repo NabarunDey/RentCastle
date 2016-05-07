@@ -15,6 +15,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="spring-di-addproduct.xml" />
 	<import resource="spring-di-userregistration.xml" />
 	<import resource="spring-di-viewproduct.xml" />
+	<import resource="spring-di-search.xml" />
+	
 	
 	<!-- Modules End  -->
 	
