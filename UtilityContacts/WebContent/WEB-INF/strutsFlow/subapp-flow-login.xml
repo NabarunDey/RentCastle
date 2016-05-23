@@ -6,14 +6,18 @@
 <struts>
 	<constant name="struts.devMode" value="false" />
 
-	<package name="loginPackage" namespace="/" extends="struts-default">
+	<package name="loginPackage" namespace="/" extends="struts-default,json-default">
 
 		<action name="loginInput" class="loginAction" method="loginInput">
-			<result name="success">/WEB-INF/jsp/login/loginInput.jsp</result>
+			<result name="success" type="json">
+				<param name="root">username</param>
+			</result>
 		</action>
 
 		<action name="loginFunction" class="loginAction" method="loginFunction">
-			<result name="success">/WEB-INF/jsp/login/welcome.jsp</result>
+			<result name="success"  type="json">
+				<param name="root">username</param>
+			</result>
 			<result name="error">/WEB-INF/jsp/login/loginInput.jsp</result>
 			
 		</action>

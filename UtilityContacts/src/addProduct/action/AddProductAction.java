@@ -86,7 +86,7 @@ public class AddProductAction {
 	public void setImageContentType(List<String> imageContentType) {
 		this.imageContentType = imageContentType;
 	}
-
+ 
 
 
 
