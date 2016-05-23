@@ -1,12 +1,23 @@
 package login.projector.outputBeans;
 
+import com.sessionBeans.UserProfile;
+
 public class LoginProjectorOB {
 	private boolean userNotExist;
 	private boolean invalidCredentials;
 	private boolean loginFailure;
 	
+	private UserProfile userProfile;
 	
 	
+	
+	
+	public UserProfile getUserProfile() {
+		return userProfile;
+	}
+	public void setUserProfile(UserProfile userProfile) {
+		this.userProfile = userProfile;
+	}
 	public boolean isLoginFailure() {
 		return loginFailure;
 	}

@@ -8,18 +8,10 @@
 
 	<package name="loginPackage" namespace="/" extends="struts-default,json-default">
 
-		<action name="loginInput" class="loginAction" method="loginInput">
-			<result name="success" type="json">
-				<param name="root">username</param>
-			</result>
-		</action>
-
 		<action name="loginFunction" class="loginAction" method="loginFunction">
 			<result name="success"  type="json">
-				<param name="root">username</param>
+				<param name="root">context</param>
 			</result>
-			<result name="error">/WEB-INF/jsp/login/loginInput.jsp</result>
-			
 		</action>
 
 	</package>

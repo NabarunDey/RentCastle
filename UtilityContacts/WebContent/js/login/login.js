@@ -1,17 +1,14 @@
 function doAjaxPost() {
-	debugger;
-	 /*   var name = $('#name').val();
-	    var education = $('#education').val();*/
-	    $.ajax({
-	        type: "POST",
-	        url: "loginFunction",
-	        data: '',/*"name=" + name + "&education=" + education,*/
-	        success: function(response){
-	        console.info(response);
-	        debugger;
-	    },
-	         error: function(e){
-	             alert('Error: ' + e);
-	         }
-	    });
-	}
+
+	$.ajax({
+		type: "POST",
+		url: "loginFunction",
+		data: $('#loginForm').serialize() ,
+		success: function(response){
+
+		},
+		error: function(e){
+			alert('Error: ' + e);
+		}
+	});
+}

@@ -30,11 +30,6 @@ public class LoginAction  extends ActionSupport {
 		
 		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB);
 		context.setLoginProjectorOB(loginProjectorOB);
-		if(loginProjectorOB.isLoginFailure())
-			return "error";
-		
-		username="kk";
-					
 		return ActionSupport.SUCCESS;		
 	}
 
