@@ -6,8 +6,6 @@ import addProduct.appService.inputBeans.AddProductAppServiceIB;
 import addProduct.dao.outputBeans.AddProductDaoOB;
 
 import com.databaseBeans.ProductsDBBean;
-import com.sessionBeans.UserProfile;
-import com.util.ApplicationContextProvider;
 import com.util.CommonUtility;
 
 public class ProductsDao {
@@ -34,9 +32,7 @@ public class ProductsDao {
 		}
 		productsDBBean.setImages(imageIdsConcat);
 		
-		ApplicationContextProvider appContext = new ApplicationContextProvider();
-		UserProfile userProfile = appContext.getApplicationContext().getBean("userProfile", UserProfile.class);
-		productsDBBean.setUsername(userProfile.getUserName());
+		productsDBBean.setUsername(addProductAppServiceIB.getUsername());
 		
 		
 		boolean success = true;

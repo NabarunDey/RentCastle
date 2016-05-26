@@ -25,8 +25,10 @@ public class AddProductAction {
 	private String productName;
 	private String quantity;
 	private String securityMoney;
-	private ProductStatus status;
-	private ProductType productType;
+	private String status;
+	private String productType;
+	private String subProductType;
+
 
 
 	public String addProductInput()
@@ -60,6 +62,7 @@ public class AddProductAction {
 		addProductAppServiceIB.setFileBeans(fileBeans);
 		addProductAppServiceIB.setProductname(productName);
 		addProductAppServiceIB.setProducttype(productType);
+		addProductAppServiceIB.setSubproducttype(subProductType);
 		addProductAppServiceIB.setQuantity(quantity);
 		addProductAppServiceIB.setSecuritymoney(securityMoney);
 		addProductAppServiceIB.setStatus(status);
@@ -131,23 +134,34 @@ public class AddProductAction {
 	}
 
 
-	public ProductStatus getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
 
-	public void setStatus(ProductStatus status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
 
-	public ProductType getProductType() {
+	public String getProductType() {
 		return productType;
 	}
 
 
-	public void setProductType(ProductType productType) {
+	public void setProductType(String productType) {
 		this.productType = productType;
 	}
+
+
+	public String getSubProductType() {
+		return subProductType;
+	}
+
+
+	public void setSubProductType(String subProductType) {
+		this.subProductType = subProductType;
+	}
+	
 	
 }

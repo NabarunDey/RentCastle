@@ -10,7 +10,6 @@ import com.dao.ImagesDao;
 import com.dao.ProductsDao;
 import com.sessionBeans.UserProfile;
 import com.structures.userTypes.UserType;
-import com.util.ApplicationContextProvider;
 
 
 public class AddProductAppService {
@@ -41,6 +40,7 @@ public class AddProductAppService {
 	{
 		ImagesDaoOB imagesDaoOB= imagesDao.insertMultipleImages(addProductAppServiceIB);
 		addProductAppServiceIB.setImageIdsList(imagesDaoOB.getImageIdsList());
+		addProductAppServiceIB.setUsername(userProfile.getUserName());
 		AddProductDaoOB addProductDaoOB = productsDao.addProduct(addProductAppServiceIB);
 		AddProductProjectorOB addProductProjectorOB =null;
 		return addProductProjectorOB;

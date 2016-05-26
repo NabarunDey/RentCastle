@@ -2,23 +2,25 @@ package addProduct.appService.inputBeans;
 
 import java.util.List;
 
-import com.structures.productTypes.ProductType;
-import com.structures.status.ProductStatus;
-
 public class AddProductAppServiceIB {
 	
 	String productname;
-	ProductType producttype;
+	String producttype;
+	String subproducttype;
 	String username;
 	String quantity;
 	List<FileBean> fileBeans;
-	ProductStatus status;
+	String status;
 	String securitymoney;
 	List<String> imageIdsList;
 	
 	
-	
-	
+	public String getSubproducttype() {
+		return subproducttype;
+	}
+	public void setSubproducttype(String subproducttype) {
+		this.subproducttype = subproducttype;
+	}
 	public List<String> getImageIdsList() {
 		return imageIdsList;
 	}
@@ -31,10 +33,10 @@ public class AddProductAppServiceIB {
 	public void setProductname(String productname) {
 		this.productname = productname;
 	}
-	public ProductType getProducttype() {
+	public String getProducttype() {
 		return producttype;
 	}
-	public void setProducttype(ProductType producttype) {
+	public void setProducttype(String producttype) {
 		this.producttype = producttype;
 	}
 	public String getUsername() {
@@ -55,10 +57,10 @@ public class AddProductAppServiceIB {
 	public void setSecuritymoney(String securitymoney) {
 		this.securitymoney = securitymoney;
 	}
-	public ProductStatus getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(ProductStatus status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	public List<FileBean> getFileBeans() {

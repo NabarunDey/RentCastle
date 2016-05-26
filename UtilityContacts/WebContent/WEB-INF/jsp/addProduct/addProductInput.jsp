@@ -29,7 +29,7 @@
 					<td>Sub Product Type :</td>
 
 					<s:iterator value="context.addProductProjectorOB.productTypeMap">
-						<td><s:select id="subPoductType" name="subPoductType"
+						<td><s:select id="subProductType" name="subProductType"
 								list="value"  /></td>
 					</s:iterator>
 				</tr>

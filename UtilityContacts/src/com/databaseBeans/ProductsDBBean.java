@@ -7,10 +7,11 @@ public class ProductsDBBean {
 	int productid;
 	String productname;
 	String producttype;
+	String subproducttype;
 	String username;
 	String quantity;
 	String images;
-	ProductStatus status;
+	String status;
 	String securitymoney;
 	
 	public int getProductid() {
@@ -55,11 +56,17 @@ public class ProductsDBBean {
 	public void setSecuritymoney(String securitymoney) {
 		this.securitymoney = securitymoney;
 	}
-	public ProductStatus getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(ProductStatus status) {
+	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getSubproducttype() {
+		return subproducttype;
+	}
+	public void setSubproducttype(String subproducttype) {
+		this.subproducttype = subproducttype;
 	}
 	
 	

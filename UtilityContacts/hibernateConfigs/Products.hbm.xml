@@ -10,6 +10,7 @@
 		</id>
 		<property name="productname"></property>
 		<property name="producttype"></property>
+		<property name="subproducttype"></property>
 		<property name="username"></property>
 		<property name="quantity"></property>
 		<property name="images"></property>
