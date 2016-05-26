@@ -13,6 +13,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="productsDao" ref="productsDao" />
 		<property name="addProductProjector" ref="addProductProjector" />
 		<property name="imagesDao" ref="imagesDao" />
+		<property name="userProfile" ref="userProfile" />
 	</bean>
 
 

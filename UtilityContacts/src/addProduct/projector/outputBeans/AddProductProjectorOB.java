@@ -10,6 +10,7 @@ public class AddProductProjectorOB {
 	private Map<ProductType, List<Object>> productTypeMap;
 	private Map<String, String> confirmDisplayMap;
 	
+
 	private boolean loadInputDetailsSuccess;
 	
 	private boolean validaionSuccess;

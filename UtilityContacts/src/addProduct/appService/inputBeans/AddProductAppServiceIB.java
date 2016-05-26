@@ -2,12 +2,13 @@ package addProduct.appService.inputBeans;
 
 import java.util.List;
 
+import com.structures.productTypes.ProductType;
 import com.structures.status.ProductStatus;
 
 public class AddProductAppServiceIB {
 	
 	String productname;
-	String producttype;
+	ProductType producttype;
 	String username;
 	String quantity;
 	List<FileBean> fileBeans;
@@ -30,10 +31,10 @@ public class AddProductAppServiceIB {
 	public void setProductname(String productname) {
 		this.productname = productname;
 	}
-	public String getProducttype() {
+	public ProductType getProducttype() {
 		return producttype;
 	}
-	public void setProducttype(String producttype) {
+	public void setProducttype(ProductType producttype) {
 		this.producttype = producttype;
 	}
 	public String getUsername() {

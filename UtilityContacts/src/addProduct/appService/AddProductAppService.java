@@ -18,15 +18,13 @@ public class AddProductAppService {
 	private AddProductProjector addProductProjector;
 	private ProductsDao productsDao;
 	private ImagesDao imagesDao;
+	private UserProfile userProfile;
 
 	public AddProductProjectorOB getInputDetails(AddProductAppServiceIB addProductAppServiceIB)
 	{
 		AddProductProjectorOB addProductProjectorOB = null;
-		UserProfile userProfile = null;
 		try{
 			
-			ApplicationContextProvider appContext = new ApplicationContextProvider();
-			userProfile = appContext.getApplicationContext().getBean("userProfile", UserProfile.class);
 			
 			if(UserType.VENDOR.equals(userProfile.getUserType()))
 			{
@@ -72,6 +70,14 @@ public class AddProductAppService {
 
 	public void setImagesDao(ImagesDao imagesDao) {
 		this.imagesDao = imagesDao;
+	}
+
+	public UserProfile getUserProfile() {
+		return userProfile;
+	}
+
+	public void setUserProfile(UserProfile userProfile) {
+		this.userProfile = userProfile;
 	}
 
 

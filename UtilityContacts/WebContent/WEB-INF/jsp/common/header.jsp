@@ -23,6 +23,7 @@
 				</div>
 				<div class="top_right">
 					<ul>
+						<li><a href="<s:url  action='addProductInput'/>">Add Product</a></li>
 						<li><a href="#">Recently viewed</a></li>|
 						<li><a href="contact.html">Contact</a></li> |
 						<li class="login">

@@ -36,10 +36,6 @@
 		<put-attribute name="title" value="Add Product Input" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/addProduct/addProductInput.jsp" />
-		<put-list-attribute name="jsList" cascade="true"
-			inherit="true">
-			<add-attribute value="/js/addProduct/addProduct.js" />
-		</put-list-attribute>
 	</definition>
 
 	<definition name="addProductConfirm" extends="baseLayout">

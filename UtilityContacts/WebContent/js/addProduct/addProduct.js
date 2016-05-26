@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var dropdown = document.getElementById("productTypeId");
+	var dropdown = document.getElementById("productType");
 	dropdown.onchange = function(event){
 		alert("Your message");
 	}

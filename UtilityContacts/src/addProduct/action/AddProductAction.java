@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.structures.productTypes.ProductType;
+import com.structures.status.ProductStatus;
+
 import addProduct.AddProductAppContext;
 import addProduct.appService.AddProductAppService;
 import addProduct.appService.inputBeans.AddProductAppServiceIB;
@@ -19,7 +22,12 @@ public class AddProductAction {
 	private AddProductAppContext context;
 	private List<File> image;
 	private List<String> imageContentType;
-	
+	private String productName;
+	private String quantity;
+	private String securityMoney;
+	private ProductStatus status;
+	private ProductType productType;
+
 
 	public String addProductInput()
 	{
@@ -37,9 +45,9 @@ public class AddProductAction {
 		confirmDisplayMap.put("ProductType", "Refrijerator");
 		confirmDisplayMap.put("Price", "20000");
 		context.getAddProductProjectorOB().setConfirmDisplayMap(confirmDisplayMap);
-		
+
 		List<FileBean> fileBeans = new ArrayList<FileBean>();
-		
+
 		for(int i=0; i<image.size();i++)
 		{
 			FileBean fileBean = new FileBean();
@@ -47,9 +55,14 @@ public class AddProductAction {
 			fileBean.setFileType(imageContentType.get(i));
 			fileBeans.add(fileBean);
 		}
-		
+
 		AddProductAppServiceIB addProductAppServiceIB =new AddProductAppServiceIB();
 		addProductAppServiceIB.setFileBeans(fileBeans);
+		addProductAppServiceIB.setProductname(productName);
+		addProductAppServiceIB.setProducttype(productType);
+		addProductAppServiceIB.setQuantity(quantity);
+		addProductAppServiceIB.setSecuritymoney(securityMoney);
+		addProductAppServiceIB.setStatus(status);
 		AddProductProjectorOB addProductProjectorOB = addProductAppService.addProduct(addProductAppServiceIB);
 		context.setAddProductProjectorOB(addProductProjectorOB);
 		return "success";
@@ -86,8 +99,55 @@ public class AddProductAction {
 	public void setImageContentType(List<String> imageContentType) {
 		this.imageContentType = imageContentType;
 	}
- 
 
 
+	public String getProductName() {
+		return productName;
+	}
 
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+
+	public String getQuantity() {
+		return quantity;
+	}
+
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
+
+
+	public String getSecurityMoney() {
+		return securityMoney;
+	}
+
+
+	public void setSecurityMoney(String securityMoney) {
+		this.securityMoney = securityMoney;
+	}
+
+
+	public ProductStatus getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(ProductStatus status) {
+		this.status = status;
+	}
+
+
+	public ProductType getProductType() {
+		return productType;
+	}
+
+
+	public void setProductType(ProductType productType) {
+		this.productType = productType;
+	}
+	
 }
