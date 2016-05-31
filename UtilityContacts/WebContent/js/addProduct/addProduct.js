@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	var dropdown = document.getElementById("productType");
 	dropdown.onchange = function(event){
-		alert("Your message"+  $('#productType').val());
         $('#subProductTypePlaceholder').show();
         $("#subProductTypePlaceholder").children().hide(); 
         $('#subProductTypeLabel').show();
