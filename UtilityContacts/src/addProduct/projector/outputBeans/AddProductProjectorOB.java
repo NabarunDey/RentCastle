@@ -7,7 +7,7 @@ import com.structures.productTypes.ProductType;
 
 public class AddProductProjectorOB {
 	
-	private Map<ProductType, List<Object>> productTypeMap;
+	private Map<String, List<String>> productTypeMap;
 	private int productIdForRentOffers;
 	
 	public int getProductIdForRentOffers() {
@@ -18,11 +18,11 @@ public class AddProductProjectorOB {
 		this.productIdForRentOffers = productIdForRentOffers;
 	}
 
-	public Map<ProductType, List<Object>> getProductTypeMap() {
+	public Map<String, List<String>> getProductTypeMap() {
 		return productTypeMap;
 	}
 
-	public void setProductTypeMap(Map<ProductType, List<Object>> productTypeMap) {
+	public void setProductTypeMap(Map<String, List<String>> productTypeMap) {
 		this.productTypeMap = productTypeMap;
 	}
 

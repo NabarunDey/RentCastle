@@ -24,12 +24,14 @@
 							listValue="key" cssClass="form-control"/>
 							</div>
 				</div>	
-				<div class="form-group">
-                        <label for="subProductType" class="col-sm-2 control-label">Sub Product Type</label>
-                        <div class="col-sm-4">
+				<div id = "subProductTypePlaceholder" class="form-group" style="display: none">
+                        <label id = "subProductTypeLabel" for="subProductType" class="col-sm-2 control-label" >Sub Product Type</label>
+                        <div class="col-sm-4" id = "subProductTypeDropdown" >
                         <s:iterator value="context.addProductProjectorOB.productTypeMap">
-							<s:select id="subProductType" name="subProductType"
-								list="value"  cssClass="form-control"/>
+                        	<s:if test="value.size>=1">
+								<s:select id="%{'subProductType' + #attr['key']}" name="subProductType"
+								list="value"  cssClass="form-control" style="display: none"/>
+							</s:if>
 						</s:iterator>
 						</div>
 				</div>	

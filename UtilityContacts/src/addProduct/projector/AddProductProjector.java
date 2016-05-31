@@ -18,28 +18,29 @@ public class AddProductProjector {
 	public AddProductProjectorOB getAddProductInput(AddProductAppServiceIB addProductAppServiceIB)
 	{
 		AddProductProjectorOB addProductProjectorOB =new  AddProductProjectorOB();
-		Map<ProductType, List<Object>> productTypeMap = new LinkedHashMap<ProductType, List<Object>>();
-
+		Map<String, List<String>> productTypeMap = new LinkedHashMap<String, List<String>>();
+		 
+		productTypeMap.put("Select Product Type", new ArrayList<String>());
 		for(ProductType productType : ProductType.values())
 		{
-			List<Object> subProductTypeList = new ArrayList<Object>();
+			List<String> subProductTypeList = new ArrayList<String>();
 
 			if(productType.equals(ProductType.FURNITURE))
 			{
 				for(Furniture subProductType : Furniture.values())
 				{
-					subProductTypeList.add(subProductType);
+					subProductTypeList.add(subProductType.getText());
 				}
-				productTypeMap.put(productType, subProductTypeList);
+				productTypeMap.put(productType.getText(), subProductTypeList);
 			}
 			
 			if(productType.equals(ProductType.ELECTRONICS))
 			{
 				for(Electronics subProductType : Electronics.values())
 				{
-					subProductTypeList.add(subProductType);
+					subProductTypeList.add(subProductType.getText());
 				}
-				productTypeMap.put(productType, subProductTypeList);
+				productTypeMap.put(productType.getText(), subProductTypeList);
 			}
 		}
 		addProductProjectorOB.setProductTypeMap(productTypeMap);

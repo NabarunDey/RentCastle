@@ -1,7 +1,15 @@
 $(document).ready(function(){
 	var dropdown = document.getElementById("productType");
 	dropdown.onchange = function(event){
-		alert("Your message");
+		alert("Your message"+  $('#productType').val());
+		//$('div#subProductTypePlaceholder div').not('#subProductType'+$('#productType').val()).hide();
+        $('#subProductTypePlaceholder').show();
+        $("#subProductTypePlaceholder").children().hide(); 
+        $('#subProductTypeLabel').show();
+        $('#subProductTypeDropdown').show();
+        $("#subProductTypeDropdown").children().hide(); 
+		$('#subProductType'+$('#productType').val()).show();
+		
 	}
 	
 	var images = $('input[id^="image"]');
