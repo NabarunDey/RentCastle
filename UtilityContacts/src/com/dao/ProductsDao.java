@@ -6,7 +6,6 @@ import addProduct.appService.inputBeans.AddProductAppServiceIB;
 import addProduct.dao.outputBeans.AddProductDaoOB;
 
 import com.databaseBeans.ProductsDBBean;
-import com.databaseBeans.UsersDBBean;
 import com.util.CommonUtility;
 
 public class ProductsDao {

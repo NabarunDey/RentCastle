@@ -27,7 +27,7 @@ public class UserRegistrationAppService {
 		{
 			loginDaoOB = loginDao.addUserLogin(userRegistrationAppServiceIB);
 			userRegistrationDaoOB = usersDao.addUser(userRegistrationAppServiceIB);
-			if( userRegistrationDaoOB.isContactInserted())
+			if( userRegistrationDaoOB.isUserDetailsInserted())
 			{
 				registrationProjectorOB= userRegistrationProjector.addUser(userRegistrationDaoOB);
 			}

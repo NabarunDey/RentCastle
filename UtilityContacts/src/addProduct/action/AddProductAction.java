@@ -2,9 +2,7 @@ package addProduct.action;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import addProduct.AddProductAppContext;
 import addProduct.appService.AddProductAppService;

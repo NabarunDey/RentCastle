@@ -1,7 +1,5 @@
 package login.dao.outputBeans;
 
-import java.util.List;
-
 import com.databaseBeans.UserLoginDBBean;
 import com.databaseBeans.UsersDBBean;
 

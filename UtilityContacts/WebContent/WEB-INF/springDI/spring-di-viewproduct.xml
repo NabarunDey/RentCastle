@@ -4,11 +4,26 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	<bean id="viewProductAction" class="viewProduct.action.ViewProductAction" scope="request">
-		
+	<bean id="viewProductAction" class="viewProduct.action.ViewProductAction"
+		scope="request">
+		<property name="viewProductAppService" ref="viewProductAppService" />
+		<property name="context" ref="viewProductAppContext" />
+
 	</bean>
 
-	
-	
+	<bean id="viewProductAppService" class="viewProduct.appService.ViewProductAppService"
+		scope="request">
+		<property name="productsDao" ref="productsDao" />
+		<property name="rentOffersDao" ref="rentOffersDao" />
+		<property name="viewProductProjector" ref="viewProductProjector" />
+	</bean>
+
+	<bean id="viewProductProjector" class="viewProduct.projector.ViewProductProjector"
+		scope="request">
+	</bean>
+
+	<bean id="viewProductAppContext" class="viewProduct.ViewProductAppContext" scope="session">
+	</bean>
+
 
 </beans>

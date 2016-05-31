@@ -47,7 +47,7 @@ public class UsersDao {
 		}
 		saveUser(usersDBBean);
 		UserRegistrationDaoOB userRegistrationDaoOB =new UserRegistrationDaoOB();
-		userRegistrationDaoOB.setContactInserted(true);
+		userRegistrationDaoOB.setUserDetailsInserted(true);
 		return userRegistrationDaoOB;
 	}
 

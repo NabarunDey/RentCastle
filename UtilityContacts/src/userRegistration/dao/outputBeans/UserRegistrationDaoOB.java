@@ -2,14 +2,15 @@ package userRegistration.dao.outputBeans;
 
 public class UserRegistrationDaoOB {
 	
-	boolean contactInserted;
+	private boolean userDetailsInserted;
 
-	public boolean isContactInserted() {
-		return contactInserted;
+	public boolean isUserDetailsInserted() {
+		return userDetailsInserted;
 	}
 
-	public void setContactInserted(boolean contactInserted) {
-		this.contactInserted = contactInserted;
+	public void setUserDetailsInserted(boolean userDetailsInserted) {
+		this.userDetailsInserted = userDetailsInserted;
 	}
 
+	
 }
