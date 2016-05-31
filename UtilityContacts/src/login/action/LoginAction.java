@@ -1,7 +1,5 @@
 package login.action;
 
-import com.opensymphony.xwork2.ActionSupport;
-
 import login.LoginAppContext;
 import login.appService.LoginAppService;
 import login.appService.inputBeans.LoginAppServiceIB;
@@ -9,7 +7,7 @@ import login.projector.outputBeans.LoginProjectorOB;
 
 
 
-public class LoginAction  extends ActionSupport {
+public class LoginAction  {
 	
 	String username;
 	String password;
@@ -30,7 +28,7 @@ public class LoginAction  extends ActionSupport {
 		
 		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB);
 		context.setLoginProjectorOB(loginProjectorOB);
-		return ActionSupport.SUCCESS;		
+		return "sucess";		
 	}
 
 	public String getUsername() {

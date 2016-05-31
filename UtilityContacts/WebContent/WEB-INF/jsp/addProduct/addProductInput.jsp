@@ -9,7 +9,7 @@
 	<div class="main">
 		<h1 style="">Add Product</h1>
 			<form method="post" enctype="multipart/form-data" class="form-horizontal"
-				action="addProductConfirm">
+				action="addProductSubmit">
 				<div class="form-group">
                         <label for="productName" class="col-sm-2 control-label">Product Name</label>
                         <div class="col-sm-4">

@@ -1,28 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add Product</title>
+ <script type="text/javascript" src="js/addProduct/addProduct.js"></script>
+<script src="js/menu_jquery.js"></script>
+<div class="container">
+	<div class="main">
+		<h1 style="">Add Product</h1>
 
-</head>
-<body>
-<table>
-<!-- <tr>
-<th>abc</th>
-<th>tgb</th>
-</tr> -->
-<s:iterator value="context.addProductProjectorOB.confirmDisplayMap">
+		Thanks for adding product.
 
-<tr>
-	<td><s:property value="key"/></td>
-	<td><s:property value="value"/></td>
-	</tr> 
+	</div>
 
-</s:iterator>
-</table>
-</body>
+</div>
 </html>

@@ -15,13 +15,16 @@
 
 		<action name="addProductInput" class="addProductAction" method="addProductInput">
 			<result name="success" type="tiles">addProductInput</result>
-
 		</action>
 
-		<action name="addProductConfirm" class="addProductAction"
-			method="addProductConfirm">
+		<action name="addProductSubmit" class="addProductAction" method="addProductSubmit">
+			<result name="success" type="tiles">addRentOffersInput</result>
+		</action>
+		
+		<action name="addRentOffersSubmit" class="addProductAction" method="addRentOffersSubmit">
 			<result name="success" type="tiles">addProductConfirm</result>
 		</action>
+		
 
 	</package>
 

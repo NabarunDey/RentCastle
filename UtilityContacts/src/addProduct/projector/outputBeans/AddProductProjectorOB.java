@@ -8,35 +8,14 @@ import com.structures.productTypes.ProductType;
 public class AddProductProjectorOB {
 	
 	private Map<ProductType, List<Object>> productTypeMap;
-	private Map<String, String> confirmDisplayMap;
+	private int productIdForRentOffers;
 	
-
-	private boolean loadInputDetailsSuccess;
-	
-	private boolean validaionSuccess;
-
-	public boolean isValidaionSuccess() {
-		return validaionSuccess;
+	public int getProductIdForRentOffers() {
+		return productIdForRentOffers;
 	}
 
-	public Map<String, String> getConfirmDisplayMap() {
-		return confirmDisplayMap;
-	}
-
-	public void setConfirmDisplayMap(Map<String, String> confirmDisplayMap) {
-		this.confirmDisplayMap = confirmDisplayMap;
-	}
-
-	public void setValidaionSuccess(boolean validaionSuccess) {
-		this.validaionSuccess = validaionSuccess;
-	}
-
-	public boolean isLoadInputDetailsSuccess() {
-		return loadInputDetailsSuccess;
-	}
-
-	public void setLoadInputDetailsSuccess(boolean loadInputDetailsSuccess) {
-		this.loadInputDetailsSuccess = loadInputDetailsSuccess;
+	public void setProductIdForRentOffers(int productIdForRentOffers) {
+		this.productIdForRentOffers = productIdForRentOffers;
 	}
 
 	public Map<ProductType, List<Object>> getProductTypeMap() {
