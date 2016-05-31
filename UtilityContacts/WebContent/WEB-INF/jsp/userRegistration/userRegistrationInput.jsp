@@ -99,34 +99,34 @@
 		</script>
 		 <div class="registration_form">
 		 <!-- Form -->
-			<form id="registration_form" action="contact.php" method="post">
+			<s:form id="registration_form" action="userRegistrationConfirm" method="post">
 				<div>
 					<label>
-						<input placeholder="first name:" type="text" tabindex="1" required autofocus>
+						<input name = "firstname" placeholder="first name:" type="text" tabindex="1" required autofocus>
 					</label>
 				</div>
 				<div>
 					<label>
-						<input placeholder="last name:" type="text" tabindex="2" required autofocus>
+						<input name= "lastname" placeholder="last name:" type="text" tabindex="2" required autofocus>
 					</label>
 				</div>
 				<div>
 					<label>
-						<input placeholder="email address:" type="email" tabindex="3" required>
+						<input name ="username" placeholder="email address:" type="email" tabindex="3" required>
 					</label>
 				</div>
 				<div class="sky-form">
 					<div class="sky_form1">
 						<ul>
-							<li><label class="radio left"><input type="radio" name="radio" checked=""><i></i>Male</label></li>
-							<li><label class="radio"><input type="radio" name="radio"><i></i>Female</label></li>
+							<li><label class="radio left"><input type="radio" name="sex" value = "Male" checked=""><i></i>Male</label></li>
+							<li><label class="radio"><input type="radio" name="sex" value = "Female"><i></i>Female</label></li>
 							<div class="clearfix"></div>
 						</ul>
 					</div>
 				</div>
 				<div>
 					<label>
-						<input placeholder="password" type="password" tabindex="4" required>
+						<input name = "password" placeholder="password" type="password" tabindex="4" required>
 					</label>
 				</div>						
 				<div>
@@ -140,7 +140,7 @@
 				<div class="sky-form">
 					<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to shoppe.com &nbsp;<a class="terms" href="#"> terms of service</a> </label>
 				</div>
-			</form>
+			</s:form>
 			<!-- /Form -->
 		</div>
 	</div>

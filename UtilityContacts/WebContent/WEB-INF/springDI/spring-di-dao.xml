@@ -23,7 +23,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="imagesDao" class="com.dao.ImagesDao">
 		<property name="template" ref="template"></property>
 	</bean>
-
-
+	
+	<bean id="rentOffersDao" class="com.dao.RentOffersDao">
+		<property name="template" ref="template"></property>
+	</bean>
 
 </beans>

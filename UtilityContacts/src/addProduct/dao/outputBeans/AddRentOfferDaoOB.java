@@ -1,6 +1,6 @@
 package addProduct.dao.outputBeans;
 
-public class AddProductDaoOB {
+public class AddRentOfferDaoOB {
 	
 	private boolean success;
 	private int productId;

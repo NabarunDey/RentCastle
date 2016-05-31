@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
- 
+
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
@@ -21,7 +21,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 				<value>Users.hbm.xml</value>
 				<value>Products.hbm.xml</value>
 				<value>Images.hbm.xml</value>
-				
+				<value>RentOffers.hbm.xml</value>
 			</list>
 		</property>
 
@@ -44,12 +44,15 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="productsDBBean" class="com.databaseBeans.ProductsDBBean">
 	</bean>
-	
+
 	<bean id="usersDBBean" class="com.databaseBeans.UsersDBBean">
 	</bean>
-	
+
 	<bean id="imagesDBBean" class="com.databaseBeans.ImagesDBBean">
 	</bean>
-	
+
+	<bean id="rentOffersDBBean" class="com.databaseBeans.RentOffersDBBean">
+	</bean>
+
 
 </beans>

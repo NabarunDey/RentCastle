@@ -1,6 +1,5 @@
 package com.databaseBeans;
 
-import com.structures.status.ProductStatus;
 
 public class ProductsDBBean {
 

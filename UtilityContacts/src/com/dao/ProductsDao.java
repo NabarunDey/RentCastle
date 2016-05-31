@@ -44,6 +44,7 @@ public class ProductsDao {
 		}
 		AddProductDaoOB addProductDaoOB =new AddProductDaoOB();
 		addProductDaoOB.setSuccess(success);
+		addProductDaoOB.setProductId(productsDBBean.getProductid());
 		return addProductDaoOB;
 	}
 
