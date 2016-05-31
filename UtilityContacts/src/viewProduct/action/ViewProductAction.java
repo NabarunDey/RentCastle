@@ -8,11 +8,13 @@ import viewProduct.projector.outputBeans.ViewProductProjectorOB;
 
 public class ViewProductAction {
 	
+	int productId;
 	ViewProductAppService viewProductAppService;
-	ViewProductAppContext viewProductAppContext;
+	ViewProductAppContext context;
 	public String viewProduct()
 	{
 		ViewProductAppServiceIB viewProductAppServiceIB = new ViewProductAppServiceIB();
+		viewProductAppServiceIB.setProductId(productId);
 		ViewProductProjectorOB viewProductProjectorOB = viewProductAppService.viewProduct(viewProductAppServiceIB);
 		return "success";
 	}
@@ -25,16 +27,20 @@ public class ViewProductAction {
 		this.viewProductAppService = viewProductAppService;
 	}
 
-	public ViewProductAppContext getViewProductAppContext() {
-		return viewProductAppContext;
+	public int getProductId() {
+		return productId;
 	}
 
-	public void setViewProductAppContext(ViewProductAppContext viewProductAppContext) {
-		this.viewProductAppContext = viewProductAppContext;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 
-	
-	
+	public ViewProductAppContext getContext() {
+		return context;
+	}
 
+	public void setContext(ViewProductAppContext context) {
+		this.context = context;
+	}
 
 }

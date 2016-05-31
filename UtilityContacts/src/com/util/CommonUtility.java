@@ -45,7 +45,7 @@ public class CommonUtility {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (NoSuchMethodException e) {
-					e.printStackTrace();
+					System.out.println(e.getMessage());
 				}
 			}
 		}

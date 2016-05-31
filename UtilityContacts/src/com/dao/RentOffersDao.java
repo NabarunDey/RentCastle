@@ -2,10 +2,9 @@ package com.dao;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.Example;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import addProduct.appService.inputBeans.AddRentOffersAppServiceIB;
 import addProduct.dao.outputBeans.AddRentOfferDaoOB;
@@ -13,6 +12,7 @@ import addProduct.dao.outputBeans.AddRentOfferDaoOB;
 import com.databaseBeans.RentOffersDBBean;
 import com.util.CommonUtility;
 
+@Transactional
 public class RentOffersDao {
 
 	HibernateTemplate template;  
@@ -41,13 +41,17 @@ public class RentOffersDao {
 		addRentOfferDaoOB.setSuccess(success);
 		return addRentOfferDaoOB;
 	}
-
 	public List<RentOffersDBBean> getAllRentOffersForProduct(int productId){  
 		List<RentOffersDBBean> list; 
-		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(RentOffersDBBean.class);
+		/*	Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(RentOffersDBBean.class).add("productid", productId);
 		criteria.add(Restrictions.eq("productid", productId));
-		list = (List<RentOffersDBBean>)template.findByCriteria((DetachedCriteria)criteria);
+		list = (List<RentOffersDBBean>)template.findByCriteria(criteria);*/
 		//list=template.loadAll(RentOffersDBBean.class);  
+		RentOffersDBBean rentOffersDBBean = new RentOffersDBBean();
+		rentOffersDBBean.setProductid(productId);
+
+		list =(List<RentOffersDBBean>) template.getSessionFactory().getCurrentSession().createCriteria(RentOffersDBBean.class)
+										.add(Example.create(rentOffersDBBean)).list();
 		return list;  
 	}  
 }

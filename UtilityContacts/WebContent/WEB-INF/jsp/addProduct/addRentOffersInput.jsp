@@ -10,19 +10,14 @@
 
 </head>
 <body>
-<table>
-<!-- <tr>
-<th>abc</th>
-<th>tgb</th>
-</tr> -->
-<s:iterator value="context.addProductProjectorOB.confirmDisplayMap">
+	<div class="container">
+		<div class="main">Please add rent details</div>
+		<form method="post" enctype="multipart/form-data"
+			class="form-horizontal" action="addRentOffersSubmit">
+			<s:submit type="button" name="submit" theme="simple"
+				cssClass="form-control btn btn-success" />
+		</form>
 
-<tr>
-	<td><s:property value="key"/></td>
-	<td><s:property value="value"/></td>
-	</tr> 
-
-</s:iterator>
-</table>
+	</div>
 </body>
 </html>

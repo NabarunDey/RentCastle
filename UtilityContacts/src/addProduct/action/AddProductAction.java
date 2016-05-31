@@ -70,7 +70,8 @@ public class AddProductAction {
 	public String addRentOffersSubmit()
 	{
 		AddRentOffersAppServiceIB addRentOfferAppServiceIB = new AddRentOffersAppServiceIB();
-		addRentOfferAppServiceIB.setProductid(productIdForRentOffer);
+		int productId = productIdForRentOffer>0?productIdForRentOffer:context.getAddProductProjectorOB().getProductIdForRentOffers();
+		addRentOfferAppServiceIB.setProductid(productId);
 		addRentOfferAppServiceIB.setPeriodunit(periodunit);
 		addRentOfferAppServiceIB.setPeriodvalue(periodvalue);
 		addRentOfferAppServiceIB.setAmount(rentAmount);

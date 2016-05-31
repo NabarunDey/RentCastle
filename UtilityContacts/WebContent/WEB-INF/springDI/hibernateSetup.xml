@@ -1,21 +1,32 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6121591"></property>
+		<property name="url"
+			value="jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6121591"></property>
 		<property name="username" value="sql6121591"></property>
 		<property name="password" value="VEaEyrZfYu"></property>
 	</bean>
+	<context:annotation-config />
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="mysessionFactory" />
+	</bean>
+	<bean
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
 	<bean id="mysessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 
-		 <property name="mappingResources">
+		<property name="mappingResources">
 			<list>
 				<value>UserLogin.hbm.xml</value>
 				<value>Users.hbm.xml</value>
@@ -23,15 +34,15 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 				<value>Images.hbm.xml</value>
 				<value>RentOffers.hbm.xml</value>
 			</list>
-		</property> 
+		</property>
 
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">true</prop>
-
-			</props>
+<!-- 				<prop key="hibernate.current_session_context_class">thread</prop>
+ -->			</props>
 		</property>
 	</bean>
 

@@ -5,7 +5,10 @@
 
 <hibernate-mapping>
 	<class name="com.databaseBeans.RentOffersDBBean" table="rentoffers">
-		<id name="productid"></id>
+		<id name="rentid">
+				<generator class="increment"></generator> 
+		</id>
+		<property name="productid"></property>
 		<property name="periodunit"></property>
 		<property name="periodvalue"></property>
 		<property name="amount"></property>

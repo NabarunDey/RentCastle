@@ -3,6 +3,7 @@ package com.databaseBeans;
 
 public class RentOffersDBBean {
 
+	int rentid;
 	int productid;
 	String periodunit;
 	String periodvalue;
@@ -30,6 +31,12 @@ public class RentOffersDBBean {
 	}
 	public void setAmount(String amount) {
 		this.amount = amount;
+	}
+	public int getRentid() {
+		return rentid;
+	}
+	public void setRentid(int rentId) {
+		this.rentid = rentId;
 	}
 	
 	
