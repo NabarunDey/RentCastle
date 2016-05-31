@@ -6,9 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.structures.productTypes.ProductType;
-import com.structures.status.ProductStatus;
-
 import addProduct.AddProductAppContext;
 import addProduct.appService.AddProductAppService;
 import addProduct.appService.inputBeans.AddProductAppServiceIB;

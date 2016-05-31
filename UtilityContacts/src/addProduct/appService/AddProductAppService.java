@@ -37,6 +37,9 @@ public class AddProductAppService {
 		{
 
 		}
+		
+		//temp code for bypass db call
+		addProductProjectorOB = addProductProjector.getAddProductInput(addProductAppServiceIB);
 		return addProductProjectorOB;
 	}
 
