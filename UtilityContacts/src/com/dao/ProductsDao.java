@@ -6,6 +6,7 @@ import addProduct.appService.inputBeans.AddProductAppServiceIB;
 import addProduct.dao.outputBeans.AddProductDaoOB;
 
 import com.databaseBeans.ProductsDBBean;
+import com.databaseBeans.UsersDBBean;
 import com.util.CommonUtility;
 
 public class ProductsDao {
@@ -46,6 +47,19 @@ public class ProductsDao {
 		addProductDaoOB.setSuccess(success);
 		addProductDaoOB.setProductId(productsDBBean.getProductid());
 		return addProductDaoOB;
+	}
+	
+	public ProductsDBBean getProductDetails(int productId)
+	{
+		ProductsDBBean productsDBBean = null;
+		try{
+			productsDBBean= (ProductsDBBean) template.get(ProductsDBBean.class,productId);
+		}catch(Exception exception)
+		{
+			System.out.println("Error in fetchin ProductsDBBean");
+
+		}
+		return productsDBBean;
 	}
 
 }
