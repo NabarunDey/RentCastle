@@ -9,8 +9,10 @@ import java.util.Map;
 import addProduct.AddProductAppContext;
 import addProduct.appService.AddProductAppService;
 import addProduct.appService.inputBeans.AddProductAppServiceIB;
+import addProduct.appService.inputBeans.AddRentOffersAppServiceIB;
 import addProduct.appService.inputBeans.FileBean;
 import addProduct.projector.outputBeans.AddProductProjectorOB;
+import addProduct.projector.outputBeans.AddRentOffersProjectorOB;
 
 public class AddProductAction {
 
@@ -25,7 +27,10 @@ public class AddProductAction {
 	private String status;
 	private String productType;
 	private String subProductType;
-
+	private int productIdForRentOffer;
+	private	String periodunit;
+	private String periodvalue;
+	private	String rentAmount;
 
 
 	public String addProductInput()
@@ -35,16 +40,9 @@ public class AddProductAction {
 		context.setAddProductProjectorOB(addProductProjectorOB);
 		return "success";
 	}
-
-
-	public String addProductConfirm()
+	
+	public String addProductSubmit()
 	{
-		Map<String, String> confirmDisplayMap = new HashMap<String, String>();
-		confirmDisplayMap.put("ProductName", "Godrej Fridje");
-		confirmDisplayMap.put("ProductType", "Refrijerator");
-		confirmDisplayMap.put("Price", "20000");
-		context.getAddProductProjectorOB().setConfirmDisplayMap(confirmDisplayMap);
-
 		List<FileBean> fileBeans = new ArrayList<FileBean>();
 
 		if(null!= image)
@@ -67,9 +65,22 @@ public class AddProductAction {
 		addProductAppServiceIB.setStatus(status);
 		AddProductProjectorOB addProductProjectorOB = addProductAppService.addProduct(addProductAppServiceIB);
 		context.setAddProductProjectorOB(addProductProjectorOB);
+		productIdForRentOffer=addProductProjectorOB.getProductIdForRentOffers();
 		return "success";
 	}
-
+	
+	public String addRentOffersSubmit()
+	{
+		AddRentOffersAppServiceIB addRentOfferAppServiceIB = new AddRentOffersAppServiceIB();
+		addRentOfferAppServiceIB.setProductid(productIdForRentOffer);
+		addRentOfferAppServiceIB.setPeriodunit(periodunit);
+		addRentOfferAppServiceIB.setPeriodvalue(periodvalue);
+		addRentOfferAppServiceIB.setAmount(rentAmount);
+		AddRentOffersProjectorOB addRentOffersProjectorOB = addProductAppService.addRentOffer(addRentOfferAppServiceIB);
+		context.setAddRentOffersProjectorOB(addRentOffersProjectorOB);
+		return "success";
+	}
+	
 	public AddProductAppService getAddProductAppService() {
 		return addProductAppService;
 	}
@@ -162,5 +173,36 @@ public class AddProductAction {
 		this.subProductType = subProductType;
 	}
 
+	public int getProductIdForRentOffer() {
+		return productIdForRentOffer;
+	}
+
+	public void setProductIdForRentOffer(int productIdForRentOffer) {
+		this.productIdForRentOffer = productIdForRentOffer;
+	}
+
+	public String getPeriodunit() {
+		return periodunit;
+	}
+
+	public void setPeriodunit(String periodunit) {
+		this.periodunit = periodunit;
+	}
+
+	public String getPeriodvalue() {
+		return periodvalue;
+	}
+
+	public void setPeriodvalue(String periodvalue) {
+		this.periodvalue = periodvalue;
+	}
+
+	public String getRentAmount() {
+		return rentAmount;
+	}
+
+	public void setRentAmount(String rentAmount) {
+		this.rentAmount = rentAmount;
+	}
 
 }

@@ -13,15 +13,15 @@ public class AddProductAppServiceIB {
 	private String status;
 	private String securitymoney;
 	private List<String> imageIdsList;
-	private AddRentOfferAppServiceIB addRentOfferAppServiceIB;
+	private AddRentOffersAppServiceIB addRentOfferAppServiceIB;
 	
 	
 
-	public AddRentOfferAppServiceIB getAddRentOfferAppServiceIB() {
+	public AddRentOffersAppServiceIB getAddRentOfferAppServiceIB() {
 		return addRentOfferAppServiceIB;
 	}
 	public void setAddRentOfferAppServiceIB(
-			AddRentOfferAppServiceIB addRentOfferAppServiceIB) {
+			AddRentOffersAppServiceIB addRentOfferAppServiceIB) {
 		this.addRentOfferAppServiceIB = addRentOfferAppServiceIB;
 	}
 	public String getSubproducttype() {

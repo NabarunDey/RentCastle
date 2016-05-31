@@ -11,7 +11,7 @@
 
 		<table>
 			<s:form theme="xhtml" method="post" enctype="multipart/form-data"
-				action="addProductConfirm">
+				action="addProductSubmit">
 
 
 				<tr>

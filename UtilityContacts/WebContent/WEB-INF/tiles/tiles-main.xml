@@ -38,8 +38,14 @@
 			value="/WEB-INF/jsp/addProduct/addProductInput.jsp" />
 	</definition>
 
+	<definition name="addRentOffersInput" extends="baseLayout">
+		<put-attribute name="title" value="Add Rent Offer" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/addProduct/addRentOffersInput.jsp" />
+	</definition>
+	
 	<definition name="addProductConfirm" extends="baseLayout">
-		<put-attribute name="title" value="Confirm" />
+		<put-attribute name="title" value="Add Product Confirm" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/addProduct/addProductConfirm.jsp" />
 	</definition>

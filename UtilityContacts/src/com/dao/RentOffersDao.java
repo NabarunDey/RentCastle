@@ -2,7 +2,7 @@ package com.dao;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import addProduct.appService.inputBeans.AddRentOfferAppServiceIB;
+import addProduct.appService.inputBeans.AddRentOffersAppServiceIB;
 import addProduct.dao.outputBeans.AddRentOfferDaoOB;
 
 import com.databaseBeans.RentOffersDBBean;
@@ -20,7 +20,7 @@ public class RentOffersDao {
 		
 	
 	public AddRentOfferDaoOB addRentOffer(
-			AddRentOfferAppServiceIB addRentOfferAppServiceIB) {
+			AddRentOffersAppServiceIB addRentOfferAppServiceIB) {
 
 		RentOffersDBBean rentOffersDBBean  = new  RentOffersDBBean();
 		CommonUtility.copyBean(addRentOfferAppServiceIB, rentOffersDBBean);

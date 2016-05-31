@@ -1,12 +1,13 @@
 package addProduct.appService;
 
 import addProduct.appService.inputBeans.AddProductAppServiceIB;
-import addProduct.appService.inputBeans.AddRentOfferAppServiceIB;
+import addProduct.appService.inputBeans.AddRentOffersAppServiceIB;
 import addProduct.dao.outputBeans.AddProductDaoOB;
 import addProduct.dao.outputBeans.AddRentOfferDaoOB;
 import addProduct.dao.outputBeans.ImagesDaoOB;
 import addProduct.projector.AddProductProjector;
 import addProduct.projector.outputBeans.AddProductProjectorOB;
+import addProduct.projector.outputBeans.AddRentOffersProjectorOB;
 
 import com.dao.ImagesDao;
 import com.dao.ProductsDao;
@@ -49,15 +50,16 @@ public class AddProductAppService {
 		addProductAppServiceIB.setImageIdsList(imagesDaoOB.getImageIdsList());
 		addProductAppServiceIB.setUsername(userProfile.getUserName());
 		AddProductDaoOB addProductDaoOB = productsDao.addProduct(addProductAppServiceIB);
-		AddRentOfferDaoOB addRentOfferDaoOB = addRentOffer(addProductAppServiceIB.getAddRentOfferAppServiceIB());
-		AddProductProjectorOB addProductProjectorOB =null;
+		AddProductProjectorOB addProductProjectorOB =new AddProductProjectorOB();
+		addProductProjectorOB.setProductIdForRentOffers(addProductDaoOB.getProductId());
 		return addProductProjectorOB;
 	}
 
-	public AddRentOfferDaoOB addRentOffer(AddRentOfferAppServiceIB addRentOfferAppServiceIB)
+	public AddRentOffersProjectorOB addRentOffer(AddRentOffersAppServiceIB addRentOfferAppServiceIB)
 	{
+		AddRentOffersProjectorOB addRentOffersProjectorOB= new AddRentOffersProjectorOB();
 		AddRentOfferDaoOB addRentOfferDaoOB = rentOffersDao.addRentOffer(addRentOfferAppServiceIB);
-		return addRentOfferDaoOB;
+		return addRentOffersProjectorOB;
 	}
 
 

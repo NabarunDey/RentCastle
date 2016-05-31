@@ -1,12 +1,13 @@
 package addProduct.appService.inputBeans;
 
 
-public class AddRentOfferAppServiceIB {
+public class AddRentOffersAppServiceIB {
 	
-	int productid;
-	String periodunit;
-	String periodvalue;
-	String amount;
+	private	int productid;
+	private	String periodunit;
+	private	String periodvalue;
+	private	String amount;
+	
 	public int getProductid() {
 		return productid;
 	}
