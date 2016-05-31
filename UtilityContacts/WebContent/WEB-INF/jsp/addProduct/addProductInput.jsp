@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
  <script type="text/javascript" src="js/addProduct/addProduct.js"></script>
- 
+<script src="js/menu_jquery.js"></script>
 <div class="container">
 	<div class="main">
 		<h1 style="">Add Product</h1>

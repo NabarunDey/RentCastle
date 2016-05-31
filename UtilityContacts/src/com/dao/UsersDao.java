@@ -6,6 +6,7 @@ import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
 import userRegistration.dao.outputBeans.UserRegistrationDaoOB;
 
 import com.databaseBeans.UsersDBBean;
+import com.structures.userTypes.UserType;
 import com.util.CommonUtility;
 
 public class UsersDao {
@@ -40,6 +41,10 @@ public class UsersDao {
 
 		UsersDBBean usersDBBean = new  UsersDBBean();
 		CommonUtility.copyBean(userRegistrationAppServiceIB, usersDBBean);
+		if(null == usersDBBean.getUsertype())
+		{
+			usersDBBean.setUsertype(UserType.VENDOR);
+		}
 		saveUser(usersDBBean);
 		UserRegistrationDaoOB userRegistrationDaoOB =new UserRegistrationDaoOB();
 		userRegistrationDaoOB.setContactInserted(true);

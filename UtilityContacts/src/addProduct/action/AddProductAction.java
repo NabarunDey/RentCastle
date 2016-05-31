@@ -50,14 +50,16 @@ public class AddProductAction {
 
 		List<FileBean> fileBeans = new ArrayList<FileBean>();
 
-		for(int i=0; i<image.size();i++)
+		if(null!= image)
 		{
-			FileBean fileBean = new FileBean();
-			fileBean.setFile(image.get(i));
-			fileBean.setFileType(imageContentType.get(i));
-			fileBeans.add(fileBean);
+			for(int i=0; i<image.size();i++)
+			{
+				FileBean fileBean = new FileBean();
+				fileBean.setFile(image.get(i));
+				fileBean.setFileType(imageContentType.get(i));
+				fileBeans.add(fileBean);
+			}
 		}
-
 		AddProductAppServiceIB addProductAppServiceIB =new AddProductAppServiceIB();
 		addProductAppServiceIB.setFileBeans(fileBeans);
 		addProductAppServiceIB.setProductname(productName);
@@ -162,6 +164,6 @@ public class AddProductAction {
 	public void setSubProductType(String subProductType) {
 		this.subProductType = subProductType;
 	}
-	
-	
+
+
 }

@@ -35,9 +35,10 @@ public class CommonUtility {
 			{
 				Object value = null;
 				try {
+					
 					value = PropertyUtils.getProperty(sourceBean, element);
 
-					if(null!= value)
+					if(null!= value && !element.equals("class"))
 					{
 
 						PropertyUtils.setProperty(destinationBean, element, value);
@@ -49,7 +50,6 @@ public class CommonUtility {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (NoSuchMethodException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}

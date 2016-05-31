@@ -3,18 +3,27 @@ package addProduct.appService.inputBeans;
 import java.util.List;
 
 public class AddProductAppServiceIB {
+
+	private String productname;
+	private String producttype;
+	private String subproducttype;
+	private String username;
+	private String quantity;
+	private List<FileBean> fileBeans;
+	private String status;
+	private String securitymoney;
+	private List<String> imageIdsList;
+	private AddRentOfferAppServiceIB addRentOfferAppServiceIB;
 	
-	String productname;
-	String producttype;
-	String subproducttype;
-	String username;
-	String quantity;
-	List<FileBean> fileBeans;
-	String status;
-	String securitymoney;
-	List<String> imageIdsList;
 	
-	
+
+	public AddRentOfferAppServiceIB getAddRentOfferAppServiceIB() {
+		return addRentOfferAppServiceIB;
+	}
+	public void setAddRentOfferAppServiceIB(
+			AddRentOfferAppServiceIB addRentOfferAppServiceIB) {
+		this.addRentOfferAppServiceIB = addRentOfferAppServiceIB;
+	}
 	public String getSubproducttype() {
 		return subproducttype;
 	}
@@ -69,10 +78,4 @@ public class AddProductAppServiceIB {
 	public void setFileBeans(List<FileBean> fileBeans) {
 		this.fileBeans = fileBeans;
 	}
-	
-	
-	
-
-
-
 }
