@@ -34,7 +34,7 @@
 						listValue="key" cssClass="form-control" />
 				</div>
 			</div>
-			<div class="form-group" id="subProductTypePlaceholder" style="display: none">
+			<div class="form-group" id="subProductTypePlaceholder">
 				<label id="subProductTypeLabel" for="subProductType"
 					class="col-sm-2 control-label">Sub Product Type</label>
 				<div class="col-sm-4" id="subProductTypeDropdown">

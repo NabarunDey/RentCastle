@@ -20,7 +20,7 @@ public class AddProductProjector {
 		AddProductProjectorOB addProductProjectorOB =new  AddProductProjectorOB();
 		Map<String, List<String>> productTypeMap = new LinkedHashMap<String, List<String>>();
 		 
-		productTypeMap.put("Select Product Type", new ArrayList<String>());
+		//productTypeMap.put("Select Product Type", new ArrayList<String>());
 		for(ProductType productType : ProductType.values())
 		{
 			List<String> subProductTypeList = new ArrayList<String>();
