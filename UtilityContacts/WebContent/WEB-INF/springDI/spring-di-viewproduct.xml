@@ -15,6 +15,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		scope="request">
 		<property name="productsDao" ref="productsDao" />
 		<property name="rentOffersDao" ref="rentOffersDao" />
+		<property name="imagesDao" ref="imagesDao" />
 		<property name="viewProductProjector" ref="viewProductProjector" />
 	</bean>
 
