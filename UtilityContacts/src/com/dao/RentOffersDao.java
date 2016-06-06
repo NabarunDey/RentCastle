@@ -43,10 +43,6 @@ public class RentOffersDao {
 	}
 	public List<RentOffersDBBean> getAllRentOffersForProduct(int productId){  
 		List<RentOffersDBBean> list; 
-		/*	Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(RentOffersDBBean.class).add("productid", productId);
-		criteria.add(Restrictions.eq("productid", productId));
-		list = (List<RentOffersDBBean>)template.findByCriteria(criteria);*/
-		//list=template.loadAll(RentOffersDBBean.class);  
 		RentOffersDBBean rentOffersDBBean = new RentOffersDBBean();
 		rentOffersDBBean.setProductid(productId);
 
