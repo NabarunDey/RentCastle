@@ -14,6 +14,12 @@
 		<div class="main">Please add rent details</div>
 		<form method="post" enctype="multipart/form-data"
 			class="form-horizontal" action="addRentOffersSubmit">
+			
+			<s:select list="{'Days','Months','Years'}" name ="periodunit"></s:select>
+			<s:textfield name = "periodvalue"></s:textfield>
+			<s:textfield name = "rentAmount"></s:textfield>
+			
+			
 			<s:submit type="button" name="submit" theme="simple"
 				cssClass="form-control btn btn-success" />
 		</form>
