@@ -24,7 +24,7 @@ public class AddProductAction {
 	private String securityMoney;
 	private String status;
 	private String productType;
-	private String subProductType;
+	private String subProductTypeSelected;
 	private int productIdForRentOffer;
 	private	String periodunit;
 	private String periodvalue;
@@ -57,7 +57,7 @@ public class AddProductAction {
 		addProductAppServiceIB.setFileBeans(fileBeans);
 		addProductAppServiceIB.setProductname(productName);
 		addProductAppServiceIB.setProducttype(productType);
-		addProductAppServiceIB.setSubproducttype(subProductType);
+		addProductAppServiceIB.setSubproducttype(subProductTypeSelected);
 		addProductAppServiceIB.setQuantity(quantity);
 		addProductAppServiceIB.setSecuritymoney(securityMoney);
 		addProductAppServiceIB.setStatus(status);
@@ -163,13 +163,12 @@ public class AddProductAction {
 	}
 
 
-	public String getSubProductType() {
-		return subProductType;
+	public String getSubProductTypeSelected() {
+		return subProductTypeSelected;
 	}
 
-
-	public void setSubProductType(String subProductType) {
-		this.subProductType = subProductType;
+	public void setSubProductTypeSelected(String subProductTypeSelected) {
+		this.subProductTypeSelected = subProductTypeSelected;
 	}
 
 	public int getProductIdForRentOffer() {

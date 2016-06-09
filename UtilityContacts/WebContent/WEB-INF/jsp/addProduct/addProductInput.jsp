@@ -16,7 +16,7 @@
 	<div class="main">
 		<h1 style="">Add Product</h1>
 		<form method="post" enctype="multipart/form-data"
-			class="form-horizontal" action="addProductConfirm">
+			class="form-horizontal" action="addProductSubmit">
 			<div class="form-group">
 				<label for="productName" class="col-sm-2 control-label">Product
 					Name</label>
@@ -41,13 +41,13 @@
 					<s:iterator value="context.addProductProjectorOB.productTypeMap">
 						<s:if test="value.size>=1">
 							<s:select id="%{'subProductType' + #attr['key']}"
-								name="subProductType" list="value" cssClass="form-control"
+								name="subProductType" list="value" cssClass="form-control" onchange="selectSubProductTypeValue(this.value)"
 								style="display: none" />
 						</s:if>
 					</s:iterator>
-
 				</div>
 			</div>
+			<s:textfield type="hidden" id="subProductTypeSelected" name ="subProductTypeSelected"/>
 			<div class="form-group">
 				<label for="quantity" class="col-sm-2 control-label">Quantity</label>
 				<div class="col-sm-4">
