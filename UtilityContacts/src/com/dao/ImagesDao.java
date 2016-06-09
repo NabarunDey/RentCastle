@@ -48,8 +48,8 @@ public class ImagesDao {
 			for(FileBean fileBean: addProductAppServiceIB.getFileBeans())
 			{
 				String imageId= userProfile.getUserName() + Calendar.getInstance().getTimeInMillis();
-				String imagePath = contextPath+imageId+".jpg";
-				File destFile  = new File(contextPath, imageId+".jpg");
+				String imagePath = contextPath+"productImages\\"+imageId+".jpg";
+				File destFile  = new File(contextPath+"productImages\\", imageId+".jpg");
 				FileUtils.copyFile(fileBean.getFile(), destFile);
 
 				ImagesDBBean imagesDBBean =new ImagesDBBean();
