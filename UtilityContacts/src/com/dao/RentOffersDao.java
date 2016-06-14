@@ -1,6 +1,8 @@
 package com.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.criterion.Example;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -9,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import addProduct.appService.inputBeans.AddRentOffersAppServiceIB;
 import addProduct.dao.outputBeans.AddRentOfferDaoOB;
 
+import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
 import com.util.CommonUtility;
 
@@ -50,4 +53,10 @@ public class RentOffersDao {
 										.add(Example.create(rentOffersDBBean)).list();
 		return list;  
 	}  
+	
+	public Map<String,RentOffersDBBean> getMinimumRents(List<ProductsDBBean> productsDBBeans)
+	{
+		Map<String,RentOffersDBBean> rentMap = new HashMap<String, RentOffersDBBean>();
+		return rentMap;
+	}
 }

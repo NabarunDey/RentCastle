@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import addProduct.appService.inputBeans.AddProductAppServiceIB;
@@ -59,6 +61,13 @@ public class ProductsDao {
 
 		}
 		return productsDBBean;
+	}
+	
+	public List<ProductsDBBean> searchByProductName(String searchString)
+	{
+		List<ProductsDBBean> productsDBBeans = null;
+		
+		return productsDBBeans;
 	}
 
 }

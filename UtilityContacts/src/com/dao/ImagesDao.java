@@ -3,7 +3,9 @@ package com.dao;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -16,7 +18,7 @@ import addProduct.appService.inputBeans.FileBean;
 import addProduct.dao.outputBeans.ImagesDaoOB;
 
 import com.databaseBeans.ImagesDBBean;
-import com.databaseBeans.RentOffersDBBean;
+import com.databaseBeans.ProductsDBBean;
 import com.sessionBeans.UserProfile;
 import com.util.ApplicationContextProvider;
 
@@ -80,5 +82,12 @@ public class ImagesDao {
 										.add(Example.create(querryList)).list();
 		return list;  
 	}  
+
+	public Map<String,ImagesDBBean> getPrimaryImageOfProduct(List<ProductsDBBean> productsDBBeans)
+	{
+		Map<String,ImagesDBBean> imageMap = new HashMap<String, ImagesDBBean>();
+		return imageMap;
+		
+	}
 
 }
