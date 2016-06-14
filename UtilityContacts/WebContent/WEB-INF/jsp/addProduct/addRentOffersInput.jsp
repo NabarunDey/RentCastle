@@ -11,31 +11,33 @@
 </head>
 <body>
 	<div class="container">
-		<div class="main">Please add rent details</div>
+		<div class="header_top" >
+			<h3 class="text-center">Please add rent details</h3>
+		</div>
 		<form method="post" enctype="multipart/form-data"
 			class="form-horizontal" action="addRentOffersSubmit">
 			<div class="form-group">
 				<label for="productName" class="col-sm-2 control-label">Period Unit</label>
 				<div class="col-sm-4">
-					<s:select list="{'Days','Months','Years'}" name ="periodunit"></s:select>
+					<s:select list="{'Days','Months','Years'}" name ="periodunit" cssClass="form-control"></s:select>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="productName" class="col-sm-2 control-label">Period Value</label>
 				<div class="col-sm-4">
-					<s:textfield name = "periodvalue"></s:textfield>
+					<s:textfield name = "periodvalue" cssClass="form-control"></s:textfield>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="productName" class="col-sm-2 control-label">Rent Amount</label>
 				<div class="col-sm-4">
-					<s:textfield name = "rentAmount"></s:textfield>
+					<s:textfield name = "rentAmount" cssClass="form-control"></s:textfield>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="col-sm-2">
+				<div class="col-sm-4 col-sm-offset-2">
 					<s:submit type="button" name="submit" theme="simple"
-				cssClass="form-control btn btn-success" />
+				cssClass="btn btn-success btn-md" />
 				</div>
 			</div>
 			
