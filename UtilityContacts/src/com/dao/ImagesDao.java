@@ -9,7 +9,8 @@ import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
-import org.hibernate.criterion.Example;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -71,21 +72,30 @@ public class ImagesDao {
 	
 	public List<ImagesDBBean> getImagesByIdList(List<String> imageIds){  
 		List<ImagesDBBean> list; 
-		List<ImagesDBBean> querryList = new ArrayList<ImagesDBBean>();
-		for(String imageId : imageIds)
-		{
-			ImagesDBBean imagesDBBean =new ImagesDBBean();
-			imagesDBBean.setImageid(imageId);
-		}
 
-		list =(List<ImagesDBBean>) template.getSessionFactory().getCurrentSession().createCriteria(ImagesDBBean.class)
-										.add(Example.create(querryList)).list();
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ImagesDBBean.class)
+				.add(Restrictions.in("imageid", imageIds));
+		list=criteria.list();
 		return list;  
 	}  
 
 	public Map<String,ImagesDBBean> getPrimaryImageOfProduct(List<ProductsDBBean> productsDBBeans)
 	{
 		Map<String,ImagesDBBean> imageMap = new HashMap<String, ImagesDBBean>();
+		Map<String,String> imageProductMap = new HashMap<String, String>();
+		List<String> imageIds = new ArrayList<String>();
+		for(ProductsDBBean productsDBBean : productsDBBeans)
+		{
+			String[] str = productsDBBean.getImages().split("\\|");
+			imageIds.add(str[0]);
+			imageProductMap.put(str[0],String.valueOf(productsDBBean.getProductid()));
+		}
+		List<ImagesDBBean> imagesDBBeans= getImagesByIdList(imageIds);
+		
+		for(ImagesDBBean imagesDBBean : imagesDBBeans)
+		{
+			imageMap.put(imageProductMap.get(imagesDBBean.getImageid()), imagesDBBean);
+		}
 		return imageMap;
 		
 	}
