@@ -9,6 +9,46 @@
 <script type="text/javascript" id="sourcecode">
 	$(function() {
 		$('.scroll-pane').jScrollPane();
+		var results = $(".result");
+		var btnMore = $("#seeMoreRecords");
+		var btnLess = $("#seeLessRecords");
+		var resultsLength = results.length;
+		var currentIndex = 4;
+
+		results.hide();
+		results.slice(0, 4).show(); 
+		checkButton();
+
+		btnMore.click(function (e) { 
+		    e.preventDefault();
+		    $(".result").slice(currentIndex, currentIndex + 4).show();
+		    currentIndex += 4;
+		    checkButton();
+		});
+
+		btnLess.click(function (e) { 
+		    e.preventDefault();
+		    $(".result").slice(currentIndex - 4, currentIndex).hide();          
+		    currentIndex -= 4;
+		    checkButton();
+		});
+
+		function checkButton() {
+		    var currentLength = $(".result:visible").length;
+		    
+		    if (currentLength >= resultsLength) {
+		        btnMore.hide();            
+		    } else {
+		        btnMore.show();   
+		    }
+		    
+		    if (resultsLength > 4 && currentLength > 4) {
+		        btnLess.show();
+		    } else {
+		        btnLess.hide();
+		    }
+		    
+		}
 	});
 </script>
 <style type="text/css">
@@ -159,11 +199,12 @@
 				</div>
 				<!-- grids_of_4 -->
 				<div class="results">
+				<s:iterator value="context.searchProductProjectorOBs">
 					<div class="col-md-3 col-sm-6 result">
 						<div class="content_box">
 							<a href="details.html">
 								<div class="view view-fifth">
-									<img src="images/w1.jpg" class="img-responsive" alt="" />
+									<img src=<s:property value="imageUrl"/> class="img-responsive" alt="" />
 									<div class="mask">
 										<div class="info">Quick View</div>
 									</div>
@@ -171,17 +212,21 @@
 							</a>
 						</div>
 						<h4>
-							<a href="details.html"> Duis autem</a>
+							<a href="details.html"><s:property value="productName"/></a>
 						</h4>
-						<p>It is a long established fact that a reader</p>
-						Rs. 499
+						<p>Rs. <s:property value="rentAmount"/> / <s:property value="periodValue"/> <s:property value="periodUnit"/></p>
 					</div>
-					
+				</s:iterator>	
+				
+				
 					<div class="clearfix"></div>
 
 				</div>
 				<!-- end grids_of_4 -->
-
+				<div class="row pull-right">
+					<input type="button" id="seeMoreRecords" value="More">
+				<input type="button" id="seeLessRecords" value="Less">
+				</div>
 			</div>
 			<div class="clearfix"></div>
 
