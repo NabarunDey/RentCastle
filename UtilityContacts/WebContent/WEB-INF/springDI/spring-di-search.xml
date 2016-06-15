@@ -4,11 +4,26 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	<bean id="searchAction" class="search.action.SearchAction" scope="request">
-		
+	<bean id="searchAction" class="search.action.SearchAction"
+		scope="request">
+		<property name="searchProductAppService" ref="searchProductAppService" />
+		<property name="context" ref="searchProductAppContext" />
+
 	</bean>
 
-	
-	
+	<bean id="searchProductAppService" class="search.appService.SearchProductAppService"
+		scope="request">
+		<property name="productsDao" ref="productsDao" />
+		<property name="rentOffersDao" ref="rentOffersDao" />
+		<property name="imagesDao" ref="imagesDao" />
+		<property name="searchProductProjector" ref="searchProductProjector" />
+	</bean>
+
+	<bean id="searchProductProjector" class="search.projector.SearchProductProjector"
+		scope="request">
+	</bean>
+
+	<bean id="searchProductAppContext" class="search.SearchProductAppContext" scope="session">
+	</bean>
 
 </beans>
