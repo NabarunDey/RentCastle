@@ -9,46 +9,7 @@
 <script type="text/javascript" id="sourcecode">
 	$(function() {
 		$('.scroll-pane').jScrollPane();
-		var results = $(".result");
-		var btnMore = $("#seeMoreRecords");
-		var btnLess = $("#seeLessRecords");
-		var resultsLength = results.length;
-		var currentIndex = 4;
-
-		results.hide();
-		results.slice(0, 4).show(); 
-		checkButton();
-
-		btnMore.click(function (e) { 
-		    e.preventDefault();
-		    $(".result").slice(currentIndex, currentIndex + 4).show();
-		    currentIndex += 4;
-		    checkButton();
-		});
-
-		btnLess.click(function (e) { 
-		    e.preventDefault();
-		    $(".result").slice(currentIndex - 4, currentIndex).hide();          
-		    currentIndex -= 4;
-		    checkButton();
-		});
-
-		function checkButton() {
-		    var currentLength = $(".result:visible").length;
-		    
-		    if (currentLength >= resultsLength) {
-		        btnMore.hide();            
-		    } else {
-		        btnMore.show();   
-		    }
-		    
-		    if (resultsLength > 4 && currentLength > 4) {
-		        btnLess.show();
-		    } else {
-		        btnLess.hide();
-		    }
-		    
-		}
+		
 	});
 </script>
 <style type="text/css">
