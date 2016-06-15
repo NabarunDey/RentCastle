@@ -1270,8 +1270,8 @@ list-style: none;
 .view .mask,.view .content {
    position: absolute;
 	overflow: hidden;
-	top: 188px;
-	left: 117px;
+	top: 128px;
+	left: 107px;
 }
 .view-fifth img {
    -webkit-transition: all 0.3s ease-in-out;
