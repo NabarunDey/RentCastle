@@ -17,6 +17,8 @@ public class SearchProductProjector {
 	public List<SearchProductProjectorOB> getSearchList(SearchProductDaoOB searchProductDaoOB)
 	{
 		List<SearchProductProjectorOB> searchProductProjectorOBs = new ArrayList<SearchProductProjectorOB>();
+		for(int i=1;i<=10;i++)
+		{
 		for(ProductsDBBean productsDBBean : searchProductDaoOB.getProductsDBBeans())
 		{
 			SearchProductProjectorOB searchProductProjectorOB = new SearchProductProjectorOB();
@@ -27,6 +29,7 @@ public class SearchProductProjector {
 			searchProductProjectorOB.setPeriodUnit(searchProductDaoOB.getRentMap().get(String.valueOf(productsDBBean.getProductid())).getPeriodunit());
 			searchProductProjectorOB.setImageUrl(searchProductDaoOB.getImageMap().get(String.valueOf(productsDBBean.getProductid())).getImagepath());
 			searchProductProjectorOBs.add(searchProductProjectorOB);
+		}
 		}
 		
 		return searchProductProjectorOBs;
