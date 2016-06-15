@@ -47,6 +47,19 @@ public class SearchProductAppService {
 		return searchProductProjectorOBs;
 	}
 	
+	public List<SearchProductProjectorOB> getSearchResultByCriteria(SearchProductAppServiceIB searchProductAppServiceIB)
+	{
+		SearchProductDaoOB searchProductDaoOB = new SearchProductDaoOB();
+		List<ProductsDBBean> productsDBBeans = productsDao.searchByProductName(searchProductAppServiceIB.getSearchString());
+		searchProductDaoOB.setProductsDBBeans(productsDBBeans);
+		Map<String,RentOffersDBBean> rentMap = rentOffersDao.getMinimumRents(productsDBBeans);
+		searchProductDaoOB.setRentMap(rentMap);
+		List<String> imageIds = new ArrayList<String>();
+		Map<String, ImagesDBBean> imageMap= imagesDao.getPrimaryImageOfProduct(productsDBBeans);
+		searchProductDaoOB.setImageMap(imageMap);
+		List<SearchProductProjectorOB> searchProductProjectorOBs= searchProductProjector.getSearchList(searchProductDaoOB);
+		return searchProductProjectorOBs;
+	}
 	
 	public ProductsDao getProductsDao() {
 		return productsDao;

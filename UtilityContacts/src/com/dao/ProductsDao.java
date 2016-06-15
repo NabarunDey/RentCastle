@@ -3,10 +3,12 @@ package com.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
+import search.appService.inputBeans.SearchProductAppServiceIB;
 import addProduct.appService.inputBeans.AddProductAppServiceIB;
 import addProduct.dao.outputBeans.AddProductDaoOB;
 
@@ -77,6 +79,20 @@ public class ProductsDao {
 		List<ProductsDBBean> productsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class)
 				.add(Restrictions.like("productname", "%"+searchString+"%"));
+		productsDBBeans = criteria.list();
+
+		return productsDBBeans;
+	}
+	
+	public List<ProductsDBBean> searchByCriteria(SearchProductAppServiceIB searchProductAppServiceIB)
+	{
+		List<ProductsDBBean> productsDBBeans = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class);
+		Criterion completeCondition = Restrictions.conjunction()
+				.add(Restrictions.like("productstate", "%"+searchProductAppServiceIB.getSearchState()+"%"))
+				.add(Restrictions.like("productcity", "%"+searchProductAppServiceIB.getSearchCity()+"%"))
+				.add(Restrictions.like("productlocation", "%"+searchProductAppServiceIB.getSearchLocation()+"%"));
+		criteria.add(completeCondition);
 		productsDBBeans = criteria.list();
 
 		return productsDBBeans;

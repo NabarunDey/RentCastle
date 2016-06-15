@@ -27,7 +27,7 @@ public class SearchAction {
 		return "success";
 	}
 
-	public String searchAjax()
+	public String searchByCriteria()
 	{
 		SearchProductAppServiceIB searchProductAppServiceIB =new  SearchProductAppServiceIB();
 		searchProductAppServiceIB.setSearchCity(searchCity);

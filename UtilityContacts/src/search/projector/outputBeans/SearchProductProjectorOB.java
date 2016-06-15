@@ -11,6 +11,12 @@ public class SearchProductProjectorOB {
 	private String periodUnit;
 	private String imageUrl;
 	
+	private String productState;
+	private String productCity;
+	private String productLocation;
+	private String productType;
+	private String productSubtype;
+	
 	public int getProductId() {
 		return productId;
 	}
@@ -47,7 +53,35 @@ public class SearchProductProjectorOB {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
+	public String getProductState() {
+		return productState;
+	}
+	public void setProductState(String productState) {
+		this.productState = productState;
+	}
+	public String getProductCity() {
+		return productCity;
+	}
+	public void setProductCity(String productCity) {
+		this.productCity = productCity;
+	}
+	public String getProductLocation() {
+		return productLocation;
+	}
+	public void setProductLocation(String productLocation) {
+		this.productLocation = productLocation;
+	}
+	public String getProductType() {
+		return productType;
+	}
+	public void setProductType(String productType) {
+		this.productType = productType;
+	}
+	public String getProductSubtype() {
+		return productSubtype;
+	}
+	public void setProductSubtype(String productSubtype) {
+		this.productSubtype = productSubtype;
+	}
 	
-	
-
 }
