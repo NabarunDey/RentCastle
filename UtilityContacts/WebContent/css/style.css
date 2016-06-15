@@ -1270,7 +1270,7 @@ list-style: none;
 .view .mask,.view .content {
    position: absolute;
 	overflow: hidden;
-	top: 168px;
+	top: 128px;
 	left: 107px;
 }
 .view-fifth img {

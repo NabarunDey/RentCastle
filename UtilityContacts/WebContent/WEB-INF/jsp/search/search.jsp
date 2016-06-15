@@ -146,7 +146,7 @@
 			<div class="col-md-9 w_content">
 				<div class="women">
 					<a href="#"><h4>
-							Total - <span>4449 items</span>
+							Total - <span><s:property value="context.searchProductProjectorOBs.size()" /> items</span>
 						</h4></a>
 					<ul class="w_nav">
 						<li>Sort :</li>
@@ -162,20 +162,20 @@
 				<div class="results">
 				<s:iterator value="context.searchProductProjectorOBs">
 					<div class="col-md-3 col-sm-6 result">
-						<div class="content_box">
+						<div class="content_box" >
 							<a href="details.html">
 								<div class="view view-fifth">
-									<img src=<s:property value="imageUrl"/> class="img-responsive" alt="" />
+									<img src=<s:property value="imageUrl"/> style="width: 230px; height: 200px" class="img-responsive" alt="" />
 									<div class="mask">
 										<div class="info">Quick View</div>
 									</div>
 								</div>
 							</a>
 						</div>
-						<h4>
-							<a href="details.html"><s:property value="productName"/></a>
-						</h4>
-						<p>Rs. <s:property value="rentAmount"/> / <s:property value="periodValue"/> <s:property value="periodUnit"/></p>
+						<div class="caption">
+							<h4><a href="details.html"><s:property value="productName"/></a></h4>
+							<p>Rs. <s:property value="rentAmount"/> / <s:property value="periodValue"/> <s:property value="periodUnit"/></p>
+						</div>
 					</div>
 				</s:iterator>	
 				
