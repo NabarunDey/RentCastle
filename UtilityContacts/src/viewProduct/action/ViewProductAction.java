@@ -16,6 +16,7 @@ public class ViewProductAction {
 		ViewProductAppServiceIB viewProductAppServiceIB = new ViewProductAppServiceIB();
 		viewProductAppServiceIB.setProductId(productId);
 		ViewProductProjectorOB viewProductProjectorOB = viewProductAppService.viewProduct(viewProductAppServiceIB);
+		context.setViewProductProjectorOB(viewProductProjectorOB);
 		return "success";
 	}
 

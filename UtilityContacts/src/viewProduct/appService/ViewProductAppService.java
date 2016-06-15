@@ -32,8 +32,9 @@ public class ViewProductAppService {
 		
 		ProductsDBBean productsDBBean = productsDao.getProductDetails(viewProductAppServiceIB.getProductId());
 		List<RentOffersDBBean> rentOffersDBBeans =rentOffersDao.getAllRentOffersForProduct(viewProductAppServiceIB.getProductId());
-		String[] imagesArray= productsDBBean.getImages().split("|");
-		 List<String> imagesList = new ArrayList<String>(Arrays.asList(imagesArray));
+		String images = productsDBBean.getImages();
+		String[] imagesArray= images.split("\\|");
+	    List<String> imagesList = new ArrayList<String>(Arrays.asList(imagesArray));
 		List<ImagesDBBean> imagesDBBeans = imagesDao.getImagesByIdList(imagesList);
 		viewProductAppServiceIB.setProductsDBBean(productsDBBean);
 		viewProductAppServiceIB.setRentOffersDBBeans(rentOffersDBBeans);

@@ -12,7 +12,6 @@ import addProduct.dao.outputBeans.AddRentOfferDaoOB;
 import com.databaseBeans.RentOffersDBBean;
 import com.util.CommonUtility;
 
-@Transactional
 public class RentOffersDao {
 
 	HibernateTemplate template;  
@@ -41,6 +40,7 @@ public class RentOffersDao {
 		addRentOfferDaoOB.setSuccess(success);
 		return addRentOfferDaoOB;
 	}
+	@Transactional
 	public List<RentOffersDBBean> getAllRentOffersForProduct(int productId){  
 		List<RentOffersDBBean> list; 
 		RentOffersDBBean rentOffersDBBean = new RentOffersDBBean();

@@ -3,6 +3,8 @@ package viewProduct.projector;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
 import viewProduct.appService.inputBeans.ViewProductAppServiceIB;
 import viewProduct.projector.outputBeans.ViewProductProjectorOB;
 
@@ -17,9 +19,11 @@ public class ViewProductProjector {
 		viewProductProjectorOB.setProductsDBBean(viewProductAppServiceIB.getProductsDBBean());
 		viewProductProjectorOB.setRentOffersDBBeans(viewProductAppServiceIB.getRentOffersDBBeans());
 		List<String> imagesPathList =new ArrayList<String>();
+		String contextPath =  ServletActionContext.getServletContext().getRealPath("/images") +"\\";
+
 		for(ImagesDBBean imagesDBBean : viewProductAppServiceIB.getImagesDBBeans())
 		{
-			imagesPathList.add(imagesDBBean.getImagepath());
+			imagesPathList.add(contextPath+"productImages\\"+imagesDBBean.getImagepath());
 		}
 		viewProductProjectorOB.setProductImagesList(imagesPathList);
 		return viewProductProjectorOB;

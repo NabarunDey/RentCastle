@@ -46,7 +46,7 @@ public class AddProductAppService {
 
 	public AddProductProjectorOB addProduct(AddProductAppServiceIB addProductAppServiceIB)
 	{
-		ImagesDaoOB imagesDaoOB= imagesDao.insertMultipleImages(addProductAppServiceIB);
+		ImagesDaoOB imagesDaoOB= imagesDao.insertMultipleProductImages(addProductAppServiceIB);
 		addProductAppServiceIB.setImageIdsList(imagesDaoOB.getImageIdsList());
 		addProductAppServiceIB.setUsername(userProfile.getUserName());
 		AddProductDaoOB addProductDaoOB = productsDao.addProduct(addProductAppServiceIB);
