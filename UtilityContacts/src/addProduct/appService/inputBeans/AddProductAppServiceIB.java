@@ -13,6 +13,9 @@ public class AddProductAppServiceIB {
 	private String status;
 	private String securitymoney;
 	private List<String> imageIdsList;
+	private String productstate;
+	private String productcity;
+	private String productlocation;
 	private AddRentOffersAppServiceIB addRentOfferAppServiceIB;
 	
 	
@@ -78,4 +81,23 @@ public class AddProductAppServiceIB {
 	public void setFileBeans(List<FileBean> fileBeans) {
 		this.fileBeans = fileBeans;
 	}
+	public String getProductstate() {
+		return productstate;
+	}
+	public void setProductstate(String productstate) {
+		this.productstate = productstate;
+	}
+	public String getProductcity() {
+		return productcity;
+	}
+	public void setProductcity(String productcity) {
+		this.productcity = productcity;
+	}
+	public String getProductlocation() {
+		return productlocation;
+	}
+	public void setProductlocation(String productlocation) {
+		this.productlocation = productlocation;
+	}
+	
 }

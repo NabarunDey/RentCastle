@@ -36,8 +36,13 @@ public class ProductsDao {
 		{
 			imageIdsConcat= imageIdsConcat+imageId+"|";
 		}
+		String locationConcat = "";
+		for(String location : addProductAppServiceIB.getProductlocation().split(",") )
+		{
+			locationConcat = locationConcat+location+"|";
+		}
+		productsDBBean.setProductlocation(locationConcat);
 		productsDBBean.setImages(imageIdsConcat);
-		
 		productsDBBean.setUsername(addProductAppServiceIB.getUsername());
 		
 		

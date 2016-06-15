@@ -56,6 +56,12 @@
 			value="/WEB-INF/jsp/userRegistration/userRegistrationInput.jsp" />
 	</definition>
 	
+	<definition name="userRegistrationAdditionalInfo" extends="baseLayout">
+		<put-attribute name="title" value="Register User" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/userRegistration/userRegistrationAdditionalInfo.jsp" />
+	</definition>
+	
 	<definition name="userRegistrationConfirm" extends="baseLayout">
 		<put-attribute name="title" value="Register User" />
 		<put-attribute name="body"

@@ -137,6 +137,10 @@
 						id="securityMoney" />
 				</div>
 			</div>
+			<s:select list="{'West Bengal'}" name ="productState" cssClass="form-control"></s:select>
+			<s:select list="{'Kolkata'}" name ="productCity" cssClass="form-control"></s:select>
+			<s:select list="{'Newtown','Keshtopur'}" name ="productLocation" cssClass="form-control"></s:select>
+			
 			<div class="form-group">
 				<div class="col-md-2 col-md-offset-2">
 					<s:submit type="button" name="submit" theme="simple"

@@ -13,6 +13,9 @@ public class SearchAction {
 	String searchString;
 	SearchProductAppService searchProductAppService;
 	SearchProductAppContext context;
+	String searchState;
+	String searchCity;
+	String searchLocation;
 	
 
 	public String search()
@@ -24,6 +27,14 @@ public class SearchAction {
 		return "success";
 	}
 
+	public String searchAjax()
+	{
+		SearchProductAppServiceIB searchProductAppServiceIB =new  SearchProductAppServiceIB();
+		searchProductAppServiceIB.setSearchCity(searchCity);
+		searchProductAppServiceIB.setSearchLocation(searchLocation);
+		searchProductAppServiceIB.setSearchState(searchState);
+		return "success";
+	}
 
 	public String getSearchString() {
 		return searchString;

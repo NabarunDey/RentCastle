@@ -16,6 +16,9 @@
 		<property name="images"></property>
 		<property name="status"></property>
 		<property name="securitymoney"></property>
+		<property name="productstate"></property>
+		<property name="productcity"></property>
+		<property name="productlocation"></property>
 	</class>
 
 </hibernate-mapping>  	

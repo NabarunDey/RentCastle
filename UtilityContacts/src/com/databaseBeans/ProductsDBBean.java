@@ -3,15 +3,18 @@ package com.databaseBeans;
 
 public class ProductsDBBean {
 
-	int productid;
-	String productname;
-	String producttype;
-	String subproducttype;
-	String username;
-	String quantity;
-	String images;
-	String status;
-	String securitymoney;
+	private int productid;
+	private String productname;
+	private String producttype;
+	private String subproducttype;
+	private String username;
+	private String quantity;
+	private String images;
+	private String status;
+	private String securitymoney;
+	private String productstate;
+	private String productcity;
+	private String productlocation;
 	
 	public int getProductid() {
 		return productid;
@@ -67,8 +70,24 @@ public class ProductsDBBean {
 	public void setSubproducttype(String subproducttype) {
 		this.subproducttype = subproducttype;
 	}
-	
-	
-	
+	public String getProductstate() {
+		return productstate;
+	}
+	public void setProductstate(String productstate) {
+		this.productstate = productstate;
+	}
+	public String getProductcity() {
+		return productcity;
+	}
+	public void setProductcity(String productcity) {
+		this.productcity = productcity;
+	}
+	public String getProductlocation() {
+		return productlocation;
+	}
+	public void setProductlocation(String productlocation) {
+		this.productlocation = productlocation;
+	}
+
 
 }

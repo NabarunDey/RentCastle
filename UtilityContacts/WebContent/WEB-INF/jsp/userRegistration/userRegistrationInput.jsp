@@ -99,7 +99,7 @@
 		</script>
 		 <div class="registration_form">
 		 <!-- Form -->
-			<s:form id="registration_form" action="userRegistrationConfirm" method="post">
+			<s:form id="registration_form" action="userRegistrationAdditionalInfo" method="post">
 				<div>
 					<label>
 						<input name = "firstname" placeholder="first name:" type="text" tabindex="1" required autofocus>
@@ -134,6 +134,11 @@
 						<input placeholder="retype password" type="password" tabindex="4" required>
 					</label>
 				</div>	
+				<div>
+					<label>
+					<s:select label="User Type" headerKey="-1"  list="#{'CUSTOMER':'Customer', 'VENDOR':'Vendor'}" name="usertype" value = "#{'usertype'}"/>
+					</label>
+				</div>
 				<div>
 					<input type="submit" value="create an account" id="register-submit">
 				</div>

@@ -20,7 +20,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		scope="request">
 	</bean>
 
-	<bean id="userRegistrationContext" class="userRegistration.UserRegistrationAppContext"
+	<bean id="context" class="userRegistration.UserRegistrationAppContext"
 		scope="session">
 	</bean>
 

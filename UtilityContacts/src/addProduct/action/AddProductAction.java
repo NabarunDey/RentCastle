@@ -26,6 +26,9 @@ public class AddProductAction {
 	private String productType;
 	private String subProductTypeSelected;
 	private int productIdForRentOffer;
+	private String productState;
+	private String productCity;
+	private String productLocation;
 	private	String periodunit;
 	private String periodvalue;
 	private	String rentAmount;
@@ -61,6 +64,9 @@ public class AddProductAction {
 		addProductAppServiceIB.setQuantity(quantity);
 		addProductAppServiceIB.setSecuritymoney(securityMoney);
 		addProductAppServiceIB.setStatus(status);
+		addProductAppServiceIB.setProductlocation(productLocation);
+		addProductAppServiceIB.setProductstate(productState);
+		addProductAppServiceIB.setProductcity(productCity);
 		AddProductProjectorOB addProductProjectorOB = addProductAppService.addProduct(addProductAppServiceIB);
 		context.setAddProductProjectorOB(addProductProjectorOB);
 		productIdForRentOffer=addProductProjectorOB.getProductIdForRentOffers();
@@ -203,4 +209,29 @@ public class AddProductAction {
 		this.rentAmount = rentAmount;
 	}
 
+	public String getProductState() {
+		return productState;
+	}
+
+	public void setProductState(String productState) {
+		this.productState = productState;
+	}
+
+	public String getProductCity() {
+		return productCity;
+	}
+
+	public void setProductCity(String productCity) {
+		this.productCity = productCity;
+	}
+
+	public String getProductLocation() {
+		return productLocation;
+	}
+
+	public void setProductLocation(String productLocation) {
+		this.productLocation = productLocation;
+	}
+	
+	
 }

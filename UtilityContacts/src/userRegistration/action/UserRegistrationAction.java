@@ -26,7 +26,7 @@ public class UserRegistrationAction {
 	String status;
 	
 	public UserRegistrationAppService userRegistrationAppService;
-	UserRegistrationAppContext userRegistrationContext;
+	UserRegistrationAppContext context;
 	
 	public String userRegistrationInput()
 	{
@@ -34,9 +34,17 @@ public class UserRegistrationAction {
 		return "success";
 	}
 	
-	public String userRegistrationConfirm()
+	public String userRegistrationAdditionalInfo()
 	{
 		UserRegistrationAppServiceIB userRegistrationAppServiceIB = new UserRegistrationAppServiceIB();
+		CommonUtility.copyBean(this, userRegistrationAppServiceIB);
+		context.setUserRegistrationAppServiceIB(userRegistrationAppServiceIB);
+		return "success";
+	}
+	
+	public String userRegistrationConfirm()
+	{
+		UserRegistrationAppServiceIB userRegistrationAppServiceIB = context.getUserRegistrationAppServiceIB();
 		CommonUtility.copyBean(this, userRegistrationAppServiceIB);
 		UserRegistrationProjectorOB registrationProjectorOB =userRegistrationAppService.addUser(userRegistrationAppServiceIB);
 		return "success";
@@ -155,13 +163,12 @@ public class UserRegistrationAction {
 		this.status = status;
 	}
 
-	public UserRegistrationAppContext getUserRegistrationContext() {
-		return userRegistrationContext;
+	public UserRegistrationAppContext getContext() {
+		return context;
 	}
 
-	public void setUserRegistrationContext(
-			UserRegistrationAppContext userRegistrationContext) {
-		this.userRegistrationContext = userRegistrationContext;
+	public void setContext(UserRegistrationAppContext context) {
+		this.context = context;
 	}
 
 	public String getPassword() {
