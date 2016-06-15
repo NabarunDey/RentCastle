@@ -38,7 +38,7 @@
 		</ul>
 		<div class="search">
 		    <s:form action = "searchAction">
-		    	<input type="text" value="" placeholder="search...">
+		    	<input name ="searchString" type="text" value="" placeholder="search...">
 				<s:submit type="submit" value=""/>
 			</s:form>
 		</div>

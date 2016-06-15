@@ -2,7 +2,10 @@ package com.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import addProduct.appService.inputBeans.AddProductAppServiceIB;
 import addProduct.dao.outputBeans.AddProductDaoOB;
@@ -10,6 +13,7 @@ import addProduct.dao.outputBeans.AddProductDaoOB;
 import com.databaseBeans.ProductsDBBean;
 import com.util.CommonUtility;
 
+@Transactional
 public class ProductsDao {
 	
 	HibernateTemplate template;  
@@ -66,7 +70,10 @@ public class ProductsDao {
 	public List<ProductsDBBean> searchByProductName(String searchString)
 	{
 		List<ProductsDBBean> productsDBBeans = null;
-		
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class)
+				.add(Restrictions.like("productname", "%"+searchString+"%"));
+		productsDBBeans = criteria.list();
+
 		return productsDBBeans;
 	}
 

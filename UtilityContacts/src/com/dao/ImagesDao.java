@@ -22,6 +22,7 @@ import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.sessionBeans.UserProfile;
 import com.util.ApplicationContextProvider;
+import com.util.CommonUtility;
 
 @Transactional
 public class ImagesDao {
@@ -39,7 +40,7 @@ public class ImagesDao {
 	public void deleteImages(ImagesDBBean e){  
 		template.delete(e);  
 	}  
-	public ImagesDaoOB insertMultipleImages(AddProductAppServiceIB addProductAppServiceIB){  
+	public ImagesDaoOB insertMultipleProductImages(AddProductAppServiceIB addProductAppServiceIB){  
 
 		ImagesDaoOB imagesDaoOB= new ImagesDaoOB();
 		ArrayList<String> imageIdsList = new ArrayList<String>();
@@ -51,7 +52,7 @@ public class ImagesDao {
 			for(FileBean fileBean: addProductAppServiceIB.getFileBeans())
 			{
 				String imageId= userProfile.getUserName() + Calendar.getInstance().getTimeInMillis();
-				String imagePath = contextPath+"productImages\\"+imageId+".jpg";
+				String imagePath = "productImages\\"+imageId+".jpg";
 				File destFile  = new File(contextPath+"productImages\\", imageId+".jpg");
 				FileUtils.copyFile(fileBean.getFile(), destFile);
 
@@ -76,7 +77,17 @@ public class ImagesDao {
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ImagesDBBean.class)
 				.add(Restrictions.in("imageid", imageIds));
 		list=criteria.list();
-		return list;  
+		String contextPath =  ServletActionContext.getServletContext().getContextPath();
+		List<ImagesDBBean> newImageList = new ArrayList<ImagesDBBean>(); 
+
+		for(ImagesDBBean imagesDBBean : list)
+		{
+			ImagesDBBean imagesDBBean2 = new ImagesDBBean();
+			CommonUtility.copyBean(imagesDBBean, imagesDBBean2);
+			imagesDBBean2.setImagepath(contextPath+"/images/"+imagesDBBean.getImagepath());
+			newImageList.add(imagesDBBean2);
+		}
+		return newImageList;  
 	}  
 
 	public Map<String,ImagesDBBean> getPrimaryImageOfProduct(List<ProductsDBBean> productsDBBeans)

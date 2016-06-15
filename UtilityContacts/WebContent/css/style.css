@@ -266,7 +266,6 @@ input:focus {
 	position: relative;
 	font-size: 0.8725em;
 	-webkit-appearance: none;
-	text-transform: capitalize;
 }
 .search input[type="text"]:hover{
 	background: #ffffff;

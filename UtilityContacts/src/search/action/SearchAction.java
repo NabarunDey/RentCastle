@@ -1,7 +1,11 @@
 package search.action;
 
+import java.util.List;
+
 import search.SearchProductAppContext;
 import search.appService.SearchProductAppService;
+import search.appService.inputBeans.SearchProductAppServiceIB;
+import search.projector.outputBeans.SearchProductProjectorOB;
 
 
 public class SearchAction {
@@ -13,6 +17,10 @@ public class SearchAction {
 
 	public String search()
 	{
+		SearchProductAppServiceIB searchProductAppServiceIB =new  SearchProductAppServiceIB();
+		searchProductAppServiceIB.setSearchString(searchString);
+		List<SearchProductProjectorOB> searchProductProjectorOBs = searchProductAppService.getSearchResult(searchProductAppServiceIB);
+		context.setSearchProductProjectorOBs(searchProductProjectorOBs);
 		return "success";
 	}
 
