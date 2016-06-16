@@ -23,12 +23,20 @@
 				</div>
 				<div class="top_right">
 					<ul>
-						<li><a href="<s:url  action='addProductInput'/>">Add
-								Product</a></li>
+					<s:if test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
+					<li id="addProductButton">
+						<a href="<s:url  action='addProductInput'/>">Add Product</a></li>
+					</s:if>
+					<s:else>
+					<li id="addProductButton" style="display: none"><a
+							href="<s:url  action='addProductInput'/>">Add Product</a></li>
+					</s:else>
 						<li><a href="#">Recently viewed</a></li>
 						<li><a href="contact.html">Contact</a></li>
 						<li class="login">
 							<div id="loginContainer">
+							<s:if test="%{ null == #attr.userProfile || '' == #attr.userProfile.userName 
+											|| null == #attr.userProfile.userName }">
 								<a href="#" id="loginButton"><span>Login</span></a>
 								<div id="loginBox">
 									<form id="loginForm">
@@ -49,7 +57,10 @@
 									</form>
 								</div>
 								<div id="loggedin" style="display: none"></div>
-
+								</s:if> 
+								<s:else>
+								<div id="loggedin">Welcome ${userProfile.userName} </div>
+								</s:else>
 							</div>
 						</li>
 					</ul>

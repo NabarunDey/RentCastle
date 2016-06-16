@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	
+
 	<bean id="applicationContextProvder" class="com.util.ApplicationContextProvider" />
 
 	<bean id="productsDao" class="com.dao.ProductsDao">
@@ -21,9 +21,18 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="imagesDao" class="com.dao.ImagesDao">
 		<property name="template" ref="template"></property>
 	</bean>
-	
+
 	<bean id="rentOffersDao" class="com.dao.RentOffersDao">
 		<property name="template" ref="template"></property>
+	</bean>
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="exposeContextBeansAsAttributes" value="true" />
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
 	</bean>
 
 </beans>

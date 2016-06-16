@@ -10,6 +10,7 @@ function doAjaxPost() {
                  $('#loginButton').hide();
                  $('#loggedin').text("Welcome "+response.loginProjectorOB.userProfile.firstName);
                  $('#loggedin').show();
+                 $('#addProductButton').show();
              }
 		},
 		error: function(e){
