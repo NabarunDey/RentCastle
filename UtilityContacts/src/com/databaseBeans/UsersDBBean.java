@@ -17,6 +17,7 @@ public class UsersDBBean {
 	String mobileno1;
 	String mobileno2;
 	String status;
+	String cart;
 	public String getUsername() {
 		return username;
 	}
@@ -94,6 +95,12 @@ public class UsersDBBean {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getCart() {
+		return cart;
+	}
+	public void setCart(String cart) {
+		this.cart = cart;
 	}
 	
 		

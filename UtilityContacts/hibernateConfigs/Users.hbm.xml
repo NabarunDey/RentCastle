@@ -17,6 +17,7 @@
 		<property name="mobileno1"></property>
 		<property name="mobileno2"></property>
 		<property name="status"></property>
+		<property name="cart"></property>
 		<property name="usertype">
 			<type name="org.hibernate.type.EnumType">
 				<param name="enumClass">com.structures.userTypes.UserType</param>

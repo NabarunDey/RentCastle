@@ -1,0 +1,29 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="viewProductByVendorAction" class="viewProductByVendor.action.ViewProductByVendorAction"
+		scope="request">
+		<property name="viewProductByVendorAppService" ref="viewProductByVendorAppService" />
+		<property name="context" ref="viewProductByVendorAppContext" />
+
+	</bean>
+
+	<bean id="viewProductByVendorAppService" class="viewProductByVendor.appService.ViewProductByVendorAppService"
+		scope="request">
+		<property name="viewProductByVendorProjector" ref="viewProductByVendorProjector" />
+		<property name="productsDao" ref="productsDaoDao" />
+	</bean>
+
+	<bean id="viewProductByVendorProjector" class="viewProductByVendor.projector.ViewProductByVendorProjector"
+		scope="request">
+	</bean>
+
+	<bean id="viewProductByVendorAppContext" class="viewProductByVendor.ViewProductByVendorAppContext"
+		scope="session">
+	</bean>
+
+
+</beans>
