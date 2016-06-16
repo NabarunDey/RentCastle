@@ -7,6 +7,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="userRegistrationAction" class="userRegistration.action.UserRegistrationAction"
 		scope="request">
 		<property name="userRegistrationAppService" ref="userRegistrationAppService" />
+		<property name="context" ref="userRegistrationContext" />
 	</bean>
 
 	<bean id="userRegistrationAppService" class="userRegistration.appService.UserRegistrationAppService"
@@ -20,7 +21,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		scope="request">
 	</bean>
 
-	<bean id="context" class="userRegistration.UserRegistrationAppContext"
+	<bean id="userRegistrationContext" class="userRegistration.UserRegistrationAppContext"
 		scope="session">
 	</bean>
 

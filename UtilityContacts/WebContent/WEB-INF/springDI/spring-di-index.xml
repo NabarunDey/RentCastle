@@ -5,8 +5,6 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
 	<bean id="loadIndexAction" class="loadIndex.action.LoadIndexAction" scope="request">
-	<!-- 	<property name="addProductAppService" ref="addProductAppService" />
-		<property name="context" ref="addProductContext" /> -->
 	</bean>
 
 

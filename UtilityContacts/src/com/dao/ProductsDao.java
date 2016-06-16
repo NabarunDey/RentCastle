@@ -2,7 +2,9 @@ package com.dao;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Conjunction;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -88,10 +90,21 @@ public class ProductsDao {
 	{
 		List<ProductsDBBean> productsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class);
-		Criterion completeCondition = Restrictions.conjunction()
-				.add(Restrictions.like("productstate", "%"+searchProductAppServiceIB.getSearchState()+"%"))
-				.add(Restrictions.like("productcity", "%"+searchProductAppServiceIB.getSearchCity()+"%"))
-				.add(Restrictions.like("productlocation", "%"+searchProductAppServiceIB.getSearchLocation()+"%"));
+		Criterion completeCondition = null;
+		Conjunction conjunction = Restrictions.conjunction();
+
+		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchState()))
+			conjunction.add(Restrictions.like("productstate", "%"+searchProductAppServiceIB.getSearchState()+"%"));
+		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchCity()))
+			conjunction.add(Restrictions.like("productcity", "%"+searchProductAppServiceIB.getSearchCity()+"%"));
+		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchLocation()))	
+			conjunction.add(Restrictions.like("productlocation", "%"+searchProductAppServiceIB.getSearchLocation()+"%"));
+		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchLocation()))	
+			conjunction.add(Restrictions.like("producttype", "%"+searchProductAppServiceIB.getSearchType()+"%"));
+		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchLocation()))	
+			conjunction.add(Restrictions.like("subproducttype", "%"+searchProductAppServiceIB.getSearchSubType()+"%"));
+	
+		completeCondition = conjunction;
 		criteria.add(completeCondition);
 		productsDBBeans = criteria.list();
 

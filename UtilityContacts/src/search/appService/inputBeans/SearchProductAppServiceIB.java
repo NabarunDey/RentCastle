@@ -8,6 +8,8 @@ public class SearchProductAppServiceIB {
 	private String searchState;
 	private String searchCity;
 	private String searchLocation;
+	private String searchType;
+	private String searchSubType;
 
 	public String getSearchString() {
 		return searchString;
@@ -39,6 +41,22 @@ public class SearchProductAppServiceIB {
 
 	public void setSearchLocation(String searchLocation) {
 		this.searchLocation = searchLocation;
+	}
+
+	public String getSearchType() {
+		return searchType;
+	}
+
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+
+	public String getSearchSubType() {
+		return searchSubType;
+	}
+
+	public void setSearchSubType(String searchSubType) {
+		this.searchSubType = searchSubType;
 	}
 	
 	
