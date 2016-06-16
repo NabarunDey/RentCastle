@@ -11,13 +11,16 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	</bean>
 
-	<bean id="viewProductByVendorAppService" class="viewProductByVendor.appService.ViewProductByVendorAppService"
+	<bean id="viewProductByVendorAppService"
+		class="viewProductByVendor.appService.ViewProductByVendorAppService"
 		scope="request">
 		<property name="viewProductByVendorProjector" ref="viewProductByVendorProjector" />
 		<property name="productsDao" ref="productsDaoDao" />
+		<property name="userProfile" ref="userProfile" />
 	</bean>
 
-	<bean id="viewProductByVendorProjector" class="viewProductByVendor.projector.ViewProductByVendorProjector"
+	<bean id="viewProductByVendorProjector"
+		class="viewProductByVendor.projector.ViewProductByVendorProjector"
 		scope="request">
 	</bean>
 
