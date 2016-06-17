@@ -99,7 +99,7 @@
 		</script>
 		 <div class="registration_form">
 		 <!-- Form -->
-			<s:form id="registration_form" action="userRegistrationAdditionalInfo" method="post">
+			<form id="registration_form" action="userRegistrationAdditionalInfo" method="post">
 				<div>
 					<label>
 						<input name = "firstname" placeholder="first name:" type="text" tabindex="1" required autofocus>
@@ -136,7 +136,7 @@
 				</div>	
 				<div>
 					<label>
-					<s:select label="User Type" headerKey="-1"  list="#{'CUSTOMER':'Customer', 'VENDOR':'Vendor'}" name="usertype" value = "#{'usertype'}"/>
+					<s:select label="User Type" headerKey="-1"  list="#{'USERTYPE':'Select User Type','CUSTOMER':'Customer', 'VENDOR':'Vendor'}" name="usertype" value = "#{'usertype'}"/>
 					</label>
 				</div>
 				<div>
@@ -145,7 +145,7 @@
 				<div class="sky-form">
 					<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to shoppe.com &nbsp;<a class="terms" href="#"> terms of service</a> </label>
 				</div>
-			</s:form>
+			</form>
 			<!-- /Form -->
 		</div>
 	</div>
