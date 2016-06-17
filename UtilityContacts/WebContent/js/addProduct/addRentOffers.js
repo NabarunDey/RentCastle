@@ -21,9 +21,7 @@ function setOfferNo(){
 		$(this).html(no);
 		var offerDiv = $(this).parents('div.offer');
 		$('input,select',offerDiv).each(function(){
-			$(this).attr("id",function(n, v){
-	            return v+no;
-	        });
+			$(this).attr("id",$(this).attr("name")+no);
 		});
 	});
 }
