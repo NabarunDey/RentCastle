@@ -19,5 +19,11 @@ function setOfferNo(){
 	$('div.offers div.panel-heading label').each(function(index){
 		var no = index + 1;
 		$(this).html(no);
+		var offerDiv = $(this).parents('div.offer');
+		$('input,select',offerDiv).each(function(){
+			$(this).attr("id",function(n, v){
+	            return v+no;
+	        });
+		});
 	});
 }
