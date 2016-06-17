@@ -17,6 +17,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="viewProductByVendorProjector" ref="viewProductByVendorProjector" />
 		<property name="productsDao" ref="productsDaoDao" />
 		<property name="userProfile" ref="userProfile" />
+		<property name="viewProductAppService" ref="viewProductAppService" />
 	</bean>
 
 	<bean id="viewProductByVendorProjector"

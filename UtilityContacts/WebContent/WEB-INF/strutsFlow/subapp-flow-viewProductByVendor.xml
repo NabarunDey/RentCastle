@@ -15,6 +15,14 @@
 		<action name="deleteProductFunction" class="viewProductByVendorAction" method="deleteProductFunction">
 			<result name="success" type="tiles">searchResult</result>
 		</action>
+		
+		<action name="editProductInputFunction" class="viewProductByVendorAction" method="editProductInputFunction">
+			<result name="success" type="tiles">editProductInput</result>
+		</action>
+		
+		<action name="editProductSubmitFunction" class="viewProductByVendorAction" method="editProductSubmitFunction">
+			<result name="success" type="tiles">editRentOffersInput</result>
+		</action>
 
 	</package>
 

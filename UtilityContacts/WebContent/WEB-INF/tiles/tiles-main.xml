@@ -79,5 +79,11 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/search/search.jsp" />
 	</definition>
+	
+	<definition name="editProductInput" extends="baseLayout">
+		<put-attribute name="title" value="Search" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/search/editProductInput.jsp" />
+	</definition>
 
 </tiles-definitions>

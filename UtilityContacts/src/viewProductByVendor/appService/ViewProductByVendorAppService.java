@@ -6,6 +6,9 @@ import java.util.Map;
 import search.dao.outputBeans.SearchProductDaoOB;
 import search.projector.SearchProductProjector;
 import search.projector.outputBeans.SearchProductProjectorOB;
+import viewProduct.appService.ViewProductAppService;
+import viewProduct.appService.inputBeans.ViewProductAppServiceIB;
+import viewProduct.projector.outputBeans.ViewProductProjectorOB;
 import viewProductByVendor.appService.inputBeans.ViewProductByVendorAppServiceIB;
 
 import com.dao.ImagesDao;
@@ -28,6 +31,7 @@ public class ViewProductByVendorAppService {
 	RentOffersDao rentOffersDao;
 	ImagesDao imagesDao;
 	SearchProductProjector searchProductProjector;
+	ViewProductAppService viewProductAppService;
 
 	
 	public List<SearchProductProjectorOB> getProductListByVendor()
@@ -62,6 +66,25 @@ public class ViewProductByVendorAppService {
 			}
 		}
 		return searchProductProjectorOBs;
+
+	}
+
+	public ViewProductProjectorOB editProductInput(ViewProductByVendorAppServiceIB viewProductByVendorAppServiceIB)
+	{
+		ViewProductProjectorOB viewProductProjectorOB =null;
+		List<SearchProductProjectorOB> searchProductProjectorOBs = viewProductByVendorAppServiceIB.getSearchProductProjectorOBs();
+		for(SearchProductProjectorOB searchProductProjectorOB : searchProductProjectorOBs)
+		{
+			if(viewProductByVendorAppServiceIB.getProductId().equals(String.valueOf(searchProductProjectorOB.getProductId()))
+					&& searchProductProjectorOB.getUserName().equals(userProfile.getUserName()))
+			{
+				ViewProductAppServiceIB viewProductAppServiceIB = new ViewProductAppServiceIB();
+				viewProductAppServiceIB.setProductId(Integer.valueOf(viewProductByVendorAppServiceIB.getProductId()));
+				viewProductProjectorOB=viewProductAppService.viewProduct(viewProductAppServiceIB);
+				break;
+			}
+		}
+		return viewProductProjectorOB;
 
 	}
 
