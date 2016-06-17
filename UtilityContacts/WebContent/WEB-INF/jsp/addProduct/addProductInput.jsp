@@ -137,9 +137,27 @@
 						id="securityMoney" />
 				</div>
 			</div>
-			<s:select list="{'West Bengal'}" name ="productState" cssClass="form-control"></s:select>
-			<s:select list="{'Kolkata'}" name ="productCity" cssClass="form-control"></s:select>
-			<s:select list="{'Newtown','Keshtopur'}" name ="productLocation" cssClass="form-control"></s:select>
+			<div class="form-group">
+				<label for="productState" class="col-sm-2 control-label">Select State</label>
+				<div class="col-sm-4">
+					
+					<s:select list="{'West Bengal'}" name ="productState" cssClass="form-control"></s:select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="productCity" class="col-sm-2 control-label">Select City</label>
+				<div class="col-sm-4">
+					
+					<s:select list="{'Kolkata'}" name ="productCity" cssClass="form-control"></s:select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="productLocation" class="col-sm-2 control-label">Select Location</label>
+				<div class="col-sm-4">
+					
+					<s:select list="{'Newtown','Keshtopur'}" name ="productLocation" cssClass="form-control"></s:select>
+				</div>
+			</div>
 			
 			<div class="form-group">
 				<div class="col-md-2 col-md-offset-2">
