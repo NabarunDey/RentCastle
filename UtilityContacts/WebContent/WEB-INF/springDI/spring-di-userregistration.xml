@@ -15,6 +15,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="usersDao" ref="usersDao" />
 		<property name="loginDao" ref="loginDao" />
 		<property name="userRegistrationProjector" ref="userRegistrationProjector" />
+		<property name="userProfile" ref="userProfile" />
 	</bean>
 
 	<bean id="userRegistrationProjector" class="userRegistration.projector.UserRegistrationProjector"

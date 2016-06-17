@@ -13,6 +13,11 @@
 				<param name="root">context</param>
 			</result>
 		</action>
+		
+		
+		<action name="logoutFunction" class="loginAction" method="logoutFunction">
+				<result name="success" type="tiles">loadIndex</result>
+		</action>
 
 	</package>
 

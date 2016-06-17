@@ -1,7 +1,6 @@
 package search.appService;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -9,9 +8,6 @@ import search.appService.inputBeans.SearchProductAppServiceIB;
 import search.dao.outputBeans.SearchProductDaoOB;
 import search.projector.SearchProductProjector;
 import search.projector.outputBeans.SearchProductProjectorOB;
-import viewProduct.appService.inputBeans.ViewProductAppServiceIB;
-import viewProduct.projector.ViewProductProjector;
-import viewProduct.projector.outputBeans.ViewProductProjectorOB;
 
 import com.dao.ImagesDao;
 import com.dao.ProductsDao;
@@ -43,7 +39,6 @@ public class SearchProductAppService {
 			searchProductDaoOB.setProductsDBBeans(productsDBBeans);
 			Map<String,RentOffersDBBean> rentMap = rentOffersDao.getMinimumRents(productsDBBeans);
 			searchProductDaoOB.setRentMap(rentMap);
-			List<String> imageIds = new ArrayList<String>();
 			Map<String, ImagesDBBean> imageMap= imagesDao.getPrimaryImageOfProduct(productsDBBeans);
 			searchProductDaoOB.setImageMap(imageMap);
 			searchProductProjectorOBs= searchProductProjector.getSearchList(searchProductDaoOB);

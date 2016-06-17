@@ -9,9 +9,11 @@
 	<package name="viewProductByVendorPackage" namespace="/" extends="struts-default,json-default">
 
 		<action name="viewProductByVendorFunction" class="viewProductByVendorAction" method="viewProductByVendorFunction">
-			<result name="success"  type="json">
-				<param name="root">context</param>
-			</result>
+			<result name="success" type="tiles">searchResult</result>
+		</action>
+		
+		<action name="deleteProductFunction" class="viewProductByVendorAction" method="deleteProductFunction">
+			<result name="success" type="tiles">searchResult</result>
 		</action>
 
 	</package>

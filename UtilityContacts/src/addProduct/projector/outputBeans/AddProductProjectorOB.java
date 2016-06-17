@@ -3,8 +3,6 @@ package addProduct.projector.outputBeans;
 import java.util.List;
 import java.util.Map;
 
-import com.structures.productTypes.ProductType;
-
 public class AddProductProjectorOB {
 	
 	private Map<String, List<String>> productTypeMap;

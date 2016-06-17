@@ -110,5 +110,22 @@ public class ProductsDao {
 
 		return productsDBBeans;
 	}
+	
+	public List<ProductsDBBean> searchByVendor(String username)
+	{
+		List<ProductsDBBean> productsDBBeans = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class)
+				.add(Restrictions.like("username", username));
+		productsDBBeans = criteria.list();
+
+		return productsDBBeans;
+	}
+	
+	public void deleteProduct(String productId)
+	{
+		ProductsDBBean productsDBBean = new ProductsDBBean();
+		productsDBBean.setProductid(Integer.parseInt(productId));
+		template.delete(productsDBBean);
+	}
 
 }

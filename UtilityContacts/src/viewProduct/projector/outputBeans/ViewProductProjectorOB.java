@@ -2,7 +2,6 @@ package viewProduct.projector.outputBeans;
 
 import java.util.List;
 
-import com.dao.RentOffersDao;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
 

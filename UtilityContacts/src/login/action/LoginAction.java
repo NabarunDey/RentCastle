@@ -1,26 +1,26 @@
 package login.action;
 
-import com.opensymphony.xwork2.ActionSupport;
+import javax.servlet.http.HttpServletRequest;
 
 import login.LoginAppContext;
 import login.appService.LoginAppService;
 import login.appService.inputBeans.LoginAppServiceIB;
 import login.projector.outputBeans.LoginProjectorOB;
 
+import org.apache.struts2.interceptor.ServletRequestAware;
+
+import com.opensymphony.xwork2.ActionSupport;
 
 
-public class LoginAction  extends ActionSupport {
+
+public class LoginAction  extends ActionSupport  implements ServletRequestAware{
 	
 	String username;
 	String password;
 	LoginAppService loginAppService; 
 	LoginAppContext context;
+	private HttpServletRequest httpServletRequest;
 	
-	
-	public String loginInput()
-	{
-		return "success";
-	}
 	
 	public String loginFunction()
 	{
@@ -31,6 +31,12 @@ public class LoginAction  extends ActionSupport {
 		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB);
 		context.setLoginProjectorOB(loginProjectorOB);
 		return ActionSupport.SUCCESS;		
+	}
+	
+	public String logoutFunction()
+	{
+		httpServletRequest.getSession().invalidate();
+		return "success";
 	}
 
 	public String getUsername() {
@@ -63,6 +69,12 @@ public class LoginAction  extends ActionSupport {
 
 	public void setContext(LoginAppContext context) {
 		this.context = context;
+	}
+
+	@Override
+	public void setServletRequest(HttpServletRequest arg0) {
+		 this.httpServletRequest = arg0;
+		
 	}
 	
 }

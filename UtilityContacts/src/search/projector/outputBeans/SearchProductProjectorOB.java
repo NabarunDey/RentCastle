@@ -10,7 +10,7 @@ public class SearchProductProjectorOB {
 	private String periodValue;
 	private String periodUnit;
 	private String imageUrl;
-	
+	private String userName;
 	private String productState;
 	private String productCity;
 	private String productLocation;
@@ -83,5 +83,13 @@ public class SearchProductProjectorOB {
 	public void setProductSubtype(String productSubtype) {
 		this.productSubtype = productSubtype;
 	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	
 	
 }

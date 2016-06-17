@@ -9,12 +9,14 @@ import userRegistration.projector.outputBeans.UserRegistrationProjectorOB;
 import com.dao.LoginDao;
 import com.dao.UsersDao;
 import com.databaseBeans.UsersDBBean;
+import com.sessionBeans.UserProfile;
 
 	
 public class UserRegistrationAppService {
 	private UsersDao usersDao;
 	private LoginDao loginDao;
 	private UserRegistrationProjector userRegistrationProjector;
+	UserProfile userProfile ;
 	
 	public UserRegistrationProjectorOB addUser(UserRegistrationAppServiceIB userRegistrationAppServiceIB)
 	{
@@ -29,6 +31,9 @@ public class UserRegistrationAppService {
 			userRegistrationDaoOB = usersDao.addUser(userRegistrationAppServiceIB);
 			if( userRegistrationDaoOB.isUserDetailsInserted())
 			{
+				userProfile.setFirstName(usersDBBean.getFirstname());
+				userProfile.setUserName(usersDBBean.getUsername());
+				userProfile.setUserType(usersDBBean.getUsertype());
 				registrationProjectorOB= userRegistrationProjector.addUser(userRegistrationDaoOB);
 			}
 		}
@@ -61,8 +66,11 @@ public class UserRegistrationAppService {
 		this.loginDao = loginDao;
 	}
 
+	public UserProfile getUserProfile() {
+		return userProfile;
+	}
 
-	
-
-	
+	public void setUserProfile(UserProfile userProfile) {
+		this.userProfile = userProfile;
+	}
 }

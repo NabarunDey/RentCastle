@@ -30,6 +30,7 @@ public class SearchProductProjector {
 				searchProductProjectorOB.setProductLocation(productsDBBean.getProductlocation());
 				searchProductProjectorOB.setProductType(productsDBBean.getProducttype());
 				searchProductProjectorOB.setProductSubtype(productsDBBean.getSubproducttype());
+				searchProductProjectorOB.setUserName(productsDBBean.getUsername());
 				searchProductProjectorOBs.add(searchProductProjectorOB);
 			}
 		}

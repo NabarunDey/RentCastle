@@ -15,7 +15,6 @@
 
 		<action name="searchAction" class="searchAction" method="search">
 			<result name="success" type="tiles">searchResult</result>
-
 		</action>
 
 	</package>
