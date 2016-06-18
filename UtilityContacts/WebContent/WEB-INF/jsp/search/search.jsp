@@ -102,9 +102,9 @@
 						</h4></a>
 					<ul class="w_nav">
 						<li>Sort :</li>
-						<li><a class="active" href="#">popular</a></li> |
-						<li><a href="#">new </a></li> |
-						<li><a href="#">discount</a></li> |
+						<li><a class="active" href="#">popular</a></li>
+						<li><a href="#">new </a></li>
+						<li><a href="#">discount</a></li>
 						<li><a href="#">price: Low High </a></li>
 						<div class="clear"></div>
 					</ul>
@@ -115,7 +115,7 @@
 				<s:iterator value="context.searchProductProjectorOBs">
 					<div class="col-md-3 col-sm-6 result">
 						<div class="content_box" >
-							<a href="details.html">
+							<a href="<s:url  action='viewProduct'><s:param name="productId" value="productId"></s:param></s:url>">
 								<div class="view view-fifth">
 									<img src=<s:property value="imageUrl"/> style="width: 230px; height: 200px" class="img-responsive" alt="" />
 									<div class="mask">
@@ -128,6 +128,9 @@
 							<h4><a href="details.html"><s:property value="productName"/></a></h4>
 							<p>Rs. <s:property value="rentAmount"/> / <s:property value="periodValue"/> <s:property value="periodUnit"/></p>
 						</div>
+						<s:if test="context.editable">
+							<a href="<s:url  action='deleteProductFunction'><s:param name="productId" value="productId"></s:param></s:url>">Delete</a>
+						</s:if>
 					</div>
 				</s:iterator>	
 				

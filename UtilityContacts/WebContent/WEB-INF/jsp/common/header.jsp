@@ -18,48 +18,64 @@
 				<div class="top_left">
 					<h2>
 						<a href="#">50%off</a> use coupon code "big61" and get extra 33%
-						off on orders above rs 2,229
+						off
 					</h2>
 				</div>
 				<div class="top_right">
 					<ul>
-					<s:if test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
-					<li id="addProductButton">
-						<a href="<s:url  action='addProductInput'/>">Add Product</a></li>
-					</s:if>
-					<s:else>
-					<li id="addProductButton" style="display: none"><a
-							href="<s:url  action='addProductInput'/>">Add Product</a></li>
-					</s:else>
+						<s:if
+							test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
+							<li id="addProductButton"><a
+								href="<s:url  action='addProductInput'/>">Add Product</a></li>
+							<li id="getProductListByVendor"><a
+								href="<s:url  action='getProductListByVendor'/>">My
+									Products</a></li>
+						</s:if>
+						<s:else>
+							<li id="addProductButton" style="display: none"><a
+								href="<s:url  action='addProductInput'/>">Add Product</a></li>
+							<li id="getProductListByVendor" style="display: none"><a
+								href="<s:url  action='getProductListByVendor'/>">My
+									Products</a></li>
+						</s:else>
+
+
 						<li><a href="#">Recently viewed</a></li>
 						<li><a href="contact.html">Contact</a></li>
 						<li class="login">
 							<div id="loginContainer">
-							<s:if test="%{ null == #attr.userProfile || '' == #attr.userProfile.userName 
+								<s:if
+									test="%{ null == #attr.userProfile || '' == #attr.userProfile.userName 
 											|| null == #attr.userProfile.userName }">
-								<a href="#" id="loginButton"><span>Login</span></a>
-								<div id="loginBox">
-									<form id="loginForm">
-										<fieldset id="body">
-											<fieldset>
-												<label for="email">Email Address</label> <input type="text"
-													name="username" id="email">
+									<a href="#" id="loginButton"><span>Login</span></a>
+									<div id="loginBox">
+										<form id="loginForm">
+											<fieldset id="body">
+												<fieldset>
+													<label for="email">Email Address</label> <input type="text"
+														name="username" id="email">
+												</fieldset>
+												<fieldset>
+													<label for="password">Password</label> <input
+														type="password" name="password" id="password">
+												</fieldset>
+												<input id="login" value="Sign in" onclick="doAjaxPost()">
+												<label for="checkbox"><input type="checkbox"
+													id="checkbox"> <i>Remember me</i></label>
 											</fieldset>
-											<fieldset>
-												<label for="password">Password</label> <input
-													type="password" name="password" id="password">
-											</fieldset>
-											<input id="login" value="Sign in" onclick="doAjaxPost()">
-											<label for="checkbox"><input type="checkbox"
-												id="checkbox"> <i>Remember me</i></label>
-										</fieldset>
-										<span><a href="#">Forgot your password?</a></span>
-									</form>
-								</div>
-								<div id="loggedin" style="display: none"></div>
-								</s:if> 
+											<span><a href="#">Forgot your password?</a></span>
+										</form>
+									</div>
+									<div id="loggedin" style="display: none"></div>
+									<div id="logout" style="display: none">
+										<a href="<s:url  action='logoutFunction'/>">Logout</a>
+									</div>
+								</s:if>
 								<s:else>
-								<div id="loggedin">Welcome ${userProfile.userName} </div>
+									<div id="loggedin">Welcome ${userProfile.firstName}</div>
+									<div id="logout">
+										<a href="<s:url  action='logoutFunction'/>">Logout</a>
+									</div>
 								</s:else>
 							</div>
 						</li>

@@ -126,7 +126,7 @@
 			<div class="form-group">
 				<label for="status" class="col-sm-2 control-label">Status</label>
 				<div class="col-sm-4">
-					<s:textfield name="status" cssClass="form-control" id="status" />
+					<s:select list="{'Available','NotAvailable'}" name ="status" cssClass="form-control"></s:select>
 				</div>
 			</div>
 			<div class="form-group">
@@ -141,14 +141,14 @@
 				<label for="productState" class="col-sm-2 control-label">Select State</label>
 				<div class="col-sm-4">
 					
-					<s:select list="{'West Bengal'}" name ="productState" cssClass="form-control"></s:select>
+					<s:select list="{'West Bengal','Assam'}" name ="productState" cssClass="form-control"></s:select>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="productCity" class="col-sm-2 control-label">Select City</label>
 				<div class="col-sm-4">
 					
-					<s:select list="{'Kolkata'}" name ="productCity" cssClass="form-control"></s:select>
+					<s:select list="{'Kolkata','Siliguri'}" name ="productCity" cssClass="form-control"></s:select>
 				</div>
 			</div>
 			<div class="form-group">

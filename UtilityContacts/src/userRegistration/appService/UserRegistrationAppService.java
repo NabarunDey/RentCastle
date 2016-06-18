@@ -31,9 +31,9 @@ public class UserRegistrationAppService {
 			userRegistrationDaoOB = usersDao.addUser(userRegistrationAppServiceIB);
 			if( userRegistrationDaoOB.isUserDetailsInserted())
 			{
-				userProfile.setFirstName(usersDBBean.getFirstname());
-				userProfile.setUserName(usersDBBean.getUsername());
-				userProfile.setUserType(usersDBBean.getUsertype());
+				userProfile.setFirstName(userRegistrationAppServiceIB.getFirstname());
+				userProfile.setUserName(userRegistrationAppServiceIB.getUsername());
+				userProfile.setUserType(userRegistrationAppServiceIB.getUsertype());
 				registrationProjectorOB= userRegistrationProjector.addUser(userRegistrationDaoOB);
 			}
 		}

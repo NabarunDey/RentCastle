@@ -33,6 +33,15 @@
 	<c:forEach var="jsfile" items="${jsList}">
 		<script src="<c:url value="${jsfile}"/>"></script>
 	</c:forEach>
+	
+	<script>
+	$(document).ready(function() {
+		$(".megamenu").megamenu();
+	});
+</script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/fwslider.js"></script>
+<script src="js/menu_jquery.js"></script>
 </head>
 <body>
 

@@ -14,9 +14,11 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="viewProductByVendorAppService"
 		class="viewProductByVendor.appService.ViewProductByVendorAppService"
 		scope="request">
-		<property name="viewProductByVendorProjector" ref="viewProductByVendorProjector" />
-		<property name="productsDao" ref="productsDaoDao" />
+		<property name="productsDao" ref="productsDao" />
 		<property name="userProfile" ref="userProfile" />
+		<property name="searchProductProjector" ref="searchProductProjector" />
+		<property name="imagesDao" ref="imagesDao" />
+		<property name="rentOffersDao" ref="rentOffersDao" />
 		<property name="viewProductAppService" ref="viewProductAppService" />
 	</bean>
 

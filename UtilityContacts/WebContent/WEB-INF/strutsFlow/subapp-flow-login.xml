@@ -7,6 +7,11 @@
 	<constant name="struts.devMode" value="false" />
 
 	<package name="loginPackage" namespace="/" extends="struts-default,json-default">
+	
+	<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
 
 		<action name="loginFunction" class="loginAction" method="loginFunction">
 			<result name="success"  type="json">

@@ -51,6 +51,7 @@ public class ViewProductByVendorAction {
 	{
 		List<SearchProductProjectorOB> searchProductProjectorOBs = viewProductByVendorAppService.getProductListByVendor();
 		context.setSearchProductProjectorOBs(searchProductProjectorOBs);
+		context.setEditable(true);
 		return "success";
 	}
 	

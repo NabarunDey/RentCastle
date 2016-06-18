@@ -1,5 +1,6 @@
 package viewProductByVendor.appService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -60,7 +61,14 @@ public class ViewProductByVendorAppService {
 			if(viewProductByVendorAppServiceIB.getProductId().equals(String.valueOf(searchProductProjectorOB.getProductId()))
 					&& searchProductProjectorOB.getUserName().equals(userProfile.getUserName()))
 			{
-				productsDao.deleteProduct(viewProductByVendorAppServiceIB.getProductId());
+				ProductsDBBean productsDBBean = productsDao.deleteProduct(viewProductByVendorAppServiceIB.getProductId());
+				rentOffersDao.deleteRentOffer(viewProductByVendorAppServiceIB.getProductId());
+				List<String> imageIds = new ArrayList<String>();
+				for(String imageId : productsDBBean.getImages().split("\\|"))
+				{
+					imageIds.add(imageId);
+				}
+				imagesDao.deleteImages(imageIds);
 				searchProductProjectorOBs.remove(searchProductProjectorOB);
 				break;
 			}
@@ -123,6 +131,14 @@ public class ViewProductByVendorAppService {
 	public void setSearchProductProjector(
 			SearchProductProjector searchProductProjector) {
 		this.searchProductProjector = searchProductProjector;
+	}
+
+	public ViewProductAppService getViewProductAppService() {
+		return viewProductAppService;
+	}
+
+	public void setViewProductAppService(ViewProductAppService viewProductAppService) {
+		this.viewProductAppService = viewProductAppService;
 	}
 
 

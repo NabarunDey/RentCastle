@@ -14,11 +14,7 @@
 	rel='stylesheet' type='text/css'> 
 <!-- start menu -->
 <script type="text/javascript" src="js/megamenu.js"></script>
-<script>
-	$(document).ready(function() {
-		$(".megamenu").megamenu();
-	});
-</script>
+
 <!-- start slider -->
  
 <script src="js/jquery-ui.min.js"></script>

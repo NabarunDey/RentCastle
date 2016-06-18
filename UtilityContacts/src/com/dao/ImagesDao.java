@@ -110,5 +110,19 @@ public class ImagesDao {
 		return imageMap;
 		
 	}
+	
+	public void deleteImages(List<String> imageIds)
+	{
+
+		String hql = "delete from com.databaseBeans.ImagesDBBean where imageid in :imageIds";
+		template.getSessionFactory().getCurrentSession().createQuery(hql).setParameterList("imageIds", imageIds).executeUpdate();
+		
+		String contextPath =  ServletActionContext.getServletContext().getRealPath("/images") +"\\";
+		for(String imageId: imageIds)
+		{
+			File destFile  = new File(contextPath+"productImages\\", imageId+".jpg");
+			destFile.delete();
+		}
+	}
 
 }

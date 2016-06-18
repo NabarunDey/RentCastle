@@ -92,4 +92,9 @@ public class RentOffersDao {
 
 		return rentMap;
 	}
+	public void deleteRentOffer(String productId)
+	{
+		String hql = "delete from com.databaseBeans.RentOffersDBBean where productid= :productid";
+		template.getSessionFactory().getCurrentSession().createQuery(hql).setInteger("productid", Integer.parseInt(productId)).executeUpdate();
+	}
 }

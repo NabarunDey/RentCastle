@@ -121,11 +121,14 @@ public class ProductsDao {
 		return productsDBBeans;
 	}
 	
-	public void deleteProduct(String productId)
+	public ProductsDBBean deleteProduct(String productId)
 	{
 		ProductsDBBean productsDBBean = new ProductsDBBean();
-		productsDBBean.setProductid(Integer.parseInt(productId));
+		productsDBBean = template.get(ProductsDBBean.class, Integer.parseInt(productId));
 		template.delete(productsDBBean);
+		ProductsDBBean productsDBBean2 = new ProductsDBBean();
+		CommonUtility.copyBean(productsDBBean, productsDBBean2);
+		return productsDBBean2;
 	}
 
 }

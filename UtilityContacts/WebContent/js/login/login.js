@@ -10,7 +10,12 @@ function doAjaxPost() {
                  $('#loginButton').hide();
                  $('#loggedin').text("Welcome "+response.loginProjectorOB.userProfile.firstName);
                  $('#loggedin').show();
-                 $('#addProductButton').show();
+                 $('#logout').show();
+                 if(response.loginProjectorOB.userProfile.userType == "VENDOR")
+                	 {
+                	 $('#addProductButton').show();
+                	 $('#getProductListByVendor').show();
+                	 }
              }
 		},
 		error: function(e){
