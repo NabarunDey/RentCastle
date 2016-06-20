@@ -97,4 +97,14 @@ public class RentOffersDao {
 		String hql = "delete from com.databaseBeans.RentOffersDBBean where productid= :productid";
 		template.getSessionFactory().getCurrentSession().createQuery(hql).setInteger("productid", Integer.parseInt(productId)).executeUpdate();
 	}
+	
+	public List<RentOffersDBBean> getRentOffersByIds(List<String> rentIds)
+	{
+		List<RentOffersDBBean> rentOffersDBBean = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(RentOffersDBBean.class)
+				.add(Restrictions.in("productId", rentIds));
+		rentOffersDBBean=criteria.list();
+		return rentOffersDBBean;
+	}
+
 }

@@ -131,4 +131,13 @@ public class ProductsDao {
 		return productsDBBean2;
 	}
 
+	public List<ProductsDBBean> getProductListByIds(List<String> productIds)
+	{
+		List<ProductsDBBean> productsDBBeans = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class)
+				.add(Restrictions.in("productId", productIds));
+		productsDBBeans=criteria.list();
+		return productsDBBeans;
+	}
+
 }

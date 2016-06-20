@@ -4,12 +4,18 @@ import com.structures.userTypes.UserType;
 
 public class UserProfile {
 	
-	String firstName;
-	String userName;
-	UserType userType;
+	private String firstName;
+	private String userName;
+	private UserType userType;
+	private String numberOfItemsInCart;
 	
 	
-	
+	public String getNumberOfItemsInCart() {
+		return numberOfItemsInCart;
+	}
+	public void setNumberOfItemsInCart(String numberOfItemsInCart) {
+		this.numberOfItemsInCart = numberOfItemsInCart;
+	}
 	public String getUserName() {
 		return userName;
 	}
