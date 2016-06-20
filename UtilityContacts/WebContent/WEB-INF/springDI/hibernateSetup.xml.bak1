@@ -7,11 +7,10 @@
 
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url"
-			value="jdbc:mysql://localhost:3306/rent"></property>
-		<property name="username" value="root"></property>
-		<property name="password" value=""></property>
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<property name="username" value="UtilityContacts"></property>
+		<property name="password" value="UtilityContacts"></property>
 	</bean>
 	<context:annotation-config />
 	<tx:annotation-driven transaction-manager="transactionManager" />
@@ -38,11 +37,11 @@
 
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">true</prop>
-<!-- 				<prop key="hibernate.current_session_context_class">thread</prop>
- -->			</props>
+
+			</props>
 		</property>
 	</bean>
 
