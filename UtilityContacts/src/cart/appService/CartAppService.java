@@ -2,16 +2,19 @@ package cart.appService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import cart.appService.inputBeans.CartAppServiceIB;
 import cart.dao.outputBeans.CartDaoOB;
 import cart.projector.CartProjector;
+import cart.projector.outputBeans.CartItem;
 import cart.projector.outputBeans.CartProjectorOB;
 
 import com.dao.ImagesDao;
 import com.dao.ProductsDao;
 import com.dao.RentOffersDao;
 import com.dao.UsersDao;
+import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
 import com.sessionBeans.UserProfile;
@@ -44,6 +47,8 @@ public class CartAppService {
 		List<String> productRentIds = usersDao.getProductRentIdsFromUserCart(userProfile.getUserName());
 		List<String> productIds = new ArrayList<String>();
 		List<String> rentIds = new ArrayList<String>();
+		CartProjectorOB cartProjectorOB = null;
+		 
 		if(null!= productRentIds && productRentIds.size()>=1)
 		{
 			for(String productRentId : productRentIds)
@@ -55,10 +60,21 @@ public class CartAppService {
 			}
 			List<ProductsDBBean> productsDBBeans = productsDao.getProductListByIds(productIds);
 			List<RentOffersDBBean> rentOffersDBBeans = rentOffersDao.getRentOffersByIds(rentIds);
+			Map<String,ImagesDBBean> imageMap = imagesDao.getPrimaryImageOfProduct(productsDBBeans);
+			CartDaoOB cartDaoOB = new CartDaoOB();
+			cartDaoOB.setImageMap(imageMap);
+			cartDaoOB.setProductsDBBeans(productsDBBeans);
+			cartDaoOB.setRentOffersDBBeans(rentOffersDBBeans);
 			
+			cartProjectorOB = cartProjector.viewCart(cartDaoOB);
 		}
 		
 		return new CartProjectorOB();
+	}
+	
+	public void removeFromCart(CartAppServiceIB cartAppServiceIB)
+	{
+		usersDao.removeFromCart(cartAppServiceIB.getUserProfile().getUserName(), cartAppServiceIB.getProductId());
 	}
 	
 	public UsersDao getUsersDao() {
@@ -91,13 +107,10 @@ public class CartAppService {
 	public void setRentOffersDao(RentOffersDao rentOffersDao) {
 		this.rentOffersDao = rentOffersDao;
 	}
-
 	public ImagesDao getImagesDao() {
 		return imagesDao;
 	}
-
 	public void setImagesDao(ImagesDao imagesDao) {
 		this.imagesDao = imagesDao;
 	}
-	
 }

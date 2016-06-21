@@ -20,7 +20,13 @@
 		</action>
 
 		<action name="viewCart" class="cartAction" method="viewCart">
-			<result name="success" type="tiles">searchResult</result>
+			<result name="success" type="tiles">cart</result>
+		</action>
+
+		<action name="removeFromCart" class="cartAction" method="removeFromCart">
+			<result name="success" type="json">
+				<param name="root">context</param>
+			</result>
 		</action>
 	</package>
 

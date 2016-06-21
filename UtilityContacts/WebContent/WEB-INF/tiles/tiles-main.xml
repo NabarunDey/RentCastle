@@ -85,5 +85,10 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/search/editProductInput.jsp" />
 	</definition>
+	<definition name="cart" extends="baseLayout">
+		<put-attribute name="title" value="My Cart" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/vart/cart.jsp" />
+	</definition>
 
 </tiles-definitions>

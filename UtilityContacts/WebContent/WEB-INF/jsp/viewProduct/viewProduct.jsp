@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript" src="js/viewProduct/viewProduct.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script>
 			jQuery(document).ready(function($){
@@ -35,6 +36,7 @@
 <div class="container">
 <div class="women_main">
 	<!-- start content -->
+	<div id="productId" style="visibility:hidden;">$(context.ViewProductProjectorOB.productsDBBean.productid)</div>
 			<div class="row single">
 				<div class="col-md-12">
 				  <div class="single_left">
@@ -118,7 +120,7 @@
 					      </div>
 						  <div class="product_price">
 								<span class="price-access">$597.51</span>								
-								<button class="button1"><span>Add to cart</span></button>
+								<button class="button1" onclick="doAjaxPost()"><span>Add to cart</span></button>
 		                  </div>
 						 <div class="clearfix"></div>
 				     </div>

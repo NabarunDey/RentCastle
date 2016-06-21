@@ -124,6 +124,26 @@ public class UsersDao {
 		return productIds;
 	}
 
+	public void removeFromCart(String userName, String productId)
+	{
+		List<String> productIds = new ArrayList<String>();
+		UsersDBBean usersDBBean= (UsersDBBean) template.get(UsersDBBean.class,userName);
+		if(!StringUtils.isEmpty(usersDBBean.getCart()))
+		{
+			ArrayList<String> cartList = new ArrayList<String>(); 
+			Collections.addAll(cartList,StringUtils.split(usersDBBean.getCart(), "\\|"));
+				String cartString = "";
+			
+			for(String cart : cartList)
+			{
+				if(!cart.substring(0, cart.indexOf("-")).equals(productId))
+				{
+					cartString = cartString+"|";
+				}
+			}
+			usersDBBean.setCart(cartString);
+		}
+	}
 	public HibernateTemplate getTemplate() {
 		return template;
 	}

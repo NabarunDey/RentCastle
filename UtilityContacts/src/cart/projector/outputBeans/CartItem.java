@@ -15,7 +15,14 @@ public class CartItem {
 	private String productLocation;
 	private String productType;
 	private String productSubtype;
+	private String securityMoney;
 	
+	public String getSecurityMoney() {
+		return securityMoney;
+	}
+	public void setSecurityMoney(String securityMoney) {
+		this.securityMoney = securityMoney;
+	}
 	public int getProductId() {
 		return productId;
 	}
