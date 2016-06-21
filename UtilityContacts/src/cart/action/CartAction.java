@@ -25,6 +25,21 @@ public class CartAction  extends ActionSupport {
 		return "success";
 	}
 
+	public String viewCart()
+	{
+		CartProjectorOB cartProjectorOB = cartAppService.viewCart();
+		context.setCartProjectorOB(cartProjectorOB);
+		return "success";
+	}
+	
+	public String removeFromCart()
+	{
+		CartAppServiceIB cartAppServiceIB = new CartAppServiceIB();
+		cartAppServiceIB.setProductId(productId);
+		cartAppService.removeFromCart(cartAppServiceIB);
+		return "success";
+	}
+	
 	public String getProductId() {
 		return productId;
 	}
