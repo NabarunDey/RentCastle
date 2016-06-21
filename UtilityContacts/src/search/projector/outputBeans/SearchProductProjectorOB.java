@@ -1,5 +1,5 @@
 package search.projector.outputBeans;
-
+import com.google.gson.Gson;
 
 
 public class SearchProductProjectorOB {
@@ -90,6 +90,9 @@ public class SearchProductProjectorOB {
 		this.userName = userName;
 	}
 	
-	
+	public String getProductJson(){
+		Gson gson = new Gson();
+		return gson.toJson(this);
+	}
 	
 }
