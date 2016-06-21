@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+
+	<package name="cartPackage" namespace="/"
+		extends="struts-default,json-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+
+		<action name="addToCart" class="cartAction" method="addToCart">
+			<result name="success" type="json">
+				<param name="root">context</param>
+			</result>
+		</action>
+
+		<action name="viewCart" class="cartAction" method="viewCart">
+			<result name="success" type="tiles">searchResult</result>
+		</action>
+	</package>
+
+</struts>

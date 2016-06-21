@@ -110,7 +110,7 @@
 						<input type="hidden" id="product<s:property value="productId"/>"  value="<s:property value="getProductJson()"/>" />
 							<a href="<s:url  action='viewProduct'><s:param name="productId" value="productId"></s:param></s:url>">
 								<div class="view view-fifth">
-									<img src=<s:property value="imageUrl"/> style="width: 230px; height: 200px" class="img-responsive" alt="" />
+									<img src="<s:property value="imageUrl"/>" style="width: 230px; height: 200px" class="img-responsive" alt="" />
 									<div class="mask">
 										<div class="info">Quick View</div>
 									</div>

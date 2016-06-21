@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="cartAction" class="cart.action.CartAction" scope="request">
+		<property name="cartAppService" ref="cartAppService" />
+		<property name="context" ref="cartAppContext" />
+
+	</bean>
+
+	<bean id="cartAppService" class="cart.appService.CartAppService"
+		scope="request">
+		<property name="cartProjector" ref="cartProjector" />
+		<property name="usersDao" ref="usersDao" />
+		<property name="userProfile" ref="userProfile" />
+		<property name="productsDao" ref="productsDao" />
+		<property name="rentOffersDao" ref="rentOffersDao" />
+		<property name="imagesDao" ref="imagesDao" />
+	</bean>
+
+	<bean id="cartProjector" class="cart.projector.CartProjector"
+		scope="request">
+	</bean>
+
+	<bean id="cartAppContext" class="cart.CartAppContext" scope="session">
+	</bean>
+
+
+</beans>

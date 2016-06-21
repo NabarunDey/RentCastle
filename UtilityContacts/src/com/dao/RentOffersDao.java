@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hibernate.Criteria;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -32,21 +33,23 @@ public class RentOffersDao {
 	public AddRentOfferDaoOB addRentOffer(
 			AddRentOffersAppServiceIB addRentOfferAppServiceIB) {
 
-		RentOffersDBBean rentOffersDBBean  = new  RentOffersDBBean();
 		String[] periodUnit = addRentOfferAppServiceIB.getPeriodunit().split(",");
 		String[] periodValue = addRentOfferAppServiceIB.getPeriodvalue().split(",");
 		String[] rentAmount = addRentOfferAppServiceIB.getAmount().split(",");
-		rentOffersDBBean.setProductid(addRentOfferAppServiceIB.getProductid());
 		boolean success = true;
 		int count =0;
+		List<RentOffersDBBean> rentOffersDBBeans = new ArrayList<RentOffersDBBean>();
 		try{
+			Transaction transaction= template.getSessionFactory().getCurrentSession().beginTransaction();
 			while(count<periodUnit.length)
 			{
+				RentOffersDBBean rentOffersDBBean  = new  RentOffersDBBean();
+				rentOffersDBBean.setProductid(addRentOfferAppServiceIB.getProductid());
 				rentOffersDBBean.setPeriodunit(periodUnit[count]);
 				rentOffersDBBean.setPeriodvalue(periodValue[count]);
 				rentOffersDBBean.setAmount(rentAmount[count]);
 				count++;
-				template.save(rentOffersDBBean);
+				template.getSessionFactory().getCurrentSession().save(rentOffersDBBean);
 			}
 		}catch (Exception exception)
 		{
@@ -97,4 +100,14 @@ public class RentOffersDao {
 		String hql = "delete from com.databaseBeans.RentOffersDBBean where productid= :productid";
 		template.getSessionFactory().getCurrentSession().createQuery(hql).setInteger("productid", Integer.parseInt(productId)).executeUpdate();
 	}
+	
+	public List<RentOffersDBBean> getRentOffersByIds(List<String> rentIds)
+	{
+		List<RentOffersDBBean> rentOffersDBBean = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(RentOffersDBBean.class)
+				.add(Restrictions.in("productId", rentIds));
+		rentOffersDBBean=criteria.list();
+		return rentOffersDBBean;
+	}
+
 }

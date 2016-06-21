@@ -9,6 +9,12 @@
 
 <tiles:importAttribute name="jsList" />
 <html>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/fwslider.js"></script>
+<script src="js/menu_jquery.js"></script>
+<script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/megamenu.js"></script>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
@@ -39,9 +45,7 @@
 		$(".megamenu").megamenu();
 	});
 </script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/fwslider.js"></script>
-<script src="js/menu_jquery.js"></script>
+
 </head>
 <body>
 
