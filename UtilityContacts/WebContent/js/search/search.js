@@ -10,40 +10,44 @@ $(function(){
 
 	function productsMoreLess(noOfResults){
 		results = $(".result");
+		resultsLength = results.length;
 		currentIndex = noOfResults;
 		results.hide();
 		results.slice(0, noOfResults).show(); 
-		checkButton(noOfResults);
+		checkButton();
 		
 		btnMore.click(function (e) { 
 		    e.preventDefault();
-		    $(".result").slice(currentIndex, currentIndex + noOfResults).slideDown("slow");
-		    currentIndex += noOfResults;
-		    checkButton(noOfResults);
+		    $(".result:lt("+(currentIndex+noOfResults)+")").slideDown("slow",function(){
+		    	if(currentIndex != resultsLength)
+				    currentIndex += noOfResults;
+				    checkButton();
+		    });
+		    
 		});
 
 		btnLess.click(function (e) { 
 		    e.preventDefault();
-		    $(".result").slice(currentIndex - noOfResults, currentIndex).slideUp( "slow");         
-		    currentIndex -= noOfResults;
-		    checkButton(noOfResults);
+		    $(".result:gt("+(currentIndex-noOfResults-1)+")").slideUp( "slow",function(){
+		    	if(currentIndex != noOfResults)
+				    currentIndex -= noOfResults;
+				    checkButton();
+		    });  
+		    
 		});
 		
-		function checkButton(noOfResults) {
+		$('#total').html(resultsLength+" items");
+		
+		function checkButton() {
 		    var currentLength = $(".result:visible").length;
-		    
-		    if (currentLength >= resultsLength) {
-		        btnMore.hide();            
-		    } else {
-		        btnMore.show();   
-		    }
-		    
-		    if (resultsLength > noOfResults && currentLength > noOfResults) {
-		        btnLess.show();
-		    } else {
-		        btnLess.hide();
-		    }
-		    
+		    if(currentLength<resultsLength)
+		    	btnMore.show();
+		    if(currentLength==resultsLength)
+		    	btnMore.hide();
+		    if(currentLength<=noOfResults)
+		    	btnLess.hide();
+		    if(currentLength>noOfResults)
+		    	btnLess.show();
 		}
 	}
 
@@ -65,12 +69,12 @@ $(function(){
 				  return this.value;
 				}).get();
 			if(values.length != 0){
-				for(var i=0;i<products.length;i++){
+				$(".result").each(function(i){
 					if ($.inArray(products[i].productLocation, values) == -1 )
 					{
-						$(".result:eq("+i+")").remove();
+						$(this).remove();
 					}
-				}
+				});
 			}
 			productsMoreLess(1);
 		}

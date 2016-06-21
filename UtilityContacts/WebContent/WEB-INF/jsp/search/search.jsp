@@ -90,7 +90,7 @@
 			<div class="col-md-9 w_content">
 				<div class="women">
 					<a href="#"><h4>
-							Total - <span><s:property value="context.searchProductProjectorOBs.size()" /> items</span>
+							Total - <span id="total"><s:property value="context.searchProductProjectorOBs.size()" /> items</span>
 						</h4></a>
 					<ul class="w_nav">
 						<li>Sort :</li>
@@ -103,7 +103,7 @@
 					<div class="clearfix"></div>
 				</div>
 				<!-- grids_of_4 -->
-				<div class="results">
+				<div class="results" style="min-height:300px">
 				<s:iterator value="context.searchProductProjectorOBs">
 					<div class="col-md-3 col-sm-6 result">
 						<div class="content_box" >
