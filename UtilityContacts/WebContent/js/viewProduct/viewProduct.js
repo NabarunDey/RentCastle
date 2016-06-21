@@ -1,4 +1,4 @@
-function doAjaxPost() {
+function addToCart() {
 
 	$.ajax({
 		type: "POST",

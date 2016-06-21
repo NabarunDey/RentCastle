@@ -4,9 +4,7 @@
 <!DOCTYPE html>
 <html>
 <script type="text/javascript" src="js/addProduct/addProduct.js"></script>
-<script src="js/menu_jquery.js"></script>
-<link rel="stylesheet" href="css/jasny-bootstrap.min.css">
-<script src="js/jasny-bootstrap.min.js"></script>
+
 <style>
 .fileinput-new .thumbnail {
 	background-color: floralwhite;

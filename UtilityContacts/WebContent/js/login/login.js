@@ -8,6 +8,7 @@ function doAjaxPost() {
 			 if (!response.loginProjectorOB.invalidCredentials) {
                  $('#loginBox').hide();
                  $('#loginButton').hide();
+                 $('#createAccount').hide();
                  $('#loggedin').text("Welcome "+response.loginProjectorOB.userProfile.firstName);
                  $('#loggedin').show();
                  $('#logout').show();

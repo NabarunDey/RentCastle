@@ -10,7 +10,6 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="/Struts2Example/struts/xhtml/styles.css" type="text/css"/> 
-<script type="text/javascript" src="js/jquery-1.4.1.min.js"></script>
 </head>
 <body>
 

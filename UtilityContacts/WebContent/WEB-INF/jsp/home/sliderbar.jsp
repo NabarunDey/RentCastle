@@ -3,24 +3,11 @@
 <head>
 <title>Shoppe Bootstarp Website Template | Home :: w3layouts</title>
 <!-- jQuery (necessary JavaScript plugins) -->
-<script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <script type="application/x-javascript">
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-</script> -->
-<!--webfont-->
- <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans'
-	rel='stylesheet' type='text/css'> --> 
-<!-- start menu -->
-<script type="text/javascript" src="js/megamenu.js"></script>
 
-<!-- start slider -->
+
  
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/fwslider.js"></script>
-<script src="js/menu_jquery.js"></script>
-<!--end slider -->
 </head>
 <body>
 	<!-- header_top -->

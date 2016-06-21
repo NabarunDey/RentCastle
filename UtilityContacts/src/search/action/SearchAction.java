@@ -37,6 +37,7 @@ public class SearchAction {
 		searchProductAppServiceIB.setSearchState(searchState);
 		searchProductAppServiceIB.setSearchSubType(searchSubType);
 		searchProductAppServiceIB.setSearchType(searchType);
+		List<SearchProductProjectorOB> searchProductProjectorOBs = searchProductAppService.getSearchResultByCriteria(searchProductAppServiceIB);
 		return "success";
 	}
 
