@@ -26,6 +26,7 @@ public class SearchAction {
 		searchProductAppServiceIB.setSearchString(searchString);
 		List<SearchProductProjectorOB> searchProductProjectorOBs = searchProductAppService.getSearchResult(searchProductAppServiceIB);
 		context.setSearchProductProjectorOBs(searchProductProjectorOBs);
+		context.setSearchString(searchString);
 		return "success";
 	}
 
@@ -39,6 +40,11 @@ public class SearchAction {
 		searchProductAppServiceIB.setSearchType(searchType);
 		List<SearchProductProjectorOB> searchProductProjectorOBs = searchProductAppService.getSearchResultByCriteria(searchProductAppServiceIB);
 		context.setSearchProductProjectorOBs(searchProductProjectorOBs);
+		context.setSearchCity(searchCity);
+		context.setSearchLocation(searchLocation);
+		context.setSearchState(searchState);
+		context.setSearchSubType(searchSubType);
+		context.setSearchType(searchType);
 		return "success";
 	}
 
