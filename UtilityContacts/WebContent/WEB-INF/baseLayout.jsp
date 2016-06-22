@@ -32,15 +32,15 @@
 
 <script src="js/menu_jquery.js"></script>
 <script src="js/login/login.js"></script>
+<script src="js/bootstrap.js"></script>
 <script src="js/jasny-bootstrap.js"></script>
 <script src="js/jquery-func.js"></script>
 <script src="js/jquery.etalage.min.js"></script>
 <script src="js/jquery.jcarousel.pack.js"></script>
 <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
-
+<script type="text/javascript" src="js/common.js"></script>
 </head>
 <body>
-
 	<tiles:insertAttribute name="header" />
 	<tiles:insertAttribute name="menu" />
 	<tiles:insertAttribute name="body" />

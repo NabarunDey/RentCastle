@@ -20,21 +20,29 @@ $(function(){
 		
 		btnMore.click(function (e) { 
 		    e.preventDefault();
-		    $(".result:lt("+(currentIndex+noOfResults)+")").show("slow");
-		    if(currentIndex != resultsLength)
-			    currentIndex += noOfResults;
-			checkButton();
+		    showLoader(more);
 		    
 		});
 
 		btnLess.click(function (e) { 
 		    e.preventDefault();
-		    $(".result:gt("+(currentIndex-noOfResults-1)+")").hide( "slow");  
+		    showLoader(less);
+		    
+		});
+		
+		function more(){
+			$(".result:lt("+(currentIndex+noOfResults)+")").show();
+		    if(currentIndex != resultsLength)
+			    currentIndex += noOfResults;
+			checkButton();
+		}
+		
+		function less(){
+			$(".result:gt("+(currentIndex-noOfResults-1)+")").hide();  
 		    if(currentIndex != noOfResults)
 			    currentIndex -= noOfResults;
 			    checkButton();
-		    
-		});
+		}
 		
 		function checkButton() {
 		    var currentLength = $(".result:visible").length;
@@ -58,10 +66,19 @@ $(function(){
 	//Filter Code
 	
 	$('div.filter input[type=radio]').change(function() {
-		filter();
+		showLoader(filter);
     });
 	
+	function showLoader(callback){
+		$('#myModal').modal('show').delay(2000).queue(function(){
+			$('#myModal').modal('hide');
+			callback();
+			$.dequeue( this );
+		});
+	}
+	
 	function filter(){
+		
 		resetProducts();
 		$('input:radio:checked').each(function(){
 			performFilter($(this).attr('name'));
@@ -91,12 +108,12 @@ $(function(){
 	$('span.reset-icon').click(function(e){
 		var index = $(this).index('span.reset-icon');
 		$('section.sky-form:eq('+index+') input:radio').prop('checked', false);
-		filter();
+		showLoader(filter);
 	});
 	
 	$('span.reset-filter').click(function(e){
 		$('section.sky-form input:radio').prop('checked', false);
-		filter();
+		showLoader(filter);
 	});
 	
 });
