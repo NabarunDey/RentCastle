@@ -16,6 +16,6 @@
 	<include file="subapp-flow-viewproduct.xml"></include>
 	<include file="subapp-flow-search.xml"></include>
 	<include file="subapp-flow-cart.xml"></include>
-	<include file="subapp-flow-viewProductByVendor.xml"></include>
+	<include file="subapp-flow-productManagement.xml"></include>
 
 </struts>

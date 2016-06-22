@@ -10,6 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
+import productManagement.appService.inputBeans.ProductManagementAppServiceIB;
 import search.appService.inputBeans.SearchProductAppServiceIB;
 import addProduct.appService.inputBeans.AddProductAppServiceIB;
 import addProduct.dao.outputBeans.AddProductDaoOB;
@@ -138,6 +139,34 @@ public class ProductsDao {
 				.add(Restrictions.in("productId", productIds));
 		productsDBBeans=criteria.list();
 		return productsDBBeans;
+	}
+	
+	public void editProduct(ProductManagementAppServiceIB productManagementAppServiceIB)
+	{
+		ProductsDBBean productsDBBean = new ProductsDBBean();
+		
+		CommonUtility.copyBean(productManagementAppServiceIB, productsDBBean);
+		productsDBBean.setProductid(Integer.parseInt(productManagementAppServiceIB.getProductId()));
+		String imageIdsConcat = "";
+		for(String imageId :productManagementAppServiceIB.getImageIdsList())
+		{
+			imageIdsConcat= imageIdsConcat+imageId+"|";
+		}
+		String locationConcat = "";
+		for(String location : productManagementAppServiceIB.getProductlocation().split(",") )
+		{
+			locationConcat = locationConcat+location+"|";
+		}
+		productsDBBean.setProductlocation(locationConcat);
+		productsDBBean.setImages(imageIdsConcat);
+		productsDBBean.setUsername(productManagementAppServiceIB.getUsername());
+		
+		
+		try{
+		template.save(productsDBBean);
+		}catch (Exception exception)
+		{
+		}
 	}
 
 }

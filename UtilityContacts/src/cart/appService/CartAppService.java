@@ -7,7 +7,6 @@ import java.util.Map;
 import cart.appService.inputBeans.CartAppServiceIB;
 import cart.dao.outputBeans.CartDaoOB;
 import cart.projector.CartProjector;
-import cart.projector.outputBeans.CartItem;
 import cart.projector.outputBeans.CartProjectorOB;
 
 import com.dao.ImagesDao;
@@ -69,7 +68,7 @@ public class CartAppService {
 			cartProjectorOB = cartProjector.viewCart(cartDaoOB);
 		}
 		
-		return new CartProjectorOB();
+		return cartProjectorOB;
 	}
 	
 	public void removeFromCart(CartAppServiceIB cartAppServiceIB)

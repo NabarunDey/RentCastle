@@ -1,6 +1,5 @@
 package userRegistration.appService;
 
-import login.dao.outputBeans.LoginDaoOB;
 import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
 import userRegistration.dao.outputBeans.UserRegistrationDaoOB;
 import userRegistration.projector.UserRegistrationProjector;
@@ -22,12 +21,10 @@ public class UserRegistrationAppService {
 	{
 		UsersDBBean usersDBBean = usersDao.getUserDetails(userRegistrationAppServiceIB.getUsername());
 		UserRegistrationDaoOB userRegistrationDaoOB= null;
-		LoginDaoOB loginDaoOB= null;
 		UserRegistrationProjectorOB registrationProjectorOB = null;
 		
 		if(null == usersDBBean)
 		{
-			loginDaoOB = loginDao.addUserLogin(userRegistrationAppServiceIB);
 			userRegistrationDaoOB = usersDao.addUser(userRegistrationAppServiceIB);
 			if( userRegistrationDaoOB.isUserDetailsInserted())
 			{

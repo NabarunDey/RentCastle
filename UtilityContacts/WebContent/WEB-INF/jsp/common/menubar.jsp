@@ -59,29 +59,29 @@
 				<!-- start header menu -->
 				<ul class="megamenu skyblue">
 					<li><a class="color1" href="loadIndex.action">Home</a></li>
-					<li class="grid"><a class="color2" href="#">Electronics</a>
+					<li class="grid"><a class="color2" href="<s:url  action='searchByCriteria'><s:param name="searchType" value="Electronics"></s:param></s:url>">Electronics</a>
 						<div class="megapanel">
 							<div class="row">
 								<div class="col1">
 									<div class="h_nav">
 										<h4>Items</h4>
 										<ul>
-											<li><a href="women.html">Refrigerator</a></li>
-											<li><a href="women.html">Washing Machine</a></li>
+											<li><a href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="Refrigerator"></s:param></s:url>">Refrigerator</a></li>
+											<li><a href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="WashingMachine"></s:param></s:url>">Washing Machine</a></li>
 										</ul>
 									</div>
 								</div>
 							</div>
 						</div></li>
-					<li class="active grid"><a class="color4" href="#">Furniture</a>
+					<li class="active grid"><a class="color4" href="<s:url  action='searchByCriteria'><s:param name="searchType" value="Furniture"></s:param></s:url>">Furniture</a>
 						<div class="megapanel">
 							<div class="row">
 								<div class="col1">
 									<div class="h_nav">
 										<h4>Items</h4>
 										<ul>
-											<li><a href="women.html">Bed</a></li>
-											<li><a href="women.html">Almirah</a></li>
+											<li><a href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="Bed"></s:param></s:url>">Bed</a></li>
+											<li><a href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="Almirah"></s:param></s:url>">Almirah</a></li>
 										</ul>
 									</div>
 								</div>

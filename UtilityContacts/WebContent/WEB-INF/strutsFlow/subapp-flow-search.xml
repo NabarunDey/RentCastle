@@ -16,6 +16,10 @@
 		<action name="searchAction" class="searchAction" method="search">
 			<result name="success" type="tiles">searchResult</result>
 		</action>
+		
+		<action name="searchByCriteria" class="searchAction" method="searchByCriteria">
+			<result name="success" type="tiles">searchResult</result>
+		</action>
 
 	</package>
 

@@ -1,7 +1,5 @@
 package cart.appService.inputBeans;
 
-import cart.projector.outputBeans.CartProjectorOB;
-
 import com.sessionBeans.UserProfile;
 
 

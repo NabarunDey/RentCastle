@@ -126,7 +126,6 @@ public class UsersDao {
 
 	public void removeFromCart(String userName, String productId)
 	{
-		List<String> productIds = new ArrayList<String>();
 		UsersDBBean usersDBBean= (UsersDBBean) template.get(UsersDBBean.class,userName);
 		if(!StringUtils.isEmpty(usersDBBean.getCart()))
 		{

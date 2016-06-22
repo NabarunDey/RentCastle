@@ -1,16 +1,16 @@
-package viewProductByVendor.appService;
+package productManagement.appService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import productManagement.appService.inputBeans.ProductManagementAppServiceIB;
 import search.dao.outputBeans.SearchProductDaoOB;
 import search.projector.SearchProductProjector;
 import search.projector.outputBeans.SearchProductProjectorOB;
 import viewProduct.appService.ViewProductAppService;
 import viewProduct.appService.inputBeans.ViewProductAppServiceIB;
 import viewProduct.projector.outputBeans.ViewProductProjectorOB;
-import viewProductByVendor.appService.inputBeans.ViewProductByVendorAppServiceIB;
 
 import com.dao.ImagesDao;
 import com.dao.ProductsDao;
@@ -25,7 +25,7 @@ import com.sessionBeans.UserProfile;
  * @author nd29794
  *
  */
-public class ViewProductByVendorAppService {
+public class ProductManagementAppService {
 
 	ProductsDao productsDao;
 	UserProfile userProfile;
@@ -53,16 +53,16 @@ public class ViewProductByVendorAppService {
 
 	}
 	
-	public List<SearchProductProjectorOB> deleteProduct(ViewProductByVendorAppServiceIB viewProductByVendorAppServiceIB)
+	public List<SearchProductProjectorOB> deleteProduct(ProductManagementAppServiceIB productManagementAppServiceIB)
 	{
-		List<SearchProductProjectorOB> searchProductProjectorOBs = viewProductByVendorAppServiceIB.getSearchProductProjectorOBs();
+		List<SearchProductProjectorOB> searchProductProjectorOBs = productManagementAppServiceIB.getSearchProductProjectorOBs();
 		for(SearchProductProjectorOB searchProductProjectorOB : searchProductProjectorOBs)
 		{
-			if(viewProductByVendorAppServiceIB.getProductId().equals(String.valueOf(searchProductProjectorOB.getProductId()))
+			if(productManagementAppServiceIB.getProductId().equals(String.valueOf(searchProductProjectorOB.getProductId()))
 					&& searchProductProjectorOB.getUserName().equals(userProfile.getUserName()))
 			{
-				ProductsDBBean productsDBBean = productsDao.deleteProduct(viewProductByVendorAppServiceIB.getProductId());
-				rentOffersDao.deleteRentOffer(viewProductByVendorAppServiceIB.getProductId());
+				ProductsDBBean productsDBBean = productsDao.deleteProduct(productManagementAppServiceIB.getProductId());
+				rentOffersDao.deleteRentOffer(productManagementAppServiceIB.getProductId());
 				List<String> imageIds = new ArrayList<String>();
 				for(String imageId : productsDBBean.getImages().split("\\|"))
 				{
@@ -77,17 +77,17 @@ public class ViewProductByVendorAppService {
 
 	}
 
-	public ViewProductProjectorOB editProductInput(ViewProductByVendorAppServiceIB viewProductByVendorAppServiceIB)
+	public ViewProductProjectorOB editProductInput(ProductManagementAppServiceIB productManagementAppServiceIB)
 	{
 		ViewProductProjectorOB viewProductProjectorOB =null;
-		List<SearchProductProjectorOB> searchProductProjectorOBs = viewProductByVendorAppServiceIB.getSearchProductProjectorOBs();
+		List<SearchProductProjectorOB> searchProductProjectorOBs = productManagementAppServiceIB.getSearchProductProjectorOBs();
 		for(SearchProductProjectorOB searchProductProjectorOB : searchProductProjectorOBs)
 		{
-			if(viewProductByVendorAppServiceIB.getProductId().equals(String.valueOf(searchProductProjectorOB.getProductId()))
+			if(productManagementAppServiceIB.getProductId().equals(String.valueOf(searchProductProjectorOB.getProductId()))
 					&& searchProductProjectorOB.getUserName().equals(userProfile.getUserName()))
 			{
 				ViewProductAppServiceIB viewProductAppServiceIB = new ViewProductAppServiceIB();
-				viewProductAppServiceIB.setProductId(Integer.valueOf(viewProductByVendorAppServiceIB.getProductId()));
+				viewProductAppServiceIB.setProductId(Integer.valueOf(productManagementAppServiceIB.getProductId()));
 				viewProductProjectorOB=viewProductAppService.viewProduct(viewProductAppServiceIB);
 				break;
 			}
@@ -95,7 +95,15 @@ public class ViewProductByVendorAppService {
 		return viewProductProjectorOB;
 
 	}
-
+	public void editProductSubmit(ProductManagementAppServiceIB productManagementAppServiceIB)
+	{
+		productsDao.editProduct(productManagementAppServiceIB);
+	}
+	
+	public void editRentOfferSubmit(ProductManagementAppServiceIB productManagementAppServiceIB)
+	{
+		rentOffersDao.editRentOffer(productManagementAppServiceIB);
+	}
 
 
 	
@@ -140,8 +148,4 @@ public class ViewProductByVendorAppService {
 	public void setViewProductAppService(ViewProductAppService viewProductAppService) {
 		this.viewProductAppService = viewProductAppService;
 	}
-
-
-
-
 }
