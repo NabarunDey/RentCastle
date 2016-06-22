@@ -27,7 +27,14 @@ public class ProductManagementAppServiceIB {
 	private	String periodunit;
 	private	String periodvalue;
 	private	String amount;
+	private String oldImages;
 	
+	public String getOldImages() {
+		return oldImages;
+	}
+	public void setOldImages(String oldImages) {
+		this.oldImages = oldImages;
+	}
 	public String getPeriodunit() {
 		return periodunit;
 	}

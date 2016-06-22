@@ -11,6 +11,7 @@ import search.projector.outputBeans.SearchProductProjectorOB;
 import viewProduct.appService.ViewProductAppService;
 import viewProduct.appService.inputBeans.ViewProductAppServiceIB;
 import viewProduct.projector.outputBeans.ViewProductProjectorOB;
+import addProduct.dao.outputBeans.ImagesDaoOB;
 
 import com.dao.ImagesDao;
 import com.dao.ProductsDao;
@@ -68,7 +69,7 @@ public class ProductManagementAppService {
 				{
 					imageIds.add(imageId);
 				}
-				imagesDao.deleteImages(imageIds);
+				imagesDao.deleteImagesList(imageIds);
 				searchProductProjectorOBs.remove(searchProductProjectorOB);
 				break;
 			}
@@ -97,6 +98,14 @@ public class ProductManagementAppService {
 	}
 	public void editProductSubmit(ProductManagementAppServiceIB productManagementAppServiceIB)
 	{
+		List<String> imageIds = new ArrayList<String>();
+		for(String imageId : productManagementAppServiceIB.getOldImages().split("\\|"))
+		{
+			imageIds.add(imageId);
+		}
+		imagesDao.deleteImagesList(imageIds);
+		ImagesDaoOB imagesDaoOB= imagesDao.insertMultipleProductImages(productManagementAppServiceIB.getFileBeans());
+		productManagementAppServiceIB.setImageIdsList(imagesDaoOB.getImageIdsList());
 		productManagementAppServiceIB.setUsername(userProfile.getUserName());
 		productsDao.editProduct(productManagementAppServiceIB);
 	}

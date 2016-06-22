@@ -16,7 +16,6 @@ import addProduct.appService.inputBeans.FileBean;
 public class ProductManagementAction {
 	
 	String productId;
-	
 	private List<File> image;
 	private List<String> imageContentType;
 	private String productName;
@@ -109,6 +108,7 @@ public class ProductManagementAction {
 		productManagementAppServiceIB.setProductlocation(productLocation);
 		productManagementAppServiceIB.setProductstate(productState);
 		productManagementAppServiceIB.setProductcity(productCity);
+		productManagementAppServiceIB.setOldImages(context.getViewProductProjectorOB().getProductsDBBean().getImages());
 		productManagementAppService.editProductSubmit(productManagementAppServiceIB);
 		return "success";
 	}

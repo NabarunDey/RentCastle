@@ -12,15 +12,14 @@
 		<put-attribute name="menu" value="/WEB-INF/jsp/common/menubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/jsp/home/index.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp" />
-		
+
 	</definition>
-	
+
 	<definition name="loadIndex" extends="baseLayout">
 		<put-attribute name="title" value="Add Product Input" />
-		<put-attribute name="body"
-			value="/WEB-INF/jsp/home/index.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/home/index.jsp" />
 	</definition>
-	
+
 
 	<definition name="addProductInput" extends="baseLayout">
 		<put-attribute name="title" value="Add Product Input" />
@@ -33,7 +32,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/addProduct/addRentOffersInput.jsp" />
 	</definition>
-	
+
 	<definition name="addProductConfirm" extends="baseLayout">
 		<put-attribute name="title" value="Add Product Confirm" />
 		<put-attribute name="body"
@@ -45,40 +44,45 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/userRegistration/userRegistrationInput.jsp" />
 	</definition>
-	
+
 	<definition name="userRegistrationAdditionalInfo" extends="baseLayout">
 		<put-attribute name="title" value="Register User" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/userRegistration/userRegistrationAdditionalInfo.jsp" />
 	</definition>
-	
+
 	<definition name="userRegistrationConfirm" extends="baseLayout">
 		<put-attribute name="title" value="Register User" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/userRegistration/userRegistrationConfirm.jsp" />
 	</definition>
-	
+
 	<definition name="viewProduct" extends="baseLayout">
 		<put-attribute name="title" value="View Product" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/viewProduct/viewProduct.jsp" />
 	</definition>
-	
+
 	<definition name="searchResult" extends="baseLayout">
 		<put-attribute name="title" value="Search" />
-		<put-attribute name="body"
-			value="/WEB-INF/jsp/search/search.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/search/search.jsp" />
 	</definition>
-	
+
 	<definition name="editProductInput" extends="baseLayout">
 		<put-attribute name="title" value="Search" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/productManagement/editProductInput.jsp" />
 	</definition>
+
+	<definition name="editRentOffersInput" extends="baseLayout">
+		<put-attribute name="title" value="Search" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/productManagement/editRentOffersInput.jsp" />
+	</definition>
+
 	<definition name="cart" extends="baseLayout">
 		<put-attribute name="title" value="My Cart" />
-		<put-attribute name="body"
-			value="/WEB-INF/jsp/vart/cart.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/vart/cart.jsp" />
 	</definition>
 
 </tiles-definitions>

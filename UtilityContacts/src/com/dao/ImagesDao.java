@@ -40,7 +40,7 @@ public class ImagesDao {
 	public void deleteImages(ImagesDBBean e){  
 		template.delete(e);  
 	}  
-	public ImagesDaoOB insertMultipleProductImages(AddProductAppServiceIB addProductAppServiceIB){  
+	public ImagesDaoOB insertMultipleProductImages(List<FileBean> fileBeans){  
 
 		ImagesDaoOB imagesDaoOB= new ImagesDaoOB();
 		ArrayList<String> imageIdsList = new ArrayList<String>();
@@ -49,7 +49,7 @@ public class ImagesDao {
 		UserProfile userProfile = appContext.getApplicationContext().getBean("userProfile", UserProfile.class);
 
 		try{
-			for(FileBean fileBean: addProductAppServiceIB.getFileBeans())
+			for(FileBean fileBean: fileBeans)
 			{
 				String imageId= userProfile.getUserName() + Calendar.getInstance().getTimeInMillis();
 				String imagePath = "productImages\\"+imageId+".jpg";
@@ -66,7 +66,6 @@ public class ImagesDao {
 			imagesDaoOB.setImageIdsList(imageIdsList);
 		}catch(Exception exception)
 		{
-			System.out.println("ggtg");
 		}
 		return imagesDaoOB;  
 	}  
@@ -111,7 +110,7 @@ public class ImagesDao {
 		
 	}
 	
-	public void deleteImages(List<String> imageIds)
+	public void deleteImagesList(List<String> imageIds)
 	{
 
 		String hql = "delete from com.databaseBeans.ImagesDBBean where imageid in :imageIds";
