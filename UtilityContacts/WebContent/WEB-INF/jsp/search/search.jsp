@@ -14,6 +14,9 @@
 </script>
 <style type="text/css">
 .result {margin: 10px 0;}
+.reset-icon,.reset-filter{
+	cursor:pointer;
+}
 </style>
 </head>
 <body>
@@ -24,10 +27,10 @@
 			<div class="col-md-3">
 				<div class="w_sidebar filter">
 					<h3 style="margin-top: 10px;">filter by
-						<span class="glyphicon glyphicon-filter pull-right" aria-hidden="true"></span>
+						<span class="glyphicon glyphicon-filter pull-right reset-filter" aria-hidden="true"></span>
 					</h3>
 					<section class="sky-form">
-					<h4>Product Type<span class="glyphicon glyphicon-repeat pull-right" style="cursor:pointer" aria-hidden="true"></span></h4>
+					<h4>Product Type<span class="glyphicon glyphicon-repeat pull-right reset-icon" aria-hidden="true"></span></h4>
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
 							<label class="radio"><input type="radio"
@@ -38,48 +41,48 @@
 					</div>
 					</section>
 					<section class="sky-form">
-					<h4>Product Sub Type<span class="glyphicon glyphicon-repeat pull-right" style="cursor:pointer" aria-hidden="true"></span></h4>
+					<h4>Product Sub Type<span class="glyphicon glyphicon-repeat pull-right reset-icon" aria-hidden="true"></span></h4>
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
 							<label class="radio"><input type="radio"
-								name="prdouctSubType" value="Bed"><i></i>Bed</label>
+								name="productSubtype" value="Bed"><i></i>Bed</label>
 							<label class="radio"><input type="radio"
-								name="prdouctSubType" value="Almirah"><i></i>Almirah</label>
+								name="productSubtype" value="Almirah"><i></i>Almirah</label>
 								<label class="radio"><input type="radio"
-								name="prdouctSubType" value="Refrigerator"><i></i>Refrigerator</label>
+								name="productSubtype" value="Refrigerator"><i></i>Refrigerator</label>
 							<label class="radio"><input type="radio"
-								name="prdouctSubType" value="WashingMachine"><i></i>WashingMachine</label>
+								name="productSubtype" value="WashingMachine"><i></i>WashingMachine</label>
 						</div>
 					</div>
 					</section>
 					<section class="sky-form">
-					<h4>Location<span class="glyphicon glyphicon-repeat pull-right" style="cursor:pointer" aria-hidden="true"></span></h4>
+					<h4>Location<span class="glyphicon glyphicon-repeat pull-right reset-icon" aria-hidden="true"></span></h4>
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
-							<label class="radio"><input type="radio" class="location"
-								name="location" value="Kestopur"><i></i>Kestopur</label>
-							<label class="radio"><input type="radio" class="location"
-								name="location" value="Newtown"><i></i>New Town</label>
+							<label class="radio"><input type="radio" class="productLocation"
+								name="productLocation" value="Kestopur"><i></i>Kestopur</label>
+							<label class="radio"><input type="radio" class="productLocation"
+								name="productLocation" value="Newtown"><i></i>New Town</label>
 						</div>
 					</div>
 					</section>
 					<section class="sky-form">
-					<h4>City<span class="glyphicon glyphicon-repeat pull-right" style="cursor:pointer" aria-hidden="true"></span></h4>
+					<h4>City<span class="glyphicon glyphicon-repeat pull-right reset-icon" aria-hidden="true"></span></h4>
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
 							<label class="radio"><input type="radio"
-								name="city" value="Kolkata"><i></i>Kolkata</label> 
+								name="productCity" value="Kolkata"><i></i>Kolkata</label> 
 							<label class="radio"><input type="radio"
-								name="city" value="Siliguri"><i></i>Siliguri</label>
+								name="productCity" value="Siliguri"><i></i>Siliguri</label>
 						</div>
 					</div>
 					</section>
 					<section class="sky-form">
-					<h4>State<span class="glyphicon glyphicon-repeat pull-right" style="cursor:pointer" aria-hidden="true"></span></h4>
+					<h4>State<span class="glyphicon glyphicon-repeat pull-right reset-icon" aria-hidden="true"></span></h4>
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
 							<label class="radio"><input type="radio"
-								name="state" value="West Bengal"><i></i>West Bengal</label>
+								name="productState" value="West Bengal"><i></i>West Bengal</label>
 						</div>
 					</div>
 					</section>
@@ -132,7 +135,7 @@
 
 				</div>
 				<!-- end grids_of_4 -->
-				<div class="row pull-right">
+				<div class="row col-md-3 pull-right ">
 					<input type="button" id="seeMoreRecords" value="More">
 					<input type="button" id="seeLessRecords" value="Less">
 				</div>
