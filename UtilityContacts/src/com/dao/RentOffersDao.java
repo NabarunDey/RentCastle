@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.hibernate.Criteria;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
+import productManagement.appService.inputBeans.ProductManagementAppServiceIB;
 import addProduct.appService.inputBeans.AddRentOffersAppServiceIB;
 import addProduct.dao.outputBeans.AddRentOfferDaoOB;
 
@@ -38,9 +38,7 @@ public class RentOffersDao {
 		String[] rentAmount = addRentOfferAppServiceIB.getAmount().split(",");
 		boolean success = true;
 		int count =0;
-		List<RentOffersDBBean> rentOffersDBBeans = new ArrayList<RentOffersDBBean>();
 		try{
-			Transaction transaction= template.getSessionFactory().getCurrentSession().beginTransaction();
 			while(count<periodUnit.length)
 			{
 				RentOffersDBBean rentOffersDBBean  = new  RentOffersDBBean();
@@ -108,6 +106,30 @@ public class RentOffersDao {
 				.add(Restrictions.in("productId", rentIds));
 		rentOffersDBBean=criteria.list();
 		return rentOffersDBBean;
+	}
+
+	public void editRentOffer(ProductManagementAppServiceIB productManagementAppServiceIB) {
+
+		String[] rentId = productManagementAppServiceIB.getRentId().split(",");
+		String[] periodUnit = productManagementAppServiceIB.getPeriodunit().split(",");
+		String[] periodValue = productManagementAppServiceIB.getPeriodvalue().split(",");
+		String[] rentAmount = productManagementAppServiceIB.getAmount().split(",");
+		int count =0;
+		try{
+			while(count<rentId.length)
+			{
+				RentOffersDBBean rentOffersDBBean  = new  RentOffersDBBean();
+				rentOffersDBBean.setRentid(Integer.parseInt(rentId[count]));
+				rentOffersDBBean.setProductid(Integer.parseInt(productManagementAppServiceIB.getProductId()));
+				rentOffersDBBean.setPeriodunit(periodUnit[count]);
+				rentOffersDBBean.setPeriodvalue(periodValue[count]);
+				rentOffersDBBean.setAmount(rentAmount[count]);
+				count++;
+				template.getSessionFactory().getCurrentSession().save(rentOffersDBBean);
+			}
+		}catch (Exception exception)
+		{
+		}
 	}
 
 }

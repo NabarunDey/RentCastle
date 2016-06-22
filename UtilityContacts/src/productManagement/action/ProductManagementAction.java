@@ -1,17 +1,19 @@
-package viewProductByVendor.action;
+package productManagement.action;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
+import productManagement.ProductManagementAppContext;
+import productManagement.appService.ProductManagementAppService;
+import productManagement.appService.inputBeans.ProductManagementAppServiceIB;
 import search.projector.outputBeans.SearchProductProjectorOB;
 import viewProduct.projector.outputBeans.ViewProductProjectorOB;
-import viewProductByVendor.ViewProductByVendorAppContext;
-import viewProductByVendor.appService.ViewProductByVendorAppService;
-import viewProductByVendor.appService.inputBeans.ViewProductByVendorAppServiceIB;
+import addProduct.appService.inputBeans.FileBean;
 
 
 
-public class ViewProductByVendorAction {
+public class ProductManagementAction {
 	
 	String productId;
 	
@@ -31,25 +33,25 @@ public class ViewProductByVendorAction {
 	private String periodvalue;
 	private	String rentAmount;
 	
-	ViewProductByVendorAppContext context;
-	ViewProductByVendorAppService viewProductByVendorAppService;
-	public ViewProductByVendorAppContext getContext() {
+	ProductManagementAppContext context;
+	ProductManagementAppService productManagementAppService;
+	public ProductManagementAppContext getContext() {
 		return context;
 	}
-	public void setContext(ViewProductByVendorAppContext context) {
+	public void setContext(ProductManagementAppContext context) {
 		this.context = context;
 	}
-	public ViewProductByVendorAppService getViewProductByVendorAppService() {
-		return viewProductByVendorAppService;
+	public ProductManagementAppService getProductManagementAppService() {
+		return productManagementAppService;
 	}
-	public void setViewProductByVendorAppService(
-			ViewProductByVendorAppService viewProductByVendorAppService) {
-		this.viewProductByVendorAppService = viewProductByVendorAppService;
+	public void setProductManagementAppService(
+			ProductManagementAppService productManagementAppService) {
+		this.productManagementAppService = productManagementAppService;
 	}
 	
 	public String getProductListByVendor()
 	{
-		List<SearchProductProjectorOB> searchProductProjectorOBs = viewProductByVendorAppService.getProductListByVendor();
+		List<SearchProductProjectorOB> searchProductProjectorOBs = productManagementAppService.getProductListByVendor();
 		context.setSearchProductProjectorOBs(searchProductProjectorOBs);
 		context.setEditable(true);
 		return "success";
@@ -57,21 +59,21 @@ public class ViewProductByVendorAction {
 	
 	public String deleteProductFunction()
 	{
-		ViewProductByVendorAppServiceIB viewProductByVendorAppServiceIB = new ViewProductByVendorAppServiceIB();
-		viewProductByVendorAppServiceIB.setProductId(productId);
-		viewProductByVendorAppServiceIB.setSearchProductProjectorOBs(context.getSearchProductProjectorOBs());
-		List<SearchProductProjectorOB> searchProductProjectorOBs = viewProductByVendorAppService.deleteProduct(viewProductByVendorAppServiceIB);
+		ProductManagementAppServiceIB productManagementAppServiceIB = new ProductManagementAppServiceIB();
+		productManagementAppServiceIB.setProductId(productId);
+		productManagementAppServiceIB.setSearchProductProjectorOBs(context.getSearchProductProjectorOBs());
+		List<SearchProductProjectorOB> searchProductProjectorOBs = productManagementAppService.deleteProduct(productManagementAppServiceIB);
 		context.setSearchProductProjectorOBs(searchProductProjectorOBs);
 		return "success";
 	}
 	
 	public String editProductInputFunction()
 	{
-		ViewProductByVendorAppServiceIB viewProductByVendorAppServiceIB = new ViewProductByVendorAppServiceIB();
-		viewProductByVendorAppServiceIB.setProductId(productId);
+		ProductManagementAppServiceIB productManagementAppServiceIB = new ProductManagementAppServiceIB();
+		productManagementAppServiceIB.setProductId(productId);
 		context.setProductIdfroEdit(productId);
-		viewProductByVendorAppServiceIB.setSearchProductProjectorOBs(context.getSearchProductProjectorOBs());
-		ViewProductProjectorOB viewProductProjectorOB = viewProductByVendorAppService.editProductInput(viewProductByVendorAppServiceIB);
+		productManagementAppServiceIB.setSearchProductProjectorOBs(context.getSearchProductProjectorOBs());
+		ViewProductProjectorOB viewProductProjectorOB = productManagementAppService.editProductInput(productManagementAppServiceIB);
 		if(null != viewProductProjectorOB)
 		{
 			context.setViewProductProjectorOB(viewProductProjectorOB);
@@ -83,17 +85,43 @@ public class ViewProductByVendorAction {
 	
 	public String editProductSubmitFunction()
 	{
-		ViewProductByVendorAppServiceIB viewProductByVendorAppServiceIB = new ViewProductByVendorAppServiceIB();
-		viewProductByVendorAppServiceIB.setProductId(productId);
-		viewProductByVendorAppServiceIB.setSearchProductProjectorOBs(context.getSearchProductProjectorOBs());
-		ViewProductProjectorOB viewProductProjectorOB = viewProductByVendorAppService.editProductInput(viewProductByVendorAppServiceIB);
-		if(null != viewProductProjectorOB)
+		ProductManagementAppServiceIB productManagementAppServiceIB = new ProductManagementAppServiceIB();
+		productManagementAppServiceIB.setProductId(context.getProductIdfroEdit());
+		List<FileBean> fileBeans = new ArrayList<FileBean>();
+
+		if(null!= image)
 		{
-			context.setViewProductProjectorOB(viewProductProjectorOB);
-			context.setEditable(true);
-			return "success";
+			for(int i=0; i<image.size();i++)
+			{
+				FileBean fileBean = new FileBean();
+				fileBean.setFile(image.get(i));
+				fileBean.setFileType(imageContentType.get(i));
+				fileBeans.add(fileBean);
+			}
 		}
-		return "error";
+		productManagementAppServiceIB.setFileBeans(fileBeans);
+		productManagementAppServiceIB.setProductname(productName);
+		productManagementAppServiceIB.setProducttype(productType);
+		productManagementAppServiceIB.setSubproducttype(subProductTypeSelected);
+		productManagementAppServiceIB.setQuantity(quantity);
+		productManagementAppServiceIB.setSecuritymoney(securityMoney);
+		productManagementAppServiceIB.setStatus(status);
+		productManagementAppServiceIB.setProductlocation(productLocation);
+		productManagementAppServiceIB.setProductstate(productState);
+		productManagementAppServiceIB.setProductcity(productCity);
+		productManagementAppService.editProductSubmit(productManagementAppServiceIB);
+		return "success";
+	}
+	
+	public String editRentOffersSubmit()
+	{
+		ProductManagementAppServiceIB productManagementAppServiceIB = new ProductManagementAppServiceIB();
+		productManagementAppServiceIB.setProductId(context.getProductIdfroEdit());
+		productManagementAppServiceIB.setPeriodunit(periodunit);
+		productManagementAppServiceIB.setPeriodvalue(periodvalue);
+		productManagementAppServiceIB.setAmount(rentAmount);
+		productManagementAppService.editRentOfferSubmit(productManagementAppServiceIB);
+		return "success";
 	}
 	
 	public String getProductId() {

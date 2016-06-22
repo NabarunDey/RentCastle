@@ -6,26 +6,26 @@
 <struts>
 	<constant name="struts.devMode" value="false" />
 
-	<package name="viewProductByVendorPackage" namespace="/" extends="struts-default,json-default">
+	<package name="productManagementPackage" namespace="/" extends="struts-default,json-default">
 
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
 
-		<action name="getProductListByVendor" class="viewProductByVendorAction" method="getProductListByVendor">
+		<action name="getProductListByVendor" class="productManagementAction" method="getProductListByVendor">
 			<result name="success" type="tiles">searchResult</result>
 		</action>
 		
-		<action name="deleteProductFunction" class="viewProductByVendorAction" method="deleteProductFunction">
+		<action name="deleteProductFunction" class="productManagementAction" method="deleteProductFunction">
 			<result name="success" type="tiles">searchResult</result>
 		</action>
 		
-		<action name="editProductInputFunction" class="viewProductByVendorAction" method="editProductInputFunction">
+		<action name="editProductInputFunction" class="productManagementAction" method="editProductInputFunction">
 			<result name="success" type="tiles">editProductInput</result>
 		</action>
 		
-		<action name="editProductSubmitFunction" class="viewProductByVendorAction" method="editProductSubmitFunction">
+		<action name="editProductSubmitFunction" class="productManagementAction" method="editProductSubmitFunction">
 			<result name="success" type="tiles">editRentOffersInput</result>
 		</action>
 

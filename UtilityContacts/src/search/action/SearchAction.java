@@ -38,6 +38,7 @@ public class SearchAction {
 		searchProductAppServiceIB.setSearchSubType(searchSubType);
 		searchProductAppServiceIB.setSearchType(searchType);
 		List<SearchProductProjectorOB> searchProductProjectorOBs = searchProductAppService.getSearchResultByCriteria(searchProductAppServiceIB);
+		context.setSearchProductProjectorOBs(searchProductProjectorOBs);
 		return "success";
 	}
 

@@ -1,4 +1,4 @@
-package viewProductByVendor;
+package productManagement;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import viewProduct.projector.outputBeans.ViewProductProjectorOB;
 
 
 
-public class ViewProductByVendorAppContext {
+public class ProductManagementAppContext {
 	
 	private List<SearchProductProjectorOB> searchProductProjectorOBs;
 	private boolean isEditable;
