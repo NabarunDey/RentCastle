@@ -100,9 +100,9 @@ public class ProductsDao {
 			conjunction.add(Restrictions.like("productcity", "%"+searchProductAppServiceIB.getSearchCity()+"%"));
 		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchLocation()))	
 			conjunction.add(Restrictions.like("productlocation", "%"+searchProductAppServiceIB.getSearchLocation()+"%"));
-		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchLocation()))	
+		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchType()))	
 			conjunction.add(Restrictions.like("producttype", "%"+searchProductAppServiceIB.getSearchType()+"%"));
-		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchLocation()))	
+		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchSubType()))	
 			conjunction.add(Restrictions.like("subproducttype", "%"+searchProductAppServiceIB.getSearchSubType()+"%"));
 	
 		completeCondition = conjunction;
@@ -147,10 +147,16 @@ public class ProductsDao {
 		
 		CommonUtility.copyBean(productManagementAppServiceIB, productsDBBean);
 		productsDBBean.setProductid(Integer.parseInt(productManagementAppServiceIB.getProductId()));
-		String imageIdsConcat = "";
-		for(String imageId :productManagementAppServiceIB.getImageIdsList())
+		if(null!= productManagementAppServiceIB.getImageIdsList() && productManagementAppServiceIB.getImageIdsList().size()>=1)
 		{
-			imageIdsConcat= imageIdsConcat+imageId+"|";
+			String imageIdsConcat = "";
+
+			for(String imageId :productManagementAppServiceIB.getImageIdsList())
+			{
+				imageIdsConcat= imageIdsConcat+imageId+"|";
+			}
+			productsDBBean.setImages(imageIdsConcat);
+
 		}
 		String locationConcat = "";
 		for(String location : productManagementAppServiceIB.getProductlocation().split(",") )
@@ -158,12 +164,11 @@ public class ProductsDao {
 			locationConcat = locationConcat+location+"|";
 		}
 		productsDBBean.setProductlocation(locationConcat);
-		productsDBBean.setImages(imageIdsConcat);
 		productsDBBean.setUsername(productManagementAppServiceIB.getUsername());
 		
 		
 		try{
-		template.save(productsDBBean);
+		template.update(productsDBBean);
 		}catch (Exception exception)
 		{
 		}

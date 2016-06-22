@@ -47,14 +47,18 @@ public class SearchProductAppService {
 
 	public List<SearchProductProjectorOB> getSearchResultByCriteria(SearchProductAppServiceIB searchProductAppServiceIB)
 	{
+		List<SearchProductProjectorOB> searchProductProjectorOBs = null;
 		SearchProductDaoOB searchProductDaoOB = new SearchProductDaoOB();
-		List<ProductsDBBean> productsDBBeans = productsDao.searchByProductName(searchProductAppServiceIB.getSearchString());
-		searchProductDaoOB.setProductsDBBeans(productsDBBeans);
-		Map<String,RentOffersDBBean> rentMap = rentOffersDao.getMinimumRents(productsDBBeans);
-		searchProductDaoOB.setRentMap(rentMap);
-		Map<String, ImagesDBBean> imageMap= imagesDao.getPrimaryImageOfProduct(productsDBBeans);
-		searchProductDaoOB.setImageMap(imageMap);
-		List<SearchProductProjectorOB> searchProductProjectorOBs= searchProductProjector.getSearchList(searchProductDaoOB);
+		List<ProductsDBBean> productsDBBeans = productsDao.searchByCriteria(searchProductAppServiceIB);
+		if(null!= productsDBBeans && productsDBBeans.size()>=1)
+		{
+			searchProductDaoOB.setProductsDBBeans(productsDBBeans);
+			Map<String,RentOffersDBBean> rentMap = rentOffersDao.getMinimumRents(productsDBBeans);
+			searchProductDaoOB.setRentMap(rentMap);
+			Map<String, ImagesDBBean> imageMap= imagesDao.getPrimaryImageOfProduct(productsDBBeans);
+			searchProductDaoOB.setImageMap(imageMap);
+			searchProductProjectorOBs= searchProductProjector.getSearchList(searchProductDaoOB);
+		}
 		return searchProductProjectorOBs;
 	}
 

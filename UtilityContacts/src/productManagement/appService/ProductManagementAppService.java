@@ -97,6 +97,7 @@ public class ProductManagementAppService {
 	}
 	public void editProductSubmit(ProductManagementAppServiceIB productManagementAppServiceIB)
 	{
+		productManagementAppServiceIB.setUsername(userProfile.getUserName());
 		productsDao.editProduct(productManagementAppServiceIB);
 	}
 	

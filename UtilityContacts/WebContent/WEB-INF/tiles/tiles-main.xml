@@ -73,7 +73,7 @@
 	<definition name="editProductInput" extends="baseLayout">
 		<put-attribute name="title" value="Search" />
 		<put-attribute name="body"
-			value="/WEB-INF/jsp/search/editProductInput.jsp" />
+			value="/WEB-INF/jsp/productManagement/editProductInput.jsp" />
 	</definition>
 	<definition name="cart" extends="baseLayout">
 		<put-attribute name="title" value="My Cart" />
