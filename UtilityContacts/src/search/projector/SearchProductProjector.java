@@ -24,6 +24,9 @@ public class SearchProductProjector {
 				searchProductProjectorOB.setRentAmount(searchProductDaoOB.getRentMap().get(String.valueOf(productsDBBean.getProductid())).getAmount());
 				searchProductProjectorOB.setPeriodValue(searchProductDaoOB.getRentMap().get(String.valueOf(productsDBBean.getProductid())).getPeriodvalue());
 				searchProductProjectorOB.setPeriodUnit(searchProductDaoOB.getRentMap().get(String.valueOf(productsDBBean.getProductid())).getPeriodunit());
+			}
+			if(null!= searchProductDaoOB.getImageMap() && null != searchProductDaoOB.getImageMap().get(String.valueOf(productsDBBean.getProductid())))
+			{
 				searchProductProjectorOB.setImageUrl(searchProductDaoOB.getImageMap().get(String.valueOf(productsDBBean.getProductid())).getImagepath());
 			}
 			

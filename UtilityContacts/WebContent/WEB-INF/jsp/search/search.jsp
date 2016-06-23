@@ -121,7 +121,7 @@
 							</a>
 						</div>
 						<div class="caption">
-							<h4><a href="details.html"><s:property value="productName"/></a></h4>
+							<h4><a href="<s:url  action='viewProduct'><s:param name="productId" value="productId"></s:param></s:url>"><s:property value="productName"/></a></h4>
 							<p>Rs. <s:property value="rentAmount"/> / <s:property value="periodValue"/> <s:property value="periodUnit"/></p>
 						</div>
 						<s:if test="context.editable">

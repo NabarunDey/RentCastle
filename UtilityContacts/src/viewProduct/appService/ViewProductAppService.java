@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import viewProduct.appService.inputBeans.ViewProductAppServiceIB;
 import viewProduct.projector.ViewProductProjector;
 import viewProduct.projector.outputBeans.ViewProductProjectorOB;
@@ -29,19 +31,22 @@ public class ViewProductAppService {
 	ViewProductProjector viewProductProjector;
 	
 	public ViewProductProjectorOB viewProduct(ViewProductAppServiceIB viewProductAppServiceIB) {
-		
+
 		ProductsDBBean productsDBBean = productsDao.getProductDetails(viewProductAppServiceIB.getProductId());
 		List<RentOffersDBBean> rentOffersDBBeans =rentOffersDao.getAllRentOffersForProduct(viewProductAppServiceIB.getProductId());
 		String images = productsDBBean.getImages();
-		String[] imagesArray= images.split("\\|");
-	    List<String> imagesList = new ArrayList<String>(Arrays.asList(imagesArray));
-		List<ImagesDBBean> imagesDBBeans = imagesDao.getImagesByIdList(imagesList);
+		if(StringUtils.isNotEmpty(images))
+		{
+			String[] imagesArray= images.split("\\|");
+			List<String> imagesList = new ArrayList<String>(Arrays.asList(imagesArray));
+			List<ImagesDBBean> imagesDBBeans = imagesDao.getImagesByIdList(imagesList);
+			viewProductAppServiceIB.setImagesDBBeans(imagesDBBeans);
+		}
 		viewProductAppServiceIB.setProductsDBBean(productsDBBean);
 		viewProductAppServiceIB.setRentOffersDBBeans(rentOffersDBBeans);
-		viewProductAppServiceIB.setImagesDBBeans(imagesDBBeans);
 		ViewProductProjectorOB viewProductProjectorOB = viewProductProjector.viewProduct(viewProductAppServiceIB);
 		return viewProductProjectorOB;
-		
+
 	}
 
 	public ProductsDao getProductsDao() {

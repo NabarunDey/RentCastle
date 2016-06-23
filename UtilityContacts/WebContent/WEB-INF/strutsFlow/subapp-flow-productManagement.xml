@@ -28,6 +28,10 @@
 		<action name="editProductSubmitFunction" class="productManagementAction" method="editProductSubmitFunction">
 			<result name="success" type="tiles">editRentOffersInput</result>
 		</action>
+		
+		<action name="editRentOffersSubmit" class="productManagementAction" method="editRentOffersSubmit">
+			<result name="success" type="tiles">editRentOffersConfirm</result>
+		</action>
 
 	</package>
 

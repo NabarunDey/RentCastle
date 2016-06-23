@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
+
 import productManagement.appService.inputBeans.ProductManagementAppServiceIB;
 import search.dao.outputBeans.SearchProductDaoOB;
 import search.projector.SearchProductProjector;
@@ -11,6 +13,7 @@ import search.projector.outputBeans.SearchProductProjectorOB;
 import viewProduct.appService.ViewProductAppService;
 import viewProduct.appService.inputBeans.ViewProductAppServiceIB;
 import viewProduct.projector.outputBeans.ViewProductProjectorOB;
+import addProduct.appService.inputBeans.AddRentOffersAppServiceIB;
 import addProduct.dao.outputBeans.ImagesDaoOB;
 
 import com.dao.ImagesDao;
@@ -20,6 +23,7 @@ import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
 import com.sessionBeans.UserProfile;
+import com.util.CommonUtility;
 
 
 /**
@@ -99,11 +103,14 @@ public class ProductManagementAppService {
 	public void editProductSubmit(ProductManagementAppServiceIB productManagementAppServiceIB)
 	{
 		List<String> imageIds = new ArrayList<String>();
-		for(String imageId : productManagementAppServiceIB.getOldImages().split("\\|"))
+		if(StringUtils.isNotEmpty(productManagementAppServiceIB.getOldImages()))
 		{
-			imageIds.add(imageId);
+			for(String imageId : productManagementAppServiceIB.getOldImages().split("\\|"))
+			{
+				imageIds.add(imageId);
+			}
+			imagesDao.deleteImagesList(imageIds);
 		}
-		imagesDao.deleteImagesList(imageIds);
 		ImagesDaoOB imagesDaoOB= imagesDao.insertMultipleProductImages(productManagementAppServiceIB.getFileBeans());
 		productManagementAppServiceIB.setImageIdsList(imagesDaoOB.getImageIdsList());
 		productManagementAppServiceIB.setUsername(userProfile.getUserName());
@@ -112,7 +119,11 @@ public class ProductManagementAppService {
 	
 	public void editRentOfferSubmit(ProductManagementAppServiceIB productManagementAppServiceIB)
 	{
-		rentOffersDao.editRentOffer(productManagementAppServiceIB);
+		rentOffersDao.deleteRentOffer(productManagementAppServiceIB.getProductId());
+		AddRentOffersAppServiceIB addRentOffersAppServiceIB = new AddRentOffersAppServiceIB();
+		CommonUtility.copyBean(productManagementAppServiceIB, addRentOffersAppServiceIB);
+		addRentOffersAppServiceIB.setProductid(Integer.parseInt(productManagementAppServiceIB.getProductId()));
+		rentOffersDao.addRentOffer(addRentOffersAppServiceIB);
 	}
 
 

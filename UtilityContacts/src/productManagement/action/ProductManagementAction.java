@@ -31,6 +31,7 @@ public class ProductManagementAction {
 	private	String periodunit;
 	private String periodvalue;
 	private	String rentAmount;
+	private String rentId;
 	
 	ProductManagementAppContext context;
 	ProductManagementAppService productManagementAppService;
@@ -116,6 +117,7 @@ public class ProductManagementAction {
 	public String editRentOffersSubmit()
 	{
 		ProductManagementAppServiceIB productManagementAppServiceIB = new ProductManagementAppServiceIB();
+		productManagementAppServiceIB.setRentId(rentId);
 		productManagementAppServiceIB.setProductId(context.getProductIdfroEdit());
 		productManagementAppServiceIB.setPeriodunit(periodunit);
 		productManagementAppServiceIB.setPeriodvalue(periodvalue);
@@ -220,6 +222,11 @@ public class ProductManagementAction {
 	public void setRentAmount(String rentAmount) {
 		this.rentAmount = rentAmount;
 	}
-	
+	public String getRentId() {
+		return rentId;
+	}
+	public void setRentId(String rentId) {
+		this.rentId = rentId;
+	}
 	
 }

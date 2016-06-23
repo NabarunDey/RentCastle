@@ -108,28 +108,5 @@ public class RentOffersDao {
 		return rentOffersDBBean;
 	}
 
-	public void editRentOffer(ProductManagementAppServiceIB productManagementAppServiceIB) {
-
-		String[] rentId = productManagementAppServiceIB.getRentId().split(",");
-		String[] periodUnit = productManagementAppServiceIB.getPeriodunit().split(",");
-		String[] periodValue = productManagementAppServiceIB.getPeriodvalue().split(",");
-		String[] rentAmount = productManagementAppServiceIB.getAmount().split(",");
-		int count =0;
-		try{
-			while(count<rentId.length)
-			{
-				RentOffersDBBean rentOffersDBBean  = new  RentOffersDBBean();
-				rentOffersDBBean.setRentid(Integer.parseInt(rentId[count]));
-				rentOffersDBBean.setProductid(Integer.parseInt(productManagementAppServiceIB.getProductId()));
-				rentOffersDBBean.setPeriodunit(periodUnit[count]);
-				rentOffersDBBean.setPeriodvalue(periodValue[count]);
-				rentOffersDBBean.setAmount(rentAmount[count]);
-				count++;
-				template.getSessionFactory().getCurrentSession().save(rentOffersDBBean);
-			}
-		}catch (Exception exception)
-		{
-		}
-	}
 
 }

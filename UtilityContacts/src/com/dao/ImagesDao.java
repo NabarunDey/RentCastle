@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -70,21 +71,28 @@ public class ImagesDao {
 		return imagesDaoOB;  
 	}  
 	
-	public List<ImagesDBBean> getImagesByIdList(List<String> imageIds){  
-		List<ImagesDBBean> list; 
+	public List<ImagesDBBean> getImagesByIdList(List<String> imageIds)
+	{  
+		List<ImagesDBBean> list= null; 
 
-		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ImagesDBBean.class)
-				.add(Restrictions.in("imageid", imageIds));
-		list=criteria.list();
+		if(null!= imageIds && imageIds.size()>=1)
+		{
+			Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ImagesDBBean.class)
+					.add(Restrictions.in("imageid", imageIds));
+			list=criteria.list();
+		}
 		String contextPath =  ServletActionContext.getServletContext().getContextPath();
 		List<ImagesDBBean> newImageList = new ArrayList<ImagesDBBean>(); 
 
-		for(ImagesDBBean imagesDBBean : list)
+		if(null!= list)
 		{
-			ImagesDBBean imagesDBBean2 = new ImagesDBBean();
-			CommonUtility.copyBean(imagesDBBean, imagesDBBean2);
-			imagesDBBean2.setImagepath(contextPath+"/images/"+imagesDBBean.getImagepath());
-			newImageList.add(imagesDBBean2);
+			for(ImagesDBBean imagesDBBean : list)
+			{
+				ImagesDBBean imagesDBBean2 = new ImagesDBBean();
+				CommonUtility.copyBean(imagesDBBean, imagesDBBean2);
+				imagesDBBean2.setImagepath(contextPath+"/images/"+imagesDBBean.getImagepath());
+				newImageList.add(imagesDBBean2);
+			}
 		}
 		return newImageList;  
 	}  
@@ -96,18 +104,21 @@ public class ImagesDao {
 		List<String> imageIds = new ArrayList<String>();
 		for(ProductsDBBean productsDBBean : productsDBBeans)
 		{
-			String[] str = productsDBBean.getImages().split("\\|");
-			imageIds.add(str[0]);
-			imageProductMap.put(str[0],String.valueOf(productsDBBean.getProductid()));
+			if(StringUtils.isNotEmpty(productsDBBean.getImages()))
+			{
+				String[] str = productsDBBean.getImages().split("\\|");
+				imageIds.add(str[0]);
+				imageProductMap.put(str[0],String.valueOf(productsDBBean.getProductid()));
+			}
 		}
 		List<ImagesDBBean> imagesDBBeans= getImagesByIdList(imageIds);
-		
+
 		for(ImagesDBBean imagesDBBean : imagesDBBeans)
 		{
 			imageMap.put(imageProductMap.get(imagesDBBean.getImageid()), imagesDBBean);
 		}
 		return imageMap;
-		
+
 	}
 	
 	public void deleteImagesList(List<String> imageIds)

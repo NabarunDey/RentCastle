@@ -79,6 +79,12 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/productManagement/editRentOffersInput.jsp" />
 	</definition>
+	
+	<definition name="editRentOffersConfirm" extends="baseLayout">
+		<put-attribute name="title" value="Search" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/productManagement/editRentOffersConfirm.jsp" />
+	</definition>
 
 	<definition name="cart" extends="baseLayout">
 		<put-attribute name="title" value="My Cart" />

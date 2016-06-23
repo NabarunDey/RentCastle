@@ -20,10 +20,10 @@
 <body>
 	<div class="container">
 		<div class="header_top">
-			<h3 class="text-center">Please add rent details</h3>
+			<h3 class="text-center">Please edit rent details</h3>
 		</div>
 		<form method="post" enctype="multipart/form-data"
-			class="form-horizontal" action="addRentOffersSubmit">
+			class="form-horizontal" action="editRentOffersSubmit">
 			<div class="panel panel-primary multioffers">
 				<div class="panel-heading">Offers</div>
 				<div class="panel-body offers">
@@ -31,32 +31,34 @@
 						<div class="panel-heading">
 							Offer: <label class="offerno">1</label>
 						</div>
+						<s:iterator value="context.viewProductProjectorOB.rentOffersDBBeans">
 						<div class="panel-body">
 							<div class="form-group">
 								<label for="periodunit" class="col-sm-2 control-label">Period
 									Unit</label>
 								<div class="col-sm-4">
 									<s:select list="{'Days','Months','Years'}" name="periodunit"
-										cssClass="form-control"></s:select>
+										cssClass="form-control" value="periodunit"></s:select>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="periodvalue" class="col-sm-2 control-label">Period
 									Value</label>
 								<div class="col-sm-4">
-									<s:textfield name="periodvalue" cssClass="form-control"></s:textfield>
+									<s:textfield name="periodvalue" cssClass="form-control" value = "%{periodvalue}"></s:textfield>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="rentAmount" class="col-sm-2 control-label">Rent
 									Amount</label>
 								<div class="col-sm-4">
-									<s:textfield name="rentAmount" cssClass="form-control"></s:textfield>
+									<s:textfield name="rentAmount" cssClass="form-control" value="%{amount}"></s:textfield>
 								</div>
 							</div>
 							<button type="button" class="btn btn-danger remove">Remove
 								Offer</button>
 						</div>
+						</s:iterator>
 					</div>
 				</div>
 				<div class="panelFooter">

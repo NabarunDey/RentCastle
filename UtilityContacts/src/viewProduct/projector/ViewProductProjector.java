@@ -22,9 +22,12 @@ public class ViewProductProjector {
 		viewProductProjectorOB.setProductsDBBean(viewProductAppServiceIB.getProductsDBBean());
 		viewProductProjectorOB.setRentOffersDBBeans(viewProductAppServiceIB.getRentOffersDBBeans());
 		List<String> imagesPathList =new ArrayList<String>();
-		for(ImagesDBBean imagesDBBean : viewProductAppServiceIB.getImagesDBBeans())
+		if(null!=  viewProductAppServiceIB.getImagesDBBeans() )
 		{
-			imagesPathList.add(imagesDBBean.getImagepath());
+			for(ImagesDBBean imagesDBBean : viewProductAppServiceIB.getImagesDBBeans())
+			{
+				imagesPathList.add(imagesDBBean.getImagepath());
+			}
 		}
 		viewProductProjectorOB.setProductImagesList(imagesPathList);
 		Map<String, List<String>> productTypeMap = new LinkedHashMap<String, List<String>>();
