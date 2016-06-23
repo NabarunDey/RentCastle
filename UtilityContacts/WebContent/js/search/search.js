@@ -69,13 +69,6 @@ $(function(){
 		showLoader(filter);
     });
 	
-	function showLoader(callback){
-		$('#myModal').modal('show').delay(2000).queue(function(){
-			$('#myModal').modal('hide');
-			callback();
-			$.dequeue( this );
-		});
-	}
 	
 	function filter(){
 		

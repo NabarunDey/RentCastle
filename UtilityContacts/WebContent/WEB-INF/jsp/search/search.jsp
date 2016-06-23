@@ -20,13 +20,7 @@
 </style>
 </head>
 <body>
-	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-    	<img src="images/468.gif" />
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div>
+	
 	<div class="container">
 		<div class="women_main">
 			<!-- start sidebar -->
