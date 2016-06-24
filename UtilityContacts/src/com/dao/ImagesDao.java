@@ -15,7 +15,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
-import addProduct.appService.inputBeans.AddProductAppServiceIB;
 import addProduct.appService.inputBeans.FileBean;
 import addProduct.dao.outputBeans.ImagesDaoOB;
 

@@ -6,11 +6,13 @@
 <hibernate-mapping>
 	<class name="com.databaseBeans.PaymentsDBBean" table="products">
 		<id name="paymentid">
-		<generator class="increment"></generator> 
+			<generator class="increment"></generator>
 		</id>
 		<property name="orderid"></property>
 		<property name="username"></property>
-		<property name="time"></property>
+		<property name="time">
+			<type name="java.sql.Timestamp"></type>
+		</property>
 		<property name="amount"></property>
 	</class>
 

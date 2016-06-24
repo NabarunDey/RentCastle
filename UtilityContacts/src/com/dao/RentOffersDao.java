@@ -11,7 +11,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
-import productManagement.appService.inputBeans.ProductManagementAppServiceIB;
 import addProduct.appService.inputBeans.AddRentOffersAppServiceIB;
 import addProduct.dao.outputBeans.AddRentOfferDaoOB;
 
