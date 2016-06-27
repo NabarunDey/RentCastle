@@ -38,6 +38,11 @@
 			$(function()
 			{
 				$('.scroll-pane').jScrollPane();
+				$('.rentOffer').removeClass('bg-primary').addClass('bg-danger');
+				$('.rentOffer').click(function(){
+					$('.rentOffer').removeClass('bg-danger').addClass('bg-primary');
+					$(this).removeClass('bg-primary').addClass('bg-danger');
+				})
 			});
 		</script> 
 </head>
@@ -65,6 +70,14 @@
 				  <div class="desc1 span_3_of_2">
 					<h3><s:property value="context.ViewProductProjectorOB.productsDBBean.productname"/></h3>
 					<p class="money">Security Money: Rs. <s:property value="context.ViewProductProjectorOB.productsDBBean.securitymoney"/></p>
+					<h4>Select Quantity 
+						<select id="quantity" style="width:50px">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+					</h4>
 					<div class="det_nav">
 						<h4>Rent offers</h4>
 						<ul>
