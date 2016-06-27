@@ -38,6 +38,7 @@ public class CartProjector {
 			CartItem cartItem = new CartItem();
 			cartItem.setProductId(productsDBBean.getProductid());
 			cartItem.setProductName(productsDBBean.getProductname());
+			cartItem.setRentId(rentOffersDBBean.getRentid());
 			cartItem.setRentAmount(rentOffersDBBean.getAmount());
 			cartItem.setPeriodValue(rentOffersDBBean.getPeriodvalue());
 			cartItem.setPeriodUnit(rentOffersDBBean.getPeriodunit());

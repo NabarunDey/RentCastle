@@ -5,6 +5,7 @@ package cart.projector.outputBeans;
 public class CartItem {
 
 	private int productId;
+	private int rentId;
 	private String productName;
 	private String rentAmount;
 	private String periodValue;
@@ -89,7 +90,10 @@ public class CartItem {
 	public void setProductSubtype(String productSubtype) {
 		this.productSubtype = productSubtype;
 	}
-	
-	
-	
+	public int getRentId() {
+		return rentId;
+	}
+	public void setRentId(int rentId) {
+		this.rentId = rentId;
+	}
 }
