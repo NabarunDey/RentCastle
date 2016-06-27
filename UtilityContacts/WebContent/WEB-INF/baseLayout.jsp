@@ -27,13 +27,15 @@
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <!-- start slider -->
 <link rel="stylesheet" href="css/fwslider.css" media="all">
+<link rel="stylesheet" href="css/jasny-bootstrap.min.css">
+
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/fwslider.js"></script>
 
 <script src="js/menu_jquery.js"></script>
 <script src="js/login/login.js"></script>
 <script src="js/bootstrap.js"></script>
-<script src="js/jasny-bootstrap.js"></script>
+<script src="js/jasny-bootstrap.min.js"></script>
 <script src="js/jquery-func.js"></script>
 <script src="js/jquery.etalage.min.js"></script>
 <script src="js/jquery.jcarousel.pack.js"></script>

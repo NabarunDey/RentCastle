@@ -1741,7 +1741,7 @@ p.product_descr {
 	text-transform: capitalize;
 }
 
-.desc1 p {
+.desc1 p.money {
 	margin-top: 2%;
 	font-size: 1.8em;
 	color: #00405d;
@@ -1751,7 +1751,7 @@ p.product_descr {
 	letter-spacing: 1px;
 }
 
-.desc1 p a {
+.desc1 p.money a {
 	margin-left: 5px;
 	color: #555555;
 	text-transform: uppercase;
@@ -1760,12 +1760,12 @@ p.product_descr {
 	letter-spacing: 0px;
 }
 
-.desc1 p a:hover {
+.desc1 p.money a:hover {
 	color: #00405d;
 }
 
 .det_nav {
-	margin: 6% 0;
+	margin: 3% 0;
 }
 
 .det_nav ul {
@@ -1785,9 +1785,10 @@ p.product_descr {
 	display: inline-block;
 	width: 20.33333%;
 	margin-left: 4%;
+	margin-top:2%;
 }
 
-.det_nav ul li:first-child {
+.det_nav ul li:nth-child(4n+1){
 	margin-left: 0;
 }
 
@@ -2558,4 +2559,10 @@ ul.s_icons {
     100% {
         -webkit-transform: rotate(-360deg);
     }
+}
+.rentOffer{
+	min-height:70px;
+	line-height:35px;
+	text-align:center;
+	cursor:pointer;
 }
