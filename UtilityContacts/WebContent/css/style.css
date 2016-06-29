@@ -2116,8 +2116,8 @@ ul.s_icons {
 
 .s_icons li a {
 	display: block;
-	width: 30px;
-	height: 30px;
+	width: 20px;
+	height: 20px;
 	background: rgb(187, 187, 187);
 	border-radius: 100px;
 	-webkit-border-radius: 100px;
