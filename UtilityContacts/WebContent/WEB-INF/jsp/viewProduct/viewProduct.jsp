@@ -135,7 +135,6 @@
 	<div class="shoping_bag">
 		<h4><img src="images/bag1.png">my shopping bag / <span> 11 item</span></h4>
 		<ul class="s_art">
-			<li><img src="images/art1.png"></li>
 			<li><span> 11 item</span></li>
 		</ul>
 		<div class="clearfix"></div>
@@ -149,8 +148,7 @@
 				<h4><a href="#">shakumbhari women black kurtas</a> </h4>
 				<span>qty <b>1</b></span>
 				<ul class="s_icons">
-					<li><a href="#"><img src="images/s_icon1.png" alt=""></a></li>
-					<li><a href="#"><img src="images/s_icon3.png" alt=""></a></li>
+					<li><a href="#"><img src="images/s_icon3.png" alt=""> Remove</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
