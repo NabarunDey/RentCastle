@@ -71,10 +71,11 @@ public class UsersDao {
 		else
 		{
 			String cart= "";
-			cart=cart+usersDBBean.getCart()+cartAppServiceIB.getProductId()+"-"
+			String oldcart=usersDBBean.getCart()!=null?usersDBBean.getCart():"";
+			cart=cart+oldcart+cartAppServiceIB.getProductId()+"-"
 							+cartAppServiceIB.getRentOfferId()+"|";
 			usersDBBean.setCart(cart);
-			template.save(usersDBBean);
+			template.update(usersDBBean);
 		}
 		int noOfItems= org.springframework.util.StringUtils.countOccurrencesOf(usersDBBean.getCart(), "\\|");
 		cartDaoOB.setNumberOfItemsInCart(noOfItems);
@@ -96,7 +97,7 @@ public class UsersDao {
 			for(String cart : cartList)
 			{
 				String extractedProductId = cart.substring(0, cart.indexOf("-"));
-				if(extractedProductId.equals(productId));
+				if(extractedProductId.equals(productId))
 				{
 					alreadyPresent = true;
 					break;
