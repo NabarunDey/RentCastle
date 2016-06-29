@@ -51,7 +51,7 @@
 </head>
 <body>
 <div class="container">
-<div class="women_main">
+<div class="women_main" style="display:none">
 	<!-- start content -->
 		<s:hidden id="productId" value="%{context.ViewProductProjectorOB.productsDBBean.productid}" /> 
 			<div class="row single">
@@ -130,6 +130,56 @@
 		   <div class="clearfix"></div>		
 	  </div>
 	<!-- end content -->
+</div>
+<div class="main">
+	<div class="shoping_bag">
+		<h4><img src="images/bag1.png">my shopping bag / <span> 11 item</span></h4>
+		<ul class="s_art">
+			<li><img src="images/art1.png"></li>
+			<li><span> 11 item</span></li>
+		</ul>
+		<div class="clearfix"></div>
+	</div>
+	<div class="shoping_bag1">
+		<div class="shoping_left">
+			<div class="shoping1_of_1">
+				<img src="images/w3.jpg"  class="img-responsive" alt="" />
+			</div>
+			<div class="shoping1_of_2">
+				<h4><a href="#">shakumbhari women black kurtas</a> </h4>
+				<span>qty <b>1</b></span>
+				<ul class="s_icons">
+					<li><a href="#"><img src="images/s_icon1.png" alt=""></a></li>
+					<li><a href="#"><img src="images/s_icon3.png" alt=""></a></li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="shoping_right">
+			<p>Security Money<span> Rs. 2000</span></p>
+			<p>Rent Offer<span> Rs. 900 For 3 Months</span></p>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div class="shoping_bag1">
+		<div class="shoping_left">
+			
+		</div>
+		<div class="shoping_right">
+			<p>sub total &nbsp;<span> Rs. 2900</span></p>
+			<p>delivery &nbsp;<a href="#">free</a>&nbsp;<span> Rs. 0</span></p>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div class="shoping_bag2">
+		<div class="shoping_left">
+			<a class="btn1" href="details.html">place order</a>
+		</div>
+		<div class="shoping_right">
+			<p class="tot">total &nbsp;<span class="color"> Rs. 2900</span></p>
+		</div>
+		<div class="clearfix"></div>
+	</div>
 </div>
 </div>
 
