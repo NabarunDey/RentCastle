@@ -33,6 +33,8 @@
 				<value>Products.hbm.xml</value>
 				<value>Images.hbm.xml</value>
 				<value>RentOffers.hbm.xml</value>
+				<value>Orders.hbm.xml</value>
+				
 			</list>
 		</property>
 
@@ -64,6 +66,10 @@
 
 	<bean id="rentOffersDBBean" class="com.databaseBeans.RentOffersDBBean">
 	</bean>
+	
+	<bean id="ordersDBBean" class="com.databaseBeans.OrdersDBBean">
+	</bean>
+	
 
 
 </beans>

@@ -11,9 +11,7 @@
 		<property name="productid"></property>
 		<property name="rentid"></property>
 		<property name="username"></property>
-		<property name="time">
-			<type name="java.sql.Timestamp"></type>
-		</property>
+		<property name="datetime"></property>
 		<property name="orderstatus"></property>
 	</class>
 

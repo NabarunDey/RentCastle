@@ -1,6 +1,5 @@
 package com.databaseBeans;
 
-import java.sql.Timestamp;
 
 
 public class OrdersDBBean {
@@ -9,7 +8,7 @@ public class OrdersDBBean {
 	private int productid;
 	private int rentid;
 	private String username;
-	private Timestamp time;
+	private String datetime;
 	private String orderstatus;
 	
 	public int getOrderid() {
@@ -36,11 +35,12 @@ public class OrdersDBBean {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public Timestamp getTime() {
-		return time;
+	
+	public String getDatetime() {
+		return datetime;
 	}
-	public void setTime(Timestamp time) {
-		this.time = time;
+	public void setDatetime(String datetime) {
+		this.datetime = datetime;
 	}
 	public String getOrderstatus() {
 		return orderstatus;

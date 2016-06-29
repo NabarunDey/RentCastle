@@ -17,5 +17,5 @@
 	<include file="subapp-flow-search.xml"></include>
 	<include file="subapp-flow-cart.xml"></include>
 	<include file="subapp-flow-productManagement.xml"></include>
-
+	<include file="subapp-flow-order.xml"></include>
 </struts>

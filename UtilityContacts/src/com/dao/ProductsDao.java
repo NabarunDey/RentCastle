@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -132,7 +133,20 @@ public class ProductsDao {
 		return productsDBBean2;
 	}
 
-	public List<ProductsDBBean> getProductListByIds(List<String> productIds)
+	public List<ProductsDBBean> getProductListByIdsString(List<String> productIds)
+	{
+		List<ProductsDBBean> productsDBBeans = null;
+		List<Integer> integers = new ArrayList<Integer>();
+		for(String productId : productIds)
+		{
+			integers.add(Integer.parseInt(productId));
+		}
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class)
+				.add(Restrictions.in("productId", productIds));
+		productsDBBeans=criteria.list();
+		return productsDBBeans;
+	}
+	public List<ProductsDBBean> getProductListByIdsInteger(List<Integer> productIds)
 	{
 		List<ProductsDBBean> productsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class)

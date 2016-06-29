@@ -88,7 +88,22 @@
 
 	<definition name="cart" extends="baseLayout">
 		<put-attribute name="title" value="My Cart" />
-		<put-attribute name="body" value="/WEB-INF/jsp/vart/cart.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/cart/cart.jsp" />
+	</definition>
+	
+	<definition name="orderPreview" extends="baseLayout">
+		<put-attribute name="title" value="My Cart" />
+		<put-attribute name="body" value="/WEB-INF/jsp/order/orderPreview.jsp" />
+	</definition>
+	
+	<definition name="orderConfirmation" extends="baseLayout">
+		<put-attribute name="title" value="My Cart" />
+		<put-attribute name="body" value="/WEB-INF/jsp/order/orderConfirmation.jsp" />
+	</definition>
+	
+	<definition name="viewOrders" extends="baseLayout">
+		<put-attribute name="title" value="My Cart" />
+		<put-attribute name="body" value="/WEB-INF/jsp/order/viewOrders.jsp" />
 	</definition>
 
 </tiles-definitions>

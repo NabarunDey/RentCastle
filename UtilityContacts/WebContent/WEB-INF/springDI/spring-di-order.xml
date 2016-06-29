@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="orderAction" class="order.action.OrderAction" scope="request">
+		<property name="orderAppService" ref="orderAppService" />
+		<property name="context" ref="orderAppContext" />
+		<property name="cartAppContext" ref="cartAppContext" />
+	</bean>
+
+	<bean id="orderAppService" class="order.appService.OrderAppService"
+		scope="request">
+		<property name="cartAppService" ref="cartAppService" />
+		<property name="orderProjector" ref="orderProjector" />
+		<property name="userProfile" ref="userProfile" />
+		<property name="productsDao" ref="productsDao" />
+		<property name="rentOffersDao" ref="rentOffersDao" />
+		<property name="ordersDao" ref="ordersDao" />
+	</bean>
+
+	<bean id="ordersDao" class="com.dao.OrdersDao"
+		scope="request">
+	</bean>
+	
+	<bean id="orderProjector" class="order.projector.OrderProjector"
+		scope="request">
+	</bean>
+
+	<bean id="orderAppContext" class="order.OrderAppContext" scope="session">
+	</bean>
+
+
+</beans>

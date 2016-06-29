@@ -57,8 +57,8 @@ public class CartAppService {
 				productIds.add(extractedProductId);
 				rentIds.add(extractedRenttId);
 			}
-			List<ProductsDBBean> productsDBBeans = productsDao.getProductListByIds(productIds);
-			List<RentOffersDBBean> rentOffersDBBeans = rentOffersDao.getRentOffersByIds(rentIds);
+			List<ProductsDBBean> productsDBBeans = productsDao.getProductListByIdsString(productIds);
+			List<RentOffersDBBean> rentOffersDBBeans = rentOffersDao.getRentOffersByIdsString(rentIds);
 			Map<String,ImagesDBBean> imageMap = imagesDao.getPrimaryImageOfProduct(productsDBBeans);
 			CartDaoOB cartDaoOB = new CartDaoOB();
 			cartDaoOB.setImageMap(imageMap);

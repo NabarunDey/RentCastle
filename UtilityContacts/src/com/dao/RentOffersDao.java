@@ -98,7 +98,21 @@ public class RentOffersDao {
 		template.getSessionFactory().getCurrentSession().createQuery(hql).setInteger("productid", Integer.parseInt(productId)).executeUpdate();
 	}
 	
-	public List<RentOffersDBBean> getRentOffersByIds(List<String> rentIds)
+	public List<RentOffersDBBean> getRentOffersByIdsString(List<String> rentIds)
+	{
+		List<RentOffersDBBean> rentOffersDBBean = null;
+		List<Integer> integers = new ArrayList<Integer>();
+		for(String rentId : rentIds)
+		{
+			integers.add(Integer.parseInt(rentId));
+		}
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(RentOffersDBBean.class)
+				.add(Restrictions.in("productId", integers));
+		rentOffersDBBean=criteria.list();
+		return rentOffersDBBean;
+	}
+	
+	public List<RentOffersDBBean> getRentOffersByIdsInteger(List<Integer> rentIds)
 	{
 		List<RentOffersDBBean> rentOffersDBBean = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(RentOffersDBBean.class)

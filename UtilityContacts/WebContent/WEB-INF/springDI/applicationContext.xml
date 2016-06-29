@@ -18,10 +18,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="spring-di-search.xml" />
 	<import resource="spring-di-cart.xml" />
 	<import resource="spring-di-productManagement.xml" />
-	
-	
-	
-	
+	<import resource="spring-di-order.xml" />
 	<!-- Modules End  -->
 	
 	
