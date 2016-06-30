@@ -1,12 +1,8 @@
 package com.dao;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import order.appService.inputBeans.OrderAppServiceIB;
-
-import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Conjunction;
 import org.hibernate.criterion.Criterion;
@@ -16,11 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import payment.appService.inputBeans.PaymentAppServiceIB;
 
-import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.PaymentsDBBean;
-import com.databaseBeans.ProductsDBBean;
 import com.sessionBeans.UserProfile;
-import com.structures.status.OrderStatus;
 
 @Transactional
 public class PaymentsDao {
