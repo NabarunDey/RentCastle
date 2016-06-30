@@ -1,21 +1,14 @@
-package com.databaseBeans;
+package payment.appService.inputBeans;
 
 
 
-public class PaymentsDBBean {
 
-	private int paymentid;	
+public class PaymentAppServiceIB {
+	
 	private int orderid;
 	private String fromusername;
 	private String tousername;
-	private String datetime;
 	private String amount;
-	public int getPaymentid() {
-		return paymentid;
-	}
-	public void setPaymentid(int paymentid) {
-		this.paymentid = paymentid;
-	}
 	public int getOrderid() {
 		return orderid;
 	}
@@ -34,12 +27,6 @@ public class PaymentsDBBean {
 	public void setTousername(String tousername) {
 		this.tousername = tousername;
 	}
-	public String getDatetime() {
-		return datetime;
-	}
-	public void setDatetime(String datetime) {
-		this.datetime = datetime;
-	}
 	public String getAmount() {
 		return amount;
 	}
@@ -47,5 +34,6 @@ public class PaymentsDBBean {
 		this.amount = amount;
 	}
 	
-
+	
+	
 }

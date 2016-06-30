@@ -4,15 +4,14 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.databaseBeans.PaymentsDBBean" table="products">
+	<class name="com.databaseBeans.PaymentsDBBean" table="payments">
 		<id name="paymentid">
 			<generator class="increment"></generator>
 		</id>
 		<property name="orderid"></property>
-		<property name="username"></property>
-		<property name="time">
-			<type name="java.sql.Timestamp"></type>
-		</property>
+		<property name="fromusername"></property>
+		<property name="tousername"></property>
+		<property name="datetime"></property>
 		<property name="amount"></property>
 	</class>
 
