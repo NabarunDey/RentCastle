@@ -14,10 +14,20 @@ public class CartDaoOB {
 	private boolean productAlreadyInCart;
 	private int numberOfItemsInCart;
 	
-	private List<ProductsDBBean> productsDBBeans;
-	private List<RentOffersDBBean> rentOffersDBBeans;
+	private Map<String,ProductsDBBean> productMap;
+	private Map<String,RentOffersDBBean> rentMap;
 	private Map<String,ImagesDBBean> imageMap;
+	private List<String> productRentIds;
 	
+	
+	public List<String> getProductRentIds() {
+		return productRentIds;
+	}
+
+	public void setProductRentIds(List<String> productRentIds) {
+		this.productRentIds = productRentIds;
+	}
+
 	public int getNumberOfItemsInCart() {
 		return numberOfItemsInCart;
 	}
@@ -34,20 +44,20 @@ public class CartDaoOB {
 		this.productAlreadyInCart = productAlreadyInCart;
 	}
 
-	public List<ProductsDBBean> getProductsDBBeans() {
-		return productsDBBeans;
+	public Map<String, ProductsDBBean> getProductMap() {
+		return productMap;
 	}
 
-	public void setProductsDBBeans(List<ProductsDBBean> productsDBBeans) {
-		this.productsDBBeans = productsDBBeans;
+	public void setProductMap(Map<String, ProductsDBBean> productMap) {
+		this.productMap = productMap;
 	}
 
-	public List<RentOffersDBBean> getRentOffersDBBeans() {
-		return rentOffersDBBeans;
+	public Map<String, RentOffersDBBean> getRentMap() {
+		return rentMap;
 	}
 
-	public void setRentOffersDBBeans(List<RentOffersDBBean> rentOffersDBBeans) {
-		this.rentOffersDBBeans = rentOffersDBBeans;
+	public void setRentMap(Map<String, RentOffersDBBean> rentMap) {
+		this.rentMap = rentMap;
 	}
 
 	public Map<String, ImagesDBBean> getImageMap() {

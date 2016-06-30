@@ -26,7 +26,7 @@
 						</div>
 					</s:if>
 					<ul class="icon1 sub-icon1 profile_img">
-						<li><a class="active-icon c2" href="#"> </a>
+						<li><a class="active-icon c2" href="viewCart.action"> </a>
 							<ul class="sub-icon1 list">
 								<li><h3>shopping cart empty</h3>
 									<a href="viewCart.action"></a></li>

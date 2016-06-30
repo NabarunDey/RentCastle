@@ -63,50 +63,17 @@ public class UsersDao {
 		CartDaoOB cartDaoOB = new CartDaoOB();
 		UsersDBBean usersDBBean = null;
 		usersDBBean= (UsersDBBean) template.get(UsersDBBean.class,cartAppServiceIB.getUserProfile().getUserName());
-		if(checkIfAlreadyPresentInCart(cartAppServiceIB.getUserProfile().getUserName(),
-				cartAppServiceIB.getProductId(), usersDBBean))
-		{
-			cartDaoOB.setProductAlreadyInCart(true);
-		}
-		else
-		{
-			String cart= "";
-			String oldcart=usersDBBean.getCart()!=null?usersDBBean.getCart():"";
-			cart=cart+oldcart+cartAppServiceIB.getProductId()+"-"
-							+cartAppServiceIB.getRentOfferId()+"|";
-			usersDBBean.setCart(cart);
-			template.update(usersDBBean);
-		}
+		String cart= "";
+		String oldcart=usersDBBean.getCart()!=null?usersDBBean.getCart():"";
+		cart=cart+oldcart+cartAppServiceIB.getProductId()+"-"
+				+cartAppServiceIB.getRentOfferId()+"|";
+		usersDBBean.setCart(cart);
+		template.update(usersDBBean);
 		int noOfItems= org.springframework.util.StringUtils.countOccurrencesOf(usersDBBean.getCart(), "\\|");
 		cartDaoOB.setNumberOfItemsInCart(noOfItems);
 		return cartDaoOB;
 	}
 	
-	public boolean checkIfAlreadyPresentInCart(String userName,String productId, UsersDBBean usersDBBean)
-	{
-		boolean alreadyPresent= false;
-		if(null == usersDBBean)
-		{
-			usersDBBean= (UsersDBBean) template.get(UsersDBBean.class,userName);
-		}
-		if(!StringUtils.isEmpty(usersDBBean.getCart()))
-		{
-			ArrayList<String> cartList = new ArrayList<String>(); 
-			Collections.addAll(cartList,StringUtils.split(usersDBBean.getCart(), "\\|"));
-
-			for(String cart : cartList)
-			{
-				String extractedProductId = cart.substring(0, cart.indexOf("-"));
-				if(extractedProductId.equals(productId))
-				{
-					alreadyPresent = true;
-					break;
-				}
-			}
-		}
-		
-		return alreadyPresent;
-	}
 
 	public List<String> getProductRentIdsFromUserCart(String userName)
 	{
@@ -125,7 +92,7 @@ public class UsersDao {
 		return productIds;
 	}
 
-	public void removeFromCart(String userName, String productId)
+	public void removeFromCart(String userName, String productId,String rentId)
 	{
 		UsersDBBean usersDBBean= (UsersDBBean) template.get(UsersDBBean.class,userName);
 		if(!StringUtils.isEmpty(usersDBBean.getCart()))
@@ -136,7 +103,7 @@ public class UsersDao {
 			
 			for(String cart : cartList)
 			{
-				if(!cart.substring(0, cart.indexOf("-")).equals(productId))
+				if(!cart.equals(productId+'-'+rentId))
 				{
 					cartString = cartString+"|";
 				}

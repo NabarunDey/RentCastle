@@ -142,7 +142,7 @@ public class ProductsDao {
 			integers.add(Integer.parseInt(productId));
 		}
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class)
-				.add(Restrictions.in("productId", productIds));
+				.add(Restrictions.in("productid", integers));
 		productsDBBeans=criteria.list();
 		return productsDBBeans;
 	}

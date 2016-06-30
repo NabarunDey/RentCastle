@@ -5,7 +5,7 @@ function addToCart() {
 		url: "addToCart",
 		data: { productId: $('#productId').val(),rentOfferId : $('#rentOfferId').val() } ,
 		success: function(response){
-			
+				alert('Item sucessfully added to cart.')
 		},
 		error: function(e){
 			alert('Error: ' + e);

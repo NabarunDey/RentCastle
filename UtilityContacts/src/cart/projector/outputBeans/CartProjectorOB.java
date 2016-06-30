@@ -6,7 +6,6 @@ import java.util.List;
 
 public class CartProjectorOB {
 
-	boolean productAlreadyInCart;
 	private String numberOfItemsInCart;
 	private List<CartItem> cartItems;
 
@@ -24,11 +23,4 @@ public class CartProjectorOB {
 		this.numberOfItemsInCart = numberOfItemsInCart;
 	} 
 
-	public boolean isProductAlreadyInCart() {
-		return productAlreadyInCart;
-	}
-
-	public void setProductAlreadyInCart(boolean productAlreadyInCart) {
-		this.productAlreadyInCart = productAlreadyInCart;
-	}
 }

@@ -18,7 +18,6 @@ public class CartProjector {
 	public CartProjectorOB addToCart(CartDaoOB cartDaoOB)
 	{
 		CartProjectorOB cartProjectorOB = new CartProjectorOB();
-		cartProjectorOB.setProductAlreadyInCart(cartDaoOB.isProductAlreadyInCart());
 		cartProjectorOB.setNumberOfItemsInCart("("+cartDaoOB.getNumberOfItemsInCart()+")");
 		return cartProjectorOB;
 	}
@@ -28,12 +27,15 @@ public class CartProjector {
 		CartProjectorOB cartProjectorOB = new CartProjectorOB();
 		List<CartItem> cartItems = new ArrayList<CartItem>();
 
-		Iterator aIterator = cartDaoOB.getProductsDBBeans().iterator();
-		Iterator bIterator = cartDaoOB.getRentOffersDBBeans().iterator();
-		while (aIterator.hasNext() && bIterator.hasNext())
+		List<String> productRentIds = cartDaoOB.getProductRentIds();
+		for (String productRentId : productRentIds)
 		{
-			ProductsDBBean productsDBBean = (ProductsDBBean)aIterator.next();
-			RentOffersDBBean rentOffersDBBean = (RentOffersDBBean)bIterator.next();
+			String extractedProductId = productRentId.substring(0, productRentId.indexOf("-"));
+			String extractedRenttId = productRentId.substring(productRentId.indexOf("-")+1);
+
+			
+			ProductsDBBean productsDBBean = cartDaoOB.getProductMap().get(extractedProductId);
+			RentOffersDBBean rentOffersDBBean = cartDaoOB.getRentMap().get(extractedRenttId);
 
 			CartItem cartItem = new CartItem();
 			cartItem.setProductId(productsDBBean.getProductid());

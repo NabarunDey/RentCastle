@@ -107,7 +107,7 @@ public class RentOffersDao {
 			integers.add(Integer.parseInt(rentId));
 		}
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(RentOffersDBBean.class)
-				.add(Restrictions.in("productId", integers));
+				.add(Restrictions.in("rentid", integers));
 		rentOffersDBBean=criteria.list();
 		return rentOffersDBBean;
 	}

@@ -17,6 +17,7 @@ import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
 import com.sessionBeans.UserProfile;
+import com.util.CommonUtility;
 
 
 /**
@@ -58,13 +59,15 @@ public class CartAppService {
 				rentIds.add(extractedRenttId);
 			}
 			List<ProductsDBBean> productsDBBeans = productsDao.getProductListByIdsString(productIds);
+			Map<String, ProductsDBBean> productMap = CommonUtility.getProductMap(productsDBBeans);
 			List<RentOffersDBBean> rentOffersDBBeans = rentOffersDao.getRentOffersByIdsString(rentIds);
+			Map<String, RentOffersDBBean> rentMap= CommonUtility.getRentMap(rentOffersDBBeans);
 			Map<String,ImagesDBBean> imageMap = imagesDao.getPrimaryImageOfProduct(productsDBBeans);
 			CartDaoOB cartDaoOB = new CartDaoOB();
 			cartDaoOB.setImageMap(imageMap);
-			cartDaoOB.setProductsDBBeans(productsDBBeans);
-			cartDaoOB.setRentOffersDBBeans(rentOffersDBBeans);
-			
+			cartDaoOB.setProductMap(productMap);
+			cartDaoOB.setRentMap(rentMap);
+			cartDaoOB.setProductRentIds(productRentIds);
 			cartProjectorOB = cartProjector.viewCart(cartDaoOB);
 		}
 		
@@ -73,7 +76,7 @@ public class CartAppService {
 	
 	public void removeFromCart(CartAppServiceIB cartAppServiceIB)
 	{
-		usersDao.removeFromCart(cartAppServiceIB.getUserProfile().getUserName(), cartAppServiceIB.getProductId());
+		usersDao.removeFromCart(cartAppServiceIB.getUserProfile().getUserName(), cartAppServiceIB.getProductId(),cartAppServiceIB.getRentOfferId() );
 	}
 	
 	public UsersDao getUsersDao() {
