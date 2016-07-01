@@ -25,7 +25,6 @@ public class CartProjector {
 	{
 		CartProjectorOB cartProjectorOB = new CartProjectorOB();
 		List<CartItem> cartItems = new ArrayList<CartItem>();
-
 		List<String> productRentIds = cartDaoOB.getProductRentIds();
 		for (String productRentId : productRentIds)
 		{

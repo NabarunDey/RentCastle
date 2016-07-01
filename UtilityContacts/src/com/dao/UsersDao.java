@@ -100,15 +100,20 @@ public class UsersDao {
 			ArrayList<String> cartList = new ArrayList<String>(); 
 			Collections.addAll(cartList,StringUtils.split(usersDBBean.getCart(), "\\|"));
 				String cartString = "";
-			
+			boolean removed = false;
 			for(String cart : cartList)
 			{
-				if(!cart.equals(productId+'-'+rentId))
+				if(!cart.equals(productId+'-'+rentId) || removed)
 				{
-					cartString = cartString+"|";
+					cartString = cartString+cart+"|";
+				}
+				else
+				{
+					removed=true;
 				}
 			}
 			usersDBBean.setCart(cartString);
+			template.update(usersDBBean);
 		}
 	}
 	public HibernateTemplate getTemplate() {

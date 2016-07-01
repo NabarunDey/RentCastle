@@ -47,8 +47,8 @@ public class CartAppService {
 		List<String> productRentIds = usersDao.getProductRentIdsFromUserCart(userProfile.getUserName());
 		List<String> productIds = new ArrayList<String>();
 		List<String> rentIds = new ArrayList<String>();
-		CartProjectorOB cartProjectorOB = null;
-		 
+		CartProjectorOB cartProjectorOB = new CartProjectorOB();
+		int noOfItems = 0; 
 		if(null!= productRentIds && productRentIds.size()>=1)
 		{
 			for(String productRentId : productRentIds)
@@ -57,6 +57,7 @@ public class CartAppService {
 				String extractedRenttId = productRentId.substring(productRentId.indexOf("-")+1);
 				productIds.add(extractedProductId);
 				rentIds.add(extractedRenttId);
+				noOfItems++;
 			}
 			List<ProductsDBBean> productsDBBeans = productsDao.getProductListByIdsString(productIds);
 			Map<String, ProductsDBBean> productMap = CommonUtility.getProductMap(productsDBBeans);
@@ -69,14 +70,16 @@ public class CartAppService {
 			cartDaoOB.setRentMap(rentMap);
 			cartDaoOB.setProductRentIds(productRentIds);
 			cartProjectorOB = cartProjector.viewCart(cartDaoOB);
+
 		}
-		
+		cartProjectorOB.setNumberOfItemsInCart(String.valueOf(noOfItems));
 		return cartProjectorOB;
 	}
 	
 	public void removeFromCart(CartAppServiceIB cartAppServiceIB)
 	{
-		usersDao.removeFromCart(cartAppServiceIB.getUserProfile().getUserName(), cartAppServiceIB.getProductId(),cartAppServiceIB.getRentOfferId() );
+		usersDao.removeFromCart(userProfile.getUserName(), cartAppServiceIB.getProductId(),cartAppServiceIB.getRentOfferId() );
+		return;
 	}
 	
 	public UsersDao getUsersDao() {

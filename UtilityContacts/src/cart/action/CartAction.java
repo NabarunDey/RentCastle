@@ -36,6 +36,7 @@ public class CartAction  extends ActionSupport {
 	{
 		CartAppServiceIB cartAppServiceIB = new CartAppServiceIB();
 		cartAppServiceIB.setProductId(productId);
+		cartAppServiceIB.setRentOfferId(rentOfferId);
 		cartAppService.removeFromCart(cartAppServiceIB);
 		return "success";
 	}
