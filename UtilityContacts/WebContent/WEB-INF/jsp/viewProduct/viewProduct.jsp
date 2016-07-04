@@ -41,7 +41,6 @@
 			$(function()
 			{
 				$('.scroll-pane').jScrollPane();
-				$('.rentOffer').removeClass('bg-primary').addClass('bg-danger');
 				$('.rentOffer').click(function(){
 					$('.rentOffer').removeClass('bg-danger').addClass('bg-primary');
 					$(this).removeClass('bg-primary').addClass('bg-danger');
