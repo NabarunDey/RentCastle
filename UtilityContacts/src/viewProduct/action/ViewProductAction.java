@@ -1,5 +1,7 @@
 package viewProduct.action;
 
+import com.structures.status.ProductStatus;
+
 import viewProduct.ViewProductAppContext;
 import viewProduct.appService.ViewProductAppService;
 import viewProduct.appService.inputBeans.ViewProductAppServiceIB;
@@ -16,7 +18,8 @@ public class ViewProductAction {
 		ViewProductAppServiceIB viewProductAppServiceIB = new ViewProductAppServiceIB();
 		viewProductAppServiceIB.setProductId(productId);
 		ViewProductProjectorOB viewProductProjectorOB = viewProductAppService.viewProduct(viewProductAppServiceIB);
-		context.setViewProductProjectorOB(viewProductProjectorOB);
+		if(!viewProductProjectorOB.getProductsDBBean().getApprovalStatus().equals(ProductStatus.PENDING))
+			context.setViewProductProjectorOB(viewProductProjectorOB);
 		return "success";
 	}
 

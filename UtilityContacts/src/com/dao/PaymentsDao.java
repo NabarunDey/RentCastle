@@ -14,13 +14,15 @@ import payment.appService.inputBeans.PaymentAppServiceIB;
 
 import com.databaseBeans.PaymentsDBBean;
 import com.sessionBeans.UserProfile;
+import com.structures.status.PaymentStatus;
+import com.structures.userTypes.UserType;
 
 @Transactional
 public class PaymentsDao {
 
 	UserProfile userProfile ;
 	HibernateTemplate template;  
-	
+
 	public HibernateTemplate getTemplate() {
 		return template;
 	}
@@ -28,7 +30,7 @@ public class PaymentsDao {
 	public void setTemplate(HibernateTemplate template) {
 		this.template = template;
 	}
-	
+
 	public UserProfile getUserProfile() {
 		return userProfile;
 	}
@@ -40,16 +42,17 @@ public class PaymentsDao {
 	public PaymentsDBBean addPayment(PaymentAppServiceIB paymentAppServiceIB) {
 		PaymentsDBBean paymentsDBBean = new PaymentsDBBean();
 		paymentsDBBean.setAmount(paymentAppServiceIB.getAmount());
+		paymentsDBBean.setPaymentStatus(PaymentStatus.PENDING.toString());
 		paymentsDBBean.setFromusername(paymentAppServiceIB.getFromusername());
 		paymentsDBBean.setOrderid(paymentAppServiceIB.getOrderid());
 		paymentsDBBean.setTousername(paymentAppServiceIB.getTousername());
 		String dateTime= Calendar.getInstance().getTime().toString();
 		paymentsDBBean.setDatetime(dateTime);
-		
+
 		template.save(paymentsDBBean);
 		return paymentsDBBean;
 	}
-	
+
 	public List<PaymentsDBBean> getPaymentsForUser()
 	{
 		List<PaymentsDBBean> paymentsDBBeans = null;
@@ -64,6 +67,28 @@ public class PaymentsDao {
 		criteria.add(completeCondition);
 		paymentsDBBeans = criteria.list();
 		return paymentsDBBeans;
+	}
+
+	public List<PaymentsDBBean> getPaymentsForAdmin()
+	{
+		List<PaymentsDBBean> paymentsDBBeans = null;
+		if(userProfile.getUserType().equals(UserType.ADMIN))
+		{
+			Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PaymentsDBBean.class);
+			paymentsDBBeans = criteria.list();
+		}
+		return paymentsDBBeans;
+	}
+
+	public void changePaymentStatus(PaymentAppServiceIB paymentAppServiceIB)
+	{
+		if(userProfile.getUserType().equals(UserType.ADMIN))
+		{
+			PaymentsDBBean paymentsDBBean = new PaymentsDBBean();
+			paymentsDBBean = template.get(PaymentsDBBean.class, paymentAppServiceIB.getPaymentid());
+			paymentsDBBean.setPaymentStatus(paymentAppServiceIB.getPaymentStatus());
+			template.update(paymentsDBBean);
+		}
 	}
 
 }

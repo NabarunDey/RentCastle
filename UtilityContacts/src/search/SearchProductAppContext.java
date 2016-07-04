@@ -2,6 +2,7 @@ package search;
 
 import java.util.List;
 
+import search.projector.outputBeans.SearchFilter;
 import search.projector.outputBeans.SearchProductProjectorOB;
 
 
@@ -14,9 +15,16 @@ public class SearchProductAppContext {
 	private String searchType;
 	private String searchSubType;
 	private String searchString;
-	
-	
-	
+	private SearchFilter searchFilter;
+
+	public SearchFilter getSearchFilter() {
+		return searchFilter;
+	}
+
+	public void setSearchFilter(SearchFilter searchFilter) {
+		this.searchFilter = searchFilter;
+	}
+
 	public String getSearchString() {
 		return searchString;
 	}

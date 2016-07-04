@@ -10,6 +10,7 @@ public class PaymentsDBBean {
 	private String tousername;
 	private String datetime;
 	private String amount;
+	private String paymentStatus;
 	public int getPaymentid() {
 		return paymentid;
 	}
@@ -46,6 +47,11 @@ public class PaymentsDBBean {
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}
+	public String getPaymentStatus() {
+		return paymentStatus;
+	}
+	public void setPaymentStatus(String paymentStatus) {
+		this.paymentStatus = paymentStatus;
+	}
 	
-
 }

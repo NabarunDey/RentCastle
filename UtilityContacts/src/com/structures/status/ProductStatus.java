@@ -3,7 +3,9 @@ package com.structures.status;
 public enum ProductStatus {
 	
 	AVAILABLE("Available"),
-	NOTAVAILABLE("NotAvailable");
+	NOTAVAILABLE("NotAvailable"),
+	PENDING("Pending"),
+	APPROVED("Approved");
 	
 	private String text;
 

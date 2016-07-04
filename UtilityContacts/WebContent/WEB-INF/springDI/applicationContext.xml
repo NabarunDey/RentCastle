@@ -19,6 +19,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="spring-di-cart.xml" />
 	<import resource="spring-di-productManagement.xml" />
 	<import resource="spring-di-order.xml" />
+	<import resource="spring-di-payment.xml" />
+	
 	<!-- Modules End  -->
 	
 	

@@ -3,7 +3,8 @@ package com.structures.userTypes;
 public enum UserType {
 
 	VENDOR("Vendor"),
-	CUSTOMER("Customer");
+	CUSTOMER("Customer"),
+	ADMIN("Admin");
 
 	private String text;
 

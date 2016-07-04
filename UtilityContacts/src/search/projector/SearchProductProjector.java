@@ -7,6 +7,7 @@ import search.dao.outputBeans.SearchProductDaoOB;
 import search.projector.outputBeans.SearchProductProjectorOB;
 
 import com.databaseBeans.ProductsDBBean;
+import com.structures.status.ProductStatus;
 
 
 public class SearchProductProjector {
@@ -16,27 +17,30 @@ public class SearchProductProjector {
 		List<SearchProductProjectorOB> searchProductProjectorOBs = new ArrayList<SearchProductProjectorOB>();
 		for(ProductsDBBean productsDBBean : searchProductDaoOB.getProductsDBBeans())
 		{
-			SearchProductProjectorOB searchProductProjectorOB = new SearchProductProjectorOB();
-			searchProductProjectorOB.setProductId(productsDBBean.getProductid());
-			searchProductProjectorOB.setProductName(productsDBBean.getProductname());
-			if(null!=searchProductDaoOB.getRentMap().get(String.valueOf(productsDBBean.getProductid())))
+			if(!productsDBBean.getApprovalStatus().equals(ProductStatus.PENDING) || searchProductDaoOB.isVendor())
 			{
-				searchProductProjectorOB.setRentAmount(searchProductDaoOB.getRentMap().get(String.valueOf(productsDBBean.getProductid())).getAmount());
-				searchProductProjectorOB.setPeriodValue(searchProductDaoOB.getRentMap().get(String.valueOf(productsDBBean.getProductid())).getPeriodvalue());
-				searchProductProjectorOB.setPeriodUnit(searchProductDaoOB.getRentMap().get(String.valueOf(productsDBBean.getProductid())).getPeriodunit());
+				SearchProductProjectorOB searchProductProjectorOB = new SearchProductProjectorOB();
+				searchProductProjectorOB.setProductId(productsDBBean.getProductid());
+				searchProductProjectorOB.setProductName(productsDBBean.getProductname());
+				if(null!=searchProductDaoOB.getRentMap().get(String.valueOf(productsDBBean.getProductid())))
+				{
+					searchProductProjectorOB.setRentAmount(searchProductDaoOB.getRentMap().get(String.valueOf(productsDBBean.getProductid())).getAmount());
+					searchProductProjectorOB.setPeriodValue(searchProductDaoOB.getRentMap().get(String.valueOf(productsDBBean.getProductid())).getPeriodvalue());
+					searchProductProjectorOB.setPeriodUnit(searchProductDaoOB.getRentMap().get(String.valueOf(productsDBBean.getProductid())).getPeriodunit());
+				}
+				if(null!= searchProductDaoOB.getImageMap() && null != searchProductDaoOB.getImageMap().get(String.valueOf(productsDBBean.getProductid())))
+				{
+					searchProductProjectorOB.setImageUrl(searchProductDaoOB.getImageMap().get(String.valueOf(productsDBBean.getProductid())).getImagepath());
+				}
+
+				searchProductProjectorOB.setProductCity(productsDBBean.getProductcity());
+				searchProductProjectorOB.setProductState(productsDBBean.getProductstate());
+				searchProductProjectorOB.setProductLocation(productsDBBean.getProductlocation());
+				searchProductProjectorOB.setProductType(productsDBBean.getProducttype());
+				searchProductProjectorOB.setProductSubtype(productsDBBean.getSubproducttype());
+				searchProductProjectorOB.setUserName(productsDBBean.getUsername());
+				searchProductProjectorOBs.add(searchProductProjectorOB);
 			}
-			if(null!= searchProductDaoOB.getImageMap() && null != searchProductDaoOB.getImageMap().get(String.valueOf(productsDBBean.getProductid())))
-			{
-				searchProductProjectorOB.setImageUrl(searchProductDaoOB.getImageMap().get(String.valueOf(productsDBBean.getProductid())).getImagepath());
-			}
-			
-			searchProductProjectorOB.setProductCity(productsDBBean.getProductcity());
-			searchProductProjectorOB.setProductState(productsDBBean.getProductstate());
-			searchProductProjectorOB.setProductLocation(productsDBBean.getProductlocation());
-			searchProductProjectorOB.setProductType(productsDBBean.getProducttype());
-			searchProductProjectorOB.setProductSubtype(productsDBBean.getSubproducttype());
-			searchProductProjectorOB.setUserName(productsDBBean.getUsername());
-			searchProductProjectorOBs.add(searchProductProjectorOB);
 		}
 		return searchProductProjectorOBs;
 	}
