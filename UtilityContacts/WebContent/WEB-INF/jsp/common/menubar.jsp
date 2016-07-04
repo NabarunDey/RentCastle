@@ -26,26 +26,10 @@
 						</div>
 					</s:if>
 					<ul class="icon1 sub-icon1 profile_img">
-						<li><a class="active-icon c2" href="viewCart.action"> </a>
-							<ul class="sub-icon1 list">
-								<li><h3>shopping cart empty</h3>
-									<a href="viewCart.action"></a></li>
-								<li><p>
-										if items in your wishlit are missing, <a href="">login to
-											your account</a> to view them
-									</p></li>
-							</ul></li>
+						<li><a class="active-icon c2" href="viewCart.action"> </a></li>
 					</ul>
 					<ul class="icon1 sub-icon1 profile_img">
-						<li><a class="active-icon c1" href="#"> </a>
-							<ul class="sub-icon1 list">
-								<li><h3>wishlist empty</h3>
-									<a href=""></a></li>
-								<li><p>
-										if items in your wishlit are missing, <a href="">login to
-											your account</a> to view them
-									</p></li>
-							</ul></li>
+						<li><a class="active-icon c1" href="#"> </a></li>
 					</ul>
 					<div class="search">
 						<s:form action="searchAction">
