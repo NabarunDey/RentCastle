@@ -25,6 +25,14 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="rentOffersDao" class="com.dao.RentOffersDao">
 		<property name="template" ref="template"></property>
 	</bean>
+	
+	<bean id="orderssDao" class="com.dao.OrdersDao">
+		<property name="template" ref="template"></property>
+	</bean>
+	
+	<bean id="payementsDao" class="com.dao.PaymentsDao">
+		<property name="template" ref="template"></property>
+	</bean>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

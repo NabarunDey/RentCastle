@@ -18,4 +18,6 @@
 	<include file="subapp-flow-cart.xml"></include>
 	<include file="subapp-flow-productManagement.xml"></include>
 	<include file="subapp-flow-order.xml"></include>
+	<include file="subapp-flow-payment.xml"></include>
+	
 </struts>

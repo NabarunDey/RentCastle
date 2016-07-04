@@ -1,14 +1,14 @@
 package com.structures.status;
 
-public enum OrderStatus {
+public enum PaymentStatus {
 	
-	INITIATED("INITIATED"),
-	PROCESSING("PROCESSING"),
-	COMPLETE("COMPLETE");
+	PENDING("PENDING"),
+	COMPLETED("COMPLETED"),
+	UPCOMING("UPCOMING");
 	
 	private String text;
 
-	private OrderStatus(String text) {
+	private PaymentStatus(String text) {
 		this.text = text;
 	}
 

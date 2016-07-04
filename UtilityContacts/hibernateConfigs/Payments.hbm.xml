@@ -13,6 +13,7 @@
 		<property name="tousername"></property>
 		<property name="datetime"></property>
 		<property name="amount"></property>
+		<property name="paymentStatus"></property>
 	</class>
 
 </hibernate-mapping>  	

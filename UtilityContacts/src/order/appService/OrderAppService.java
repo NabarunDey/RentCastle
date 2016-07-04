@@ -57,6 +57,7 @@ public class OrderAppService {
 		return new OrderProjectorOB();
 	}
 	
+	
 	public OrderProjectorOB viewOrders()
 	{
 		List<OrdersDBBean> ordersDBBeans = ordersDao.getOrdersForUser();

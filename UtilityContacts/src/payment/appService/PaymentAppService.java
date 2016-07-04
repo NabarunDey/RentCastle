@@ -36,4 +36,17 @@ public class PaymentAppService {
 		return paymentProjectorOB;
 	}
 	
+	public PaymentProjectorOB getPaymentsAdmin()
+	{
+		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForUser();
+		PaymentProjectorOB paymentProjectorOB = new PaymentProjectorOB();
+		paymentProjectorOB.setPaymentsDBBeans(paymentsDBBeans);
+		return paymentProjectorOB;
+	}
+	
+	public void changePaymentStatus(PaymentAppServiceIB paymentAppServiceIB)
+	{
+		paymentsDao.changePaymentStatus(paymentAppServiceIB);
+	}
+	
 }
