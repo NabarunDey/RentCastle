@@ -9,10 +9,18 @@ import com.databaseBeans.RentOffersDBBean;
 
 
 public class SearchProductDaoOB {
-	
+
 	private List<ProductsDBBean> productsDBBeans;
 	private Map<String, RentOffersDBBean> rentMap;
 	private Map<String, ImagesDBBean> imageMap;
+	private boolean vendor;
+
+	public boolean isVendor() {
+		return vendor;
+	}
+	public void setVendor(boolean vendor) {
+		this.vendor = vendor;
+	}
 	public List<ProductsDBBean> getProductsDBBeans() {
 		return productsDBBeans;
 	}
@@ -31,5 +39,5 @@ public class SearchProductDaoOB {
 	public void setImageMap(Map<String, ImagesDBBean> imageMap) {
 		this.imageMap = imageMap;
 	}
-	
+
 }

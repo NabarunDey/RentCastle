@@ -15,7 +15,14 @@ public class ProductsDBBean {
 	private String productstate;
 	private String productcity;
 	private String productlocation;
+	private String approvalStatus;
 	
+	public String getApprovalStatus() {
+		return approvalStatus;
+	}
+	public void setApprovalStatus(String approvalStatus) {
+		this.approvalStatus = approvalStatus;
+	}
 	public int getProductid() {
 		return productid;
 	}

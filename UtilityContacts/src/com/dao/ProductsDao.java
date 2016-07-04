@@ -17,6 +17,7 @@ import addProduct.appService.inputBeans.AddProductAppServiceIB;
 import addProduct.dao.outputBeans.AddProductDaoOB;
 
 import com.databaseBeans.ProductsDBBean;
+import com.structures.status.ProductStatus;
 import com.util.CommonUtility;
 
 @Transactional
@@ -50,7 +51,7 @@ public class ProductsDao {
 		productsDBBean.setProductlocation(locationConcat);
 		productsDBBean.setImages(imageIdsConcat);
 		productsDBBean.setUsername(addProductAppServiceIB.getUsername());
-		
+		productsDBBean.setApprovalStatus(ProductStatus.PENDING.toString());
 		
 		boolean success = true;
 		try{
@@ -179,13 +180,18 @@ public class ProductsDao {
 		}
 		productsDBBean.setProductlocation(locationConcat);
 		productsDBBean.setUsername(productManagementAppServiceIB.getUsername());
-		
+		productsDBBean.setApprovalStatus(ProductStatus.PENDING.toString());
 		
 		try{
 		template.update(productsDBBean);
 		}catch (Exception exception)
 		{
 		}
+	}
+	
+	public void changeProductStatus()
+	{
+		
 	}
 
 }

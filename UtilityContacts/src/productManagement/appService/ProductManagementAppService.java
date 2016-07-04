@@ -52,6 +52,7 @@ public class ProductManagementAppService {
 			searchProductDaoOB.setRentMap(rentMap);
 			Map<String, ImagesDBBean> imageMap= imagesDao.getPrimaryImageOfProduct(productsDBBeans);
 			searchProductDaoOB.setImageMap(imageMap);
+			searchProductDaoOB.setVendor(true);
 			searchProductProjectorOBs= searchProductProjector.getSearchList(searchProductDaoOB);
 		}
 		return searchProductProjectorOBs;
