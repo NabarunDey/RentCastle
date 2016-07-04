@@ -30,7 +30,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="template" ref="template"></property>
 	</bean>
 
-	<bean id="ordersDao" class="com.dao.OrdersDao">
+	<bean id="paymentsDao" class="com.dao.PaymentsDao">
 		<property name="template" ref="template"></property>
 	</bean>
 

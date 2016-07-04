@@ -6,7 +6,7 @@ $(function(){
 	var currentIndex = 1;
 	var actualResult = results;
 	
-	productsMoreLess(1);
+	productsMoreLess(4);
 
 	function productsMoreLess(noOfResults){
 		results = $(".result");

@@ -7,7 +7,7 @@ function showLoader(callback){
 		  					'</div>'+
 		  				'</div>';
 		$('body').append(modalDiv);
-		$('#myModal').modal('show').delay(2000).queue(function(){
+		$('#myModal').modal('show').delay(500).queue(function(){
 			$('#myModal').modal('hide');
 			$(modalDiv).remove();
 			callback();
