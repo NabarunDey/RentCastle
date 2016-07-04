@@ -19,7 +19,8 @@
 		</div>
 		<s:iterator value="context.cartProjectorOB.cartItems">
 
-			<div id="cart<s:property value='productId'/>-<s:property value='rentId'/>">
+			<div
+				id="cart<s:property value='productId'/>-<s:property value='rentId'/>">
 				<s:hidden id="productId" value="%{productId}" />
 				<s:hidden id="rentOfferId" value="%{rentId}" />
 
@@ -56,6 +57,12 @@
 				</div>
 			</div>
 		</s:iterator>
+	</div>
+	<div class="shoping_bag2">
+		<div class="shoping_left">
+			<a class="btn1" href="<s:url action='getCartOrderInput'/>">place order</a>
+		</div>
+		<div class="clearfix"></div>
 	</div>
 </div>
 

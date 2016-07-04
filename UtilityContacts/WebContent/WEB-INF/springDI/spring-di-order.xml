@@ -20,9 +20,6 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="ordersDao" ref="ordersDao" />
 	</bean>
 
-	<bean id="ordersDao" class="com.dao.OrdersDao"
-		scope="request">
-	</bean>
 	
 	<bean id="orderProjector" class="order.projector.OrderProjector"
 		scope="request">

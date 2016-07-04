@@ -11,7 +11,7 @@ public class OrderProjectorOB {
 	
 	private List<CartItem> cartItems;
 	private String total;
-	List<OrderItem> orderItems;
+	private List<OrderItem> orderItems;
 	
 	public List<OrderItem> getOrderItems() {
 		return orderItems;

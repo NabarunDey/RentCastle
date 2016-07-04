@@ -32,7 +32,21 @@ public class OrderProjector {
 		return orderProjectorOB;
 	}
 	
-	public OrderProjectorOB viewCart(List<OrdersDBBean> ordersDBBeans,List<ProductsDBBean> productsDBBeans,
+	public OrderProjectorOB confirmOrder(List<OrdersDBBean> ordersDBBeans)
+	{
+		OrderProjectorOB orderProjectorOB = new OrderProjectorOB();
+		List<OrderItem> orderItems = new ArrayList<OrderItem>();
+		for(OrdersDBBean ordersDBBean : ordersDBBeans)
+		{
+			OrderItem orderItem = new OrderItem();
+			orderItem.setOrdersDBBean(ordersDBBean);
+			orderItems.add(orderItem);
+		}
+		orderProjectorOB.setOrderItems(orderItems);
+		return orderProjectorOB;
+	}
+	
+	public OrderProjectorOB viewOrders(List<OrdersDBBean> ordersDBBeans,List<ProductsDBBean> productsDBBeans,
 									List<RentOffersDBBean> rentOffersDBBeans )
 	{
 		OrderProjectorOB orderProjectorOB = new OrderProjectorOB();

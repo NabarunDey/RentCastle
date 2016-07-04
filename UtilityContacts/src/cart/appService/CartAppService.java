@@ -82,6 +82,11 @@ public class CartAppService {
 		return;
 	}
 	
+	public void emptyCart()
+	{
+		usersDao.emptyCart(userProfile.getUserName());
+	}
+	
 	public UsersDao getUsersDao() {
 		return usersDao;
 	}

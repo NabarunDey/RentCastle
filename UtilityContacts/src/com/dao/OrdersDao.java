@@ -50,8 +50,9 @@ public class OrdersDao {
 			ordersDBBean.setDatetime(dateTime);
 			ordersDBBean.setUsername(userProfile.getUserName());
 			ordersDBBeans.add(ordersDBBean);
+			template.save(ordersDBBean);
+			
 		}
-		template.getSessionFactory().getCurrentSession().save(ordersDBBeans);
 		return ordersDBBeans;
 	}
 	

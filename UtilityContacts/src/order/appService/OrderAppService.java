@@ -54,7 +54,10 @@ public class OrderAppService {
 			orderAppServiceIB.setUsername(userProfile.getUserName());
 			orderAppServiceIBs.add(orderAppServiceIB);
 		}
-		return new OrderProjectorOB();
+		List<OrdersDBBean> ordersDBBeans = ordersDao.addOrder(orderAppServiceIBs);
+		cartAppService.emptyCart();
+		OrderProjectorOB orderProjectorOB = orderProjector.confirmOrder(ordersDBBeans);
+		return orderProjectorOB;
 	}
 	
 	public OrderProjectorOB viewOrders()
@@ -71,7 +74,57 @@ public class OrderAppService {
 		List<ProductsDBBean> productsDBBeans = productsDao.getProductListByIdsInteger(productIds);
 		List<RentOffersDBBean> rentOffersDBBeans = rentOffersDao.getRentOffersByIdsInteger(rentOfferIds);
 		
-		OrderProjectorOB orderProjectorOB = orderProjector.viewCart(ordersDBBeans, productsDBBeans, rentOffersDBBeans);
+		OrderProjectorOB orderProjectorOB = orderProjector.viewOrders(ordersDBBeans, productsDBBeans, rentOffersDBBeans);
 		return orderProjectorOB;
 	}
+
+	public CartAppService getCartAppService() {
+		return cartAppService;
+	}
+
+	public void setCartAppService(CartAppService cartAppService) {
+		this.cartAppService = cartAppService;
+	}
+
+	public OrderProjector getOrderProjector() {
+		return orderProjector;
+	}
+
+	public void setOrderProjector(OrderProjector orderProjector) {
+		this.orderProjector = orderProjector;
+	}
+
+	public UserProfile getUserProfile() {
+		return userProfile;
+	}
+
+	public void setUserProfile(UserProfile userProfile) {
+		this.userProfile = userProfile;
+	}
+
+	public OrdersDao getOrdersDao() {
+		return ordersDao;
+	}
+
+	public void setOrdersDao(OrdersDao ordersDao) {
+		this.ordersDao = ordersDao;
+	}
+
+	public ProductsDao getProductsDao() {
+		return productsDao;
+	}
+
+	public void setProductsDao(ProductsDao productsDao) {
+		this.productsDao = productsDao;
+	}
+
+	public RentOffersDao getRentOffersDao() {
+		return rentOffersDao;
+	}
+
+	public void setRentOffersDao(RentOffersDao rentOffersDao) {
+		this.rentOffersDao = rentOffersDao;
+	}
+	
+	
 }

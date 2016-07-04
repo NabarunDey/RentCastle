@@ -116,6 +116,13 @@ public class UsersDao {
 			template.update(usersDBBean);
 		}
 	}
+	
+	public void emptyCart(String userName)
+	{
+		UsersDBBean usersDBBean = template.get(UsersDBBean.class,userName);
+		usersDBBean.setCart("");
+		template.update(usersDBBean);
+	}
 	public HibernateTemplate getTemplate() {
 		return template;
 	}
