@@ -25,10 +25,12 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="rentOffersDao" class="com.dao.RentOffersDao">
 		<property name="template" ref="template"></property>
 	</bean>
-	
-	<bean id="ordersDao" class="com.dao.OrdersDao"
-		scope="request">
-		<property name="userProfile" ref="userProfile"></property>
+
+	<bean id="ordersDao" class="com.dao.OrdersDao">
+		<property name="template" ref="template"></property>
+	</bean>
+
+	<bean id="ordersDao" class="com.dao.OrdersDao">
 		<property name="template" ref="template"></property>
 	</bean>
 

@@ -9,8 +9,23 @@ public class PaymentsDBBean {
 	private String fromusername;
 	private String tousername;
 	private String datetime;
-	private String amount;
+	private String rentamount;
+	private String securitymoney;
 	private String paymentStatus;
+	
+	
+	public String getRentamount() {
+		return rentamount;
+	}
+	public void setRentamount(String rentamount) {
+		this.rentamount = rentamount;
+	}
+	public String getSecuritymoney() {
+		return securitymoney;
+	}
+	public void setSecuritymoney(String securitymoney) {
+		this.securitymoney = securitymoney;
+	}
 	public int getPaymentid() {
 		return paymentid;
 	}
@@ -40,12 +55,6 @@ public class PaymentsDBBean {
 	}
 	public void setDatetime(String datetime) {
 		this.datetime = datetime;
-	}
-	public String getAmount() {
-		return amount;
-	}
-	public void setAmount(String amount) {
-		this.amount = amount;
 	}
 	public String getPaymentStatus() {
 		return paymentStatus;

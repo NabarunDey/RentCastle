@@ -12,7 +12,8 @@
 		<property name="fromusername"></property>
 		<property name="tousername"></property>
 		<property name="datetime"></property>
-		<property name="amount"></property>
+		<property name="securitymoney"></property>
+		<property name="rentamount"></property>
 		<property name="paymentStatus"></property>
 	</class>
 

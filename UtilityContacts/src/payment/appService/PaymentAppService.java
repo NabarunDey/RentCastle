@@ -1,5 +1,6 @@
 package payment.appService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.dao.PaymentsDao;
@@ -20,12 +21,11 @@ public class PaymentAppService {
 	PaymentsDao paymentsDao;
 	
 	
-	public PaymentProjectorOB addPayment(PaymentAppServiceIB paymentAppServiceIB)
+	public void addPayment(PaymentAppServiceIB paymentAppServiceIB)
 	{
-		PaymentsDBBean paymentsDBBean = paymentsDao.addPayment(paymentAppServiceIB);
-		PaymentProjectorOB paymentProjectorOB = new PaymentProjectorOB();
-		paymentProjectorOB.setPaymentsDBBean(paymentsDBBean);
-		return paymentProjectorOB;
+		List<PaymentAppServiceIB> paymentAppServiceIBs = new ArrayList<PaymentAppServiceIB>();
+		paymentAppServiceIBs.add(paymentAppServiceIB);
+		paymentsDao.addPayment(paymentAppServiceIBs);
 	}
 	
 	public PaymentProjectorOB getPaymentsForUser()

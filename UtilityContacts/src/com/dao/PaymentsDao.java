@@ -39,18 +39,21 @@ public class PaymentsDao {
 		this.userProfile = userProfile;
 	}
 
-	public PaymentsDBBean addPayment(PaymentAppServiceIB paymentAppServiceIB) {
-		PaymentsDBBean paymentsDBBean = new PaymentsDBBean();
-		paymentsDBBean.setAmount(paymentAppServiceIB.getAmount());
-		paymentsDBBean.setPaymentStatus(PaymentStatus.PENDING.toString());
-		paymentsDBBean.setFromusername(paymentAppServiceIB.getFromusername());
-		paymentsDBBean.setOrderid(paymentAppServiceIB.getOrderid());
-		paymentsDBBean.setTousername(paymentAppServiceIB.getTousername());
-		String dateTime= Calendar.getInstance().getTime().toString();
-		paymentsDBBean.setDatetime(dateTime);
+	public void addPayment(List<PaymentAppServiceIB> paymentAppServiceIBs) {
+		for(PaymentAppServiceIB paymentAppServiceIB :paymentAppServiceIBs)
+		{
+			PaymentsDBBean paymentsDBBean = new PaymentsDBBean();
+			paymentsDBBean.setSecuritymoney(paymentAppServiceIB.getSecuritymoney());
+			paymentsDBBean.setRentamount(paymentAppServiceIB.getRentamount());
+			paymentsDBBean.setPaymentStatus(PaymentStatus.PENDING.toString());
+			paymentsDBBean.setFromusername(paymentAppServiceIB.getFromusername());
+			paymentsDBBean.setOrderid(paymentAppServiceIB.getOrderid());
+			paymentsDBBean.setTousername(paymentAppServiceIB.getTousername());
+			String dateTime= Calendar.getInstance().getTime().toString();
+			paymentsDBBean.setDatetime(dateTime);
 
-		template.save(paymentsDBBean);
-		return paymentsDBBean;
+			template.save(paymentsDBBean);
+		}
 	}
 
 	public List<PaymentsDBBean> getPaymentsForUser()

@@ -17,7 +17,7 @@ public class SearchProductProjector {
 		List<SearchProductProjectorOB> searchProductProjectorOBs = new ArrayList<SearchProductProjectorOB>();
 		for(ProductsDBBean productsDBBean : searchProductDaoOB.getProductsDBBeans())
 		{
-			if(!productsDBBean.getApprovalStatus().equals(ProductStatus.PENDING) || searchProductDaoOB.isVendor())
+			if(!productsDBBean.getApprovalStatus().equals(ProductStatus.PENDING.getText()) || searchProductDaoOB.isVendor())
 			{
 				SearchProductProjectorOB searchProductProjectorOB = new SearchProductProjectorOB();
 				searchProductProjectorOB.setProductId(productsDBBean.getProductid());

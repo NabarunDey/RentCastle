@@ -18,7 +18,6 @@ import com.structures.status.OrderStatus;
 @Transactional
 public class OrdersDao {
 
-	UserProfile userProfile ;
 	HibernateTemplate template;  
 	
 	public HibernateTemplate getTemplate() {
@@ -29,15 +28,7 @@ public class OrdersDao {
 		this.template = template;
 	}
 	
-	public UserProfile getUserProfile() {
-		return userProfile;
-	}
-
-	public void setUserProfile(UserProfile userProfile) {
-		this.userProfile = userProfile;
-	}
-
-	public List<OrdersDBBean> addOrder(List<OrderAppServiceIB> orderAppServiceIBs)
+	public List<OrdersDBBean> addOrder(List<OrderAppServiceIB> orderAppServiceIBs,String userName)
 	{
 		List<OrdersDBBean> ordersDBBeans = new ArrayList<OrdersDBBean>(); 
 		for(OrderAppServiceIB orderAppServiceIB : orderAppServiceIBs)
@@ -48,7 +39,7 @@ public class OrdersDao {
 			ordersDBBean.setOrderstatus(OrderStatus.INITIATED.toString());
 			String dateTime = Calendar.getInstance().getTime().toString();
 			ordersDBBean.setDatetime(dateTime);
-			ordersDBBean.setUsername(userProfile.getUserName());
+			ordersDBBean.setUsername(userName);
 			ordersDBBeans.add(ordersDBBean);
 			template.save(ordersDBBean);
 			
@@ -56,10 +47,10 @@ public class OrdersDao {
 		return ordersDBBeans;
 	}
 	
-	public List<OrdersDBBean> getOrdersForUser()
+	public List<OrdersDBBean> getOrdersForUser(String userName)
 	{
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(OrdersDBBean.class)
-				.add(Restrictions.like("username", userProfile.getUserName()));
+				.add(Restrictions.like("username", userName));
 		List<OrdersDBBean> ordersDBBeans = criteria.list();
 		return ordersDBBeans;
 	}

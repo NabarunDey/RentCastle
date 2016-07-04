@@ -28,8 +28,7 @@ public class PaymentAction   {
 		paymentAppServiceIB.setFromusername(fromusername);
 		paymentAppServiceIB.setOrderid(Integer.parseInt(orderid));
 		paymentAppServiceIB.setTousername(tousername);
-		PaymentProjectorOB paymentProjectorOB = paymentAppService.addPayment(paymentAppServiceIB);
-		context.setPaymentProjectorOB(paymentProjectorOB);
+		paymentAppService.addPayment(paymentAppServiceIB);
 		return "success";
 	}
 	
