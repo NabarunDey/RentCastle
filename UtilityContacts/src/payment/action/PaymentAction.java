@@ -1,5 +1,7 @@
 package payment.action;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 import payment.PaymentAppContext;
 import payment.appService.PaymentAppService;
 import payment.appService.inputBeans.PaymentAppServiceIB;
@@ -8,14 +10,12 @@ import payment.projector.outputBeans.PaymentProjectorOB;
 
 
 
-public class PaymentAction   {
+public class PaymentAction extends ActionSupport   {
 	
 	PaymentAppService paymentAppService;
 	PaymentAppContext context;
-	
 	String paymentid;
 	String paymentstatus;
-	
 	String orderid;
 	String fromusername;
 	String tousername;
@@ -28,6 +28,15 @@ public class PaymentAction   {
 		paymentAppServiceIB.setFromusername(fromusername);
 		paymentAppServiceIB.setOrderid(Integer.parseInt(orderid));
 		paymentAppServiceIB.setTousername(tousername);
+		PaymentProjectorOB paymentProjectorOB = paymentAppService.addPayment(paymentAppServiceIB);
+		context.setPaymentProjectorOB(paymentProjectorOB);
+		return "success";
+	}
+	
+	public String getPaymentsForOrder()
+	{
+		PaymentAppServiceIB paymentAppServiceIB = new PaymentAppServiceIB();
+		paymentAppServiceIB.setOrderid(Integer.parseInt(orderid));
 		PaymentProjectorOB paymentProjectorOB = paymentAppService.addPayment(paymentAppServiceIB);
 		context.setPaymentProjectorOB(paymentProjectorOB);
 		return "success";

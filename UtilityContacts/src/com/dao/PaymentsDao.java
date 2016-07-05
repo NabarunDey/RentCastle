@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Conjunction;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
@@ -89,6 +90,26 @@ public class PaymentsDao {
 			paymentsDBBean.setPaymentStatus(paymentAppServiceIB.getPaymentStatus());
 			template.update(paymentsDBBean);
 		}
+	}
+	
+	public List<PaymentsDBBean> getPaymentsForOrder(PaymentAppServiceIB paymentAppServiceIB)
+	{
+		List<PaymentsDBBean> paymentsDBBeans = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PaymentsDBBean.class);
+		Criterion completeCondition = null;
+		Conjunction conjunction = Restrictions.conjunction();
+
+		conjunction.add(Restrictions.like("fromusername", "%"+userProfile.getUserName()+"%"));
+		conjunction.add(Restrictions.like("tousername", "%"+userProfile.getUserName()+"%"));
+		
+		Disjunction disjunction =  Restrictions.disjunction();
+		disjunction.add(Restrictions.like("orderid", paymentAppServiceIB.getOrderid()));
+		disjunction.add(conjunction);
+		
+		completeCondition = disjunction;
+		criteria.add(completeCondition);
+		paymentsDBBeans = criteria.list();
+		return paymentsDBBeans;
 	}
 
 }
