@@ -14,3 +14,4 @@ function removeFromCart(productIdX,rentOfferIdX) {
 	});
 }
 
+
