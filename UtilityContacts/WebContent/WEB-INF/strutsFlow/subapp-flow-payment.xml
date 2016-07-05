@@ -26,6 +26,12 @@
 				<param name="root">context</param>
 			</result>
 		</action>
+		
+		<action name="getPaymentsForOrder" class="paymentAction" method="getPaymentsForOrder">
+			<result name="success" type="json">
+				<param name="root">context</param>
+			</result>
+		</action>
 
 	</package>
 
