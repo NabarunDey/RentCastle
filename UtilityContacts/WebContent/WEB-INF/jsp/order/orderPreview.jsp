@@ -44,8 +44,7 @@
 				</tfoot>
 			</table>
 			<div class="form-group pull-right">
-			<input type="button" value="Place Order" class="btn-primary" />
-				<a href="<s:url action='placeCartOrder'/>" >Confirm Order</a>
+			<input type="button" value="Place Order" class="btn-primary" onclick = "javascript:location.href='placeCartOrder.action';"/>
 			</div>
 			
 		</div>

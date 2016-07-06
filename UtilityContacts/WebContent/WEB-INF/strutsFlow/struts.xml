@@ -7,6 +7,14 @@
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.multipart.maxSize" value="9434542" />
 	<package name="default" namespace="" extends="struts-default">
+		<global-results>
+			<result name="error">WEB-INF/jsp/error/error.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
 	</package>
 
 	<include file="subapp-flow-index.xml"></include>
@@ -19,5 +27,5 @@
 	<include file="subapp-flow-productManagement.xml"></include>
 	<include file="subapp-flow-order.xml"></include>
 	<include file="subapp-flow-payment.xml"></include>
-	
+
 </struts>

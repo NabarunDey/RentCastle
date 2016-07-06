@@ -6,7 +6,7 @@
 <struts>
 	<constant name="struts.devMode" value="false" />
 
-	<package name="loginPackage" namespace="/" extends="struts-default,json-default">
+	<package name="loginPackage" namespace="/" extends="default,json-default">
 	
 	<result-types>
 			<result-type name="tiles"

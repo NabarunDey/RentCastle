@@ -151,7 +151,7 @@ public class ProductsDao {
 	{
 		List<ProductsDBBean> productsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class)
-				.add(Restrictions.in("productId", productIds));
+				.add(Restrictions.in("productid", productIds));
 		productsDBBeans=criteria.list();
 		return productsDBBeans;
 	}

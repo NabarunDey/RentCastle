@@ -28,19 +28,22 @@
 							<li id="addProductButton"><a
 								href="<s:url  action='addProductInput'/>">Add Product</a></li>
 							<li id="getProductListByVendor"><a
-								href="<s:url  action='getProductListByVendor'/>">My
-									Products</a></li>
+								href="<s:url  action='getProductListByVendor'/>">My Products</a></li>
 						</s:if>
 						<s:else>
 							<li id="addProductButton" style="display: none"><a
 								href="<s:url  action='addProductInput'/>">Add Product</a></li>
 							<li id="getProductListByVendor" style="display: none"><a
-								href="<s:url  action='getProductListByVendor'/>">My
-									Products</a></li>
+								href="<s:url  action='getProductListByVendor'/>">My Products</a></li>
+						</s:else>
+						<s:if
+							test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }">
+							<li id = "orderHistory"><a href="<s:url  action='viewOrders'/>">Order History</a></li>
+						</s:if>
+						<s:else>
+							<li id = "orderHistory" style="display: none"><a href="<s:url  action='viewOrders'/>">Order History</a></li>
 						</s:else>
 
-
-						<li><a href="#">Recently viewed</a></li>
 						<li><a href="contact.html">Contact</a></li>
 						<li class="login">
 							<div id="loginContainer">

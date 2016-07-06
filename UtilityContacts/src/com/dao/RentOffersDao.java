@@ -116,7 +116,7 @@ public class RentOffersDao {
 	{
 		List<RentOffersDBBean> rentOffersDBBean = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(RentOffersDBBean.class)
-				.add(Restrictions.in("productId", rentIds));
+				.add(Restrictions.in("rentid", rentIds));
 		rentOffersDBBean=criteria.list();
 		return rentOffersDBBean;
 	}
