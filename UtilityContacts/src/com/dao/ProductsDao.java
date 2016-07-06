@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
-import org.hibernate.criterion.Conjunction;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
@@ -94,20 +94,20 @@ public class ProductsDao {
 		List<ProductsDBBean> productsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class);
 		Criterion completeCondition = null;
-		Conjunction conjunction = Restrictions.conjunction();
+		Disjunction disjunction = Restrictions.disjunction();
 
 		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchState()))
-			conjunction.add(Restrictions.like("productstate", "%"+searchProductAppServiceIB.getSearchState()+"%"));
+			disjunction.add(Restrictions.like("productstate", "%"+searchProductAppServiceIB.getSearchState()+"%"));
 		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchCity()))
-			conjunction.add(Restrictions.like("productcity", "%"+searchProductAppServiceIB.getSearchCity()+"%"));
+			disjunction.add(Restrictions.like("productcity", "%"+searchProductAppServiceIB.getSearchCity()+"%"));
 		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchLocation()))	
-			conjunction.add(Restrictions.like("productlocation", "%"+searchProductAppServiceIB.getSearchLocation()+"%"));
+			disjunction.add(Restrictions.like("productlocation", "%"+searchProductAppServiceIB.getSearchLocation()+"%"));
 		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchType()))	
-			conjunction.add(Restrictions.like("producttype", "%"+searchProductAppServiceIB.getSearchType()+"%"));
+			disjunction.add(Restrictions.like("producttype", "%"+searchProductAppServiceIB.getSearchType()+"%"));
 		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchSubType()))	
-			conjunction.add(Restrictions.like("subproducttype", "%"+searchProductAppServiceIB.getSearchSubType()+"%"));
+			disjunction.add(Restrictions.like("subproducttype", "%"+searchProductAppServiceIB.getSearchSubType()+"%"));
 	
-		completeCondition = conjunction;
+		completeCondition = disjunction;
 		criteria.add(completeCondition);
 		productsDBBeans = criteria.list();
 

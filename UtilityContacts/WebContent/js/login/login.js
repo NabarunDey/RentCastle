@@ -15,6 +15,7 @@ function doAjaxPost() {
                  $('#buyButton').show();
                  $('#addToCartButton').show();
                  $('#orderHistory').show();
+                 $('#paymentHistory').show();
                  if(response.loginProjectorOB.userProfile.userType == "VENDOR")
                 	 {
                 	 $('#addProductButton').show();

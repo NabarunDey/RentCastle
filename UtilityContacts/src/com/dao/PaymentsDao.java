@@ -53,12 +53,12 @@ public class PaymentsDao {
 		List<PaymentsDBBean> paymentsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PaymentsDBBean.class);
 		Criterion completeCondition = null;
-		Conjunction conjunction = Restrictions.conjunction();
+		Disjunction disjunction = Restrictions.disjunction();
 
-		conjunction.add(Restrictions.like("fromusername", "%"+userName+"%"));
-		conjunction.add(Restrictions.like("tousername", "%"+userName+"%"));
+		disjunction.add(Restrictions.like("fromusername", "%"+userName+"%"));
+		disjunction.add(Restrictions.like("tousername", "%"+userName+"%"));
 
-		completeCondition = conjunction;
+		completeCondition = disjunction;
 		criteria.add(completeCondition);
 		paymentsDBBeans = criteria.list();
 		return paymentsDBBeans;
@@ -91,16 +91,16 @@ public class PaymentsDao {
 		List<PaymentsDBBean> paymentsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PaymentsDBBean.class);
 		Criterion completeCondition = null;
-		Conjunction conjunction = Restrictions.conjunction();
+		Disjunction disjunction = Restrictions.disjunction();
 
-		conjunction.add(Restrictions.like("fromusername", "%"+userName+"%"));
-		conjunction.add(Restrictions.like("tousername", "%"+userName+"%"));
+		disjunction.add(Restrictions.like("fromusername", "%"+userName+"%"));
+		disjunction.add(Restrictions.like("tousername", "%"+userName+"%"));
 		
-		Disjunction disjunction =  Restrictions.disjunction();
-		disjunction.add(Restrictions.like("orderid", paymentAppServiceIB.getOrderid()));
-		disjunction.add(conjunction);
+		Conjunction conjunction =  Restrictions.conjunction();
+		conjunction.add(Restrictions.like("orderid", paymentAppServiceIB.getOrderid()));
+		conjunction.add(conjunction);
 		
-		completeCondition = disjunction;
+		completeCondition = conjunction;
 		criteria.add(completeCondition);
 		paymentsDBBeans = criteria.list();
 		return paymentsDBBeans;

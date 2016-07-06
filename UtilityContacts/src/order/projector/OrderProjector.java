@@ -1,17 +1,18 @@
 package order.projector;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+
+import order.dao.outputBeans.OrderDaoOB;
+import order.projector.outputBeans.OrderItem;
+import order.projector.outputBeans.OrderProjectorOB;
+import cart.projector.outputBeans.CartItem;
 
 import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
-
-import cart.projector.outputBeans.CartItem;
-import order.dao.outputBeans.OrderDaoOB;
-import order.projector.outputBeans.OrderItem;
-import order.projector.outputBeans.OrderProjectorOB;
+import com.util.CommonUtility;
 
 
 
@@ -51,15 +52,14 @@ public class OrderProjector {
 	{
 		OrderProjectorOB orderProjectorOB = new OrderProjectorOB();
 		List<OrderItem> orderItems = new ArrayList<OrderItem>();
-		Iterator aIterator = ordersDBBeans.iterator();
-		Iterator bIterator = productsDBBeans.iterator();
-		Iterator cIterator = rentOffersDBBeans.iterator();
 		
-		while (aIterator.hasNext() && bIterator.hasNext() && cIterator.hasNext())
+		Map<String, ProductsDBBean> productMap = CommonUtility.getProductMap(productsDBBeans);
+		Map<String, RentOffersDBBean> rentMap = CommonUtility.getRentMap(rentOffersDBBeans);
+		
+		for(OrdersDBBean ordersDBBean : ordersDBBeans)
 		{
-			OrdersDBBean ordersDBBean = (OrdersDBBean)aIterator.next();
-			ProductsDBBean productsDBBean = (ProductsDBBean)bIterator.next();
-			RentOffersDBBean rentOffersDBBean = (RentOffersDBBean)cIterator.next();
+			ProductsDBBean productsDBBean = productMap.get(String.valueOf(ordersDBBean.getProductid()));
+			RentOffersDBBean rentOffersDBBean = rentMap.get(String.valueOf(ordersDBBean.getRentid()));
 			OrderItem orderItem = new OrderItem();
 			orderItem.setOrdersDBBean(ordersDBBean);
 			orderItem.setProductsDBBean(productsDBBean);

@@ -43,6 +43,14 @@
 						<s:else>
 							<li id = "orderHistory" style="display: none"><a href="<s:url  action='viewOrders'/>">Order History</a></li>
 						</s:else>
+						
+						<s:if
+							test="%{ null != #attr.userProfile && #attr.userProfile.userName != null }">
+							<li id = "paymentHistory"><a href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
+						</s:if>
+						<s:else>
+							<li id = "paymentHistory" style="display: none"><a href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
+						</s:else>
 
 						<li><a href="contact.html">Contact</a></li>
 						<li class="login">

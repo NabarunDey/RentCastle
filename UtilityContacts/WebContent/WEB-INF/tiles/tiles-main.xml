@@ -108,12 +108,12 @@
 	
 	<definition name="userPayments" extends="baseLayout">
 		<put-attribute name="title" value="My Payments" />
-		<put-attribute name="body" value="/WEB-INF/jsp/order/userPayments.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/payment/userPayments.jsp" />
 	</definition>
 	
 	<definition name="adminPayments" extends="baseLayout">
 		<put-attribute name="title" value="Admin Payments" />
-		<put-attribute name="body" value="/WEB-INF/jsp/order/adminPayments.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/payment/adminPayments.jsp" />
 	</definition>
 
 </tiles-definitions>
