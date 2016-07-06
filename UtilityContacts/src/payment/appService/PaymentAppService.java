@@ -31,7 +31,7 @@ public class PaymentAppService {
 	
 	public PaymentProjectorOB getPaymentsForUser()
 	{
-		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForUser();
+		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForUser(userProfile.getUserName());
 		PaymentProjectorOB paymentProjectorOB = new PaymentProjectorOB();
 		paymentProjectorOB.setPaymentsDBBeans(paymentsDBBeans);
 		return paymentProjectorOB;
@@ -39,7 +39,7 @@ public class PaymentAppService {
 	
 	public PaymentProjectorOB getPaymentsAdmin()
 	{
-		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForUser();
+		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForUser(userProfile.getUserName());
 		PaymentProjectorOB paymentProjectorOB = new PaymentProjectorOB();
 		paymentProjectorOB.setPaymentsDBBeans(paymentsDBBeans);
 		return paymentProjectorOB;
@@ -47,14 +47,14 @@ public class PaymentAppService {
 	
 	public void changePaymentStatus(PaymentAppServiceIB paymentAppServiceIB)
 	{
-		paymentsDao.changePaymentStatus(paymentAppServiceIB);
+		paymentsDao.changePaymentStatus(paymentAppServiceIB,userProfile);
 	}
 	
 	public PaymentProjectorOB getPaymentsForOrder(PaymentAppServiceIB paymentAppServiceIB)
 	{
 		paymentAppServiceIB.setFromusername(userProfile.getUserName());
 		paymentAppServiceIB.setTousername(userProfile.getUserName());
-		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForOrder(paymentAppServiceIB);
+		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForOrder(paymentAppServiceIB,userProfile.getUserName());
 		PaymentProjectorOB paymentProjectorOB =new PaymentProjectorOB();
 		paymentProjectorOB.setPaymentsDBBeans(paymentsDBBeans);
 		return paymentProjectorOB;

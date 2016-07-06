@@ -21,7 +21,7 @@
 			<result name="success" type="tiles">orderConfirmation</result>
 		</action>
 
-		<action name="viewCartItems" class="orderAction" method="viewCartItems">
+		<action name="viewOrders" class="orderAction" method="viewOrders">
 			<result name="success" type="tiles">viewOrders</result>
 		</action>
 	</package>

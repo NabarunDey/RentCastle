@@ -31,7 +31,7 @@ public class OrderAction   {
 		return "success";
 	}
 	
-	public String viewCartItems()
+	public String viewOrders()
 	{
 		OrderProjectorOB orderProjectorOB = orderAppService.viewOrders();
 		context.setOrderProjectorOB(orderProjectorOB);

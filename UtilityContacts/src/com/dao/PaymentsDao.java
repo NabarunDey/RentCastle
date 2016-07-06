@@ -21,7 +21,6 @@ import com.structures.userTypes.UserType;
 @Transactional
 public class PaymentsDao {
 
-	UserProfile userProfile ;
 	HibernateTemplate template;  
 
 	public HibernateTemplate getTemplate() {
@@ -30,14 +29,6 @@ public class PaymentsDao {
 
 	public void setTemplate(HibernateTemplate template) {
 		this.template = template;
-	}
-
-	public UserProfile getUserProfile() {
-		return userProfile;
-	}
-
-	public void setUserProfile(UserProfile userProfile) {
-		this.userProfile = userProfile;
 	}
 
 	public void addPayment(List<PaymentAppServiceIB> paymentAppServiceIBs) {
@@ -57,15 +48,15 @@ public class PaymentsDao {
 		}
 	}
 
-	public List<PaymentsDBBean> getPaymentsForUser()
+	public List<PaymentsDBBean> getPaymentsForUser(String userName)
 	{
 		List<PaymentsDBBean> paymentsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PaymentsDBBean.class);
 		Criterion completeCondition = null;
 		Conjunction conjunction = Restrictions.conjunction();
 
-		conjunction.add(Restrictions.like("fromusername", "%"+userProfile.getUserName()+"%"));
-		conjunction.add(Restrictions.like("tousername", "%"+userProfile.getUserName()+"%"));
+		conjunction.add(Restrictions.like("fromusername", "%"+userName+"%"));
+		conjunction.add(Restrictions.like("tousername", "%"+userName+"%"));
 
 		completeCondition = conjunction;
 		criteria.add(completeCondition);
@@ -73,7 +64,7 @@ public class PaymentsDao {
 		return paymentsDBBeans;
 	}
 
-	public List<PaymentsDBBean> getPaymentsForAdmin()
+	public List<PaymentsDBBean> getPaymentsForAdmin(UserProfile userProfile)
 	{
 		List<PaymentsDBBean> paymentsDBBeans = null;
 		if(userProfile.getUserType().equals(UserType.ADMIN))
@@ -84,7 +75,7 @@ public class PaymentsDao {
 		return paymentsDBBeans;
 	}
 
-	public void changePaymentStatus(PaymentAppServiceIB paymentAppServiceIB)
+	public void changePaymentStatus(PaymentAppServiceIB paymentAppServiceIB, UserProfile userProfile)
 	{
 		if(userProfile.getUserType().equals(UserType.ADMIN))
 		{
@@ -95,15 +86,15 @@ public class PaymentsDao {
 		}
 	}
 	
-	public List<PaymentsDBBean> getPaymentsForOrder(PaymentAppServiceIB paymentAppServiceIB)
+	public List<PaymentsDBBean> getPaymentsForOrder(PaymentAppServiceIB paymentAppServiceIB, String userName)
 	{
 		List<PaymentsDBBean> paymentsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PaymentsDBBean.class);
 		Criterion completeCondition = null;
 		Conjunction conjunction = Restrictions.conjunction();
 
-		conjunction.add(Restrictions.like("fromusername", "%"+userProfile.getUserName()+"%"));
-		conjunction.add(Restrictions.like("tousername", "%"+userProfile.getUserName()+"%"));
+		conjunction.add(Restrictions.like("fromusername", "%"+userName+"%"));
+		conjunction.add(Restrictions.like("tousername", "%"+userName+"%"));
 		
 		Disjunction disjunction =  Restrictions.disjunction();
 		disjunction.add(Restrictions.like("orderid", paymentAppServiceIB.getOrderid()));

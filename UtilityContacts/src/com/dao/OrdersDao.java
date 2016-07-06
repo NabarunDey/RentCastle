@@ -12,7 +12,6 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.databaseBeans.OrdersDBBean;
-import com.sessionBeans.UserProfile;
 import com.structures.status.OrderStatus;
 
 @Transactional
