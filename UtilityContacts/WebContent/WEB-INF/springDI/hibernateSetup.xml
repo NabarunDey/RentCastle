@@ -35,6 +35,7 @@
 				<value>RentOffers.hbm.xml</value>
 				<value>Orders.hbm.xml</value>
 				<value>Payments.hbm.xml</value>
+				<value>Address.hbm.xml</value>
 			</list>
 		</property>
 
@@ -71,6 +72,9 @@
 	</bean>
 	
 	<bean id="paymentsDBBean" class="com.databaseBeans.PaymentsDBBean">
+	</bean>
+	
+	<bean id="addressDBBean" class="com.databaseBeans.AddressDBBean">
 	</bean>
 
 </beans>

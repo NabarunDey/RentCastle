@@ -4,7 +4,7 @@ import java.util.List;
 
 import cart.projector.outputBeans.CartItem;
 
-
+import com.databaseBeans.AddressDBBean;
 
 
 public class OrderProjectorOB {
@@ -12,7 +12,14 @@ public class OrderProjectorOB {
 	private List<CartItem> cartItems;
 	private String total;
 	private List<OrderItem> orderItems;
+	private List<AddressDBBean> addresses;
 	
+	public List<AddressDBBean> getAddresses() {
+		return addresses;
+	}
+	public void setAddresses(List<AddressDBBean> addresses) {
+		this.addresses = addresses;
+	}
 	public List<OrderItem> getOrderItems() {
 		return orderItems;
 	}
