@@ -13,7 +13,7 @@ public class CartItem {
 	private String imageUrl;
 	private String productState;
 	private String productCity;
-	private String productLocation;
+	private String productPin;
 	private String productType;
 	private String productSubtype;
 	private String securityMoney;
@@ -72,11 +72,11 @@ public class CartItem {
 	public void setProductCity(String productCity) {
 		this.productCity = productCity;
 	}
-	public String getProductLocation() {
-		return productLocation;
+	public String getProductPin() {
+		return productPin;
 	}
-	public void setProductLocation(String productLocation) {
-		this.productLocation = productLocation;
+	public void setProductPin(String productPin) {
+		this.productPin = productPin;
 	}
 	public String getProductType() {
 		return productType;

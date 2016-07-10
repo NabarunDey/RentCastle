@@ -11,7 +11,7 @@ public class SearchProductAppContext {
 	private List<SearchProductProjectorOB> searchProductProjectorOBs;
 	private String searchState;
 	private String searchCity;
-	private String searchLocation;
+	private String searchPin;
 	private String searchType;
 	private String searchSubType;
 	private String searchString;
@@ -49,12 +49,12 @@ public class SearchProductAppContext {
 		this.searchCity = searchCity;
 	}
 
-	public String getSearchLocation() {
-		return searchLocation;
+	public String getSearchPin() {
+		return searchPin;
 	}
 
-	public void setSearchLocation(String searchLocation) {
-		this.searchLocation = searchLocation;
+	public void setSearchPin(String searchPin) {
+		this.searchPin = searchPin;
 	}
 
 	public String getSearchType() {

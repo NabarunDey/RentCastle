@@ -22,7 +22,7 @@ public class ProductManagementAppServiceIB {
 	private List<String> imageIdsList;
 	private String productstate;
 	private String productcity;
-	private String productlocation;
+	private String productpin;
 	private String rentId;
 	private	String periodunit;
 	private	String periodvalue;
@@ -135,11 +135,11 @@ public class ProductManagementAppServiceIB {
 	public void setProductcity(String productcity) {
 		this.productcity = productcity;
 	}
-	public String getProductlocation() {
-		return productlocation;
+	public String getProductpin() {
+		return productpin;
 	}
-	public void setProductlocation(String productlocation) {
-		this.productlocation = productlocation;
+	public void setProductpin(String productpin) {
+		this.productpin = productpin;
 	}
 	public String getRentId() {
 		return rentId;

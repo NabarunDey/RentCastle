@@ -14,7 +14,7 @@ public class ProductsDBBean {
 	private String securitymoney;
 	private String productstate;
 	private String productcity;
-	private String productlocation;
+	private String productpin;
 	private String approvalStatus;
 	
 	public String getApprovalStatus() {
@@ -89,11 +89,11 @@ public class ProductsDBBean {
 	public void setProductcity(String productcity) {
 		this.productcity = productcity;
 	}
-	public String getProductlocation() {
-		return productlocation;
+	public String getProductpin() {
+		return productpin;
 	}
-	public void setProductlocation(String productlocation) {
-		this.productlocation = productlocation;
+	public void setProductpin(String productpin) {
+		this.productpin = productpin;
 	}
 
 

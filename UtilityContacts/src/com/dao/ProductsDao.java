@@ -43,12 +43,12 @@ public class ProductsDao {
 		{
 			imageIdsConcat= imageIdsConcat+imageId+"|";
 		}
-		String locationConcat = "";
-		for(String location : addProductAppServiceIB.getProductlocation().split(",") )
+		String pinConcat = "";
+		for(String pin : addProductAppServiceIB.getProductpin().split(",") )
 		{
-			locationConcat = locationConcat+location+"|";
+			pinConcat = pinConcat+pin+"|";
 		}
-		productsDBBean.setProductlocation(locationConcat);
+		productsDBBean.setProductpin(pinConcat);
 		productsDBBean.setImages(imageIdsConcat);
 		productsDBBean.setUsername(addProductAppServiceIB.getUsername());
 		productsDBBean.setApprovalStatus(ProductStatus.PENDING.toString());
@@ -100,8 +100,8 @@ public class ProductsDao {
 			disjunction.add(Restrictions.like("productstate", "%"+searchProductAppServiceIB.getSearchState()+"%"));
 		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchCity()))
 			disjunction.add(Restrictions.like("productcity", "%"+searchProductAppServiceIB.getSearchCity()+"%"));
-		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchLocation()))	
-			disjunction.add(Restrictions.like("productlocation", "%"+searchProductAppServiceIB.getSearchLocation()+"%"));
+		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchPin()))	
+			disjunction.add(Restrictions.like("productpin", "%"+searchProductAppServiceIB.getSearchPin()+"%"));
 		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchType()))	
 			disjunction.add(Restrictions.like("producttype", "%"+searchProductAppServiceIB.getSearchType()+"%"));
 		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchSubType()))	
@@ -173,12 +173,12 @@ public class ProductsDao {
 			productsDBBean.setImages(imageIdsConcat);
 
 		}
-		String locationConcat = "";
-		for(String location : productManagementAppServiceIB.getProductlocation().split(",") )
+		String pinConcat = "";
+		for(String pin : productManagementAppServiceIB.getProductpin().split(",") )
 		{
-			locationConcat = locationConcat+location+"|";
+			pinConcat = pinConcat+pin+"|";
 		}
-		productsDBBean.setProductlocation(locationConcat);
+		productsDBBean.setProductpin(pinConcat);
 		productsDBBean.setUsername(productManagementAppServiceIB.getUsername());
 		productsDBBean.setApprovalStatus(ProductStatus.PENDING.toString());
 		

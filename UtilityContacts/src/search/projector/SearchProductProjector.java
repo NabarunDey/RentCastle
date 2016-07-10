@@ -35,7 +35,7 @@ public class SearchProductProjector {
 
 				searchProductProjectorOB.setProductCity(productsDBBean.getProductcity());
 				searchProductProjectorOB.setProductState(productsDBBean.getProductstate());
-				searchProductProjectorOB.setProductLocation(productsDBBean.getProductlocation());
+				searchProductProjectorOB.setProductPin(productsDBBean.getProductpin());
 				searchProductProjectorOB.setProductType(productsDBBean.getProducttype());
 				searchProductProjectorOB.setProductSubtype(productsDBBean.getSubproducttype());
 				searchProductProjectorOB.setUserName(productsDBBean.getUsername());

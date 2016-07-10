@@ -5,7 +5,6 @@ public class AddressDBBean {
 	private int addressid;
 	private String username;
 	private String address;
-	private String location;
 	private String city;
 	private String state;
 	private String pin;
@@ -26,12 +25,6 @@ public class AddressDBBean {
 	}
 	public void setAddress(String address) {
 		this.address = address;
-	}
-	public String getLocation() {
-		return location;
-	}
-	public void setLocation(String location) {
-		this.location = location;
 	}
 	public String getCity() {
 		return city;

@@ -19,7 +19,7 @@ public class SearchAction {
 	SearchProductAppContext context;
 	String searchState;
 	String searchCity;
-	String searchLocation;
+	String searchPin;
 	String searchType;
 	String searchSubType;
 	
@@ -39,14 +39,14 @@ public class SearchAction {
 	{
 		SearchProductAppServiceIB searchProductAppServiceIB =new  SearchProductAppServiceIB();
 		searchProductAppServiceIB.setSearchCity(searchCity);
-		searchProductAppServiceIB.setSearchLocation(searchLocation);
+		searchProductAppServiceIB.setSearchPin(searchPin);
 		searchProductAppServiceIB.setSearchState(searchState);
 		searchProductAppServiceIB.setSearchSubType(searchSubType);
 		searchProductAppServiceIB.setSearchType(searchType);
 		List<SearchProductProjectorOB> searchProductProjectorOBs = searchProductAppService.getSearchResultByCriteria(searchProductAppServiceIB);
 		context.setSearchProductProjectorOBs(searchProductProjectorOBs);
 		context.setSearchCity(searchCity);
-		context.setSearchLocation(searchLocation);
+		context.setSearchPin(searchPin);
 		context.setSearchState(searchState);
 		context.setSearchSubType(searchSubType);
 		context.setSearchType(searchType);
@@ -60,7 +60,7 @@ public class SearchAction {
 		List<String> productSubType = new ArrayList<String>();
 		List<String> state = new ArrayList<String>();
 		List<String> city = new ArrayList<String>();
-		List<String> location = new ArrayList<String>();
+		List<String> pin = new ArrayList<String>();
 		
 		for(SearchProductProjectorOB searchProductProjectorOB : searchProductProjectorOBs)
 		{
@@ -80,14 +80,14 @@ public class SearchAction {
 			{
 				city.add(searchProductProjectorOB.getProductCity());
 			}
-			if(StringUtils.isNotEmpty(searchProductProjectorOB.getProductLocation()) && !location.contains(searchProductProjectorOB.getProductLocation()))
+			if(StringUtils.isNotEmpty(searchProductProjectorOB.getProductPin()) && !pin.contains(searchProductProjectorOB.getProductPin()))
 			{
-				location.add(searchProductProjectorOB.getProductLocation());
+				pin.add(searchProductProjectorOB.getProductPin());
 			}
 		}
 		SearchFilter searchFilter = new SearchFilter();
 		searchFilter.setCity(city);
-		searchFilter.setLocation(location);
+		searchFilter.setPin(pin);
 		searchFilter.setProductSubType(productSubType);
 		searchFilter.setProductType(productType);
 		searchFilter.setState(state);
@@ -135,12 +135,12 @@ public class SearchAction {
 		this.searchCity = searchCity;
 	}
 
-	public String getSearchLocation() {
-		return searchLocation;
+	public String getSearchPin() {
+		return searchPin;
 	}
 
-	public void setSearchLocation(String searchLocation) {
-		this.searchLocation = searchLocation;
+	public void setSearchPin(String searchPin) {
+		this.searchPin = searchPin;
 	}
 
 	public String getSearchType() {

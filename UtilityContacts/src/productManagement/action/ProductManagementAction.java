@@ -27,7 +27,7 @@ public class ProductManagementAction {
 	private int productIdForRentOffer;
 	private String productState;
 	private String productCity;
-	private String productLocation;
+	private String productPin;
 	private	String periodunit;
 	private String periodvalue;
 	private	String rentAmount;
@@ -106,7 +106,7 @@ public class ProductManagementAction {
 		productManagementAppServiceIB.setQuantity(quantity);
 		productManagementAppServiceIB.setSecuritymoney(securityMoney);
 		productManagementAppServiceIB.setStatus(status);
-		productManagementAppServiceIB.setProductlocation(productLocation);
+		productManagementAppServiceIB.setProductpin(productPin);
 		productManagementAppServiceIB.setProductstate(productState);
 		productManagementAppServiceIB.setProductcity(productCity);
 		productManagementAppServiceIB.setOldImages(context.getViewProductProjectorOB().getProductsDBBean().getImages());
@@ -198,11 +198,11 @@ public class ProductManagementAction {
 	public void setProductCity(String productCity) {
 		this.productCity = productCity;
 	}
-	public String getProductLocation() {
-		return productLocation;
+	public String getProductPin() {
+		return productPin;
 	}
-	public void setProductLocation(String productLocation) {
-		this.productLocation = productLocation;
+	public void setProductPin(String productPin) {
+		this.productPin = productPin;
 	}
 	public String getPeriodunit() {
 		return periodunit;

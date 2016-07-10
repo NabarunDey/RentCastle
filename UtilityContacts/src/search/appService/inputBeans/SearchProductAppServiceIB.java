@@ -7,7 +7,7 @@ public class SearchProductAppServiceIB {
 	private String searchString;
 	private String searchState;
 	private String searchCity;
-	private String searchLocation;
+	private String searchPin;
 	private String searchType;
 	private String searchSubType;
 
@@ -35,12 +35,12 @@ public class SearchProductAppServiceIB {
 		this.searchCity = searchCity;
 	}
 
-	public String getSearchLocation() {
-		return searchLocation;
+	public String getSearchPin() {
+		return searchPin;
 	}
 
-	public void setSearchLocation(String searchLocation) {
-		this.searchLocation = searchLocation;
+	public void setSearchPin(String searchPin) {
+		this.searchPin = searchPin;
 	}
 
 	public String getSearchType() {

@@ -46,7 +46,7 @@ public class CartProjector {
 			cartItem.setImageUrl(cartDaoOB.getImageMap().get(String.valueOf(productsDBBean.getProductid())).getImagepath());
 			cartItem.setProductCity(productsDBBean.getProductcity());
 			cartItem.setProductState(productsDBBean.getProductstate());
-			cartItem.setProductLocation(productsDBBean.getProductlocation());
+			cartItem.setProductPin(productsDBBean.getProductpin());
 			cartItem.setProductType(productsDBBean.getProducttype());
 			cartItem.setProductSubtype(productsDBBean.getSubproducttype());
 			cartItems.add(cartItem);

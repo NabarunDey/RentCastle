@@ -8,7 +8,7 @@ public class  SearchFilter {
 	private List<String> productSubType;
 	private List<String> state;
 	private List<String> city;
-	private List<String> location;
+	private List<String> pin;
 	public List<String> getProductType() {
 		return productType;
 	}
@@ -33,10 +33,10 @@ public class  SearchFilter {
 	public void setCity(List<String> city) {
 		this.city = city;
 	}
-	public List<String> getLocation() {
-		return location;
+	public List<String> getPin() {
+		return pin;
 	}
-	public void setLocation(List<String> location) {
-		this.location = location;
+	public void setPin(List<String> pin) {
+		this.pin = pin;
 	}
 }

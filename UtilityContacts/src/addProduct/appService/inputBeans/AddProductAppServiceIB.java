@@ -15,7 +15,7 @@ public class AddProductAppServiceIB {
 	private List<String> imageIdsList;
 	private String productstate;
 	private String productcity;
-	private String productlocation;
+	private String productpin;
 	private AddRentOffersAppServiceIB addRentOfferAppServiceIB;
 	
 	
@@ -93,11 +93,11 @@ public class AddProductAppServiceIB {
 	public void setProductcity(String productcity) {
 		this.productcity = productcity;
 	}
-	public String getProductlocation() {
-		return productlocation;
+	public String getProductpin() {
+		return productpin;
 	}
-	public void setProductlocation(String productlocation) {
-		this.productlocation = productlocation;
+	public void setProductpin(String productpin) {
+		this.productpin = productpin;
 	}
 	
 }
