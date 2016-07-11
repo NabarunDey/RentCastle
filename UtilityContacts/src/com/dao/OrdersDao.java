@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import order.appService.inputBeans.Address;
 import order.appService.inputBeans.OrderAppServiceIB;
 
 import org.hibernate.Criteria;
@@ -27,7 +28,7 @@ public class OrdersDao {
 		this.template = template;
 	}
 	
-	public List<OrdersDBBean> addOrder(List<OrderAppServiceIB> orderAppServiceIBs,String userName)
+	public List<OrdersDBBean> addOrder(List<OrderAppServiceIB> orderAppServiceIBs,String userName,Address address)
 	{
 		List<OrdersDBBean> ordersDBBeans = new ArrayList<OrdersDBBean>(); 
 		for(OrderAppServiceIB orderAppServiceIB : orderAppServiceIBs)
@@ -39,6 +40,8 @@ public class OrdersDao {
 			String dateTime = Calendar.getInstance().getTime().toString();
 			ordersDBBean.setDatetime(dateTime);
 			ordersDBBean.setUsername(userName);
+			ordersDBBean.setAddress(address.getAddress()+","+address.getCity()+","+address.getState());
+			ordersDBBean.setPin(address.getPin());
 			ordersDBBeans.add(ordersDBBean);
 			template.save(ordersDBBean);
 			

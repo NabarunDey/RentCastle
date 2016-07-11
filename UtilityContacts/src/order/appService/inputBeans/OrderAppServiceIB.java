@@ -8,6 +8,14 @@ public class OrderAppServiceIB {
 	private int productid;
 	private int rentid;
 	private String username;
+	private Address address;
+	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 	public int getProductid() {
 		return productid;
 	}

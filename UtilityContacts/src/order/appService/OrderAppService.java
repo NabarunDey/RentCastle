@@ -2,10 +2,10 @@ package order.appService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import order.appService.inputBeans.Address;
 import order.appService.inputBeans.OrderAppServiceIB;
 import order.dao.outputBeans.OrderDaoOB;
 import order.projector.OrderProjector;
@@ -49,12 +49,12 @@ public class OrderAppService {
 		return orderProjectorOB;
 	}
 	
-	public void checkIfDeliveryAvailable(String pin,String state,String city, OrderProjectorOB orderProjectorOB)
+	public void checkIfDeliveryAvailable(Address address, OrderProjectorOB orderProjectorOB)
 	{
 		for(CartItem cartItem : orderProjectorOB.getCartItems())
 		{
 			boolean deliveryAvailable = false;
-			if(cartItem.getProductState().equals(state)&& cartItem.getProductCity().equals(city))
+			if(cartItem.getProductState().equals(address.getState())&& cartItem.getProductCity().equals(address.getCity()))
 			{
 				if(cartItem.getProductPin().equals("All"))
 				{
@@ -64,7 +64,7 @@ public class OrderAppService {
 				{
 					String[] pins = cartItem.getProductPin().split(",");
 					List<String> pinList = Arrays.asList(pins);
-					if(pinList.contains("pin"));
+					if(pinList.contains(address.getPin()));
 					{
 						deliveryAvailable=true;
 					}
@@ -74,7 +74,7 @@ public class OrderAppService {
 		}
 	}
 	
-	public OrderProjectorOB placeCartOrder(List<CartItem> cartItems)
+	public OrderProjectorOB placeCartOrder(List<CartItem> cartItems,Address address)
 	{
 		List<OrderAppServiceIB> orderAppServiceIBs = new ArrayList<OrderAppServiceIB>();
 		for(CartItem cartItem : cartItems)
@@ -85,7 +85,7 @@ public class OrderAppService {
 			orderAppServiceIB.setUsername(userProfile.getUserName());
 			orderAppServiceIBs.add(orderAppServiceIB);
 		}
-		List<OrdersDBBean> ordersDBBeans = ordersDao.addOrder(orderAppServiceIBs,userProfile.getUserName());
+		List<OrdersDBBean> ordersDBBeans = ordersDao.addOrder(orderAppServiceIBs,userProfile.getUserName(),address);
 		
 		Iterator<CartItem> cartIterator = cartItems.iterator();
 		Iterator<OrdersDBBean> orderIterator = ordersDBBeans.iterator();

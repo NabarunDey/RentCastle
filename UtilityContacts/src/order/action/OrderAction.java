@@ -8,6 +8,7 @@ import cart.CartAppContext;
 import cart.projector.outputBeans.CartItem;
 import order.OrderAppContext;
 import order.appService.OrderAppService;
+import order.appService.inputBeans.Address;
 import order.projector.outputBeans.OrderProjectorOB;
 
 
@@ -17,9 +18,10 @@ public class OrderAction extends ActionSupport    {
 	OrderAppService orderAppService;
 	OrderAppContext context;
 	CartAppContext cartAppContext;
-	String deliveryPin;
+	String pin;
 	String state;
 	String city;
+	String address;
 	
 	public String getCartOrderInput()
 	{
@@ -30,14 +32,19 @@ public class OrderAction extends ActionSupport    {
 	
 	public String checkIfDeliveryAvailable()
 	{
-		orderAppService.checkIfDeliveryAvailable(deliveryPin, state, city,	context.getOrderProjectorOB());
+		Address address = new Address();
+		address.setCity(city);
+		address.setPin(pin);
+		address.setState(state);
+		context.setAddress(address);
+		orderAppService.checkIfDeliveryAvailable(address,context.getOrderProjectorOB());
 		return "success";
 	}
 	
 	public String placeCartOrder()
 	{
 		List<CartItem> cartItems = cartAppContext.getCartProjectorOB().getCartItems();
-		OrderProjectorOB orderProjectorOB = orderAppService.placeCartOrder(cartItems);
+		OrderProjectorOB orderProjectorOB = orderAppService.placeCartOrder(cartItems,context.getAddress());
 		context.setOrderProjectorOB(orderProjectorOB);
 		return "success";
 	}
@@ -73,12 +80,20 @@ public class OrderAction extends ActionSupport    {
 		this.cartAppContext = cartAppContext;
 	}
 
-	public String getDeliveryPin() {
-		return deliveryPin;
+	public String getPin() {
+		return pin;
 	}
 
-	public void setDeliveryPin(String deliveryPin) {
-		this.deliveryPin = deliveryPin;
+	public void setPin(String pin) {
+		this.pin = pin;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getState() {
