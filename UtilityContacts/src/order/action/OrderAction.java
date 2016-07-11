@@ -22,6 +22,7 @@ public class OrderAction extends ActionSupport    {
 	String state;
 	String city;
 	String address;
+	String addressId;
 	
 	public String getCartOrderInput()
 	{
@@ -33,6 +34,7 @@ public class OrderAction extends ActionSupport    {
 	public String checkIfDeliveryAvailable()
 	{
 		Address address = new Address();
+		address.setAddressId(addressId);
 		address.setCity(city);
 		address.setPin(pin);
 		address.setState(state);
@@ -110,6 +112,14 @@ public class OrderAction extends ActionSupport    {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public String getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(String addressId) {
+		this.addressId = addressId;
 	}
 	
 }

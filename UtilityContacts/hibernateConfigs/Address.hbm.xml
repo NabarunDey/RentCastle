@@ -8,6 +8,7 @@
 		<id name="addressid">
 			<generator class="increment"></generator>
 		</id>
+		<property name="title"></property>
 		<property name="username"></property>
 		<property name="address"></property>
 		<property name="location"></property>

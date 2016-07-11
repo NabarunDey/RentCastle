@@ -5,10 +5,25 @@ package order.appService.inputBeans;
 
 public class Address {
 	
+	private String addressId;
+	private String title;
 	private String address;
 	private String city;
 	private String state;
 	private String pin;
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getAddressId() {
+		return addressId;
+	}
+	public void setAddressId(String addressId) {
+		this.addressId = addressId;
+	}
 	public String getAddress() {
 		return address;
 	}

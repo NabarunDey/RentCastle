@@ -12,6 +12,14 @@ public class OrderProjectorOB {
 	private List<CartItem> cartItems;
 	private String total;
 	private List<OrderItem> orderItems;
+	private List<AddressDBBean> addressDBBeans;
+	
+	public List<AddressDBBean> getAddressDBBeans() {
+		return addressDBBeans;
+	}
+	public void setAddressDBBeans(List<AddressDBBean> addressDBBeans) {
+		this.addressDBBeans = addressDBBeans;
+	}
 	public List<OrderItem> getOrderItems() {
 		return orderItems;
 	}

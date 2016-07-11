@@ -19,6 +19,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="rentOffersDao" ref="rentOffersDao" />
 		<property name="ordersDao" ref="ordersDao" />
 		<property name="paymentsDao" ref="paymentsDao" />
+		<property name="addressDao" ref="addressDao" />
 	</bean>
 
 	

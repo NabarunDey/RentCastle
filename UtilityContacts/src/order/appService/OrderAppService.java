@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import order.appService.inputBeans.Address;
 import order.appService.inputBeans.OrderAppServiceIB;
 import order.dao.outputBeans.OrderDaoOB;
@@ -15,10 +17,12 @@ import cart.appService.CartAppService;
 import cart.projector.outputBeans.CartItem;
 import cart.projector.outputBeans.CartProjectorOB;
 
+import com.dao.AddressDao;
 import com.dao.OrdersDao;
 import com.dao.PaymentsDao;
 import com.dao.ProductsDao;
 import com.dao.RentOffersDao;
+import com.databaseBeans.AddressDBBean;
 import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
@@ -39,6 +43,7 @@ public class OrderAppService {
 	ProductsDao productsDao;
 	RentOffersDao rentOffersDao;
 	PaymentsDao paymentsDao;
+	AddressDao addressDao;
 	
 	public OrderProjectorOB getCartOrderInput()
 	{	
@@ -46,6 +51,8 @@ public class OrderAppService {
 		OrderDaoOB orderDaoOB = new  OrderDaoOB();
 		orderDaoOB.setCartItems(cartProjectorOB.getCartItems());
 		OrderProjectorOB orderProjectorOB = orderProjector.getOrderInput(orderDaoOB);
+		List<AddressDBBean> addressDBBeans = addressDao.getAddressForUser(userProfile.getUserName());
+		orderProjectorOB.setAddressDBBeans(addressDBBeans);
 		return orderProjectorOB;
 	}
 	
@@ -86,6 +93,10 @@ public class OrderAppService {
 			orderAppServiceIBs.add(orderAppServiceIB);
 		}
 		List<OrdersDBBean> ordersDBBeans = ordersDao.addOrder(orderAppServiceIBs,userProfile.getUserName(),address);
+		if(StringUtils.isEmpty(address.getAddressId()))
+		{
+			addressDao.addAddress(address, userProfile.getUserName());
+		}
 		
 		Iterator<CartItem> cartIterator = cartItems.iterator();
 		Iterator<OrdersDBBean> orderIterator = ordersDBBeans.iterator();
@@ -182,7 +193,13 @@ public class OrderAppService {
 	public void setPaymentsDao(PaymentsDao paymentsDao) {
 		this.paymentsDao = paymentsDao;
 	}
-	
-	
+
+	public AddressDao getAddressDao() {
+		return addressDao;
+	}
+
+	public void setAddressDao(AddressDao addressDao) {
+		this.addressDao = addressDao;
+	}
 	
 }

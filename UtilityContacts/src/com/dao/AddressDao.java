@@ -2,10 +2,15 @@ package com.dao;
 
 import java.util.List;
 
+import order.appService.inputBeans.Address;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.databaseBeans.AddressDBBean;
+import com.databaseBeans.OrdersDBBean;
 
 @Transactional
 public class AddressDao {
@@ -24,7 +29,22 @@ public class AddressDao {
 	public List<AddressDBBean> getAddressForUser(String userName)
 	{
 		List<AddressDBBean> addressDBBeans = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(AddressDBBean.class)
+				.add(Restrictions.like("username", userName));
+		addressDBBeans = criteria.list();
 		return addressDBBeans;
+	}
+	
+	public void addAddress( Address address, String username)
+	{
+		AddressDBBean addressDBBean = new AddressDBBean(); 
+		addressDBBean.setAddress(address.getAddress());
+		addressDBBean.setCity(address.getCity());
+		addressDBBean.setPin(address.getPin());
+		addressDBBean.setState(address.getState());
+		addressDBBean.setTitle(address.getTitle());
+		addressDBBean.setUsername(username);
+		template.save(addressDBBean);
 	}
 	
 	

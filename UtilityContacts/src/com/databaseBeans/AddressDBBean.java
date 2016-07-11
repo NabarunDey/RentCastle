@@ -3,11 +3,19 @@ package com.databaseBeans;
 public class AddressDBBean {
 
 	private int addressid;
+	private String title;
 	private String username;
 	private String address;
 	private String city;
 	private String state;
 	private String pin;
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	public int getAddressid() {
 		return addressid;
 	}
