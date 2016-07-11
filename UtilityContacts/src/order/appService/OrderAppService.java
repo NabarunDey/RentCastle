@@ -44,7 +44,7 @@ public class OrderAppService {
 	RentOffersDao rentOffersDao;
 	PaymentsDao paymentsDao;
 	AddressDao addressDao;
-	
+
 	public OrderProjectorOB getCartOrderInput()
 	{	
 		CartProjectorOB cartProjectorOB = cartAppService.viewCart();
@@ -55,7 +55,7 @@ public class OrderAppService {
 		orderProjectorOB.setAddressDBBeans(addressDBBeans);
 		return orderProjectorOB;
 	}
-	
+
 	public void checkIfDeliveryAvailable(Address address, OrderProjectorOB orderProjectorOB)
 	{
 		for(CartItem cartItem : orderProjectorOB.getCartItems())
@@ -80,7 +80,7 @@ public class OrderAppService {
 			cartItem.setDeliveryAvailable(deliveryAvailable);
 		}
 	}
-	
+
 	public OrderProjectorOB placeCartOrder(List<CartItem> cartItems,Address address)
 	{
 		List<OrderAppServiceIB> orderAppServiceIBs = new ArrayList<OrderAppServiceIB>();
@@ -97,7 +97,7 @@ public class OrderAppService {
 		{
 			addressDao.addAddress(address, userProfile.getUserName());
 		}
-		
+
 		Iterator<CartItem> cartIterator = cartItems.iterator();
 		Iterator<OrdersDBBean> orderIterator = ordersDBBeans.iterator();
 		List<PaymentAppServiceIB> paymentAppServiceIBs = new ArrayList<PaymentAppServiceIB>();
@@ -118,23 +118,26 @@ public class OrderAppService {
 		OrderProjectorOB orderProjectorOB = orderProjector.confirmOrder(ordersDBBeans);
 		return orderProjectorOB;
 	}
-	
-	
+
+
 	public OrderProjectorOB viewOrders()
 	{
+		OrderProjectorOB orderProjectorOB =null;
 		List<OrdersDBBean> ordersDBBeans = ordersDao.getOrdersForUser(userProfile.getUserName());
-		
-		List<Integer> productIds = new ArrayList<Integer>();
-		List<Integer> rentOfferIds = new ArrayList<Integer>();
-		for(OrdersDBBean ordersDBBean : ordersDBBeans)
+		if(null!= ordersDBBeans && ordersDBBeans.size()>=1)
 		{
-			productIds.add(ordersDBBean.getProductid());
-			rentOfferIds.add(ordersDBBean.getRentid());
+			List<Integer> productIds = new ArrayList<Integer>();
+			List<Integer> rentOfferIds = new ArrayList<Integer>();
+			for(OrdersDBBean ordersDBBean : ordersDBBeans)
+			{
+				productIds.add(ordersDBBean.getProductid());
+				rentOfferIds.add(ordersDBBean.getRentid());
+			}
+			List<ProductsDBBean> productsDBBeans = productsDao.getProductListByIdsInteger(productIds);
+			List<RentOffersDBBean> rentOffersDBBeans = rentOffersDao.getRentOffersByIdsInteger(rentOfferIds);
+
+			orderProjectorOB= orderProjector.viewOrders(ordersDBBeans, productsDBBeans, rentOffersDBBeans);
 		}
-		List<ProductsDBBean> productsDBBeans = productsDao.getProductListByIdsInteger(productIds);
-		List<RentOffersDBBean> rentOffersDBBeans = rentOffersDao.getRentOffersByIdsInteger(rentOfferIds);
-		
-		OrderProjectorOB orderProjectorOB = orderProjector.viewOrders(ordersDBBeans, productsDBBeans, rentOffersDBBeans);
 		return orderProjectorOB;
 	}
 
@@ -201,5 +204,5 @@ public class OrderAppService {
 	public void setAddressDao(AddressDao addressDao) {
 		this.addressDao = addressDao;
 	}
-	
+
 }

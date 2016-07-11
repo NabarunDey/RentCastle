@@ -13,7 +13,7 @@ import search.projector.outputBeans.SearchProductProjectorOB;
 
 
 public class SearchAction {
-	
+
 	String searchString;
 	SearchProductAppService searchProductAppService;
 	SearchProductAppContext context;
@@ -22,7 +22,7 @@ public class SearchAction {
 	String searchPin;
 	String searchType;
 	String searchSubType;
-	
+
 
 	public String search()
 	{
@@ -53,7 +53,7 @@ public class SearchAction {
 		setsearchFilters(searchProductProjectorOBs);
 		return "success";
 	}
-	
+
 	private void setsearchFilters(List<SearchProductProjectorOB> searchProductProjectorOBs)
 	{
 		List<String> productType = new ArrayList<String>();
@@ -61,28 +61,30 @@ public class SearchAction {
 		List<String> state = new ArrayList<String>();
 		List<String> city = new ArrayList<String>();
 		List<String> pin = new ArrayList<String>();
-		
-		for(SearchProductProjectorOB searchProductProjectorOB : searchProductProjectorOBs)
+		if(null!= searchProductProjectorOBs )
 		{
-			if(StringUtils.isNotEmpty(searchProductProjectorOB.getProductType()) && !productType.contains(searchProductProjectorOB.getProductType()))
+			for(SearchProductProjectorOB searchProductProjectorOB : searchProductProjectorOBs)
 			{
-				productType.add(searchProductProjectorOB.getProductType());
-			}
-			if(StringUtils.isNotEmpty(searchProductProjectorOB.getProductSubtype()) && !productSubType.contains(searchProductProjectorOB.getProductSubtype()))
-			{
-				productSubType.add(searchProductProjectorOB.getProductSubtype());
-			}
-			if(StringUtils.isNotEmpty(searchProductProjectorOB.getProductState()) && !state.contains(searchProductProjectorOB.getProductState()))
-			{
-				state.add(searchProductProjectorOB.getProductState());
-			}
-			if(StringUtils.isNotEmpty(searchProductProjectorOB.getProductCity()) && !city.contains(searchProductProjectorOB.getProductCity()))
-			{
-				city.add(searchProductProjectorOB.getProductCity());
-			}
-			if(StringUtils.isNotEmpty(searchProductProjectorOB.getProductPin()) && !pin.contains(searchProductProjectorOB.getProductPin()))
-			{
-				pin.add(searchProductProjectorOB.getProductPin());
+				if(StringUtils.isNotEmpty(searchProductProjectorOB.getProductType()) && !productType.contains(searchProductProjectorOB.getProductType()))
+				{
+					productType.add(searchProductProjectorOB.getProductType());
+				}
+				if(StringUtils.isNotEmpty(searchProductProjectorOB.getProductSubtype()) && !productSubType.contains(searchProductProjectorOB.getProductSubtype()))
+				{
+					productSubType.add(searchProductProjectorOB.getProductSubtype());
+				}
+				if(StringUtils.isNotEmpty(searchProductProjectorOB.getProductState()) && !state.contains(searchProductProjectorOB.getProductState()))
+				{
+					state.add(searchProductProjectorOB.getProductState());
+				}
+				if(StringUtils.isNotEmpty(searchProductProjectorOB.getProductCity()) && !city.contains(searchProductProjectorOB.getProductCity()))
+				{
+					city.add(searchProductProjectorOB.getProductCity());
+				}
+				if(StringUtils.isNotEmpty(searchProductProjectorOB.getProductPin()) && !pin.contains(searchProductProjectorOB.getProductPin()))
+				{
+					pin.add(searchProductProjectorOB.getProductPin());
+				}
 			}
 		}
 		SearchFilter searchFilter = new SearchFilter();
