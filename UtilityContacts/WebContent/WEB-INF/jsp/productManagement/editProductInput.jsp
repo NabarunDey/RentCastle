@@ -19,7 +19,8 @@
 					Name</label>
 				<div class="col-sm-4">
 					<s:textfield name="productName" cssClass="form-control"
-						id="productName" value="%{context.viewProductProjectorOB.productsDBBean.productname}" />
+						id="productName"
+						value="%{context.viewProductProjectorOB.productsDBBean.productname}" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -38,17 +39,20 @@
 					<s:iterator value="context.viewProductProjectorOB.productTypeMap">
 						<s:if test="value.size>=1">
 							<s:select id="%{'subProductType' + #attr['key']}"
-								name="subProductType" list="value" cssClass="form-control" onchange="selectSubProductTypeValue(this.value)"
+								name="subProductType" list="value" cssClass="form-control"
+								onchange="selectSubProductTypeValue(this.value)"
 								style="display: none" />
 						</s:if>
 					</s:iterator>
 				</div>
 			</div>
-			<s:textfield type="hidden" id="subProductTypeSelected" name ="subProductTypeSelected"/>
+			<s:textfield type="hidden" id="subProductTypeSelected"
+				name="subProductTypeSelected" />
 			<div class="form-group">
 				<label for="quantity" class="col-sm-2 control-label">Quantity</label>
 				<div class="col-sm-4">
-					<s:textfield name="quantity" cssClass="form-control" id="quantity"  value="%{context.viewProductProjectorOB.productsDBBean.quantity}"/>
+					<s:textfield name="quantity" cssClass="form-control" id="quantity"
+						value="%{context.viewProductProjectorOB.productsDBBean.quantity}" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -57,7 +61,9 @@
 					<div class="fileinput fileinput-new" data-provides="fileinput">
 						<div class="fileinput-new thumbnail"
 							style="width: 200px; height: 150px;">
-							<img src="<s:property value="%{context.viewProductProjectorOB.productImagesList.get(0)}"/>" id="previewImage1" class="img-thumbnail">
+							<img
+								src="<s:property value="%{context.viewProductProjectorOB.productImagesList.get(0)}"/>"
+								id="previewImage1" class="img-thumbnail">
 						</div>
 						<div class="fileinput-preview fileinput-exists thumbnail"
 							style="width: 200px; height: 150px;"></div>
@@ -73,7 +79,9 @@
 					<div class="fileinput fileinput-new" data-provides="fileinput">
 						<div class="fileinput-new thumbnail"
 							style="width: 200px; height: 150px;">
-							<img src="<s:property value="%{context.viewProductProjectorOB.productImagesList.get(1)}"/>" id="previewImage2" class="img-thumbnail">
+							<img
+								src="<s:property value="%{context.viewProductProjectorOB.productImagesList.get(1)}"/>"
+								id="previewImage2" class="img-thumbnail">
 						</div>
 						<div class="fileinput-preview fileinput-exists thumbnail"
 							style="width: 200px; height: 150px;"></div>
@@ -89,7 +97,9 @@
 					<div class="fileinput fileinput-new" data-provides="fileinput">
 						<div class="fileinput-new thumbnail"
 							style="width: 200px; height: 150px;">
-							<img src="<s:property value="%{context.viewProductProjectorOB.productImagesList.get(2)}"/>" id="previewImage3" class="img-thumbnail">
+							<img
+								src="<s:property value="%{context.viewProductProjectorOB.productImagesList.get(2)}"/>"
+								id="previewImage3" class="img-thumbnail">
 						</div>
 						<div class="fileinput-preview fileinput-exists thumbnail"
 							style="width: 200px; height: 150px;"></div>
@@ -105,7 +115,9 @@
 					<div class="fileinput fileinput-new" data-provides="fileinput">
 						<div class="fileinput-new thumbnail"
 							style="width: 200px; height: 150px;">
-							<img src="<s:property value="%{context.viewProductProjectorOB.productImagesList.get(3)}"/>" id="previewImage4" class="img-thumbnail">
+							<img
+								src="<s:property value="%{context.viewProductProjectorOB.productImagesList.get(3)}"/>"
+								id="previewImage4" class="img-thumbnail">
 						</div>
 						<div class="fileinput-preview fileinput-exists thumbnail"
 							style="width: 200px; height: 150px;"></div>
@@ -123,7 +135,9 @@
 			<div class="form-group">
 				<label for="status" class="col-sm-2 control-label">Status</label>
 				<div class="col-sm-4">
-					<s:select list="{'Available','NotAvailable'}" name ="status" cssClass="form-control" value="%{context.viewProductProjectorOB.productsDBBean.status}"></s:select>
+					<s:select list="{'Available','NotAvailable'}" name="status"
+						cssClass="form-control"
+						value="%{context.viewProductProjectorOB.productsDBBean.status}"></s:select>
 				</div>
 			</div>
 			<div class="form-group">
@@ -131,31 +145,40 @@
 					Money</label>
 				<div class="col-sm-4">
 					<s:textfield name="securityMoney" cssClass="form-control"
-						id="securityMoney" value="%{context.viewProductProjectorOB.productsDBBean.securitymoney}" />
+						id="securityMoney"
+						value="%{context.viewProductProjectorOB.productsDBBean.securitymoney}" />
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="productState" class="col-sm-2 control-label">Select State</label>
+				<label for="productState" class="col-sm-2 control-label">Select
+					State</label>
 				<div class="col-sm-4">
-					
-					<s:select list="{'West Bengal','Assam'}" name ="productState" cssClass="form-control" value="%{context.viewProductProjectorOB.productsDBBean.productstate}"></s:select>
+
+					<s:select list="{'West Bengal','Assam'}" name="productState"
+						cssClass="form-control"
+						value="%{context.viewProductProjectorOB.productsDBBean.productstate}"></s:select>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="productCity" class="col-sm-2 control-label">Select City</label>
+				<label for="productCity" class="col-sm-2 control-label">Select
+					City</label>
 				<div class="col-sm-4">
-					
-					<s:select list="{'Kolkata', 'Siliguri'}" name ="productCity" cssClass="form-control" value="%{context.viewProductProjectorOB.productsDBBean.productcity}"></s:select>
+
+					<s:select list="{'Kolkata', 'Siliguri'}" name="productCity"
+						cssClass="form-control"
+						value="%{context.viewProductProjectorOB.productsDBBean.productcity}"></s:select>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="productLocation" class="col-sm-2 control-label">Select Location</label>
+				<label for="productPin" class="col-sm-2 control-label">Select
+					Location</label>
 				<div class="col-sm-4">
-					
-					<s:select list="{'Newtown','Keshtopur'}" name ="productLocation" cssClass="form-control" ></s:select>
+
+					<s:textfield name="productPin" cssClass="form-control" />
+
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<div class="col-md-2 col-md-offset-2">
 					<s:submit type="button" name="submit" theme="simple"

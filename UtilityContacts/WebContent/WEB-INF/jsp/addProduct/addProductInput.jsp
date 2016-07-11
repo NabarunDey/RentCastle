@@ -150,10 +150,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="productLocation" class="col-sm-2 control-label">Select Location</label>
+				<label for="productPin" class="col-sm-2 control-label">Select Location</label>
 				<div class="col-sm-4">
-					
-					<s:select list="{'Newtown','Keshtopur'}" name ="productLocation" cssClass="form-control"></s:select>
+						<s:textfield name="productPin" cssClass="form-control" />
 				</div>
 			</div>
 			

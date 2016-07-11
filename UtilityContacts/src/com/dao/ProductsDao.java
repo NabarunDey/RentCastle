@@ -22,40 +22,47 @@ import com.util.CommonUtility;
 
 @Transactional
 public class ProductsDao {
-	
+
 	HibernateTemplate template;  
-	
-	
+
+
 	public void setTemplate(HibernateTemplate template) {  
-	    this.template = template;  
+		this.template = template;  
 	}  
 
-		
-	
+
+
 	public AddProductDaoOB addProduct(
 			AddProductAppServiceIB addProductAppServiceIB) {
 
 		ProductsDBBean productsDBBean = new  ProductsDBBean();
 		CommonUtility.copyBean(addProductAppServiceIB, productsDBBean);
-		
+
 		String imageIdsConcat = "";
 		for(String imageId :addProductAppServiceIB.getImageIdsList())
 		{
 			imageIdsConcat= imageIdsConcat+imageId+"|";
 		}
 		String pinConcat = "";
-		for(String pin : addProductAppServiceIB.getProductpin().split(",") )
+		if("All".equals(addProductAppServiceIB.getProductpin()))
 		{
-			pinConcat = pinConcat+pin+"|";
+			pinConcat=addProductAppServiceIB.getProductpin();
+		}
+		else
+		{
+			for(String pin : addProductAppServiceIB.getProductpin().split(",") )
+			{
+				pinConcat = pinConcat+pin+"|";
+			}
 		}
 		productsDBBean.setProductpin(pinConcat);
 		productsDBBean.setImages(imageIdsConcat);
 		productsDBBean.setUsername(addProductAppServiceIB.getUsername());
 		productsDBBean.setApprovalStatus(ProductStatus.PENDING.toString());
-		
+
 		boolean success = true;
 		try{
-		template.save(productsDBBean);
+			template.save(productsDBBean);
 		}catch (Exception exception)
 		{
 			success= false;
@@ -65,7 +72,7 @@ public class ProductsDao {
 		addProductDaoOB.setProductId(productsDBBean.getProductid());
 		return addProductDaoOB;
 	}
-	
+
 	public ProductsDBBean getProductDetails(int productId)
 	{
 		ProductsDBBean productsDBBean = null;
@@ -78,7 +85,7 @@ public class ProductsDao {
 		}
 		return productsDBBean;
 	}
-	
+
 	public List<ProductsDBBean> searchByProductName(String searchString)
 	{
 		List<ProductsDBBean> productsDBBeans = null;
@@ -88,7 +95,7 @@ public class ProductsDao {
 
 		return productsDBBeans;
 	}
-	
+
 	public List<ProductsDBBean> searchByCriteria(SearchProductAppServiceIB searchProductAppServiceIB)
 	{
 		List<ProductsDBBean> productsDBBeans = null;
@@ -106,14 +113,14 @@ public class ProductsDao {
 			disjunction.add(Restrictions.like("producttype", "%"+searchProductAppServiceIB.getSearchType()+"%"));
 		if(StringUtils.isNotEmpty(searchProductAppServiceIB.getSearchSubType()))	
 			disjunction.add(Restrictions.like("subproducttype", "%"+searchProductAppServiceIB.getSearchSubType()+"%"));
-	
+
 		completeCondition = disjunction;
 		criteria.add(completeCondition);
 		productsDBBeans = criteria.list();
 
 		return productsDBBeans;
 	}
-	
+
 	public List<ProductsDBBean> searchByVendor(String username)
 	{
 		List<ProductsDBBean> productsDBBeans = null;
@@ -123,7 +130,7 @@ public class ProductsDao {
 
 		return productsDBBeans;
 	}
-	
+
 	public ProductsDBBean deleteProduct(String productId)
 	{
 		ProductsDBBean productsDBBean = new ProductsDBBean();
@@ -155,11 +162,11 @@ public class ProductsDao {
 		productsDBBeans=criteria.list();
 		return productsDBBeans;
 	}
-	
+
 	public void editProduct(ProductManagementAppServiceIB productManagementAppServiceIB)
 	{
 		ProductsDBBean productsDBBean = new ProductsDBBean();
-		
+
 		CommonUtility.copyBean(productManagementAppServiceIB, productsDBBean);
 		productsDBBean.setProductid(Integer.parseInt(productManagementAppServiceIB.getProductId()));
 		if(null!= productManagementAppServiceIB.getImageIdsList() && productManagementAppServiceIB.getImageIdsList().size()>=1)
@@ -181,17 +188,17 @@ public class ProductsDao {
 		productsDBBean.setProductpin(pinConcat);
 		productsDBBean.setUsername(productManagementAppServiceIB.getUsername());
 		productsDBBean.setApprovalStatus(ProductStatus.PENDING.toString());
-		
+
 		try{
-		template.update(productsDBBean);
+			template.update(productsDBBean);
 		}catch (Exception exception)
 		{
 		}
 	}
-	
+
 	public void changeProductStatus()
 	{
-		
+
 	}
 
 }

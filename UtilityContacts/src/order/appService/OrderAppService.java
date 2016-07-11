@@ -1,6 +1,8 @@
 package order.appService;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -45,6 +47,31 @@ public class OrderAppService {
 		orderDaoOB.setCartItems(cartProjectorOB.getCartItems());
 		OrderProjectorOB orderProjectorOB = orderProjector.getOrderInput(orderDaoOB);
 		return orderProjectorOB;
+	}
+	
+	public void checkIfDeliveryAvailable(String pin,String state,String city, OrderProjectorOB orderProjectorOB)
+	{
+		for(CartItem cartItem : orderProjectorOB.getCartItems())
+		{
+			boolean deliveryAvailable = false;
+			if(cartItem.getProductState().equals(state)&& cartItem.getProductCity().equals(city))
+			{
+				if(cartItem.getProductPin().equals("All"))
+				{
+					deliveryAvailable=true;
+				}
+				else
+				{
+					String[] pins = cartItem.getProductPin().split(",");
+					List<String> pinList = Arrays.asList(pins);
+					if(pinList.contains("pin"));
+					{
+						deliveryAvailable=true;
+					}
+				}
+			}
+			cartItem.setDeliveryAvailable(deliveryAvailable);
+		}
 	}
 	
 	public OrderProjectorOB placeCartOrder(List<CartItem> cartItems)

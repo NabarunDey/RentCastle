@@ -16,6 +16,12 @@
 		<action name="getCartOrderInput" class="orderAction" method="getCartOrderInput">
 			<result name="success" type="tiles">orderPreview</result>
 		</action>
+		
+		<action name="checkIfDeliveryAvailable" class="orderAction" method="checkIfDeliveryAvailable">
+			<result name="success"  type="json">
+				<param name="root">context</param>
+			</result>
+		</action>
 
 		<action name="placeCartOrder" class="orderAction" method="placeCartOrder">
 			<result name="success" type="tiles">orderConfirmation</result>

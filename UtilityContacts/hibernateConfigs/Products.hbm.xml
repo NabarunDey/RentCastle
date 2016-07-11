@@ -18,7 +18,7 @@
 		<property name="securitymoney"></property>
 		<property name="productstate"></property>
 		<property name="productcity"></property>
-		<property name="productlocation"></property>
+		<property name="productpin"></property>
 		<property name="approvalStatus"></property>
 	</class>
 
