@@ -5,7 +5,7 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 
 
-<html>
+<html> 
 <head>
 
 <title>Rentme</title>
