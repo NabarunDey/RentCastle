@@ -12,7 +12,7 @@ function checkPin() {
 	$.ajax({
 		type: "POST",
 		url: "checkIfDeliveryAvailable",
-		data: { pin: $('#pin').val(),state: $('#state').val() ,city : $('#city').val()} ,
+		data: { pin: $('#pin').val(),state: $('#state').val() ,city : $('#city').val(),address: $('#address').val(),title: $('#title').val()} ,
 		success: function(response){
 			debugger;
 		},

@@ -39,6 +39,7 @@ public class OrderAction extends ActionSupport    {
 		address.setTitle(title);
 		address.setCity(city);
 		address.setPin(pin);
+		address.setAddress(this.address);
 		address.setState(state);
 		context.setAddress(address);
 		orderAppService.checkIfDeliveryAvailable(address,context.getOrderProjectorOB());

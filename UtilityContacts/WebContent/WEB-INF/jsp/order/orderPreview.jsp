@@ -14,7 +14,8 @@
 			</h4>
 			<div class="clearfix"></div>
 		</div>
-		<s:textarea id="address"></s:textarea>
+		<input type="text" id="title"/>
+		<input type="text" id="address"/>
 		<select id="state" cssClass="form-control" onchange="populateCity()">
 			<option value="West Bengal">West Bengal</option>
 			<option value="Assam">Assam</option>
