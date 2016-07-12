@@ -13,6 +13,9 @@
 		<property name="username"></property>
 		<property name="datetime"></property>
 		<property name="orderstatus"></property>
+		<property name="address"></property>
+		<property name="pin"></property>
+		
 	</class>
 
 </hibernate-mapping>  	

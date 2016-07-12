@@ -69,9 +69,9 @@ public class OrderAppService {
 				}
 				else
 				{
-					String[] pins = cartItem.getProductPin().split(",");
+					String[] pins = cartItem.getProductPin().split("\\|");
 					List<String> pinList = Arrays.asList(pins);
-					if(pinList.contains(address.getPin()));
+					if(pinList.contains(address.getPin()))
 					{
 						deliveryAvailable=true;
 					}

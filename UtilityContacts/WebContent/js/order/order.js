@@ -6,3 +6,47 @@ $(document).ready(function(){
 	});
 	$('.orders table tfoot tr td:eq(3)').html('Total Amount: Rs. '+total);
 });
+
+function checkPin() {
+
+	$.ajax({
+		type: "POST",
+		url: "checkIfDeliveryAvailable",
+		data: { pin: $('#pin').val(),state: $('#state').val() ,city : $('#city').val()} ,
+		success: function(response){
+			debugger;
+		},
+		error: function(e){
+			alert('Error: ' + e);
+		}
+	});
+}
+
+function populateCity() {
+
+	var state = document.getElementById('state').value;
+	var cityDropdown = document.getElementById('city');
+	cityDropdown.innerHTML = "";
+	if(state === "West Bengal")
+		{
+		 var opt = document.createElement('option');
+	     opt.value = "Kolkata";
+	     opt.innerHTML = "Kolkata";
+	     cityDropdown.appendChild(opt);
+		 var opt1 = document.createElement('option');
+	     opt1.value = "Siliguri";
+	     opt1.innerHTML = "Siliguri";
+	     cityDropdown.appendChild(opt1);
+		}
+	if(state === "Assam")
+	{
+	 var opt = document.createElement('option');
+     opt.value = "Dhubri";
+     opt.innerHTML = "Dhubri";
+     cityDropdown.appendChild(opt);
+     var opt1 = document.createElement('option');
+     opt1.value = "Guwahati";
+     opt1.innerHTML = "Guwahati";
+     cityDropdown.appendChild(opt1);
+	}
+}
