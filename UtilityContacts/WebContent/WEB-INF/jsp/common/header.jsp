@@ -45,6 +45,14 @@
 						</s:else>
 						
 						<s:if
+							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
+							<li id = "getOrdersForAdmin"><a href="<s:url  action='getOrdersForAdmin'/>">Order History Admin</a></li>
+						</s:if>
+						<s:else>
+							<li id = "getOrdersForAdmin" style="display: none"><a href="<s:url  action='getOrdersForAdmin'/>">Order History Admin</a></li>
+						</s:else>
+						
+						<s:if
 							test="%{ null != #attr.userProfile && #attr.userProfile.userName != null }">
 							<li id = "paymentHistory"><a href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
 						</s:if>

@@ -10,7 +10,6 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.databaseBeans.AddressDBBean;
-import com.databaseBeans.OrdersDBBean;
 
 @Transactional
 public class AddressDao {
