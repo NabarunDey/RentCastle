@@ -128,6 +128,11 @@
 							<a href="<s:url  action='editProductInputFunction'><s:param name="productId" value="productId"></s:param></s:url>">Edit</a>
 							<a href="<s:url  action='deleteProductFunction'><s:param name="productId" value="productId"></s:param></s:url>">Delete</a>
 						</s:if>
+						<s:if test="context.admin">
+							<a href="<s:url  action='editProductInputFunction'><s:param name="productId" value="productId"></s:param></s:url>">Edit</a>
+							<a href="<s:url  action='deleteProductFunction'><s:param name="productId" value="productId"></s:param></s:url>">Delete</a>
+							<a href="<s:url  action='deleteProductFunction'><s:param name="productId" value="productId"></s:param></s:url>">Delete</a>
+						</s:if>
 					</div>
 				</s:iterator>	
 				
