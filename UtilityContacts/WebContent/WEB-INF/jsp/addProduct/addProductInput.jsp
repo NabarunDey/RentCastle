@@ -150,7 +150,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="productPin" class="col-sm-2 control-label">Select Location</label>
+				<label for="productPin" class="col-sm-2 control-label">Select Pin</label>
 				<div class="col-sm-4">
 						<s:textfield name="productPin" cssClass="form-control" />
 				</div>
