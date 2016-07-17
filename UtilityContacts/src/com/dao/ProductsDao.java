@@ -58,7 +58,7 @@ public class ProductsDao {
 		productsDBBean.setProductpin(pinConcat);
 		productsDBBean.setImages(imageIdsConcat);
 		productsDBBean.setUsername(addProductAppServiceIB.getUsername());
-		productsDBBean.setApprovalStatus(ProductStatus.PENDING.toString());
+		productsDBBean.setApprovalStatus(ProductStatus.APPROVED.toString());
 
 		boolean success = true;
 		try{
