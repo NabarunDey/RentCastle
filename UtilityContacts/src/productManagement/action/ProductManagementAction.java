@@ -126,6 +126,14 @@ public class ProductManagementAction {
 		return "success";
 	}
 	
+	public String getPendingProducts()
+	{
+		List<SearchProductProjectorOB> searchProductProjectorOBs = productManagementAppService.viewPendingProducts();
+		context.setSearchProductProjectorOBs(searchProductProjectorOBs);
+		context.setAdmin(true);
+		return "success";
+	}
+	
 	public String getProductId() {
 		return productId;
 	}

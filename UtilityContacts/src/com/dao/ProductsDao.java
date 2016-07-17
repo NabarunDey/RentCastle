@@ -196,9 +196,24 @@ public class ProductsDao {
 		}
 	}
 
-	public void changeProductStatus()
+	public void changeProductStatus(String productId, String productStatus)
 	{
-
+		ProductsDBBean productsDBBean =new ProductsDBBean();
+		productsDBBean.setProductid(Integer.parseInt(productId));
+		productsDBBean.setApprovalStatus(productStatus);
+		template.update(productsDBBean);
 	}
-
+	
+	public List<ProductsDBBean> viewPendingProducts()
+	{
+		List<ProductsDBBean> productsDBBeans = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class);
+		Criterion completeCondition = null;
+		Disjunction disjunction = Restrictions.disjunction();
+		disjunction.add(Restrictions.like("approvalStatus", ProductStatus.PENDING.toString()));
+		completeCondition = disjunction;
+		criteria.add(completeCondition);
+		productsDBBeans = criteria.list();
+		return productsDBBeans;
+	}
 }

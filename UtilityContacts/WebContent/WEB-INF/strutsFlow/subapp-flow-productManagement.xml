@@ -32,6 +32,10 @@
 		<action name="editRentOffersSubmit" class="productManagementAction" method="editRentOffersSubmit">
 			<result name="success" type="tiles">editRentOffersConfirm</result>
 		</action>
+		
+		<action name="getPendingProducts" class="productManagementAction" method="getPendingProducts">
+			<result name="success" type="tiles">searchResult</result>
+		</action>
 
 	</package>
 

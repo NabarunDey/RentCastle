@@ -13,6 +13,15 @@ public class ProductManagementAppContext {
 	private boolean isEditable;
 	private ViewProductProjectorOB viewProductProjectorOB;
 	private String productIdfroEdit;
+	private boolean isAdmin;
+	
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
 
 	public List<SearchProductProjectorOB> getSearchProductProjectorOBs() {
 		return searchProductProjectorOBs;

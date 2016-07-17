@@ -27,6 +27,7 @@ function doAjaxPost() {
 				if(response.loginProjectorOB.userProfile.userType == "ADMIN")
 				{
 					$('#getOrdersForAdmin').show();
+					$('#getPendingProducts').show();
 				}
 			}
 		},
