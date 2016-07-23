@@ -5,7 +5,8 @@ public enum ProductStatus {
 	AVAILABLE("Available"),
 	NOTAVAILABLE("NotAvailable"),
 	PENDING("Pending"),
-	APPROVED("Approved");
+	APPROVED("Approved"),
+	DELETED("Deleted");
 	
 	private String text;
 

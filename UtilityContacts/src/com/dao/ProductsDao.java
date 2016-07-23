@@ -89,8 +89,13 @@ public class ProductsDao {
 	public List<ProductsDBBean> searchByProductName(String searchString)
 	{
 		List<ProductsDBBean> productsDBBeans = null;
-		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class)
-				.add(Restrictions.like("productname", "%"+searchString+"%"));
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class);
+			//	.add(Restrictions.like("productname", "%"+searchString+"%"));*/
+		Disjunction disjunction = Restrictions.disjunction();
+		disjunction.add(Restrictions.like("productname", "%"+searchString+"%"));
+		disjunction.add(Restrictions.like("description", "%"+searchString+"%"));
+		Criterion completeCondition=disjunction;
+		criteria.add(completeCondition);
 		productsDBBeans = criteria.list();
 
 		return productsDBBeans;
@@ -135,6 +140,7 @@ public class ProductsDao {
 	{
 		ProductsDBBean productsDBBean = new ProductsDBBean();
 		productsDBBean = template.get(ProductsDBBean.class, Integer.parseInt(productId));
+		productsDBBean.setStatus(ProductStatus.DELETED.toString());
 		template.delete(productsDBBean);
 		ProductsDBBean productsDBBean2 = new ProductsDBBean();
 		CommonUtility.copyBean(productsDBBean, productsDBBean2);

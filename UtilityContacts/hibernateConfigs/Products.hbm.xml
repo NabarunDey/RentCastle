@@ -6,7 +6,7 @@
 <hibernate-mapping>
 	<class name="com.databaseBeans.ProductsDBBean" table="products">
 		<id name="productid">
-		<generator class="increment"></generator> 
+			<generator class="increment"></generator>
 		</id>
 		<property name="productname"></property>
 		<property name="producttype"></property>
@@ -15,6 +15,7 @@
 		<property name="quantity"></property>
 		<property name="images"></property>
 		<property name="status"></property>
+		<property name="description"></property>
 		<property name="securitymoney"></property>
 		<property name="productstate"></property>
 		<property name="productcity"></property>
