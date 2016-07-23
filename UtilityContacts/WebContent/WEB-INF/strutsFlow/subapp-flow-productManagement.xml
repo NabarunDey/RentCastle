@@ -6,35 +6,49 @@
 <struts>
 	<constant name="struts.devMode" value="false" />
 
-	<package name="productManagementPackage" namespace="/" extends="default,json-default">
+	<package name="productManagementPackage" namespace="/"
+		extends="default,json-default">
 
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
 
-		<action name="getProductListByVendor" class="productManagementAction" method="getProductListByVendor">
+		<action name="getProductListByVendor" class="productManagementAction"
+			method="getProductListByVendor">
 			<result name="success" type="tiles">searchResult</result>
 		</action>
-		
-		<action name="deleteProductFunction" class="productManagementAction" method="deleteProductFunction">
+
+		<action name="deleteProductFunction" class="productManagementAction"
+			method="deleteProductFunction">
 			<result name="success" type="tiles">searchResult</result>
 		</action>
-		
-		<action name="editProductInputFunction" class="productManagementAction" method="editProductInputFunction">
+
+		<action name="editProductInputFunction" class="productManagementAction"
+			method="editProductInputFunction">
 			<result name="success" type="tiles">editProductInput</result>
 		</action>
-		
-		<action name="editProductSubmitFunction" class="productManagementAction" method="editProductSubmitFunction">
+
+		<action name="editProductSubmitFunction" class="productManagementAction"
+			method="editProductSubmitFunction">
 			<result name="success" type="tiles">editRentOffersInput</result>
 		</action>
-		
-		<action name="editRentOffersSubmit" class="productManagementAction" method="editRentOffersSubmit">
+
+		<action name="editRentOffersSubmit" class="productManagementAction"
+			method="editRentOffersSubmit">
 			<result name="success" type="tiles">editRentOffersConfirm</result>
 		</action>
-		
-		<action name="getPendingProducts" class="productManagementAction" method="getPendingProducts">
+
+		<action name="getPendingProducts" class="productManagementAction"
+			method="getPendingProducts">
 			<result name="success" type="tiles">searchResult</result>
+		</action>
+
+		<action name="changeApprovalStatus" class="productManagementAction"
+			method="changeApprovalStatus">
+			<result name="success" type="json">
+				<param name="root">context</param>
+			</result>
 		</action>
 
 	</package>

@@ -18,3 +18,18 @@ function selectRentId(rentId) {
 	var a=z[1];
 	$("#rentOfferId").val(a);
 }
+
+function changeApprovalStatus() {
+
+	$.ajax({
+		type: "POST",
+		url: "changeApprovalStatus",
+		data: { productId: $('#productId').val(),approvalStatus : $('#approvalStatus').val() } ,
+		success: function(response){
+				alert('Item approved.')
+		},
+		error: function(e){
+			alert('Error: ' + e);
+		}
+	});
+}

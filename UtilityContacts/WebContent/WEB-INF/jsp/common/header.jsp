@@ -61,10 +61,10 @@
 						</s:else>
 						<s:if
 							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id = "getPendingProducts"><a href="<s:url  action='getPendingProducts'/>">Pending Orders</a></li>
+							<li id = "getPendingProducts"><a href="<s:url  action='getPendingProducts'/>">Pending Products</a></li>
 						</s:if>
 						<s:else>
-							<li id = "getPendingProducts" style="display: none"><a href="<s:url  action='getPendingProducts'/>">Pending Orders</a></li>
+							<li id = "getPendingProducts" style="display: none"><a href="<s:url  action='getPendingProducts'/>">Pending Products</a></li>
 						</s:else>
 						<li><a href="contact.html">Contact</a></li>
 						<li class="login">

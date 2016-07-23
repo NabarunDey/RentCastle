@@ -58,7 +58,7 @@ public class ProductsDao {
 		productsDBBean.setProductpin(pinConcat);
 		productsDBBean.setImages(imageIdsConcat);
 		productsDBBean.setUsername(addProductAppServiceIB.getUsername());
-		productsDBBean.setApprovalStatus(ProductStatus.APPROVED.toString());
+		productsDBBean.setApprovalStatus(ProductStatus.PENDING.toString());
 
 		boolean success = true;
 		try{
@@ -196,11 +196,10 @@ public class ProductsDao {
 		}
 	}
 
-	public void changeProductStatus(String productId, String productStatus)
+	public void changeApprovalStatus(String productId, String approvalStatus)
 	{
-		ProductsDBBean productsDBBean =new ProductsDBBean();
-		productsDBBean.setProductid(Integer.parseInt(productId));
-		productsDBBean.setApprovalStatus(productStatus);
+		ProductsDBBean productsDBBean =template.get(ProductsDBBean.class, Integer.parseInt(productId));
+		productsDBBean.setApprovalStatus(approvalStatus);
 		template.update(productsDBBean);
 	}
 	

@@ -148,7 +148,11 @@ public class ProductManagementAppService {
 		}
 		return searchProductProjectorOBs;
 	}
-
+	
+	public void changeApprovalStatus(ProductManagementAppServiceIB productManagementAppServiceIB)
+	{
+		productsDao.changeApprovalStatus(productManagementAppServiceIB.getProductId(), productManagementAppServiceIB.getApprovalStatus());
+	}
 	
 	public ProductsDao getProductsDao() {
 		return productsDao;

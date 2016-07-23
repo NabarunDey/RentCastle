@@ -28,7 +28,15 @@ public class ProductManagementAppServiceIB {
 	private	String periodvalue;
 	private	String amount;
 	private String oldImages;
+	private String approvalStatus;
 	
+	
+	public String getApprovalStatus() {
+		return approvalStatus;
+	}
+	public void setApprovalStatus(String approvalStatus) {
+		this.approvalStatus = approvalStatus;
+	}
 	public String getOldImages() {
 		return oldImages;
 	}

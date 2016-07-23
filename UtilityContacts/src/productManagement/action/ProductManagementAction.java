@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sessionBeans.UserProfile;
+
 import productManagement.ProductManagementAppContext;
 import productManagement.appService.ProductManagementAppService;
 import productManagement.appService.inputBeans.ProductManagementAppServiceIB;
@@ -32,14 +34,30 @@ public class ProductManagementAction {
 	private String periodvalue;
 	private	String rentAmount;
 	private String rentId;
+	private String approvalStatus;
 	
 	ProductManagementAppContext context;
 	ProductManagementAppService productManagementAppService;
+	UserProfile userProfile ;
+	
+	public UserProfile getUserProfile() {
+		return userProfile;
+	}
+	public void setUserProfile(UserProfile userProfile) {
+		this.userProfile = userProfile;
+	}
 	public ProductManagementAppContext getContext() {
 		return context;
 	}
 	public void setContext(ProductManagementAppContext context) {
 		this.context = context;
+	}
+	
+	public String getApprovalStatus() {
+		return approvalStatus;
+	}
+	public void setApprovalStatus(String approvalStatus) {
+		this.approvalStatus = approvalStatus;
 	}
 	public ProductManagementAppService getProductManagementAppService() {
 		return productManagementAppService;
@@ -131,6 +149,15 @@ public class ProductManagementAction {
 		List<SearchProductProjectorOB> searchProductProjectorOBs = productManagementAppService.viewPendingProducts();
 		context.setSearchProductProjectorOBs(searchProductProjectorOBs);
 		context.setAdmin(true);
+		return "success";
+	}
+	
+	public String changeApprovalStatus()
+	{
+		ProductManagementAppServiceIB productManagementAppServiceIB = new ProductManagementAppServiceIB();
+		productManagementAppServiceIB.setProductId(productId);;
+		productManagementAppServiceIB.setApprovalStatus(approvalStatus);
+		productManagementAppService.changeApprovalStatus(productManagementAppServiceIB);
 		return "success";
 	}
 	
