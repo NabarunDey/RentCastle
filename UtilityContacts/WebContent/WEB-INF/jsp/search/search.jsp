@@ -55,37 +55,6 @@
 						</div>
 					</div>
 					</section>
-					<section class="sky-form">
-					<h4>Location<span class="glyphicon glyphicon-repeat pull-right reset-icon" aria-hidden="true"></span></h4>
-					<div class="row1 scroll-pane">
-						<div class="col col-4">
-							<label class="radio"><input type="radio" class="productLocation"
-								name="productLocation" value="Kestopur"><i></i>Kestopur</label>
-							<label class="radio"><input type="radio" class="productLocation"
-								name="productLocation" value="Newtown"><i></i>New Town</label>
-						</div>
-					</div>
-					</section>
-					<section class="sky-form">
-					<h4>City<span class="glyphicon glyphicon-repeat pull-right reset-icon" aria-hidden="true"></span></h4>
-					<div class="row1 scroll-pane">
-						<div class="col col-4">
-							<label class="radio"><input type="radio"
-								name="productCity" value="Kolkata"><i></i>Kolkata</label> 
-							<label class="radio"><input type="radio"
-								name="productCity" value="Siliguri"><i></i>Siliguri</label>
-						</div>
-					</div>
-					</section>
-					<section class="sky-form">
-					<h4>State<span class="glyphicon glyphicon-repeat pull-right reset-icon" aria-hidden="true"></span></h4>
-					<div class="row1 scroll-pane">
-						<div class="col col-4">
-							<label class="radio"><input type="radio"
-								name="productState" value="West Bengal"><i></i>West Bengal</label>
-						</div>
-					</div>
-					</section>
 					
 				</div>
 			</div>
