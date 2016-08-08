@@ -110,6 +110,14 @@
 
 				</div>
 				<!-- end grids_of_4 -->
+				<div class="row col-md-4 pull-right ">
+					<div class="col-md-7" style="padding-right:0">
+						<input class="form-control" id = "pincode" placeholder="Check Pincode" type="text" />
+					</div>
+					<div class="col-md-5">
+						<button class="form-control btn btn-warning" id = "checkPincode" type="button" class="">Check</button>
+					</div>
+				</div>
 				<div class="row col-md-3 pull-right ">
 					<input type="button" id="seeMoreRecords" value="More">
 					<input type="button" id="seeLessRecords" value="Less">
