@@ -90,6 +90,13 @@ $(function(){
 			}).get();
 		if(values.length != 0){
 			$(".result").each(function(i){
+				if($('#pincode').val()!=''){
+					if ($.inArray($('#pincode').val(), products[i]["productPin"].split("|")) == -1 )
+					{
+						$(this).remove();
+						return true;
+					}
+				}
 				if ($.inArray(products[i][filterBy], values) == -1 )
 				{
 					$(this).remove();
