@@ -28,25 +28,41 @@ function populateCity() {
 	var cityDropdown = document.getElementById('city');
 	cityDropdown.innerHTML = "";
 	if(state === "West Bengal")
-		{
-		 var opt = document.createElement('option');
-	     opt.value = "Kolkata";
-	     opt.innerHTML = "Kolkata";
-	     cityDropdown.appendChild(opt);
-		 var opt1 = document.createElement('option');
-	     opt1.value = "Siliguri";
-	     opt1.innerHTML = "Siliguri";
-	     cityDropdown.appendChild(opt1);
-		}
+	{
+		var opt = document.createElement('option');
+		opt.value = "Kolkata";
+		opt.innerHTML = "Kolkata";
+		cityDropdown.appendChild(opt);
+		var opt1 = document.createElement('option');
+		opt1.value = "Siliguri";
+		opt1.innerHTML = "Siliguri";
+		cityDropdown.appendChild(opt1);
+	}
 	if(state === "Assam")
 	{
-	 var opt = document.createElement('option');
-     opt.value = "Dhubri";
-     opt.innerHTML = "Dhubri";
-     cityDropdown.appendChild(opt);
-     var opt1 = document.createElement('option');
-     opt1.value = "Guwahati";
-     opt1.innerHTML = "Guwahati";
-     cityDropdown.appendChild(opt1);
+		var opt = document.createElement('option');
+		opt.value = "Dhubri";
+		opt.innerHTML = "Dhubri";
+		cityDropdown.appendChild(opt);
+		var opt1 = document.createElement('option');
+		opt1.value = "Guwahati";
+		opt1.innerHTML = "Guwahati";
+		cityDropdown.appendChild(opt1);
 	}
+}
+
+function changeOrderStatus(orderid) {
+
+	var orderstatus=$('#status'+orderid).val();
+	$.ajax({
+		type: "POST",
+		url: "changeOrderSatus",
+		data: { orderId: orderid,orderStatus: orderstatus} ,
+		success: function(response){
+			debugger;
+		},
+		error: function(e){
+			alert('Error: ' + e);
+		}
+	});
 }

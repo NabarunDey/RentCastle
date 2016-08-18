@@ -67,14 +67,14 @@
 						</div>
 						<div class="fileinput-preview fileinput-exists thumbnail"
 							style="width: 200px; height: 150px;"></div>
-						<div>
+						<%-- <div>
 							<span class="btn btn-default btn-file"><span
 								class="fileinput-new">Select image</span><span
 								class="fileinput-exists">Change</span> <s:file id="image1"
-									name="image" /></span> <a href="#"
+									name="image"  /></span> <a href="#"
 								class="btn btn-default fileinput-exists"
 								data-dismiss="fileinput">Remove</a>
-						</div>
+						</div> --%>
 					</div>
 					<div class="fileinput fileinput-new" data-provides="fileinput">
 						<div class="fileinput-new thumbnail"
@@ -85,14 +85,14 @@
 						</div>
 						<div class="fileinput-preview fileinput-exists thumbnail"
 							style="width: 200px; height: 150px;"></div>
-						<div>
+						<%-- 	<div>
 							<span class="btn btn-default btn-file"><span
 								class="fileinput-new">Select image</span><span
 								class="fileinput-exists">Change</span> <s:file id="image2"
 									name="image" /></span> <a href="#"
 								class="btn btn-default fileinput-exists"
 								data-dismiss="fileinput">Remove</a>
-						</div>
+						</div> --%>
 					</div>
 					<div class="fileinput fileinput-new" data-provides="fileinput">
 						<div class="fileinput-new thumbnail"
@@ -103,14 +103,14 @@
 						</div>
 						<div class="fileinput-preview fileinput-exists thumbnail"
 							style="width: 200px; height: 150px;"></div>
-						<div>
+						<%-- 	<div>
 							<span class="btn btn-default btn-file"><span
 								class="fileinput-new">Select image</span><span
 								class="fileinput-exists">Change</span> <s:file id="image3"
 									name="image" /></span> <a href="#"
 								class="btn btn-default fileinput-exists"
 								data-dismiss="fileinput">Remove</a>
-						</div>
+						</div> --%>
 					</div>
 					<div class="fileinput fileinput-new" data-provides="fileinput">
 						<div class="fileinput-new thumbnail"
@@ -121,14 +121,14 @@
 						</div>
 						<div class="fileinput-preview fileinput-exists thumbnail"
 							style="width: 200px; height: 150px;"></div>
-						<div>
+						<%-- <div>
 							<span class="btn btn-default btn-file"><span
 								class="fileinput-new">Select image</span><span
 								class="fileinput-exists">Change</span> <s:file id="image4"
 									name="image" /></span> <a href="#"
 								class="btn btn-default fileinput-exists"
 								data-dismiss="fileinput">Remove</a>
-						</div>
+						</div> --%>
 					</div>
 				</div>
 			</div>
@@ -140,6 +140,16 @@
 						value="%{context.viewProductProjectorOB.productsDBBean.status}"></s:select>
 				</div>
 			</div>
+
+			<div class="form-group">
+				<label for="description" class="col-sm-2 control-label">Product
+					Description</label>
+				<div class="col-sm-4">
+					<s:textarea name="description" cssClass="form-control"
+						id="description" value="%{context.viewProductProjectorOB.productsDBBean.description}" />
+				</div>
+			</div>
+
 			<div class="form-group">
 				<label for="status" class="col-sm-2 control-label">Security
 					Money</label>

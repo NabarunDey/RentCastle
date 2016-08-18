@@ -106,6 +106,13 @@
 									<a href="#">Add To Cart</a>
 								</div>
 							</s:else>
+							
+							<s:if
+								test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
+								
+								<s:select id="approvalStatus" list="{'PENDING','APPROVED'}" headerKey="%{context.ViewProductProjectorOB.productsDBBean.approvalStatus}" headerValue="%{context.ViewProductProjectorOB.productsDBBean.approvalStatus}"></s:select>
+								<input type="button" value="Save Status" onclick="changeApprovalStatus()">
+							</s:if>
 
 							<a href="#"><span>login to save in wishlist </span></a>
 					

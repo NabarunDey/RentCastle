@@ -16,10 +16,16 @@ public class AddProductAppServiceIB {
 	private String productstate;
 	private String productcity;
 	private String productpin;
+	private String description;
 	private AddRentOffersAppServiceIB addRentOfferAppServiceIB;
 	
-	
 
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public AddRentOffersAppServiceIB getAddRentOfferAppServiceIB() {
 		return addRentOfferAppServiceIB;
 	}

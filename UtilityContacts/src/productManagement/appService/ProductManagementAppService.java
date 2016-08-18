@@ -23,6 +23,7 @@ import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
 import com.sessionBeans.UserProfile;
+import com.structures.userTypes.UserType;
 import com.util.CommonUtility;
 
 
@@ -127,7 +128,31 @@ public class ProductManagementAppService {
 		rentOffersDao.addRentOffer(addRentOffersAppServiceIB);
 	}
 
-
+	public List<SearchProductProjectorOB> viewPendingProducts()
+	{
+		List<SearchProductProjectorOB> searchProductProjectorOBs = null;
+		if(userProfile.getUserType().equals(UserType.ADMIN))
+		{
+			SearchProductDaoOB searchProductDaoOB = new SearchProductDaoOB();
+			List<ProductsDBBean> productsDBBeans = productsDao.viewPendingProducts();
+			if(null!=productsDBBeans && productsDBBeans.size()>=1)
+			{
+				searchProductDaoOB.setProductsDBBeans(productsDBBeans);
+				Map<String,RentOffersDBBean> rentMap = rentOffersDao.getMinimumRents(productsDBBeans);
+				searchProductDaoOB.setRentMap(rentMap);
+				Map<String, ImagesDBBean> imageMap= imagesDao.getPrimaryImageOfProduct(productsDBBeans);
+				searchProductDaoOB.setImageMap(imageMap);
+				searchProductDaoOB.setVendor(true);
+				searchProductProjectorOBs= searchProductProjector.getSearchList(searchProductDaoOB);
+			}
+		}
+		return searchProductProjectorOBs;
+	}
+	
+	public void changeApprovalStatus(ProductManagementAppServiceIB productManagementAppServiceIB)
+	{
+		productsDao.changeApprovalStatus(productManagementAppServiceIB.getProductId(), productManagementAppServiceIB.getApprovalStatus());
+	}
 	
 	public ProductsDao getProductsDao() {
 		return productsDao;

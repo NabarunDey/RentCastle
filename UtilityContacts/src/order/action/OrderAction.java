@@ -9,6 +9,7 @@ import cart.projector.outputBeans.CartItem;
 import order.OrderAppContext;
 import order.appService.OrderAppService;
 import order.appService.inputBeans.Address;
+import order.appService.inputBeans.OrderAppServiceIB;
 import order.projector.outputBeans.OrderProjectorOB;
 
 
@@ -24,6 +25,8 @@ public class OrderAction extends ActionSupport    {
 	String address;
 	String addressId;
 	String title;
+	String orderId;
+	String orderStatus;
 	
 	public String getCartOrderInput()
 	{
@@ -56,11 +59,27 @@ public class OrderAction extends ActionSupport    {
 	
 	public String viewOrders()
 	{
-		OrderProjectorOB orderProjectorOB = orderAppService.viewOrders();
+		OrderProjectorOB orderProjectorOB = orderAppService.viewOrders(false);
+		context.setOrderProjectorOB(orderProjectorOB);
+		return "success";
+	}
+	
+	public String getOrdersForAdmin()
+	{
+		OrderProjectorOB orderProjectorOB =orderAppService.getOrdersForAdmin();
 		context.setOrderProjectorOB(orderProjectorOB);
 		return "success";
 	}
 
+	public String changeOrderSatus()
+	{
+		OrderAppServiceIB orderAppServiceIB = new OrderAppServiceIB();
+		orderAppServiceIB.setOrderId(orderId);
+		orderAppServiceIB.setOrderStatus(orderStatus);
+		orderAppService.changeOrderStatus(orderAppServiceIB);
+		return "success";
+	}
+	
 	public OrderAppService getOrderAppService() {
 		return orderAppService;
 	}
@@ -132,5 +151,20 @@ public class OrderAction extends ActionSupport    {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	public String getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
+	}
 }

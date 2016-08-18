@@ -39,13 +39,15 @@
 					<s:iterator value="context.addProductProjectorOB.productTypeMap">
 						<s:if test="value.size>=1">
 							<s:select id="%{'subProductType' + #attr['key']}"
-								name="subProductType" list="value" cssClass="form-control" onchange="selectSubProductTypeValue(this.value)"
+								name="subProductType" list="value" cssClass="form-control"
+								onchange="selectSubProductTypeValue(this.value)"
 								style="display: none" />
 						</s:if>
 					</s:iterator>
 				</div>
 			</div>
-			<s:textfield type="hidden" id="subProductTypeSelected" name ="subProductTypeSelected"/>
+			<s:textfield type="hidden" id="subProductTypeSelected"
+				name="subProductTypeSelected" />
 			<div class="form-group">
 				<label for="quantity" class="col-sm-2 control-label">Quantity</label>
 				<div class="col-sm-4">
@@ -124,11 +126,22 @@
 			<div class="form-group">
 				<label for="status" class="col-sm-2 control-label">Status</label>
 				<div class="col-sm-4">
-					<s:select list="{'Available','NotAvailable'}" name ="status" cssClass="form-control"></s:select>
+					<s:select list="{'Available','NotAvailable'}" name="status"
+						cssClass="form-control"></s:select>
 				</div>
 			</div>
+
+
 			<div class="form-group">
-				<label for="status" class="col-sm-2 control-label">Security
+				<label for="description" class="col-sm-2 control-label">Product Description</label>
+				<div class="col-sm-4">
+					<s:textarea name="description" cssClass="form-control"
+						id="description" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="security" class="col-sm-2 control-label">Security
 					Money</label>
 				<div class="col-sm-4">
 					<s:textfield name="securityMoney" cssClass="form-control"
@@ -136,26 +149,31 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="productState" class="col-sm-2 control-label">Select State</label>
+				<label for="productState" class="col-sm-2 control-label">Select
+					State</label>
 				<div class="col-sm-4">
-					
-					<s:select list="{'West Bengal','Assam'}" name ="productState" cssClass="form-control"></s:select>
+
+					<s:select list="{'West Bengal','Assam'}" name="productState"
+						cssClass="form-control"></s:select>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="productCity" class="col-sm-2 control-label">Select City</label>
+				<label for="productCity" class="col-sm-2 control-label">Select
+					City</label>
 				<div class="col-sm-4">
-					
-					<s:select list="{'Kolkata','Siliguri'}" name ="productCity" cssClass="form-control"></s:select>
+
+					<s:select list="{'Kolkata','Siliguri'}" name="productCity"
+						cssClass="form-control"></s:select>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="productPin" class="col-sm-2 control-label">Select Location</label>
+				<label for="productPin" class="col-sm-2 control-label">Select
+					Pin</label>
 				<div class="col-sm-4">
-						<s:textfield name="productPin" cssClass="form-control" />
+					<s:textfield name="productPin" cssClass="form-control" />
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<div class="col-md-2 col-md-offset-2">
 					<s:submit type="button" name="submit" theme="simple"

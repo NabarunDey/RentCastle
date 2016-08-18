@@ -57,6 +57,17 @@ public class OrdersDao {
 		return ordersDBBeans;
 	}
 	
+	public List<OrdersDBBean> getOrdersForAdmin()
+	{
+		List<OrdersDBBean> ordersDBBeans = template.loadAll(OrdersDBBean.class);
+		return ordersDBBeans;
+	}
 	
+	public void changeOrderStatus(String orderId, OrderStatus orderStatus)
+	{
+		OrdersDBBean ordersDBBean = template.get(OrdersDBBean.class, Integer.valueOf(orderId));
+		ordersDBBean.setOrderstatus(orderStatus.toString());
+		template.update(ordersDBBean);
+	}
 
 }

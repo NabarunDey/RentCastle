@@ -27,6 +27,8 @@ import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
 import com.sessionBeans.UserProfile;
+import com.structures.status.OrderStatus;
+import com.structures.userTypes.UserType;
 
 
 
@@ -120,10 +122,19 @@ public class OrderAppService {
 	}
 
 
-	public OrderProjectorOB viewOrders()
+	public OrderProjectorOB viewOrders(boolean isAdmin)
 	{
 		OrderProjectorOB orderProjectorOB =null;
-		List<OrdersDBBean> ordersDBBeans = ordersDao.getOrdersForUser(userProfile.getUserName());
+		List<OrdersDBBean> ordersDBBeans = null;
+		if(isAdmin)
+		{
+			ordersDBBeans = ordersDao.getOrdersForAdmin();
+		}
+		else
+		{
+			ordersDBBeans=ordersDao.getOrdersForUser(userProfile.getUserName());
+		}
+		ordersDao.getOrdersForUser(userProfile.getUserName());
 		if(null!= ordersDBBeans && ordersDBBeans.size()>=1)
 		{
 			List<Integer> productIds = new ArrayList<Integer>();
@@ -139,6 +150,21 @@ public class OrderAppService {
 			orderProjectorOB= orderProjector.viewOrders(ordersDBBeans, productsDBBeans, rentOffersDBBeans);
 		}
 		return orderProjectorOB;
+	}
+
+	public OrderProjectorOB getOrdersForAdmin()
+	{
+		OrderProjectorOB orderProjectorOB = null;
+		if(userProfile.getUserType().equals(UserType.ADMIN))
+		{
+			orderProjectorOB = viewOrders(true);
+		}
+		return orderProjectorOB;
+	}
+	
+	public void changeOrderStatus(OrderAppServiceIB orderAppServiceIB)
+	{
+		ordersDao.changeOrderStatus(orderAppServiceIB.getOrderId(), OrderStatus.valueOf(orderAppServiceIB.getOrderStatus()));
 	}
 
 	public CartAppService getCartAppService() {

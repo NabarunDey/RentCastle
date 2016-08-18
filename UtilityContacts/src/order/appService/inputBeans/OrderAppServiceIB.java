@@ -9,7 +9,21 @@ public class OrderAppServiceIB {
 	private int rentid;
 	private String username;
 	private Address address;
+	private String orderId;
+	private String orderStatus;
 	
+	public String getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+	public String getOrderStatus() {
+		return orderStatus;
+	}
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
+	}
 	public Address getAddress() {
 		return address;
 	}

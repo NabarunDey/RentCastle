@@ -90,6 +90,13 @@ $(function(){
 			}).get();
 		if(values.length != 0){
 			$(".result").each(function(i){
+				if($('#pincode').val()!=''){
+					if ($.inArray($('#pincode').val(), products[i]["productPin"].split("|")) == -1 )
+					{
+						$(this).remove();
+						return true;
+					}
+				}
 				if ($.inArray(products[i][filterBy], values) == -1 )
 				{
 					$(this).remove();
@@ -108,5 +115,28 @@ $(function(){
 		$('section.sky-form input:radio').prop('checked', false);
 		showLoader(filter);
 	});
+	
+	$('#checkPincode').click(function(){
+		showLoader(checkPincode);
+	});
+	
+	function checkPincode(){
+		resetProducts();
+		var products = [];
+		$('input[type=hidden]').each(function(){
+			products.push(JSON.parse($(this).val()));
+		});
+		if($('#pincode').val() != ''){
+			$(".result").each(function(i){
+				console.log(products[i]["productPin"]);
+				if ($.inArray($('#pincode').val(), products[i]["productPin"].split("|")) == -1 )
+				{
+					$(this).remove();
+				}
+			});
+		}
+		$('#total').html($('.result').length+" items");
+		productsMoreLess(1);
+	}
 	
 });

@@ -32,6 +32,7 @@ public class AddProductAction {
 	private	String periodunit;
 	private String periodvalue;
 	private	String rentAmount;
+	private String description;
 
 
 	public String addProductInput()
@@ -67,6 +68,7 @@ public class AddProductAction {
 		addProductAppServiceIB.setProductpin(productPin);
 		addProductAppServiceIB.setProductstate(productState);
 		addProductAppServiceIB.setProductcity(productCity);
+		addProductAppServiceIB.setDescription(description);
 		AddProductProjectorOB addProductProjectorOB = addProductAppService.addProduct(addProductAppServiceIB);
 		context.setAddProductProjectorOB(addProductProjectorOB);
 		productIdForRentOffer=addProductProjectorOB.getProductIdForRentOffers();
@@ -232,6 +234,13 @@ public class AddProductAction {
 	public void setProductPin(String productPin) {
 		this.productPin = productPin;
 	}
-	
-	
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 }

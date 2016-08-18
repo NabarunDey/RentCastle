@@ -6,7 +6,7 @@
 <struts>
 	<constant name="struts.devMode" value="false" />
 
-	<package name="viewProductPackage" namespace="/" extends="default">
+	<package name="viewProductPackage" namespace="/" extends="default,json-default">
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
@@ -15,8 +15,8 @@
 
 		<action name="viewProduct" class="viewProductAction" method="viewProduct">
 			<result name="success" type="tiles">viewProduct</result>
-
 		</action>
+		
 
 	</package>
 

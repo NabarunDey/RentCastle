@@ -9,6 +9,7 @@ public class ProductsDBBean {
 	private String subproducttype;
 	private String username;
 	private String quantity;
+	private String description;
 	private String images;
 	private String status;
 	private String securitymoney;
@@ -17,6 +18,12 @@ public class ProductsDBBean {
 	private String productpin;
 	private String approvalStatus;
 	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public String getApprovalStatus() {
 		return approvalStatus;
 	}
