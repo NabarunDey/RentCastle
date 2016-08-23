@@ -488,7 +488,7 @@ if (typeof jQuery === 'undefined') {
 
 
   // CAROUSEL NO CONFLICT
-  // ====================
+  // ====================++
 
   $.fn.carousel.noConflict = function () {
     $.fn.carousel = old
