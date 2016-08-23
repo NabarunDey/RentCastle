@@ -17,6 +17,8 @@
 			<result name="success"  type="json">
 				<param name="root">context</param>
 			</result>
+			<result name="fbLoginSuccess" type="tiles">loadIndex</result>
+			
 		</action>
 		
 		

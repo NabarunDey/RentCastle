@@ -1,30 +1,50 @@
 package login.appService;
 
+import org.apache.commons.lang3.StringUtils;
+
 import login.appService.inputBeans.LoginAppServiceIB;
 import login.dao.outputBeans.LoginDaoOB;
 import login.projector.LoginProjector;
 import login.projector.outputBeans.LoginProjectorOB;
+import userRegistration.appService.UserRegistrationAppService;
+import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
 
 import com.dao.LoginDao;
 import com.dao.UsersDao;
 import com.databaseBeans.UsersDBBean;
 import com.sessionBeans.UserProfile;
+import com.util.FacebookHandler;
 
 
 public class LoginAppService {
-	
+
 	LoginDao loginDao;
 	UsersDao usersDao;
 	LoginProjector loginProjector;
 	UserProfile userProfile;
-	
+	UserRegistrationAppService userRegistrationAppService;
+
 	public LoginProjectorOB login(LoginAppServiceIB loginAppServiceIB) {
-		
-		LoginDaoOB loginDaoOB =  loginDao.getByUsername(loginAppServiceIB.getUsername());
-		loginDaoOB.setUserNameEntered(loginAppServiceIB.getUsername());
-		loginDaoOB.setPasswordEntered(loginAppServiceIB.getPassword());
-		LoginProjectorOB loginProjectorOB = loginProjector.validateCredentials(loginDaoOB);
-		
+
+		LoginProjectorOB loginProjectorOB=null;
+		if(StringUtils.isNotEmpty(loginAppServiceIB.getFbCode()))
+		{
+			UserRegistrationAppServiceIB userRegistrationAppServiceIB = FacebookHandler.getfbData(loginAppServiceIB.getFbCode());
+			LoginDaoOB loginDaoOB =  loginDao.getByUsername(userRegistrationAppServiceIB.getUsername());
+			if(null== loginDaoOB.getUserLoginDBBean())
+			{
+				userRegistrationAppService.addUser(userRegistrationAppServiceIB);
+			}
+			loginProjectorOB =new LoginProjectorOB();
+			loginAppServiceIB.setUsername(userRegistrationAppServiceIB.getUsername());
+		}
+
+		else{
+			LoginDaoOB loginDaoOB =  loginDao.getByUsername(loginAppServiceIB.getUsername());
+			loginDaoOB.setUserNameEntered(loginAppServiceIB.getUsername());
+			loginDaoOB.setPasswordEntered(loginAppServiceIB.getPassword());
+			loginProjectorOB = loginProjector.validateCredentials(loginDaoOB);
+		}
 		if(!loginProjectorOB.isInvalidCredentials())
 		{
 			UsersDBBean usersDBBean = usersDao.getUserDetails(loginAppServiceIB.getUsername());
@@ -34,7 +54,7 @@ public class LoginAppService {
 			userProfile.setPin(usersDBBean.getPinno());
 			loginProjectorOB.setUserProfile(userProfile);
 		}
-		
+
 		return loginProjectorOB;
 	}
 
@@ -73,8 +93,19 @@ public class LoginAppService {
 
 	public void setUserProfile(UserProfile userProfile) {
 		this.userProfile = userProfile;
+	}
+
+
+	public UserRegistrationAppService getUserRegistrationAppService() {
+		return userRegistrationAppService;
+	}
+
+
+	public void setUserRegistrationAppService(
+			UserRegistrationAppService userRegistrationAppService) {
+		this.userRegistrationAppService = userRegistrationAppService;
 	}	
 
-	
-	
+
+
 }

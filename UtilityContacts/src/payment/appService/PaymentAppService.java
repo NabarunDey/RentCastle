@@ -39,7 +39,7 @@ public class PaymentAppService {
 	
 	public PaymentProjectorOB getPaymentsAdmin()
 	{
-		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForUser(userProfile.getUserName());
+		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForAdmin(userProfile);
 		PaymentProjectorOB paymentProjectorOB = new PaymentProjectorOB();
 		paymentProjectorOB.setPaymentsDBBeans(paymentsDBBeans);
 		return paymentProjectorOB;

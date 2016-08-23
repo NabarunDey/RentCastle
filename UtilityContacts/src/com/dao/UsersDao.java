@@ -50,7 +50,7 @@ public class UsersDao {
 		CommonUtility.copyBean(userRegistrationAppServiceIB, usersDBBean);
 		if(null == usersDBBean.getUsertype())
 		{
-			usersDBBean.setUsertype(UserType.VENDOR);
+			usersDBBean.setUsertype(UserType.CUSTOMER);
 		}
 		saveUser(usersDBBean);
 		UserRegistrationDaoOB userRegistrationDaoOB =new UserRegistrationDaoOB();
