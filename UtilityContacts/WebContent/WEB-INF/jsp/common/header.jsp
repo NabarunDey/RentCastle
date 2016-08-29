@@ -53,12 +53,22 @@
 						</s:else>
 						
 						<s:if
-							test="%{ null != #attr.userProfile && #attr.userProfile.userName != null }">
+							test="%{ null != #attr.userProfile && !'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
 							<li id = "paymentHistory"><a href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
 						</s:if>
 						<s:else>
 							<li id = "paymentHistory" style="display: none"><a href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
 						</s:else>
+						
+						<s:if
+							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
+							<li id = "paymentHistory"><a href="<s:url  action='getPaymentsAdmin'/>">Payment Admin</a></li>
+						</s:if>
+						<s:else>
+							<li id = "paymentHistory" style="display: none"><a href="<s:url  action='getPaymentsAdmin'/>">Payment Admin</a></li>
+						</s:else>
+						
+						
 						<s:if
 							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
 							<li id = "getPendingProducts"><a href="<s:url  action='getPendingProducts'/>">Pending Products</a></li>
