@@ -8,7 +8,7 @@
 	<div class="main">
 		<h1 style="">Orders Admin</h1>
 
-		<div class="orders">
+		<div class="ordersAdmin">
 			<table class="table">
 				<thead>
 					<tr>
@@ -23,8 +23,14 @@
 						<tr >
 							<td>ORD00<s:property value="ordersDBBean.orderid" /></td>
 							<td><s:property value="ordersDBBean.datetime" /></td>
-							<td><s:select id="%{'status' + ordersDBBean.orderid}" list="{'INITIATED','PROCESSING','COMPLETE'}" headerKey="%{ordersDBBean.orderstatus}" headerValue="%{ordersDBBean.orderstatus}"></s:select></td>
-							<td><input type="button" value="Save" onclick="changeOrderStatus(${ordersDBBean.orderid})"/></td>
+							<td>
+								<select id="%{'status' + ordersDBBean.orderid}" class="form-control"> 
+									<option value="INITIATED">INITIATED</option>
+									<option value="PROCESSING">PROCESSING</option>
+									<option value="COMPLETE">COMPLETE</option>
+								</select>
+								</td>
+							<td><input type="button" class="btn btn-primary" value="Save" onclick="changeOrderStatus(${ordersDBBean.orderid})"/></td>
 						</tr>
 					</s:iterator>
 				</tbody>
