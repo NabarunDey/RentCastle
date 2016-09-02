@@ -29,17 +29,21 @@
 							<td><s:property value="fromusername" /></td>
 							<td><s:property value="tousername" /></td>
 							<td><s:property value="datetime" /></td>
-							<td><s:property value="securitymoney" /></td>
-							<td><s:property value="rentamount" /></td>
-							<td><s:property value="paymentStatus" /></td>
+							<td>Rs. <s:property value="securitymoney" /></td>
+							<td>Rs. <s:property value="rentamount" /></td>
+							<td>
+								<select id="%{'status' + ordersDBBean.orderid}" class="form-control"> 
+									<option value="INITIATED">INITIATED</option>
+									<option value="PROCESSING">PROCESSING</option>
+									<option value="COMPLETE">COMPLETE</option>
+								</select>
+							</td>
 						</tr>
 					</s:iterator>
 				</tbody>
 				<tfoot>
 					<tr>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<td colspan=7>&nbsp;</td>
 						<td style="color: #ff0000;">&nbsp;</td>
 					</tr>
 				</tfoot>
