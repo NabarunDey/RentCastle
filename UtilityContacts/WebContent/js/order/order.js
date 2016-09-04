@@ -53,7 +53,7 @@ function populateCity() {
 
 function changeOrderStatus(orderid) {
 
-	var orderstatus=$('#status'+orderid).val();
+	var orderstatus=$('#orderstatus'+orderid).val();
 	$.ajax({
 		type: "POST",
 		url: "changeOrderSatus",

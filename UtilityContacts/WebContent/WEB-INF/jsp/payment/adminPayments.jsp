@@ -3,6 +3,8 @@
 
 <!DOCTYPE html>
 <html>
+<script type="text/javascript" src="js/payment/payment.js"></script>
+
 <div class="container">
 	<div class="main">
 		<h1 style="">Admin Payments</h1>
@@ -19,6 +21,7 @@
 						<th>SecurityMoney</th>
 						<th>Rent Amount</th>
 						<th>Status</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -31,13 +34,16 @@
 							<td><s:property value="datetime" /></td>
 							<td>Rs. <s:property value="securitymoney" /></td>
 							<td>Rs. <s:property value="rentamount" /></td>
-							<td>
-								<select id="%{'status' + ordersDBBean.orderid}" class="form-control"> 
-									<option value="INITIATED">INITIATED</option>
-									<option value="PROCESSING">PROCESSING</option>
-									<option value="COMPLETE">COMPLETE</option>
-								</select>
-							</td>
+							<td><select id="paymentstatus${paymentid}"
+								class="form-control">
+									<option value="PENDING">PENDING</option>
+									<option value="COMPLETED">COMPLETED</option>
+									<option value="UPCOMING">UPCOMING</option>
+							</select></td>
+							<td><input type="button" class="btn btn-primary"
+								value="Save"
+								onclick="changePaymentStatus(${paymentid})" /></td>
+
 						</tr>
 					</s:iterator>
 				</tbody>

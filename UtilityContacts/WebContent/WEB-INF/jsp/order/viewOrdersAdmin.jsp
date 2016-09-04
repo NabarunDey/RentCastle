@@ -24,7 +24,7 @@
 							<td>ORD00<s:property value="ordersDBBean.orderid" /></td>
 							<td><s:property value="ordersDBBean.datetime" /></td>
 							<td>
-								<select id="%{'status' + ordersDBBean.orderid}" class="form-control"> 
+								<select id="orderstatus${ordersDBBean.orderid}" class="form-control"> 
 									<option value="INITIATED">INITIATED</option>
 									<option value="PROCESSING">PROCESSING</option>
 									<option value="COMPLETE">COMPLETE</option>
