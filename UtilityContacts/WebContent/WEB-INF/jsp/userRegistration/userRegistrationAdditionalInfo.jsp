@@ -19,27 +19,71 @@
 </div>
 </div>
 
-<s:form action="userRegistrationConfirm">
-
-<table >
-<tr><s:textfield key="Phone Number" name="phoneno" /></tr>
-<tr><s:textfield key="Mobile 1" name="mobileno1" /></tr>
-<tr><s:textfield key="Mobile 2" name="mobileno2" /></tr>
-<s:textarea label="Address" name="address" />
-<tr><s:select label="City" headerKey="-1" list="#{'Kolkata':'Kolkata', 'Siliguri':'Siliguri'}" name="city" value = "#{'city'}"/></tr>  
-<tr><s:select label="State" headerKey="-1"  list="#{'West Bengal':'West Bengal', 'Assam':'Assam'}" name="state" value = "#{'state'}"/></tr>
-<tr><s:textfield key="Pincode" name = "pinno" /></tr>
-<tr>
-<td><s:submit type="button" name="submit" theme="simple" />
-<s:reset type="button" name="reset" theme="simple" /></td>
-
-</tr>
-<tr>
-</tr>
-
-
-</table>
-</s:form>
+<form action="userRegistrationConfirm">
+<br/><br/>
+<div class="col-md-8">
+	<label class="col-md-4">Phone Number</label>
+	<div class="col-md-8">
+		<input type="text" class="form-control" name="phoneno" />
+	</div>
+</div>
+<br/><br/>
+<div class="col-md-8">
+	<label class="col-md-4">Mobile 1</label>
+	<div class="col-md-8">
+		<input type="text" class="form-control" name=mobileno1 />
+	</div>
+</div>
+<br/><br/>
+<div class="col-md-8">
+	<label class="col-md-4">Mobile 2</label>
+	<div class="col-md-8">
+		<input type="text" class="form-control" name=mobileno2 />
+	</div>
+</div>
+<br/><br/>
+<div class="col-md-8">
+	<label class="col-md-4">Address</label>
+	<div class="col-md-8">
+		<textarea class="form-control" name=address></textarea>
+	</div>
+</div>
+<br/><br/><br/>
+<div class="col-md-8">
+	<label class="col-md-4">City</label>
+	<div class="col-md-8">
+		<select name="city" class="form-control">
+			<option value="Kolkata">Kolkata</option>
+			<option value="Siliguri">Siliguri</option>
+		</select>	
+	</div>
+</div>
+<br/><br/>
+<div class="col-md-8">
+	<label class="col-md-4">State</label>
+	<div class="col-md-8">
+		<select name="state" class="form-control">
+			<option value="West Bengal">West Bengal</option>
+			<option value="Assam">Assam</option>
+		</select>
+	</div>
+</div>
+<br/><br/>
+<div class="col-md-8">
+	<label class="col-md-4">Pin Code</label>
+	<div class="col-md-8">
+		<input type="text" class="form-control" name=mobileno2 />
+	</div>
+</div>
+<br/><br/>
+<div class="col-md-8">
+	<div class="col-md-offset-4 col-md-8">
+		<s:submit type="button" cssClass="btn btn-primary" name="submit" theme="simple" /> 
+		<s:reset type="button"  cssClass="btn btn-danger" name="reset" theme="simple" />
+	</div>
+</div>
+<br/><br/>
+</form>
 
 
 </body>

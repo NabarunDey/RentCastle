@@ -14,17 +14,57 @@
 			</h4>
 			<div class="clearfix"></div>
 		</div>
-		<input type="text" id="title"/>
-		<input type="text" id="address"/>
-		<select id="state" cssClass="form-control" onchange="populateCity()">
+		<div class="col-md-6">
+			<label class="control-label col-md-3"><b>Enter Address</b></label>
+		</div>
+		<br/><br/>
+		<div class="col-md-6">
+			<label class="control-label col-md-3">Line 1</label>
+			<div class="col-md-9">
+				<input type="text" class="form-control" id="title"/>
+			</div>
+		</div>
+		<br/><br/>
+		<div class="col-md-6">
+			<label class="control-label col-md-3">Line 2</label>
+			<div class="col-md-9">
+				<input type="text"  class="form-control"  id="address"/>
+			</div>
+		</div>
+		<br/><br/>
+		<div class="col-md-6">
+			<label class="control-label col-md-3">State</label>
+			<div class="col-md-9">
+				<select id="state" class="form-control" onchange="populateCity()">
 			<option value="West Bengal">West Bengal</option>
 			<option value="Assam">Assam</option>
-		</select> <select id="city" cssClass="form-control">
+		</select>
+			</div>
+		</div>
+		<br/><br/>
+		<div class="col-md-6">
+			<label class="control-label col-md-3">City</label>
+			<div class="col-md-9">
+				<select id="city" class="form-control">
 			<option value="Kolkata">Kolkata</option>
 			<option value="Siliguri">Siliguri</option>
 		</select>
-		<s:textfield id="pin"></s:textfield>
-		<input type="button" value="Check" onclick=checkPin() />
+			</div>
+		</div>
+		<div class="col-md-4">
+			<label class="control-label col-md-4">Pincode</label>
+			<div class="col-md-8">
+				<div class="col-md-8">
+					<s:textfield id="pin" cssClass="form-control"></s:textfield>
+				</div>
+				<div class="col-md-4">
+					<input type="button" class="btn btn-primary" value="Check" onclick=checkPin() />
+				</div>
+				
+				
+			</div>
+		</div>
+		<br/><br/>
 		<div class="orders">
 			<table class="table">
 				<thead>
