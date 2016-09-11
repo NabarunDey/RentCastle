@@ -52,9 +52,7 @@ public class PaymentAppService {
 	
 	public PaymentProjectorOB getPaymentsForOrder(PaymentAppServiceIB paymentAppServiceIB)
 	{
-		paymentAppServiceIB.setFromusername(userProfile.getUserName());
-		paymentAppServiceIB.setTousername(userProfile.getUserName());
-		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForOrder(paymentAppServiceIB,userProfile.getUserName());
+		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForOrder(paymentAppServiceIB);
 		PaymentProjectorOB paymentProjectorOB =new PaymentProjectorOB();
 		paymentProjectorOB.setPaymentsDBBeans(paymentsDBBeans);
 		return paymentProjectorOB;

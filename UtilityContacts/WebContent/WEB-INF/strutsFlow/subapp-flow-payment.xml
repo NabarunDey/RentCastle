@@ -28,9 +28,7 @@
 		</action>
 		
 		<action name="getPaymentsForOrder" class="paymentAction" method="getPaymentsForOrder">
-			<result name="success" type="json">
-				<param name="root">context</param>
-			</result>
+				<result name="success" type="tiles">userPayments</result>
 		</action>
 
 	</package>

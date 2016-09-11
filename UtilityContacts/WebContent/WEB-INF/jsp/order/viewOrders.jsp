@@ -14,6 +14,7 @@
 						<th>OrderId</th>
 						<th>Date</th>
 						<th>Status</th>
+						<th>Payments</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -22,6 +23,8 @@
 							<td>ORD00<s:property value="ordersDBBean.orderid" /></td>
 							<td><s:property value="ordersDBBean.datetime" /></td>
 							<td><s:property value="ordersDBBean.orderstatus" /></td>
+							<td><a href="getPaymentsForOrder?orderid=${ordersDBBean.orderid }">View Payments</a></td>
+							
 						</tr>
 					</s:iterator>
 				</tbody>

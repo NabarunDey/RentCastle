@@ -86,22 +86,16 @@ public class PaymentsDao {
 		}
 	}
 	
-	public List<PaymentsDBBean> getPaymentsForOrder(PaymentAppServiceIB paymentAppServiceIB, String userName)
+	public List<PaymentsDBBean> getPaymentsForOrder(PaymentAppServiceIB paymentAppServiceIB)
 	{
 		List<PaymentsDBBean> paymentsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PaymentsDBBean.class);
+		
 		Criterion completeCondition = null;
 		Disjunction disjunction = Restrictions.disjunction();
-
-		disjunction.add(Restrictions.like("fromusername", "%"+userName+"%"));
-		disjunction.add(Restrictions.like("tousername", "%"+userName+"%"));
+		disjunction.add(Restrictions.like("orderid", paymentAppServiceIB.getOrderid()));
 		
-		Conjunction conjunction =  Restrictions.conjunction();
-		conjunction.add(Restrictions.like("orderid", paymentAppServiceIB.getOrderid()));
-		conjunction.add(conjunction);
-		
-		completeCondition = conjunction;
-		criteria.add(completeCondition);
+		criteria.add(disjunction);
 		paymentsDBBeans = criteria.list();
 		return paymentsDBBeans;
 	}

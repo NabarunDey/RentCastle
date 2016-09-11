@@ -21,6 +21,7 @@ public class PaymentAction extends ActionSupport   {
 	String tousername;
 	String amount;
 	
+	//not used
 	public String addPayment()
 	{
 		PaymentAppServiceIB paymentAppServiceIB = new PaymentAppServiceIB();
@@ -35,7 +36,8 @@ public class PaymentAction extends ActionSupport   {
 	{
 		PaymentAppServiceIB paymentAppServiceIB = new PaymentAppServiceIB();
 		paymentAppServiceIB.setOrderid(Integer.parseInt(orderid));
-		 paymentAppService.addPayment(paymentAppServiceIB);
+		PaymentProjectorOB paymentProjectorOB =paymentAppService.getPaymentsForOrder(paymentAppServiceIB);
+		context.setPaymentProjectorOB(paymentProjectorOB);
 		return "success";
 	}
 	
