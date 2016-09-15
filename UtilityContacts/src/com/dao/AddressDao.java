@@ -25,13 +25,15 @@ public class AddressDao {
 	}
 	
 	
-	public List<AddressDBBean> getAddressForUser(String userName)
+	public AddressDBBean getAddressForUser(String userName)
 	{
 		List<AddressDBBean> addressDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(AddressDBBean.class)
 				.add(Restrictions.like("username", userName));
 		addressDBBeans = criteria.list();
-		return addressDBBeans;
+		if(addressDBBeans.size()>=1)
+			return addressDBBeans.get(0);
+		return new AddressDBBean();
 	}
 	
 	public void addAddress( Address address, String username)
@@ -44,6 +46,19 @@ public class AddressDao {
 		addressDBBean.setTitle(address.getTitle());
 		addressDBBean.setUsername(username);
 		template.save(addressDBBean);
+	}
+	
+	public void updateAddress( Address address, String username)
+	{
+		AddressDBBean addressDBBean = new AddressDBBean(); 
+		addressDBBean.setAddressid(Integer.parseInt(address.getAddressId()));
+		addressDBBean.setAddress(address.getAddress());
+		addressDBBean.setCity(address.getCity());
+		addressDBBean.setPin(address.getPin());
+		addressDBBean.setState(address.getState());
+		addressDBBean.setTitle(address.getTitle());
+		addressDBBean.setUsername(username);
+		template.update(addressDBBean);
 	}
 	
 	

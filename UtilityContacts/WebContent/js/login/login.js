@@ -15,13 +15,16 @@ function doAjaxPost() {
 				$('#buyButton').show();
 				$('#addToCartButton').show();
 				$('#paymentHistory').show();
+				
 				if(response.loginProjectorOB.userProfile.userType == "VENDOR")
 				{
+					$('#orderHistoryVendor').show();
 					$('#addProductButton').show();
 					$('#getProductListByVendor').show();
 				}
 				if(response.loginProjectorOB.userProfile.userType == "CUSTOMER")
 				{
+					$('#myCart').show();
 					$('#orderHistory').show();
 				}
 				if(response.loginProjectorOB.userProfile.userType == "ADMIN")

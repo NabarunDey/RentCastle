@@ -25,11 +25,7 @@
 					<h2>
 						new user? <span> create a shoppe account </span>
 					</h2>
-					<a href="#"><div class="reg_fb">
-							<img src="images/facebook.png" alt=""><i>register using
-								Facebook</i>
-							<div class="clearfix"></div>
-						</div></a>
+					
 					<!-- [if IE] 
 		    < link rel='stylesheet' type='text/css' href='ie.css'/>  
 		 [endif] -->

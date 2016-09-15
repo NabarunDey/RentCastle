@@ -30,8 +30,6 @@ import com.sessionBeans.UserProfile;
 import com.structures.status.OrderStatus;
 import com.structures.userTypes.UserType;
 
-
-
 /**
  * @author nd29794
  *
@@ -47,35 +45,31 @@ public class OrderAppService {
 	PaymentsDao paymentsDao;
 	AddressDao addressDao;
 
-	public OrderProjectorOB getCartOrderInput()
-	{	
+	public OrderProjectorOB getCartOrderInput() {
 		CartProjectorOB cartProjectorOB = cartAppService.viewCart();
-		OrderDaoOB orderDaoOB = new  OrderDaoOB();
+		OrderDaoOB orderDaoOB = new OrderDaoOB();
 		orderDaoOB.setCartItems(cartProjectorOB.getCartItems());
-		OrderProjectorOB orderProjectorOB = orderProjector.getOrderInput(orderDaoOB);
-		List<AddressDBBean> addressDBBeans = addressDao.getAddressForUser(userProfile.getUserName());
-		orderProjectorOB.setAddressDBBeans(addressDBBeans);
+		OrderProjectorOB orderProjectorOB = orderProjector
+				.getOrderInput(orderDaoOB);
+		AddressDBBean addressDBBean = addressDao
+				.getAddressForUser(userProfile.getUserName());
+		orderProjectorOB.setAddressDBBean(addressDBBean);
 		return orderProjectorOB;
 	}
 
-	public void checkIfDeliveryAvailable(Address address, OrderProjectorOB orderProjectorOB)
-	{
-		for(CartItem cartItem : orderProjectorOB.getCartItems())
-		{
+	public void checkIfDeliveryAvailable(Address address,
+			OrderProjectorOB orderProjectorOB) {
+		for (CartItem cartItem : orderProjectorOB.getCartItems()) {
 			boolean deliveryAvailable = false;
-			if(cartItem.getProductState().equals(address.getState())&& cartItem.getProductCity().equals(address.getCity()))
-			{
-				if(cartItem.getProductPin().equals("All"))
-				{
-					deliveryAvailable=true;
-				}
-				else
-				{
+			if (cartItem.getProductState().equals(address.getState())
+					&& cartItem.getProductCity().equals(address.getCity())) {
+				if (cartItem.getProductPin().equals("All")) {
+					deliveryAvailable = true;
+				} else {
 					String[] pins = cartItem.getProductPin().split("\\|");
 					List<String> pinList = Arrays.asList(pins);
-					if(pinList.contains(address.getPin()))
-					{
-						deliveryAvailable=true;
+					if (pinList.contains(address.getPin())) {
+						deliveryAvailable = true;
 					}
 				}
 			}
@@ -83,28 +77,29 @@ public class OrderAppService {
 		}
 	}
 
-	public OrderProjectorOB placeCartOrder(List<CartItem> cartItems,Address address)
-	{
+	public OrderProjectorOB placeCartOrder(List<CartItem> cartItems,
+			Address address) {
 		List<OrderAppServiceIB> orderAppServiceIBs = new ArrayList<OrderAppServiceIB>();
-		for(CartItem cartItem : cartItems)
-		{
+		for (CartItem cartItem : cartItems) {
 			OrderAppServiceIB orderAppServiceIB = new OrderAppServiceIB();
 			orderAppServiceIB.setProductid(cartItem.getProductId());
 			orderAppServiceIB.setRentid(cartItem.getRentId());
 			orderAppServiceIB.setUsername(userProfile.getUserName());
 			orderAppServiceIBs.add(orderAppServiceIB);
 		}
-		List<OrdersDBBean> ordersDBBeans = ordersDao.addOrder(orderAppServiceIBs,userProfile.getUserName(),address);
-		if(StringUtils.isEmpty(address.getAddressId()))
-		{
+		List<OrdersDBBean> ordersDBBeans = ordersDao.addOrder(
+				orderAppServiceIBs, userProfile.getUserName(), address);
+		if (StringUtils.isEmpty(address.getAddressId())) {
 			addressDao.addAddress(address, userProfile.getUserName());
+		}
+		else {
+			addressDao.updateAddress(address, userProfile.getUserName());
 		}
 
 		Iterator<CartItem> cartIterator = cartItems.iterator();
 		Iterator<OrdersDBBean> orderIterator = ordersDBBeans.iterator();
 		List<PaymentAppServiceIB> paymentAppServiceIBs = new ArrayList<PaymentAppServiceIB>();
-		while(cartIterator.hasNext() && orderIterator.hasNext())
-		{
+		while (cartIterator.hasNext() && orderIterator.hasNext()) {
 			CartItem cartItem = cartIterator.next();
 			OrdersDBBean ordersDBBean = orderIterator.next();
 			PaymentAppServiceIB paymentAppServiceIB = new PaymentAppServiceIB();
@@ -116,55 +111,80 @@ public class OrderAppService {
 			paymentAppServiceIBs.add(paymentAppServiceIB);
 		}
 		paymentsDao.addPayment(paymentAppServiceIBs);
-		cartAppService.emptyCart(); 
-		OrderProjectorOB orderProjectorOB = orderProjector.confirmOrder(ordersDBBeans);
+		cartAppService.emptyCart();
+		OrderProjectorOB orderProjectorOB = orderProjector
+				.confirmOrder(ordersDBBeans);
 		return orderProjectorOB;
 	}
 
-
-	public OrderProjectorOB viewOrders(boolean isAdmin)
-	{
-		OrderProjectorOB orderProjectorOB =null;
+	public OrderProjectorOB viewOrders(boolean isAdmin) {
+		OrderProjectorOB orderProjectorOB = null;
 		List<OrdersDBBean> ordersDBBeans = null;
-		if(isAdmin)
-		{
+		if (isAdmin) {
 			ordersDBBeans = ordersDao.getOrdersForAdmin();
+		} else {
+			ordersDBBeans = ordersDao.getOrdersForUser(userProfile
+					.getUserName());
 		}
-		else
-		{
-			ordersDBBeans=ordersDao.getOrdersForUser(userProfile.getUserName());
-		}
-		ordersDao.getOrdersForUser(userProfile.getUserName());
-		if(null!= ordersDBBeans && ordersDBBeans.size()>=1)
-		{
+		if (null != ordersDBBeans && ordersDBBeans.size() >= 1) {
 			List<Integer> productIds = new ArrayList<Integer>();
 			List<Integer> rentOfferIds = new ArrayList<Integer>();
-			for(OrdersDBBean ordersDBBean : ordersDBBeans)
-			{
+			for (OrdersDBBean ordersDBBean : ordersDBBeans) {
 				productIds.add(ordersDBBean.getProductid());
 				rentOfferIds.add(ordersDBBean.getRentid());
 			}
-			List<ProductsDBBean> productsDBBeans = productsDao.getProductListByIdsInteger(productIds);
-			List<RentOffersDBBean> rentOffersDBBeans = rentOffersDao.getRentOffersByIdsInteger(rentOfferIds);
+			List<ProductsDBBean> productsDBBeans = productsDao
+					.getProductListByIdsInteger(productIds);
+			List<RentOffersDBBean> rentOffersDBBeans = rentOffersDao
+					.getRentOffersByIdsInteger(rentOfferIds);
 
-			orderProjectorOB= orderProjector.viewOrders(ordersDBBeans, productsDBBeans, rentOffersDBBeans);
+			orderProjectorOB = orderProjector.viewOrders(ordersDBBeans,
+					productsDBBeans, rentOffersDBBeans);
 		}
 		return orderProjectorOB;
 	}
 
-	public OrderProjectorOB getOrdersForAdmin()
-	{
+	public OrderProjectorOB getOrdersForVendor() {
 		OrderProjectorOB orderProjectorOB = null;
-		if(userProfile.getUserType().equals(UserType.ADMIN))
-		{
+		List<OrdersDBBean> ordersDBBeans = null;
+
+		if (userProfile.getUserType().equals(UserType.VENDOR)) {
+			List<ProductsDBBean> productsDBBeans = productsDao
+					.searchByVendor(userProfile.getUserName());
+			ArrayList<Integer> productIds = new ArrayList<Integer>();
+			for (ProductsDBBean productsDBBean : productsDBBeans) {
+				productIds.add(productsDBBean.getProductid());
+			}
+			if (productIds.size() >= 1) {
+				ordersDBBeans = ordersDao.getOrdersForVendor(productIds);
+				if (null != ordersDBBeans && ordersDBBeans.size() >= 1) {
+					List<Integer> rentOfferIds = new ArrayList<Integer>();
+					for (OrdersDBBean ordersDBBean : ordersDBBeans) {
+						productIds.add(ordersDBBean.getProductid());
+						rentOfferIds.add(ordersDBBean.getRentid());
+					}
+					List<RentOffersDBBean> rentOffersDBBeans = rentOffersDao
+							.getRentOffersByIdsInteger(rentOfferIds);
+
+					orderProjectorOB = orderProjector.viewOrders(ordersDBBeans,
+							productsDBBeans, rentOffersDBBeans);
+				}
+			}
+		}
+		return orderProjectorOB;
+	}
+
+	public OrderProjectorOB getOrdersForAdmin() {
+		OrderProjectorOB orderProjectorOB = null;
+		if (userProfile.getUserType().equals(UserType.ADMIN)) {
 			orderProjectorOB = viewOrders(true);
 		}
 		return orderProjectorOB;
 	}
-	
-	public void changeOrderStatus(OrderAppServiceIB orderAppServiceIB)
-	{
-		ordersDao.changeOrderStatus(orderAppServiceIB.getOrderId(), OrderStatus.valueOf(orderAppServiceIB.getOrderStatus()));
+
+	public void changeOrderStatus(OrderAppServiceIB orderAppServiceIB) {
+		ordersDao.changeOrderStatus(orderAppServiceIB.getOrderId(),
+				OrderStatus.valueOf(orderAppServiceIB.getOrderStatus()));
 	}
 
 	public CartAppService getCartAppService() {

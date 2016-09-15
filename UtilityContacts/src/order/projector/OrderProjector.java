@@ -26,7 +26,7 @@ public class OrderProjector {
 		int total= 0;
 		for(CartItem cartItem : orderDaoOB.getCartItems())
 		{
-			total = total + Integer.parseInt(cartItem.getSecurityMoney()) + Integer.parseInt(cartItem.getRentAmount());
+			total = total + Integer.parseInt(cartItem.getSecurityMoney()) + Integer.parseInt(cartItem.getRentAmount().trim());
 		}
 			
 		orderProjectorOB.setTotal(orderProjectorOB.toString());

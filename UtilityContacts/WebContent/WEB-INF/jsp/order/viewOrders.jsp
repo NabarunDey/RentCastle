@@ -14,6 +14,8 @@
 						<th>OrderId</th>
 						<th>Date</th>
 						<th>Status</th>
+						<th>Address</th>
+						<th>Pin</th>
 						<th>Payments</th>
 					</tr>
 				</thead>
@@ -23,6 +25,8 @@
 							<td>ORD00<s:property value="ordersDBBean.orderid" /></td>
 							<td><s:property value="ordersDBBean.datetime" /></td>
 							<td><s:property value="ordersDBBean.orderstatus" /></td>
+							<td><s:property value="ordersDBBean.address" /></td>
+							<td><s:property value="ordersDBBean.pin" /></td>
 							<td><a href="getPaymentsForOrder?orderid=${ordersDBBean.orderid }">View Payments</a></td>
 							
 						</tr>

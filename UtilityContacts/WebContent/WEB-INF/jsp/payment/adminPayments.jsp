@@ -34,12 +34,11 @@
 							<td><s:property value="datetime" /></td>
 							<td>Rs. <s:property value="securitymoney" /></td>
 							<td>Rs. <s:property value="rentamount" /></td>
-							<td><select id="paymentstatus${paymentid}"
-								class="form-control">
-									<option value="PENDING">PENDING</option>
-									<option value="COMPLETED">COMPLETED</option>
-									<option value="UPCOMING">UPCOMING</option>
-							</select></td>
+							<td>
+							<s:select list="{'PENDING','COMPLETED','UPCOMING'}" id="%{'paymentstatus' + #attr['paymentid']}"   headerKey="%{paymentStatus}" headerValue="%{paymentStatus}" class="form-control" theme="simple"> 
+								</s:select>
+							
+							</td>
 							<td><input type="button" class="btn btn-primary"
 								value="Save"
 								onclick="changePaymentStatus(${paymentid})" /></td>

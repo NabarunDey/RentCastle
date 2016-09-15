@@ -25,7 +25,7 @@
 					<s:iterator value="context.paymentProjectorOB.paymentsDBBeans">
 						<tr id="payment<s:property value='paymentid'/>">
 							<td>PMT00<s:property value="paymentid" /></td>
-							<td><s:property value="orderid" /></td>
+							<td>ORD00<s:property value="orderid" /></td>
 							<td><s:property value="fromusername" /></td>
 							<td><s:property value="tousername" /></td>
 							<td><s:property value="datetime" /></td>

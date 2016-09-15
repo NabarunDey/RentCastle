@@ -15,12 +15,6 @@
 	<div class="top_bg">
 		<div class="container">
 			<div class="header_top">
-				<div class="top_left">
-					<h2>
-						<a href="#">50%off</a> use coupon code "big61" and get extra 33%
-						off
-					</h2>
-				</div>
 				<div class="top_right">
 					<ul>
 						<s:if
@@ -42,6 +36,14 @@
 						</s:if>
 						<s:else>
 							<li id = "orderHistory" style="display: none"><a href="<s:url  action='viewOrders'/>">Order History</a></li>
+						</s:else>
+						
+						<s:if
+							test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
+							<li id = "orderHistoryVendor"><a href="<s:url  action='viewOrdersVendor'/>">Order History</a></li>
+						</s:if>
+						<s:else>
+							<li id = "orderHistoryVendor" style="display: none"><a href="<s:url  action='viewOrdersVendor'/>">Order History</a></li>
 						</s:else>
 						
 						<s:if
@@ -76,7 +78,6 @@
 						<s:else>
 							<li id = "getPendingProducts" style="display: none"><a href="<s:url  action='getPendingProducts'/>">Pending Products</a></li>
 						</s:else>
-						<li><a href="contact.html">Contact</a></li>
 						<li class="login">
 							<div id="loginContainer">
 								<s:if

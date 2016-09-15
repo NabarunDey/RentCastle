@@ -17,54 +17,67 @@
 		<div class="col-md-6">
 			<label class="control-label col-md-3"><b>Enter Address</b></label>
 		</div>
-		<br/><br/>
-		<div class="col-md-6">
-			<label class="control-label col-md-3">Line 1</label>
-			<div class="col-md-9">
-				<input type="text" class="form-control" id="title"/>
+		<br />
+		<br />
+		<s:hidden name = "addressId" value="%{context.orderProjectorOB.addressDBBean.addressid}"></s:hidden>
+
+			<div class="col-md-6">
+				<label class="control-label col-md-3">Title</label>
+				<div class="col-md-9">
+					<input name="addressId" type="text" class="form-control" id="title"
+						value=<s:property value= "context.orderProjectorOB.addressDBBean.title"/>>
+				</div>
 			</div>
-		</div>
-		<br/><br/>
-		<div class="col-md-6">
-			<label class="control-label col-md-3">Line 2</label>
-			<div class="col-md-9">
-				<input type="text"  class="form-control"  id="address"/>
+			<br />
+			<br />
+			<div class="col-md-6">
+				<label class="control-label col-md-3">Address</label>
+				<div class="col-md-9">
+					<input name="address" type="text" class="form-control" id="address"
+						value=<s:property value= "context.orderProjectorOB.addressDBBean.address"/>>
+				</div>
 			</div>
-		</div>
-		<br/><br/>
-		<div class="col-md-6">
-			<label class="control-label col-md-3">State</label>
-			<div class="col-md-9">
-				<select id="state" class="form-control" onchange="populateCity()">
-			<option value="West Bengal">West Bengal</option>
-			<option value="Assam">Assam</option>
-		</select>
+			<br />
+			<br />
+			<div class="col-md-6">
+				<label class="control-label col-md-3">State</label>
+				<div class="col-md-9">
+				<%-- 	<select id="state" name="state" class="form-control"
+						onchange="populateCity()">
+						<option value="West Bengal">West Bengal</option>
+						<option value="Assam">Assam</option>
+					</select> --%>
+					
+					<s:select list="{'West Bengal','Assam'}" headerKey="%{context.orderProjectorOB.addressDBBean.state}" headerValue="%{context.orderProjectorOB.addressDBBean.state}" id="state" name="state" class="form-control"
+						onchange="populateCity()"></s:select>
+					
+					
+				</div>
 			</div>
-		</div>
-		<br/><br/>
-		<div class="col-md-6">
-			<label class="control-label col-md-3">City</label>
-			<div class="col-md-9">
-				<select id="city" class="form-control">
-			<option value="Kolkata">Kolkata</option>
-			<option value="Siliguri">Siliguri</option>
-		</select>
+			<br />
+			<br />
+			<div class="col-md-6">
+				<label class="control-label col-md-3">City</label>
+				<div class="col-md-9">
+						<s:select list="{'Kolkata','Siliguri'}" headerKey="%{context.orderProjectorOB.addressDBBean.city}" headerValue="%{context.orderProjectorOB.addressDBBean.city}" id="city" name="city" class="form-control"></s:select>
+				</div>
 			</div>
-		</div>
-		<div class="col-md-4">
-			<label class="control-label col-md-4">Pincode</label>
-			<div class="col-md-8">
+			<div class="col-md-4">
+				<label class="control-label col-md-4">Pincode</label>
 				<div class="col-md-8">
-					<s:textfield id="pin" cssClass="form-control"></s:textfield>
+					<div class="col-md-8">
+						<input name="pin" type="text" class="form-control" id="pin"
+							value=<s:property value= "context.orderProjectorOB.addressDBBean.pin"/>>
+					</div>
+					<div class="col-md-4">
+						<input type="button" class="btn btn-primary" value="Check"
+							onclick=checkPin() />
+					</div>
 				</div>
-				<div class="col-md-4">
-					<input type="button" class="btn btn-primary" value="Check" onclick=checkPin() />
-				</div>
-				
-				
 			</div>
-		</div>
-		<br/><br/>
+			<br />
+			<br />
+
 		<div class="orders">
 			<table class="table">
 				<thead>

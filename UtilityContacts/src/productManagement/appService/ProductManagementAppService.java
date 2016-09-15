@@ -111,10 +111,8 @@ public class ProductManagementAppService {
 			{
 				imageIds.add(imageId);
 			}
-			imagesDao.deleteImagesList(imageIds);
 		}
-		ImagesDaoOB imagesDaoOB= imagesDao.insertMultipleProductImages(productManagementAppServiceIB.getFileBeans());
-		productManagementAppServiceIB.setImageIdsList(imagesDaoOB.getImageIdsList());
+		productManagementAppServiceIB.setImageIdsList(imageIds);
 		productManagementAppServiceIB.setUsername(userProfile.getUserName());
 		productsDao.editProduct(productManagementAppServiceIB);
 	}

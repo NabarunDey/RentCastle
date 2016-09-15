@@ -49,6 +49,8 @@ public class CartAppService {
 		List<String> rentIds = new ArrayList<String>();
 		CartProjectorOB cartProjectorOB = new CartProjectorOB();
 		int noOfItems = 0; 
+		
+		try{
 		if(null!= productRentIds && productRentIds.size()>=1)
 		{
 			for(String productRentId : productRentIds)
@@ -71,6 +73,11 @@ public class CartAppService {
 			cartDaoOB.setProductRentIds(productRentIds);
 			cartProjectorOB = cartProjector.viewCart(cartDaoOB);
 
+		}
+		}catch(Exception e)
+		{
+			emptyCart();
+			noOfItems=0;
 		}
 		cartProjectorOB.setNumberOfItemsInCart(String.valueOf(noOfItems));
 		return cartProjectorOB;

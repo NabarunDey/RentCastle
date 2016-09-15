@@ -12,15 +12,7 @@
 		<div class="main">
 			<div class="content">
 				<div class="content_text">
-					<h3>brand of the week</h3>
-					<h4>
-						<a href="#">a touch of glamour </a>
-					</h4>
-					<p>It is a long established fact that a reader will be
-						distracted by the readable content of a page when looking at its
-						layout. The point of using Lorem Ipsum is that it has a
-						more-or-less normal distribution of letters, as opposed to using
-						'Content here, content here',</p>
+					<h3>Featured Products</h3>
 				</div>
 				<!-- grids_of_3 -->
 				<div class="row grids">

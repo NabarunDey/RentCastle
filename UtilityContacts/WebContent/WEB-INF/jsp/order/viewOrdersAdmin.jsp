@@ -24,11 +24,8 @@
 							<td>ORD00<s:property value="ordersDBBean.orderid" /></td>
 							<td><s:property value="ordersDBBean.datetime" /></td>
 							<td>
-								<select id="orderstatus${ordersDBBean.orderid}" class="form-control"> 
-									<option value="INITIATED">INITIATED</option>
-									<option value="PROCESSING">PROCESSING</option>
-									<option value="COMPLETE">COMPLETE</option>
-								</select>
+								<s:select list="{'INITIATED','PROCESSING','COMPLETE'}" id="%{'orderstatus' + #attr['ordersDBBean.orderid']}"   headerKey="%{ordersDBBean.orderstatus}" headerValue="%{ordersDBBean.orderstatus}" class="form-control" theme="simple"> 
+								</s:select>
 								</td>
 							<td><input type="button" class="btn btn-primary" value="Save" onclick="changeOrderStatus(${ordersDBBean.orderid})"/></td>
 						</tr>

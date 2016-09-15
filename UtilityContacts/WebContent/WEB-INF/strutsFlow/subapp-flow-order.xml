@@ -35,6 +35,10 @@
 			<result name="success" type="tiles">viewOrdersAdmin</result>
 		</action>
 		
+		<action name="viewOrdersVendor" class="orderAction" method="viewOrdersVendor">
+			<result name="success" type="tiles">viewOrders</result>
+		</action>
+		
 		<action name="changeOrderSatus" class="orderAction" method="changeOrderSatus">
 			<result name="success"  type="json">
 				<param name="root">context</param>

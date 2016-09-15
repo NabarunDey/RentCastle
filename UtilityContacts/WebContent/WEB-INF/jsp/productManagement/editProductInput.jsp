@@ -181,10 +181,10 @@
 			</div>
 			<div class="form-group">
 				<label for="productPin" class="col-sm-2 control-label">Select
-					Location</label>
+					Pin</label>
 				<div class="col-sm-4">
 
-					<s:textfield name="productPin" cssClass="form-control" />
+					<s:textfield name="productPin" cssClass="form-control" value="%{context.viewProductProjectorOB.productsDBBean.productpin}"/>
 
 				</div>
 			</div>

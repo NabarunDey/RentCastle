@@ -57,6 +57,14 @@ public class OrdersDao {
 		return ordersDBBeans;
 	}
 	
+	public List<OrdersDBBean> getOrdersForVendor(ArrayList<Integer> productIds )
+	{
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(OrdersDBBean.class)
+				.add(Restrictions.in("productid", productIds));
+		List<OrdersDBBean> ordersDBBeans = criteria.list();
+		return ordersDBBeans;
+	}
+	
 	public List<OrdersDBBean> getOrdersForAdmin()
 	{
 		List<OrdersDBBean> ordersDBBeans = template.loadAll(OrdersDBBean.class);

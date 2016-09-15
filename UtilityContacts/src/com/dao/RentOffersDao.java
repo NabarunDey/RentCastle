@@ -42,9 +42,9 @@ public class RentOffersDao {
 			{
 				RentOffersDBBean rentOffersDBBean  = new  RentOffersDBBean();
 				rentOffersDBBean.setProductid(addRentOfferAppServiceIB.getProductid());
-				rentOffersDBBean.setPeriodunit(periodUnit[count]);
-				rentOffersDBBean.setPeriodvalue(periodValue[count]);
-				rentOffersDBBean.setAmount(rentAmount[count]);
+				rentOffersDBBean.setPeriodunit(periodUnit[count].trim());
+				rentOffersDBBean.setPeriodvalue(periodValue[count].trim());
+				rentOffersDBBean.setAmount(rentAmount[count].trim());
 				count++;
 				template.getSessionFactory().getCurrentSession().save(rentOffersDBBean);
 			}
@@ -82,8 +82,8 @@ public class RentOffersDao {
 		for(RentOffersDBBean rentOffersDBBean : rentOffersDBBeans)
 		{
 			if(rentMap.containsKey(String.valueOf(rentOffersDBBean.getProductid()))
-					&& Integer.parseInt(rentMap.get(String.valueOf(rentOffersDBBean.getProductid())).getAmount()) 
-					< Integer.parseInt(rentOffersDBBean.getAmount()))
+					&& Integer.parseInt(rentMap.get(String.valueOf(rentOffersDBBean.getProductid())).getAmount().trim()) 
+					< Integer.parseInt(rentOffersDBBean.getAmount().trim()))
 			{
 				continue;
 			}

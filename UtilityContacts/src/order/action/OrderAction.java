@@ -64,6 +64,13 @@ public class OrderAction extends ActionSupport    {
 		return "success";
 	}
 	
+	public String viewOrdersVendor()
+	{
+		OrderProjectorOB orderProjectorOB =orderAppService.getOrdersForVendor();
+		context.setOrderProjectorOB(orderProjectorOB);
+		return "success";
+	}
+	
 	public String getOrdersForAdmin()
 	{
 		OrderProjectorOB orderProjectorOB =orderAppService.getOrdersForAdmin();

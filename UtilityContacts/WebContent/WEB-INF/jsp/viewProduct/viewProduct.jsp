@@ -91,17 +91,13 @@
 					</div>
 							<s:if
 								test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }">
-								<div class="btn_form">
-									<a href="buy.html">buy</a>
-								</div>
+								
 								<div class="btn_form" onclick="addToCart()">
 									<a href="#">Add To Cart</a>
 								</div>
 							</s:if>
 							<s:else>
-								<div id ="buyButton" class="btn_form" style="display: none">
-									<a href="buy.html">buy</a>
-								</div>
+								
 								<div id="addToCartButton" class="btn_form" onclick="addToCart()" style="display: none">
 									<a href="#">Add To Cart</a>
 								</div>
@@ -114,14 +110,13 @@
 								<input type="button" value="Save Status" onclick="changeApprovalStatus()">
 							</s:if>
 
-							<a href="#"><span>login to save in wishlist </span></a>
 					
 			   	 </div>
           	    <div class="clearfix"></div>
           	   </div>
           	    <div class="single-bottom1">
 					<h6>Details</h6>
-					<p class="prod-desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option</p>
+					<p class="prod-desc"><s:property value="context.ViewProductProjectorOB.productsDBBean.description"/></p>
 				</div>
 				
 	       </div>	
