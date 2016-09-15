@@ -48,7 +48,7 @@
 						<option value="Assam">Assam</option>
 					</select> --%>
 					
-					<s:select list="{'West Bengal','Assam'}" headerKey="%{context.orderProjectorOB.addressDBBean.state}" headerValue="%{context.orderProjectorOB.addressDBBean.state}" id="state" name="state" class="form-control"
+					<s:select list="{'West Bengal','Assam'}" headerKey="%{context.orderProjectorOB.addressDBBean.state}" headerValue="%{context.orderProjectorOB.addressDBBean.state}" id="state" name="state" class="form-control" theme="simple"
 						onchange="populateCity()"></s:select>
 					
 					
@@ -59,7 +59,7 @@
 			<div class="col-md-6">
 				<label class="control-label col-md-3">City</label>
 				<div class="col-md-9">
-						<s:select list="{'Kolkata','Siliguri'}" headerKey="%{context.orderProjectorOB.addressDBBean.city}" headerValue="%{context.orderProjectorOB.addressDBBean.city}" id="city" name="city" class="form-control"></s:select>
+						<s:select list="{'Kolkata','Siliguri'}" headerKey="%{context.orderProjectorOB.addressDBBean.city}" headerValue="%{context.orderProjectorOB.addressDBBean.city}" id="city" name="city" class="form-control" theme="simple"></s:select>
 				</div>
 			</div>
 			<div class="col-md-4">
