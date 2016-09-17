@@ -13,7 +13,7 @@
 <body>
 
 <% 
-response.sendRedirect("/UtilityContacts/loadIndex.action");
+response.sendRedirect("/RentCastle/loadIndex.action");
 %> 
 
 <%-- <jsp:forward page="/loadIndex.action" />
