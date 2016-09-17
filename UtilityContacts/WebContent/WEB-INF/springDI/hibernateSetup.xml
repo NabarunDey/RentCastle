@@ -9,9 +9,9 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/rent"></property>
-		<property name="username" value="root"></property>
-		<property name="password" value=""></property>
+			value="jdbc:mysql://rentcastledb.cdvaakvkdpg2.us-west-2.rds.amazonaws.com:3306/RentCastleMain"></property>
+		<property name="username" value="rentcastledb"></property>
+		<property name="password" value="rentcastledb01"></property>
 	</bean>
 	<context:annotation-config />
 	<tx:annotation-driven transaction-manager="transactionManager" />

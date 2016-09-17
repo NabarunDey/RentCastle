@@ -21,7 +21,7 @@ import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
 public class FacebookHandler {
 	public static final String FB_APP_ID = "841162669353192";
 	public static final String FB_APP_SECRET = "20b58a0418a61bad3d514c086afa8302";
-	public static final String REDIRECT_URI = "http://localhost:8080/UtilityContacts/loginFunction";
+	public static final String REDIRECT_URI = "http://localhost:8080/RentCastle/loginFunction";
 
 	static String accessToken = "";
 

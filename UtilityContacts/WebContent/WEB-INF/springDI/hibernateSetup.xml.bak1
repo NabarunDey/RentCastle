@@ -9,8 +9,8 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
-		<property name="username" value="UtilityContacts"></property>
-		<property name="password" value="UtilityContacts"></property>
+		<property name="username" value="RentCastle"></property>
+		<property name="password" value="RentCastle"></property>
 	</bean>
 	<context:annotation-config />
 	<tx:annotation-driven transaction-manager="transactionManager" />
@@ -32,6 +32,9 @@
 				<value>Products.hbm.xml</value>
 				<value>Images.hbm.xml</value>
 				<value>RentOffers.hbm.xml</value>
+				<value>Orders.hbm.xml</value>
+				<value>Payments.hbm.xml</value>
+				<value>Address.hbm.xml</value>
 			</list>
 		</property>
 
@@ -40,8 +43,8 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">true</prop>
-
-			</props>
+<!-- 				<prop key="hibernate.current_session_context_class">thread</prop>
+ -->			</props>
 		</property>
 	</bean>
 
@@ -63,6 +66,14 @@
 
 	<bean id="rentOffersDBBean" class="com.databaseBeans.RentOffersDBBean">
 	</bean>
-
+	
+	<bean id="ordersDBBean" class="com.databaseBeans.OrdersDBBean">
+	</bean>
+	
+	<bean id="paymentsDBBean" class="com.databaseBeans.PaymentsDBBean">
+	</bean>
+	
+	<bean id="addressDBBean" class="com.databaseBeans.AddressDBBean">
+	</bean>
 
 </beans>
