@@ -55,7 +55,7 @@
 						</s:else>
 						
 						<s:if
-							test="%{ null != #attr.userProfile && !'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
+							test="%{ null != #attr.userProfile && ('CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) || 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
 							<li id = "paymentHistory"><a href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
 						</s:if>
 						<s:else>
