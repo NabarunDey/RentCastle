@@ -52,6 +52,10 @@ public class UsersDao {
 		{
 			usersDBBean.setUsertype(UserType.CUSTOMER);
 		}
+		if(usersDBBean.getUsertype().equals(UserType.ADMIN))
+		{
+			usersDBBean.setUsertype(UserType.CUSTOMER);
+		}
 		saveUser(usersDBBean);
 		UserRegistrationDaoOB userRegistrationDaoOB =new UserRegistrationDaoOB();
 		userRegistrationDaoOB.setUserDetailsInserted(true);

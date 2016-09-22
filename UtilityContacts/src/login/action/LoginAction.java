@@ -29,7 +29,9 @@ public class LoginAction  extends ActionSupport  implements ServletRequestAware{
 		loginAppServiceIB.setUsername(username);
 		loginAppServiceIB.setPassword(password);
 		loginAppServiceIB.setFbCode(code);
-		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB);
+		String server=httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+httpServletRequest.getContextPath();
+		
+		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server);
 		context.setLoginProjectorOB(loginProjectorOB);
 		if(StringUtils.isNotEmpty(code))
 		{

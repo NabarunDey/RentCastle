@@ -21,7 +21,7 @@ import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
 public class FacebookHandler {
 	public static final String FB_APP_ID = "841162669353192";
 	public static final String FB_APP_SECRET = "20b58a0418a61bad3d514c086afa8302";
-	public static final String REDIRECT_URI = "http://localhost:8080/RentCastle/loginFunction";
+	public static String REDIRECT_URI = "";
 
 	static String accessToken = "";
 
@@ -128,8 +128,9 @@ public class FacebookHandler {
 	}
 
 
-	public static UserRegistrationAppServiceIB getfbData(String code)
+	public static UserRegistrationAppServiceIB getfbData(String code,String server)
 	{
+		REDIRECT_URI = "http://"+server+"/loginFunction";
 		UserRegistrationAppServiceIB userRegistrationAppServiceIB = new UserRegistrationAppServiceIB();
 		if (code == null || code.equals("")) {
 			throw new RuntimeException(

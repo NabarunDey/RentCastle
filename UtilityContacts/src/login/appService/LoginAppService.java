@@ -24,12 +24,12 @@ public class LoginAppService {
 	UserProfile userProfile;
 	UserRegistrationAppService userRegistrationAppService;
 
-	public LoginProjectorOB login(LoginAppServiceIB loginAppServiceIB) {
+	public LoginProjectorOB login(LoginAppServiceIB loginAppServiceIB,String server) {
 
 		LoginProjectorOB loginProjectorOB=null;
 		if(StringUtils.isNotEmpty(loginAppServiceIB.getFbCode()))
 		{
-			UserRegistrationAppServiceIB userRegistrationAppServiceIB = FacebookHandler.getfbData(loginAppServiceIB.getFbCode());
+			UserRegistrationAppServiceIB userRegistrationAppServiceIB = FacebookHandler.getfbData(loginAppServiceIB.getFbCode(),server);
 			LoginDaoOB loginDaoOB =  loginDao.getByUsername(userRegistrationAppServiceIB.getUsername());
 			if(null== loginDaoOB.getUserLoginDBBean())
 			{

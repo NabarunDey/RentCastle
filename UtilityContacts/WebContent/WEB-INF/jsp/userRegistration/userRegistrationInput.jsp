@@ -135,7 +135,7 @@
 				<div class="registration_left">
 					<h2>existing user</h2>
 					<a
-						href="http://www.facebook.com/dialog/oauth?client_id=841162669353192&redirect_uri=http://localhost:8080/RentCastle/loginFunction&scope=email">
+						href="http://www.facebook.com/dialog/oauth?client_id=841162669353192&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction&scope=email">
 						<div class="reg_fb">
 							<img src="images/facebook.png" alt=""><i>sign in using
 								Facebook</i>

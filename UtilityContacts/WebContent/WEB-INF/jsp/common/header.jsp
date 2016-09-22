@@ -53,9 +53,9 @@
 						<s:else>
 							<li id = "getOrdersForAdmin" style="display: none"><a href="<s:url  action='getOrdersForAdmin'/>">Order History Admin</a></li>
 						</s:else>
-						
+
 						<s:if
-							test="%{ null != #attr.userProfile && ('CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) || 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
+							test="%{ null != #attr.userProfile && ('CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) || 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) )}">
 							<li id = "paymentHistory"><a href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
 						</s:if>
 						<s:else>
@@ -96,7 +96,7 @@
 														type="password" name="password" id="password">
 												</fieldset>
 												<input id="login" value="Sign in" onclick="doAjaxPost()">
-												<input id="loginFB" style="margin-top:5px;background-color:#354F88;width:197px;height:35px;color:white;border:none;cursor:pointer" value="Sign in using Facebook" onclick="window.location.href='http://www.facebook.com/dialog/oauth?client_id=841162669353192&redirect_uri=http://localhost:8080/RentCastle/loginFunction&scope=email'">
+												<input id="loginFB" style="margin-top:5px;background-color:#354F88;width:197px;height:35px;color:white;border:none;cursor:pointer" value="Sign in using Facebook" onclick="window.location.href='http://www.facebook.com/dialog/oauth?client_id=841162669353192&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction&scope=email'">
 											
 												<label for="checkbox"><input type="checkbox"
 													id="checkbox"> <i>Remember me</i></label>
