@@ -18,7 +18,14 @@ public class CartItem {
 	private String productSubtype;
 	private String securityMoney;
 	private boolean deliveryAvailable;
+	private String itemTotal;
 	
+	public String getItemTotal() {
+		return itemTotal;
+	}
+	public void setItemTotal(String itemTotal) {
+		this.itemTotal = itemTotal;
+	}
 	public boolean isDeliveryAvailable() {
 		return deliveryAvailable;
 	}

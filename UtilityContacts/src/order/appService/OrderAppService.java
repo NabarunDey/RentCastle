@@ -89,7 +89,7 @@ public class OrderAppService {
 		}
 		List<OrdersDBBean> ordersDBBeans = ordersDao.addOrder(
 				orderAppServiceIBs, userProfile.getUserName(), address);
-		if (StringUtils.isEmpty(address.getAddressId())) {
+		if (StringUtils.isEmpty(address.getAddressId()) || "0".equals(address.getAddressId()) ) {
 			addressDao.addAddress(address, userProfile.getUserName());
 		}
 		else {

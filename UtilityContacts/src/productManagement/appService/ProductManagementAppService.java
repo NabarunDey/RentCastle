@@ -1,6 +1,7 @@
 package productManagement.appService;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -161,24 +162,18 @@ public class ProductManagementAppService {
 		Map<Integer,Integer> sortedMap= ordersDao.getMostOrderedProducts();
 		
 		int max=0;
-		
+		List<Integer> mostOrderedIds = null;
 		if(null != sortedMap && sortedMap.size()>=1)
 		{
-			List<Integer> mostOrderedIds = new ArrayList<Integer>();
-			max = sortedMap.size()<4?sortedMap.size():4;
-			for(int i = 0; i<max ;i++)
-			{
-				Iterator entries = sortedMap.entrySet().iterator();
-				Entry thisEntry = (Entry) entries.next();
-				mostOrderedIds.add((Integer)thisEntry.getValue());
-			}
+			max = sortedMap.size();
+			mostOrderedIds =new ArrayList<Integer>(sortedMap.keySet());
 			List<ProductsDBBean> mostOrderredProducts = productsDao.getProductListByIdsInteger(mostOrderedIds);
 			productsDBBeans.addAll(mostOrderredProducts);
 		}
 		
 		if(max<4)
 		{
-			List<ProductsDBBean> firstNProducts = productsDao.getProductListSortedById(4-max);
+			List<ProductsDBBean> firstNProducts = productsDao.getProductListSortedById(4-max,mostOrderedIds );
 			productsDBBeans.addAll(firstNProducts);
 		}
 		

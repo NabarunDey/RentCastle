@@ -1,14 +1,17 @@
-$(document).ready(function(){
-	var total = 0;
-	$('.orders table tbody tr').each(function(){
-		total += parseInt($('td:eq(1)',this).html().substring(4))+parseInt($('td:eq(2)',this).html().substring(4));
-		$('td:eq(3)',this).html('Rs. '+(parseInt($('td:eq(1)',this).html().substring(4))+parseInt($('td:eq(2)',this).html().substring(4))));
-	});
-	$('.orders table tfoot tr td:eq(3)').html('Total Amount: Rs. '+total);
-});
+var placeOrderEnable=false;
+
+function placeCartOrder()
+{
+	if (placeOrderEnable==false)
+		{
+			alert('Please check delivery address before placing order');
+			return;
+		}
+	location.href='placeCartOrder.action';
+}
 
 function checkPin() {
-
+	placeOrderEnable = true;
 	$.ajax({
 		type: "POST",
 		url: "checkIfDeliveryAvailable",
@@ -16,8 +19,10 @@ function checkPin() {
 		success: function(response){
 			
 			for (i = 0; i < response.orderProjectorOB.cartItems.length; i++) {
+				$('#errorProductId'+response.orderProjectorOB.cartItems[i].productId).hide();
 				if (!response.orderProjectorOB.cartItems[i].deliveryAvailable) 
 				{
+					placeOrderEnable=false;
 					$('#errorProductId'+response.orderProjectorOB.cartItems[i].productId).show();
 				}
 			}

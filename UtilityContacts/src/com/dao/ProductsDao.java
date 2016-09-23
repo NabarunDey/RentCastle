@@ -224,12 +224,16 @@ public class ProductsDao {
 		return productsDBBeans;
 	}
 
-	public List<ProductsDBBean> getProductListSortedById(int n)
+	public List<ProductsDBBean> getProductListSortedById(int n, List<Integer> productIdsToBeNeglected)
 	{
 		List<ProductsDBBean> productsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class);
 		criteria.setMaxResults(n);
-		criteria.addOrder(Order.desc("productid"));
+		criteria.addOrder(Order.asc("productid"));
+		
+		if(null!= productIdsToBeNeglected)
+			criteria.add(Restrictions.not(Restrictions.in("id", productIdsToBeNeglected)));
+		
 		productsDBBeans = criteria.list();
 		return productsDBBeans;
 	}

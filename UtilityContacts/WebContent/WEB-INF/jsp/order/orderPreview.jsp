@@ -15,68 +15,64 @@
 			<div class="clearfix"></div>
 		</div>
 		<div class="col-md-6">
-			<label class="control-label col-md-3"><b>Enter Address</b></label>
+			<label class="control-label col-md-3"><b>Address</b></label>
 		</div>
-		<br />
-		<br />
-		<s:hidden name = "addressId" value="%{context.orderProjectorOB.addressDBBean.addressid}"></s:hidden>
+		<br /> <br />
+		<s:hidden name="addressId"
+			value="%{context.orderProjectorOB.addressDBBean.addressid}"></s:hidden>
 
-			<div class="col-md-6">
-				<label class="control-label col-md-3">Title</label>
-				<div class="col-md-9">
-					<input name="addressId" type="text" class="form-control" id="title"
-						value=<s:property value= "context.orderProjectorOB.addressDBBean.title"/>>
-				</div>
+		<div class="col-md-6">
+			<label class="control-label col-md-3">Title</label>
+			<div class="col-md-9">
+				<input name="addressId" type="text" class="form-control" id="title"
+					value=<s:property value= "context.orderProjectorOB.addressDBBean.title"/>>
 			</div>
-			<br />
-			<br />
-			<div class="col-md-6">
-				<label class="control-label col-md-3">Address</label>
-				<div class="col-md-9">
-					<input name="address" type="text" class="form-control" id="address"
-						value=<s:property value= "context.orderProjectorOB.addressDBBean.address"/>>
-				</div>
+		</div>
+		<br /> <br />
+		<div class="col-md-6">
+			<label class="control-label col-md-3">Address</label>
+			<div class="col-md-9">
+				<input name="address" type="text" class="form-control" id="address"
+					value=<s:property value= "context.orderProjectorOB.addressDBBean.address"/>>
 			</div>
-			<br />
-			<br />
-			<div class="col-md-6">
-				<label class="control-label col-md-3">State</label>
-				<div class="col-md-9">
-				<%-- 	<select id="state" name="state" class="form-control"
-						onchange="populateCity()">
-						<option value="West Bengal">West Bengal</option>
-						<option value="Assam">Assam</option>
-					</select> --%>
-					
-					<s:select list="{'West Bengal','Assam'}" headerKey="%{context.orderProjectorOB.addressDBBean.state}" headerValue="%{context.orderProjectorOB.addressDBBean.state}" id="state" name="state" class="form-control" theme="simple"
+		</div>
+		<br /> <br />
+		<div class="col-md-6">
+			<label class="control-label col-md-3">State</label>
+			<div class="col-md-9">
+					<s:select list="{'West Bengal','Assam'}"
+						headerKey="%{context.orderProjectorOB.addressDBBean.state}"
+						headerValue="%{context.orderProjectorOB.addressDBBean.state}"
+						id="state" name="state" cssClass="form-control" theme="simple"
 						onchange="populateCity()"></s:select>
-					
-					
-				</div>
+
 			</div>
-			<br />
-			<br />
-			<div class="col-md-6">
-				<label class="control-label col-md-3">City</label>
-				<div class="col-md-9">
-						<s:select list="{'Kolkata','Siliguri'}" headerKey="%{context.orderProjectorOB.addressDBBean.city}" headerValue="%{context.orderProjectorOB.addressDBBean.city}" id="city" name="city" class="form-control" theme="simple"></s:select>
-				</div>
+		</div>
+		<br /> <br />
+		<div class="col-md-6">
+			<label class="control-label col-md-3">City</label>
+			<div class="col-md-9">
+
+					<s:select list="{'Kolkata','Siliguri'}"
+						headerKey="%{context.orderProjectorOB.addressDBBean.city}"
+						headerValue="%{context.orderProjectorOB.addressDBBean.city}"
+						id="city" name="city" cssClass="form-control" theme="simple"></s:select>
 			</div>
-			<div class="col-md-4">
-				<label class="control-label col-md-4">Pincode</label>
+		</div>
+		<div class="col-md-4">
+			<label class="control-label col-md-4">Pincode</label>
+			<div class="col-md-8">
 				<div class="col-md-8">
-					<div class="col-md-8">
-						<input name="pin" type="text" class="form-control" id="pin"
-							value=<s:property value= "context.orderProjectorOB.addressDBBean.pin"/>>
-					</div>
-					<div class="col-md-4">
-						<input type="button" class="btn btn-primary" value="Check"
-							onclick=checkPin() />
-					</div>
+					<input name="pin" type="text" class="form-control" id="pin"
+						value=<s:property value= "context.orderProjectorOB.addressDBBean.pin"/>>
+				</div>
+				<div class="col-md-4">
+					<input type="button" class="btn btn-primary" value="Check"
+						onclick=checkPin() />
 				</div>
 			</div>
-			<br />
-			<br />
+		</div>
+		<br /> <br />
 
 		<div class="orders">
 			<table class="table">
@@ -94,14 +90,16 @@
 							<td><s:property value="productName" /></td>
 							<td>Rs. <s:property value="securityMoney" /></td>
 							<td>Rs. <s:property value="rentAmount" /></td>
-							<td>Rs.</td>
+							<td>Rs. <s:property value="itemTotal" /></td>
 						</tr>
 						<tr>
 							<td>
-							<div id="errorProductId<s:property value='productId'/>" style="display: none">This item cannot be delivered in the given Pin.</div>
+								<div id="errorProductId<s:property value='productId'/>"
+									style="display: none; color: #ff0000;">This item cannot
+									be delivered at the given Pin.</div>
 							</td>
 						</tr>
-						
+
 					</s:iterator>
 				</tbody>
 				<tfoot>
@@ -109,13 +107,15 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
-						<td style="color: #ff0000;">&nbsp;</td>
+						<td >&nbsp; <b>Grand Total : <s:property
+								value="context.orderProjectorOB.total" /></b>
+						</td>
 					</tr>
 				</tfoot>
 			</table>
 			<div class="form-group pull-right">
 				<input type="button" value="Place Order" class="btn-primary"
-					onclick="javascript:location.href='placeCartOrder.action';" />
+					onclick=placeCartOrder() /> <%-- javascript:location.href='placeCartOrder.action';"--%>
 			</div>
 
 		</div>
