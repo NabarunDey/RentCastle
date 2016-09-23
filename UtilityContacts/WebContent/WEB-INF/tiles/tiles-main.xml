@@ -16,13 +16,13 @@
 	</definition>
 
 	<definition name="loadIndex" extends="baseLayout">
-		<put-attribute name="title" value="Add Product Input" />
+		<put-attribute name="title" value="Home" />
 		<put-attribute name="body" value="/WEB-INF/jsp/home/index.jsp" />
 	</definition>
 
 
 	<definition name="addProductInput" extends="baseLayout">
-		<put-attribute name="title" value="Add Product Input" />
+		<put-attribute name="title" value="Add Product" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/addProduct/addProductInput.jsp" />
 	</definition>
@@ -34,7 +34,7 @@
 	</definition>
 
 	<definition name="addProductConfirm" extends="baseLayout">
-		<put-attribute name="title" value="Add Product Confirm" />
+		<put-attribute name="title" value="Add Product" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/addProduct/addProductConfirm.jsp" />
 	</definition>

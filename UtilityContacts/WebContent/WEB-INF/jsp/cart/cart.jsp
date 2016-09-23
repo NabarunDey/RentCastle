@@ -32,7 +32,7 @@
 						</div>
 						<div class="shoping1_of_2">
 							<h4>
-								<a href="#"><s:property value="productName" /></a>
+								<a href="viewProduct.action?productId=<s:property value="productId"/>"><s:property value="productName" /></a>
 							</h4>
 							<span>qty <b>1</b></span>
 							<ul class="s_icons">

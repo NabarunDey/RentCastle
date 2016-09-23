@@ -1,5 +1,11 @@
 function addToCart() {
-
+	
+	if("" == $("#rentOfferId").val())
+		{
+			alert("Please select a RentOffer");
+			return;
+		}
+	
 	$.ajax({
 		type: "POST",
 		url: "addToCart",

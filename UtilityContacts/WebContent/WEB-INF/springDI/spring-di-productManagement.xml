@@ -20,6 +20,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="imagesDao" ref="imagesDao" />
 		<property name="rentOffersDao" ref="rentOffersDao" />
 		<property name="viewProductAppService" ref="viewProductAppService" />
+		<property name="ordersDao" ref="ordersDao" />
+		
 	</bean>
 
 

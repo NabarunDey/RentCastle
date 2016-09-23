@@ -189,7 +189,7 @@ public class ProductManagementAppService {
 			searchProductDaoOB.setProductsDBBeans(productsDBBeans);
 			Map<String, ImagesDBBean> imageMap= imagesDao.getPrimaryImageOfProduct(productsDBBeans);
 			searchProductDaoOB.setImageMap(imageMap);
-			searchProductProjectorOBs= searchProductProjector.getSearchList(searchProductDaoOB);
+			searchProductProjectorOBs= searchProductProjector.getFeaturedProduct(searchProductDaoOB);
 		}
 		return searchProductProjectorOBs; 
 	}

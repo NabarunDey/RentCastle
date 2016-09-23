@@ -4,8 +4,14 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	<bean id="loadIndexAction" class="loadIndex.action.LoadIndexAction" scope="request">
+	<bean id="loadIndexAction" class="loadIndex.action.LoadIndexAction"
+		scope="request">
+		<property name="productManagementAppService" ref="productManagementAppService" />
+		<property name="context" ref="loadIndexContext" />
+		
 	</bean>
-
+	<bean id="loadIndexContext" class="loadIndex.LoadIndexContext"
+		scope="session">
+	</bean>
 
 </beans>

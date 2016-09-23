@@ -12,6 +12,8 @@
 
 
 <head>
+<title>RentCastle - <tiles:getAsString name="title"/></title>
+<link rel="shortcut icon" type="image/x-icon" href="images/rentcastlefavicon.jpg" />
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
