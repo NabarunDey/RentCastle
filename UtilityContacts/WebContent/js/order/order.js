@@ -14,7 +14,13 @@ function checkPin() {
 		url: "checkIfDeliveryAvailable",
 		data: { addressId: $('#addressId').val(), pin: $('#pin').val(),state: $('#state').val() ,city : $('#city').val(),address: $('#address').val(),title: $('#title').val()} ,
 		success: function(response){
-			debugger;
+			
+			for (i = 0; i < response.orderProjectorOB.cartItems.length; i++) {
+				if (!response.orderProjectorOB.cartItems[i].deliveryAvailable) 
+				{
+					$('#errorProductId'+response.orderProjectorOB.cartItems[i].productId).show();
+				}
+			}
 		},
 		error: function(e){
 			alert('Error: ' + e);

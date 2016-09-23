@@ -96,6 +96,12 @@
 							<td>Rs. <s:property value="rentAmount" /></td>
 							<td>Rs.</td>
 						</tr>
+						<tr>
+							<td>
+							<div id="errorProductId<s:property value='productId'/>" style="display: none">This item cannot be delivered in the given Pin.</div>
+							</td>
+						</tr>
+						
 					</s:iterator>
 				</tbody>
 				<tfoot>
