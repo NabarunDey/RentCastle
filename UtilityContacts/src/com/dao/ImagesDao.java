@@ -18,10 +18,12 @@ import org.springframework.transaction.annotation.Transactional;
 import addProduct.appService.inputBeans.FileBean;
 import addProduct.dao.outputBeans.ImagesDaoOB;
 
+import com.cloudinary.Cloudinary;
 import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.sessionBeans.UserProfile;
 import com.util.ApplicationContextProvider;
+import com.util.CloudinaryHandler;
 import com.util.CommonUtility;
 
 @Transactional
@@ -44,17 +46,22 @@ public class ImagesDao {
 
 		ImagesDaoOB imagesDaoOB= new ImagesDaoOB();
 		ArrayList<String> imageIdsList = new ArrayList<String>();
-		String contextPath =  ServletActionContext.getServletContext().getRealPath("/images") +"\\";
+		/*String contextPath =  ServletActionContext.getServletContext().getRealPath("/images") +"\\";
 		ApplicationContextProvider appContext = new ApplicationContextProvider();
 		UserProfile userProfile = appContext.getApplicationContext().getBean("userProfile", UserProfile.class);
-
+*/
 		try{
 			for(FileBean fileBean: fileBeans)
 			{
-				String imageId= userProfile.getUserName() + Calendar.getInstance().getTimeInMillis();
+				Map uploadResult=  CloudinaryHandler.uploadImage(fileBean.getFile());
+				String imageId= (String)uploadResult.get("public_id");
+				String imagePath = (String)uploadResult.get("url");
+				
+				/*String imageId= userProfile.getUserName() + Calendar.getInstance().getTimeInMillis();
 				String imagePath = "productImages\\"+imageId+".jpg";
 				File destFile  = new File(contextPath+"productImages\\", imageId+".jpg");
 				FileUtils.copyFile(fileBean.getFile(), destFile);
+				*/
 
 				ImagesDBBean imagesDBBean =new ImagesDBBean();
 				imagesDBBean.setImageid(imageId);
@@ -89,7 +96,7 @@ public class ImagesDao {
 			{
 				ImagesDBBean imagesDBBean2 = new ImagesDBBean();
 				CommonUtility.copyBean(imagesDBBean, imagesDBBean2);
-				imagesDBBean2.setImagepath(contextPath+"/images/"+imagesDBBean.getImagepath());
+				imagesDBBean2.setImagepath(imagesDBBean.getImagepath());
 				newImageList.add(imagesDBBean2);
 			}
 		}
@@ -126,11 +133,13 @@ public class ImagesDao {
 		String hql = "delete from com.databaseBeans.ImagesDBBean where imageid in :imageIds";
 		template.getSessionFactory().getCurrentSession().createQuery(hql).setParameterList("imageIds", imageIds).executeUpdate();
 		
-		String contextPath =  ServletActionContext.getServletContext().getRealPath("/images") +"\\";
+		//String contextPath =  ServletActionContext.getServletContext().getRealPath("/images") +"\\";
 		for(String imageId: imageIds)
 		{
-			File destFile  = new File(contextPath+"productImages\\", imageId+".jpg");
-			destFile.delete();
+			/*File destFile  = new File(contextPath+"productImages\\", imageId+".jpg");
+			destFile.delete();*/
+			CloudinaryHandler.delete(imageId);
+
 		}
 	}
 
