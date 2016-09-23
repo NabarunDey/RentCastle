@@ -2,7 +2,10 @@ package com.dao;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import order.appService.inputBeans.Address;
 import order.appService.inputBeans.OrderAppServiceIB;
@@ -76,6 +79,25 @@ public class OrdersDao {
 		OrdersDBBean ordersDBBean = template.get(OrdersDBBean.class, Integer.valueOf(orderId));
 		ordersDBBean.setOrderstatus(orderStatus.toString());
 		template.update(ordersDBBean);
+	}
+	
+	public Map<Integer,Integer> getMostOrderedProducts()
+	{
+		Map<Integer,Integer> mostOrderredProductsMap= new LinkedHashMap<Integer,Integer>();
+		List<OrdersDBBean> ordersDBBeans = template.loadAll(OrdersDBBean.class);
+		
+		for(OrdersDBBean ordersDBBean:ordersDBBeans)
+		{
+			int count = mostOrderredProductsMap.get(ordersDBBean.getProductid());
+			mostOrderredProductsMap.put(ordersDBBean.getProductid(),count);
+		}
+		
+		TreeMap<Integer, Integer> sortedMap = new TreeMap<Integer, Integer>();
+		for (Map.Entry entry : mostOrderredProductsMap.entrySet()) {
+		    sortedMap.put((Integer) entry.getValue(), (Integer)entry.getKey());
+		}
+		
+		return sortedMap;
 	}
 
 }

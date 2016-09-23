@@ -44,4 +44,8 @@ public class SearchProductProjector {
 		}
 		return searchProductProjectorOBs;
 	}
+	
+	
+	
+	
 }

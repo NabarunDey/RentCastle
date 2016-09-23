@@ -1,8 +1,10 @@
 package productManagement.appService;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,9 +16,9 @@ import viewProduct.appService.ViewProductAppService;
 import viewProduct.appService.inputBeans.ViewProductAppServiceIB;
 import viewProduct.projector.outputBeans.ViewProductProjectorOB;
 import addProduct.appService.inputBeans.AddRentOffersAppServiceIB;
-import addProduct.dao.outputBeans.ImagesDaoOB;
 
 import com.dao.ImagesDao;
+import com.dao.OrdersDao;
 import com.dao.ProductsDao;
 import com.dao.RentOffersDao;
 import com.databaseBeans.ImagesDBBean;
@@ -39,6 +41,7 @@ public class ProductManagementAppService {
 	ImagesDao imagesDao;
 	SearchProductProjector searchProductProjector;
 	ViewProductAppService viewProductAppService;
+	OrdersDao ordersDao;
 
 	
 	public List<SearchProductProjectorOB> getProductListByVendor()
@@ -152,6 +155,46 @@ public class ProductManagementAppService {
 		productsDao.changeApprovalStatus(productManagementAppServiceIB.getProductId(), productManagementAppServiceIB.getApprovalStatus());
 	}
 	
+	public List<SearchProductProjectorOB> getFeaturedProducts()
+	{
+		List<ProductsDBBean> productsDBBeans = new ArrayList<ProductsDBBean>();
+		Map<Integer,Integer> sortedMap= ordersDao.getMostOrderedProducts();
+		
+		int max=0;
+		
+		if(null != sortedMap && sortedMap.size()>=1)
+		{
+			List<Integer> mostOrderedIds = new ArrayList<Integer>();
+			max = sortedMap.size()<4?sortedMap.size():4;
+			for(int i = 0; i<max ;i++)
+			{
+				Iterator entries = sortedMap.entrySet().iterator();
+				Entry thisEntry = (Entry) entries.next();
+				mostOrderedIds.add((Integer)thisEntry.getValue());
+			}
+			List<ProductsDBBean> mostOrderredProducts = productsDao.getProductListByIdsInteger(mostOrderedIds);
+			productsDBBeans.addAll(mostOrderredProducts);
+		}
+		
+		if(max<4)
+		{
+			List<ProductsDBBean> firstNProducts = productsDao.getProductListSortedById(4-max);
+			productsDBBeans.addAll(firstNProducts);
+		}
+		
+		List<SearchProductProjectorOB> searchProductProjectorOBs = null;
+		SearchProductDaoOB searchProductDaoOB = new SearchProductDaoOB();
+		if(null!= productsDBBeans && productsDBBeans.size()>=1)
+		{
+			searchProductDaoOB.setProductsDBBeans(productsDBBeans);
+			Map<String, ImagesDBBean> imageMap= imagesDao.getPrimaryImageOfProduct(productsDBBeans);
+			searchProductDaoOB.setImageMap(imageMap);
+			searchProductProjectorOBs= searchProductProjector.getSearchList(searchProductDaoOB);
+		}
+		return searchProductProjectorOBs; 
+	}
+	
+	
 	public ProductsDao getProductsDao() {
 		return productsDao;
 	}
@@ -192,5 +235,13 @@ public class ProductManagementAppService {
 
 	public void setViewProductAppService(ViewProductAppService viewProductAppService) {
 		this.viewProductAppService = viewProductAppService;
+	}
+
+	public OrdersDao getOrdersDao() {
+		return ordersDao;
+	}
+
+	public void setOrdersDao(OrdersDao ordersDao) {
+		this.ordersDao = ordersDao;
 	}
 }

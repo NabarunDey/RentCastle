@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Disjunction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
@@ -160,6 +161,7 @@ public class ProductsDao {
 		productsDBBeans=criteria.list();
 		return productsDBBeans;
 	}
+	
 	public List<ProductsDBBean> getProductListByIdsInteger(List<Integer> productIds)
 	{
 		List<ProductsDBBean> productsDBBeans = null;
@@ -221,4 +223,15 @@ public class ProductsDao {
 		productsDBBeans = criteria.list();
 		return productsDBBeans;
 	}
+
+	public List<ProductsDBBean> getProductListSortedById(int n)
+	{
+		List<ProductsDBBean> productsDBBeans = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class);
+		criteria.setMaxResults(n);
+		criteria.addOrder(Order.desc("productid"));
+		productsDBBeans = criteria.list();
+		return productsDBBeans;
+	}
+
 }

@@ -161,6 +161,11 @@ public class ProductManagementAction {
 		return "success";
 	}
 	
+	public String getFeaturedProducts()
+	{
+		return "success";
+	}
+	
 	public String getProductId() {
 		return productId;
 	}
