@@ -33,6 +33,8 @@ public class SearchProductAppService {
 		SearchProductDaoOB searchProductDaoOB = new SearchProductDaoOB();
 		List<SearchProductProjectorOB> searchProductProjectorOBs= null;
 		List<ProductsDBBean> productsDBBeans = productsDao.searchByProductName(searchProductAppServiceIB.getSearchString());
+	//	List<ProductsDBBean> productsDBBeans = productsDao.searchProductIndexed(searchProductAppServiceIB.getSearchString());
+
 		if(null!=productsDBBeans && productsDBBeans.size()>=1)
 		{
 			searchProductDaoOB.setProductsDBBeans(productsDBBeans);

@@ -11,7 +11,7 @@
 <title>Rentme</title>
 </head>
 <body>
-
+ 
 <% 
 response.sendRedirect(request.getContextPath()+"/loadIndex.action");
 %> 

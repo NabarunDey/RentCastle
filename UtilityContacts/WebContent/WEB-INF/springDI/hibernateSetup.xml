@@ -16,14 +16,14 @@
 	<!-- <context:annotation-config /> -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="mysessionFactory" />
 	</bean>
 	<bean
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
 	<bean id="mysessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 
 		<property name="mappingResources">
@@ -44,12 +44,14 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">true</prop>
-<!-- 				<prop key="hibernate.current_session_context_class">thread</prop>
- -->			</props>
+			    <prop key="checkWriteOperations">false</prop>
+				<!-- <prop key="hibernate.search.default.directory_provider">filesystem</prop>
+				<prop key="hibernate.search.default.indexBase">C:\lucene\indexes</prop> -->
+			</props>
 		</property>
 	</bean>
 
-	<bean id="template" class="org.springframework.orm.hibernate3.HibernateTemplate">
+	<bean id="template" class="org.springframework.orm.hibernate4.HibernateTemplate">
 		<property name="sessionFactory" ref="mysessionFactory"></property>
 	</bean>
 
@@ -67,13 +69,13 @@
 
 	<bean id="rentOffersDBBean" class="com.databaseBeans.RentOffersDBBean">
 	</bean>
-	
+
 	<bean id="ordersDBBean" class="com.databaseBeans.OrdersDBBean">
 	</bean>
-	
+
 	<bean id="paymentsDBBean" class="com.databaseBeans.PaymentsDBBean">
 	</bean>
-	
+
 	<bean id="addressDBBean" class="com.databaseBeans.AddressDBBean">
 	</bean>
 

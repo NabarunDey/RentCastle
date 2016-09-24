@@ -6,12 +6,18 @@ public class LoginProjectorOB {
 	private boolean userNotExist;
 	private boolean invalidCredentials;
 	private boolean loginFailure;
-	
 	private UserProfile userProfile;
+
+	private boolean mailSent;
 	
 	
 	
-	
+	public boolean isMailSent() {
+		return mailSent;
+	}
+	public void setMailSent(boolean mailSent) {
+		this.mailSent = mailSent;
+	}
 	public UserProfile getUserProfile() {
 		return userProfile;
 	}

@@ -1,6 +1,16 @@
 package com.databaseBeans;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+
+@Entity
+@Indexed
 public class ProductsDBBean {
 
 	private int productid;
@@ -17,7 +27,8 @@ public class ProductsDBBean {
 	private String productcity;
 	private String productpin;
 	private String approvalStatus;
-	
+
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	public String getDescription() {
 		return description;
 	}
@@ -30,12 +41,15 @@ public class ProductsDBBean {
 	public void setApprovalStatus(String approvalStatus) {
 		this.approvalStatus = approvalStatus;
 	}
+    @Id
 	public int getProductid() {
 		return productid;
 	}
 	public void setProductid(int productid) {
 		this.productid = productid;
 	}
+	
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	public String getProductname() {
 		return productname;
 	}
@@ -103,5 +117,11 @@ public class ProductsDBBean {
 		this.productpin = productpin;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder("ProductName: ").append(this.getProductname()).append(" | Description:").append(this.getDescription()).append(" | ProductType:").append(this.getProducttype()).append(" | SubproductType:").append(this.getSubproducttype());
+
+		return stringBuilder.toString();
+	}
 
 }

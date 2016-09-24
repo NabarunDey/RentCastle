@@ -5,7 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
 import userRegistration.dao.outputBeans.UserRegistrationDaoOB;
@@ -16,6 +17,7 @@ import com.databaseBeans.UsersDBBean;
 import com.structures.userTypes.UserType;
 import com.util.CommonUtility;
 
+@Transactional
 public class UsersDao {
 
 	HibernateTemplate template;  

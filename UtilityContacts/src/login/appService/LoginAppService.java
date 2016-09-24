@@ -14,6 +14,7 @@ import com.dao.UsersDao;
 import com.databaseBeans.UsersDBBean;
 import com.sessionBeans.UserProfile;
 import com.util.FacebookHandler;
+import com.util.MailHandler;
 
 
 public class LoginAppService {
@@ -58,6 +59,19 @@ public class LoginAppService {
 		return loginProjectorOB;
 	}
 
+	public LoginProjectorOB retrievePassword(LoginAppServiceIB loginAppServiceIB)
+	{
+		LoginProjectorOB loginProjectorOB= new LoginProjectorOB();
+		loginProjectorOB.setUserNotExist(true);
+		LoginDaoOB loginDaoOB =  loginDao.getByUsername(loginAppServiceIB.getUsername());
+		if(null!= loginDaoOB && null!= loginDaoOB.getUserLoginDBBean() && StringUtils.isNotEmpty(loginDaoOB.getUserLoginDBBean().getUsername()))
+		{
+			loginProjectorOB.setUserNotExist(false);
+			boolean result = MailHandler.passwordResetMail(loginDaoOB.getUserLoginDBBean().getUsername(), loginDaoOB.getUserLoginDBBean().getPassword());
+			loginProjectorOB.setMailSent(result);
+		}
+		return loginProjectorOB;
+	}
 
 	public LoginDao getLoginDao() {
 		return loginDao;

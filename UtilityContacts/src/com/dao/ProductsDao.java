@@ -9,7 +9,10 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.hibernate.search.FullTextSession;
+import org.hibernate.search.Search;
+import org.hibernate.search.query.dsl.QueryBuilder;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import productManagement.appService.inputBeans.ProductManagementAppServiceIB;
@@ -26,7 +29,8 @@ public class ProductsDao {
 
 	HibernateTemplate template;  
 
-
+	boolean indexed = false;
+	
 	public void setTemplate(HibernateTemplate template) {  
 		this.template = template;  
 	}  
@@ -91,10 +95,19 @@ public class ProductsDao {
 	{
 		List<ProductsDBBean> productsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class);
-			//	.add(Restrictions.like("productname", "%"+searchString+"%"));*/
+
+		String[] querryParts  = searchString.split("[^.\\w]");
+		
+		
 		Disjunction disjunction = Restrictions.disjunction();
-		disjunction.add(Restrictions.like("productname", "%"+searchString+"%"));
-		disjunction.add(Restrictions.like("description", "%"+searchString+"%"));
+		
+		for(String part : querryParts)
+		{
+			disjunction.add(Restrictions.like("productname", "%"+part.trim()+"%"));
+			disjunction.add(Restrictions.like("description", "%"+part.trim()+"%"));
+		}
+		
+		
 		Criterion completeCondition=disjunction;
 		criteria.add(completeCondition);
 		productsDBBeans = criteria.list();
@@ -161,7 +174,7 @@ public class ProductsDao {
 		productsDBBeans=criteria.list();
 		return productsDBBeans;
 	}
-	
+
 	public List<ProductsDBBean> getProductListByIdsInteger(List<Integer> productIds)
 	{
 		List<ProductsDBBean> productsDBBeans = null;
@@ -210,7 +223,7 @@ public class ProductsDao {
 		productsDBBean.setApprovalStatus(approvalStatus);
 		template.update(productsDBBean);
 	}
-	
+
 	public List<ProductsDBBean> viewPendingProducts()
 	{
 		List<ProductsDBBean> productsDBBeans = null;
@@ -230,11 +243,56 @@ public class ProductsDao {
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class);
 		criteria.setMaxResults(n);
 		criteria.addOrder(Order.asc("productid"));
-		
+
 		if(null!= productIdsToBeNeglected)
 			criteria.add(Restrictions.not(Restrictions.in("id", productIdsToBeNeglected)));
-		
+
 		productsDBBeans = criteria.list();
+		return productsDBBeans;
+	}
+
+	private  void doIndex() throws InterruptedException {
+
+		FullTextSession fullTextSession = Search.getFullTextSession(template.getSessionFactory().getCurrentSession());
+		fullTextSession.createIndexer().startAndWait();
+	}
+
+	public  List<ProductsDBBean> searchProductIndexed(String queryString) {
+		try {
+			if(!indexed)
+			{
+				doIndex();
+				indexed=true;
+
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<ProductsDBBean> productsDBBeans =null;
+		try{
+		FullTextSession fullTextSession = Search.getFullTextSession(template.getSessionFactory().getCurrentSession());
+
+		QueryBuilder queryBuilder = fullTextSession.getSearchFactory().buildQueryBuilder().forEntity(ProductsDBBean.class).get();
+	//	org.apache.lucene.search.Query luceneQuery = queryBuilder.keyword().onFields("productname").matching(queryString).createQuery();
+
+		String[] querryParts  = queryString.split("[^.\\w]");
+		
+		
+		org.apache.lucene.search.Query luceneQuery =queryBuilder.bool()
+        .should( queryBuilder.keyword().wildcard().onField("productname").ignoreFieldBridge().matching("*"+queryString+"*").createQuery() )
+        .should( queryBuilder.keyword().wildcard().onField("description").ignoreFieldBridge().matching("*"+queryString+"*").createQuery() )
+      .createQuery();
+		
+		// wrap Lucene query in a javax.persistence.Query
+		org.hibernate.Query fullTextQuery = fullTextSession.createFullTextQuery(luceneQuery, ProductsDBBean.class);
+
+		productsDBBeans = fullTextQuery.list();
+		}catch(Exception e)
+		{
+			 productsDBBeans = new ArrayList<ProductsDBBean>();
+		}
+
 		return productsDBBeans;
 	}
 

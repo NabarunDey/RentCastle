@@ -46,6 +46,20 @@ public class LoginAction  extends ActionSupport  implements ServletRequestAware{
 		return "success";
 	}
 
+	public String forgotPasswordInput()
+	{
+		return "success";
+	}
+	
+	public String forgotPasswordSubmit()
+	{
+		LoginAppServiceIB loginAppServiceIB = new LoginAppServiceIB();
+		loginAppServiceIB.setUsername(username);
+		LoginProjectorOB loginProjectorOB = loginAppService.retrievePassword(loginAppServiceIB);
+		context.setLoginProjectorOB(loginProjectorOB);
+		return "success";
+	}
+	
 	public String getUsername() {
 		return username;
 	}

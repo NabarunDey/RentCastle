@@ -30,7 +30,7 @@
 						<span class="glyphicon glyphicon-filter pull-right reset-filter" aria-hidden="true"></span>
 					</h3>
 					<section class="sky-form">
-					<h4>Product Type<span class="glyphicon glyphicon-repeat pull-right reset-icon" aria-hidden="true"></span></h4>
+					<h4>Product Type<span class="glyphicon glyphicon-repeat pull-right reset-icon " aria-hidden="true" style="font-size: 14px; color: #aaaaaa; text-transform: capitalize;">Reset</span></h4>
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
 							<label class="radio"><input type="radio"
@@ -41,7 +41,7 @@
 					</div>
 					</section>
 					<section class="sky-form">
-					<h4>Product Sub Type<span class="glyphicon glyphicon-repeat pull-right reset-icon" aria-hidden="true"></span></h4>
+					<h4>Product Sub Type<span class="glyphicon glyphicon-repeat pull-right reset-icon" aria-hidden="true" style="font-size: 14px; color: #aaaaaa; text-transform: capitalize;">Reset</span></h4>
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
 							<label class="radio"><input type="radio"

@@ -120,5 +120,10 @@
 		<put-attribute name="title" value="Admin Payments" />
 		<put-attribute name="body" value="/WEB-INF/jsp/payment/adminPayments.jsp" />
 	</definition>
+	
+	<definition name="forgotPasswordInput" extends="baseLayout">
+		<put-attribute name="title" value="Forgot Password" />
+		<put-attribute name="body" value="/WEB-INF/jsp/profileManagement/forgotPasswordInput.jsp" />
+	</definition>
 
 </tiles-definitions>

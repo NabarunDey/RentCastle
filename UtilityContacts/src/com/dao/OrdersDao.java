@@ -14,7 +14,7 @@ import order.appService.inputBeans.OrderAppServiceIB;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.databaseBeans.OrdersDBBean;

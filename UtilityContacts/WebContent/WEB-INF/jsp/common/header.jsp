@@ -101,7 +101,7 @@
 												<label for="checkbox"><input type="checkbox"
 													id="checkbox"> <i>Remember me</i></label>
 											</fieldset>
-											<span><a href="#">Forgot your password?</a></span>
+											<span><a href="forgotPasswordInput">Forgot your password?</a></span>
 										</form>
 									</div>
 									<div id="loggedin" style="display: none"></div>

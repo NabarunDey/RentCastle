@@ -2,13 +2,15 @@ package com.dao;
 
 import login.dao.outputBeans.LoginDaoOB;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
 
 import com.databaseBeans.UserLoginDBBean;
 import com.util.CommonUtility;
 
+@Transactional
 public class LoginDao {
 	
 	HibernateTemplate template;  

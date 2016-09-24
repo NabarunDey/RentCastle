@@ -39,3 +39,27 @@ function doAjaxPost() {
 		}
 	});
 }
+
+function forgotPasswordSubmit() {
+
+	$.ajax({
+		type: "POST",
+		url: "forgotPasswordSubmit",
+		data: $('#ForgotPassword_form').serialize() ,
+		success: function(response){
+			if (response.loginProjectorOB.userNotExist) {
+				$('#errorUserNotExist').show();
+				return;
+			}
+			if (!response.loginProjectorOB.mailSent) {
+				$('#errorMailNotSent').show();
+				return;
+			}
+			$('#successForgotPassword').show();
+		},
+		error: function(e){
+			alert('Error: ' + e);
+		}
+	});
+}
+

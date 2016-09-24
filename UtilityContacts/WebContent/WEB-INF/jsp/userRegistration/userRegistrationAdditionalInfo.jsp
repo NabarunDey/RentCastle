@@ -80,7 +80,6 @@
 	<div class="col-md-offset-4 col-md-8">
 		<s:submit type="button" cssClass="btn btn-primary" theme="simple" /> 
 		<s:reset type="button"  cssClass="btn btn-danger" theme="simple" />
-		<s:submit type="button"  cssClass="btn btn-danger" value="Skip" theme="simple" />
 		
 	</div>
 </div>

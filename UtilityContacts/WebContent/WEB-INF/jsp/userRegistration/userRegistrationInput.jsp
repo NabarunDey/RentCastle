@@ -23,7 +23,7 @@
 			<div class="registration">
 				<div class="registration_left">
 					<h2>
-						new user? <span> create a shoppe account </span>
+						new user? <span> create a rentcastle account </span>
 					</h2>
 					
 					<!-- [if IE] 
@@ -125,7 +125,7 @@
 							</div>
 							<div class="sky-form">
 								<label class="checkbox"><input type="checkbox"
-									name="checkbox"><i></i>i agree to shoppe.com &nbsp;<a
+									name="checkbox"><i></i>i agree to rentcastle.in &nbsp;<a
 									class="terms" href="#"> terms of service</a> </label>
 							</div>
 						</form>
@@ -142,28 +142,6 @@
 							<div class="clear"></div>
 						</div>
 					</a>
-					<div class="registration_form">
-						<!-- Form -->
-						<form id="registration_form" action="contact.php" method="post">
-							<div>
-								<label> <input placeholder="email:" type="email"
-									tabindex="3" required>
-								</label>
-							</div>
-							<div>
-								<label> <input placeholder="password" type="password"
-									tabindex="4" required>
-								</label>
-							</div>
-							<div>
-								<input type="submit" value="sign in" id="register-submit">
-							</div>
-							<div class="forget">
-								<a href="#">forgot your password</a>
-							</div>
-						</form>
-						<!-- /Form -->
-					</div>
 				</div>
 				<div class="clearfix"></div>
 			</div>

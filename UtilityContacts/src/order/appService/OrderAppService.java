@@ -29,6 +29,7 @@ import com.databaseBeans.RentOffersDBBean;
 import com.sessionBeans.UserProfile;
 import com.structures.status.OrderStatus;
 import com.structures.userTypes.UserType;
+import com.util.MailHandler;
 
 /**
  * @author nd29794
@@ -114,6 +115,7 @@ public class OrderAppService {
 		cartAppService.emptyCart();
 		OrderProjectorOB orderProjectorOB = orderProjector
 				.confirmOrder(ordersDBBeans);
+		MailHandler.orderConfirmationMail(userProfile.getUserName(),ordersDBBeans);
 		return orderProjectorOB;
 	}
 
