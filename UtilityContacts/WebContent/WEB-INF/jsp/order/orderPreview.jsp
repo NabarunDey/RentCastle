@@ -87,19 +87,14 @@
 				<tbody>
 					<s:iterator value="context.orderProjectorOB.cartItems">
 						<tr id="cart<s:property value='productId'/>">
-							<td><s:property value="productName" /></td>
+							<td><s:property value="productName" />
+							<div id="errorProductId<s:property value='productId'/>"
+									style="display: none; color: #ff0000;">This item cannot
+									be delivered at the given Address.</div></td>
 							<td>Rs. <s:property value="securityMoney" /></td>
 							<td>Rs. <s:property value="rentAmount" /></td>
 							<td>Rs. <s:property value="itemTotal" /></td>
 						</tr>
-						<tr>
-							<td>
-								<div id="errorProductId<s:property value='productId'/>"
-									style="display: none; color: #ff0000;">This item cannot
-									be delivered at the given Pin.</div>
-							</td>
-						</tr>
-
 					</s:iterator>
 				</tbody>
 				<tfoot>

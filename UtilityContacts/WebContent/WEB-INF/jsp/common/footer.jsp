@@ -18,6 +18,7 @@
 						</a>
 					</h5>
 					<p>(or) Call us: +91-8900788889</p>
+					<p>mailto : support@rentcastle.in</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>
