@@ -3,7 +3,6 @@ package com.util;
 import java.util.Properties;
 
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -61,8 +60,9 @@ public class MailHandler {
 			Transport.send(message);
 			mailSuccess= true;
 			
-		} catch (MessagingException e) {
-			throw new RuntimeException(e);
+		} catch (Exception e) {
+			System.out.println("Mail Could not be sent to "+emailId +" " + e.getMessage());
+			e.printStackTrace();
 		}
 		return mailSuccess;
 	}
@@ -94,8 +94,9 @@ public class MailHandler {
 			Transport.send(message);
 			mailSuccess= true;
 			
-		} catch (MessagingException e) {
-			throw new RuntimeException(e);
+		} catch (Exception e) {
+			System.out.println("Mail Could not be sent to "+userProfile.getUserName() +" " + e.getMessage());
+			e.printStackTrace();
 		}
 		return mailSuccess;
 	}
@@ -127,8 +128,9 @@ public class MailHandler {
 			Transport.send(message);
 			mailSuccess= true;
 			
-		} catch (MessagingException e) {
-			throw new RuntimeException(e);
+		} catch (Exception e) {
+			System.out.println("Mail Could not be sent to "+productsDBBean.getUsername()+" " + e.getMessage());
+			e.printStackTrace();
 		}
 		return mailSuccess;
 	}
