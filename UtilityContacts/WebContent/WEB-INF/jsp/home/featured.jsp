@@ -20,8 +20,6 @@
 				<div class="row grids">
 
 					<s:iterator value="context.featuredProducts">
-
-
 						<div class="col-md-3 grid1">
 							<a href="viewProduct.action?productId=<s:property value="productId"/>"> <img
 								src="<s:property value="imageUrl"/>" class="img-responsive" alt="" />

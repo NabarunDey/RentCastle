@@ -96,7 +96,9 @@
 														type="password" name="password" id="password">
 												</fieldset>
 												<input id="login" value="Sign in" onclick="doAjaxPost()">
-												<input id="loginFB" style="margin-top:5px;background-color:#354F88;width:197px;height:35px;color:white;border:none;cursor:pointer" value="Sign in using Facebook" onclick="window.location.href='http://www.facebook.com/dialog/oauth?client_id=841162669353192&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction&scope=email'">
+												
+												<input id="loginFB" style="margin-top:5px;background-color:#354F88;width:197px;height:35px;color:white;border:none;cursor:pointer" value="Sign in using Facebook" onclick="window.location.href='http://www.facebook.com/dialog/oauth?client_id=841162669353192&redirect_uri=https://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction&scope=email'">
+											
 											
 												<label for="checkbox"><input type="checkbox"
 													id="checkbox"> <i>Remember me</i></label>
