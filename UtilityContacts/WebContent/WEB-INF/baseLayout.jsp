@@ -5,15 +5,16 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@page import="com.util.FacebookHandler"%>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 
 
 <head>
-<title>RentCastle - <tiles:getAsString name="title"/></title>
-<link rel="shortcut icon" type="image/x-icon" href="images/rentcastlefavicon.jpg" />
+
+
+<%-- <title>RentCastle - <tiles:getAsString name="title"/></title>
+ --%><link rel="shortcut icon" type="image/x-icon" href="http://res.cloudinary.com/rentcastlecloudimages/image/upload/v1474766593/rentcastlefavicon_i6p2zj.jpg" />
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
@@ -27,7 +28,7 @@
 <!-- start menu -->
 <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="js/megamenu.js"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+<script>$(document).ready(function(){$(".megamenu").megamenu(); document.title="RentCastle - <tiles:getAsString name='title'/>";});</script>
 <!-- start slider -->
 <link rel="stylesheet" href="css/fwslider.css" media="all">
 <link rel="stylesheet" href="css/jasny-bootstrap.min.css">
