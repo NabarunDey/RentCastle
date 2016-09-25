@@ -1,13 +1,10 @@
 package com.dao;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.Criteria;
@@ -18,11 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 import addProduct.appService.inputBeans.FileBean;
 import addProduct.dao.outputBeans.ImagesDaoOB;
 
-import com.cloudinary.Cloudinary;
 import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.ProductsDBBean;
-import com.sessionBeans.UserProfile;
-import com.util.ApplicationContextProvider;
 import com.util.CloudinaryHandler;
 import com.util.CommonUtility;
 

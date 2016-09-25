@@ -50,8 +50,8 @@ public class MailHandler {
 			message.setFrom(new InternetAddress("nabarundey@rentcastle.in"));
 			message.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse("nabarundeysit@gmail.com"));
-			message.setSubject("Password Reset");
-			message.setText("Dear Mail Crawler,"
+			message.setSubject("RentCastle Password Reset");
+			message.setText("Dear User,"
 				+ "\n\n We have received a Password Retrieval request from your RentCastle id."
 				+ "\n\n Your password is "+password
 				+"\n\nRegards,"
@@ -66,7 +66,7 @@ public class MailHandler {
 		return mailSuccess;
 	}
 	
-	public static boolean orderConfirmationMail(String emailId, List<OrdersDBBean> ordersDBBeans)
+	public static boolean orderConfirmationMail(String emailId, List<OrdersDBBean> ordersDBBeans,String name)
 	{
 		boolean mailSuccess =false;
 		try {
@@ -81,7 +81,7 @@ public class MailHandler {
 			message.setFrom(new InternetAddress("nabarundey@rentcastle.in"));
 			message.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse("nabarundeysit@gmail.com"));
-			message.setSubject("OrderConfirmation");
+			message.setSubject("RentCastle OrderConfirmation");
 			
 			
 			String orders="";
@@ -90,7 +90,7 @@ public class MailHandler {
 				orders=orders+"\n\n\nOrder Id : ORD"+ordersDBBean.getOrderid()+"\nProduct Id :PRD"+ordersDBBean.getProductid()+
 							"\nAddress : "+ordersDBBean.getAddress()+" "+ordersDBBean.getPin();
 			}
-			message.setText("Dear Mail Crawler,"
+			message.setText("Dear "+name+","
 					+ "\n\n We have received the following orders."+orders+"\n\nRegards,"
 					+ "\nRentCastle Team");
 			

@@ -108,14 +108,15 @@ public class OrderAppService {
 			paymentAppServiceIB.setOrderid(ordersDBBean.getOrderid());
 			paymentAppServiceIB.setRentamount(cartItem.getRentAmount());
 			paymentAppServiceIB.setSecuritymoney(cartItem.getSecurityMoney());
-			paymentAppServiceIB.setTousername("rentme");
+			ProductsDBBean productsDBBean =productsDao.getProductDetails(ordersDBBean.getProductid());
+			paymentAppServiceIB.setTousername(productsDBBean.getUsername());
 			paymentAppServiceIBs.add(paymentAppServiceIB);
 		}
 		paymentsDao.addPayment(paymentAppServiceIBs);
 		cartAppService.emptyCart();
 		OrderProjectorOB orderProjectorOB = orderProjector
 				.confirmOrder(ordersDBBeans);
-		MailHandler.orderConfirmationMail(userProfile.getUserName(),ordersDBBeans);
+		MailHandler.orderConfirmationMail(userProfile.getUserName(),ordersDBBeans,userProfile.getUserName());
 		return orderProjectorOB;
 	}
 
