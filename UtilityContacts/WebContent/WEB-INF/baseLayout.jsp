@@ -12,9 +12,8 @@
 
 <head>
 
-
-<%-- <title>RentCastle - <tiles:getAsString name="title"/></title>
- --%><link rel="shortcut icon" type="image/x-icon" href="http://res.cloudinary.com/rentcastlecloudimages/image/upload/v1474766593/rentcastlefavicon_i6p2zj.jpg" />
+ <title>RentCastle - <tiles:getAsString name="title"/></title>
+ <link rel="shortcut icon" type="image/x-icon" href="http://res.cloudinary.com/rentcastlecloudimages/image/upload/v1474766593/rentcastlefavicon_i6p2zj.jpg" />
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
@@ -28,7 +27,7 @@
 <!-- start menu -->
 <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="js/megamenu.js"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu(); document.title="RentCastle - <tiles:getAsString name='title'/>";});</script>
+<script>$(document).ready(function(){$(".megamenu").megamenu(); });</script>
 <!-- start slider -->
 <link rel="stylesheet" href="css/fwslider.css" media="all">
 <link rel="stylesheet" href="css/jasny-bootstrap.min.css">
@@ -47,6 +46,9 @@
 <script type="text/javascript" src="js/common.js"></script>
 </head>
 <body>
+<script>$(document).ready(function(){window.parent.document.title ="RentCastle - <tiles:getAsString name='title'/>"; });</script>
+<script>$(document).ready(function(){top.document.title ="RentCastle - <tiles:getAsString name='title'/>"; });</script>
+
 	<tiles:insertAttribute name="header" />
 	<tiles:insertAttribute name="menu" />
 	<tiles:insertAttribute name="body" />

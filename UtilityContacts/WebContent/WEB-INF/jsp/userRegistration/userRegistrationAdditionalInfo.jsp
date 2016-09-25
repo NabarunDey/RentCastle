@@ -7,7 +7,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
 
 <link rel="stylesheet" href="/Struts2Example/struts/xhtml/styles.css" type="text/css"/> 
 </head>
