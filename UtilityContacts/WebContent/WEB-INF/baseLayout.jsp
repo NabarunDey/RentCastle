@@ -46,9 +46,9 @@
 <script type="text/javascript" src="js/common.js"></script>
 </head>
 <body>
-<script>$(document).ready(function(){window.parent.document.title ="RentCastle - <tiles:getAsString name='title'/>"; });</script>
+<%-- <script>$(document).ready(function(){window.parent.document.title ="RentCastle - <tiles:getAsString name='title'/>"; });</script>
 <script>$(document).ready(function(){top.document.title ="RentCastle - <tiles:getAsString name='title'/>"; });</script>
-
+ --%>
 	<tiles:insertAttribute name="header" />
 	<tiles:insertAttribute name="menu" />
 	<tiles:insertAttribute name="body" />
