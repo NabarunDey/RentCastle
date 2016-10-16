@@ -131,7 +131,7 @@ public class FacebookHandler {
 	public static UserRegistrationAppServiceIB getfbData(String code,String server)
 	{
 		
-		REDIRECT_URI = "https://"+server+"/loginFunction";
+		REDIRECT_URI = "http://"+server+"/loginFunction";
 		if(server.contains("localhost"))
 			REDIRECT_URI = "http://"+server+"/loginFunction";
 
