@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="profileManagementAction" class="profileManagement.action.ProfileManagementAction"
+		scope="request">
+		<property name="profileManagementAppService" ref="profileManagementAppService" />
+		<property name="context" ref="profileManagementContext" />
+	</bean>
+
+	<bean id="profileManagementAppService" class="profileManagement.appService.ProfileManagementAppService"
+		scope="request">
+		<property name="usersDao" ref="usersDao" />
+		<property name="userProfile" ref="userProfile" />
+	</bean>
+
+	<bean id="profileManagementContext" class="profileManagement.ProfileManagementAppContext"
+		scope="session">
+	</bean>
+
+</beans>

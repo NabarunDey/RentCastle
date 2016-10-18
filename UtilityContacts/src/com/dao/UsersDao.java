@@ -8,6 +8,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
+import profileManagement.appService.inputBeans.ProfileManagementAppServiceIB;
+import profileManagement.dao.outputBeans.ProfileManagementDaoOB;
 import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
 import userRegistration.dao.outputBeans.UserRegistrationDaoOB;
 import cart.appService.inputBeans.CartAppServiceIB;
@@ -79,7 +81,7 @@ public class UsersDao {
 		cartDaoOB.setNumberOfItemsInCart(noOfItems);
 		return cartDaoOB;
 	}
-	
+
 
 	public List<String> getProductRentIdsFromUserCart(String userName)
 	{
@@ -105,7 +107,7 @@ public class UsersDao {
 		{
 			ArrayList<String> cartList = new ArrayList<String>(); 
 			Collections.addAll(cartList,StringUtils.split(usersDBBean.getCart(), "\\|"));
-				String cartString = "";
+			String cartString = "";
 			boolean removed = false;
 			for(String cart : cartList)
 			{
@@ -122,13 +124,40 @@ public class UsersDao {
 			template.update(usersDBBean);
 		}
 	}
-	
+
 	public void emptyCart(String userName)
 	{
 		UsersDBBean usersDBBean = template.get(UsersDBBean.class,userName);
 		usersDBBean.setCart("");
 		template.update(usersDBBean);
 	}
+
+
+	public ProfileManagementDaoOB editUser(
+			ProfileManagementAppServiceIB profileManagementAppServiceIB) {
+
+		UsersDBBean usersDBBean = new  UsersDBBean();
+		ProfileManagementDaoOB profileManagementDaoOB =new ProfileManagementDaoOB();
+
+		try{
+			CommonUtility.copyBean(profileManagementAppServiceIB, usersDBBean);
+			if(null == usersDBBean.getUsertype())
+			{
+				usersDBBean.setUsertype(UserType.CUSTOMER);
+			}
+			if(usersDBBean.getUsertype().equals(UserType.ADMIN))
+			{
+				usersDBBean.setUsertype(UserType.CUSTOMER);
+			}
+			template.update(usersDBBean);
+			profileManagementDaoOB.setUserDetailsInserted(true);
+		}catch(Exception e)
+		{
+
+		}
+		return profileManagementDaoOB;
+	}
+
 	public HibernateTemplate getTemplate() {
 		return template;
 	}
