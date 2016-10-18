@@ -171,7 +171,7 @@
 					Pin</label>
 				<div class="col-sm-4">
 					<s:textfield name="productPin" cssClass="form-control" />
-				</div>
+				</div>(Ex : 700156,700102,All)
 			</div>
 
 			<div class="form-group">
