@@ -3,12 +3,13 @@ package payment.appService;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.dao.PaymentsDao;
-import com.databaseBeans.PaymentsDBBean;
-import com.sessionBeans.UserProfile;
-
 import payment.appService.inputBeans.PaymentAppServiceIB;
 import payment.projector.outputBeans.PaymentProjectorOB;
+
+import com.dao.PaymentsDao;
+import com.dao.ProductsDao;
+import com.databaseBeans.PaymentsDBBean;
+import com.sessionBeans.UserProfile;
 
 
 
@@ -21,6 +22,7 @@ public class PaymentAppService {
 	
 	PaymentsDao paymentsDao;
 	UserProfile userProfile;
+	ProductsDao productsDao;
 	
 	public void addPayment(PaymentAppServiceIB paymentAppServiceIB)
 	{
@@ -31,11 +33,13 @@ public class PaymentAppService {
 	
 	public PaymentProjectorOB getPaymentsForUser()
 	{
-		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForUser(userProfile.getUserName());
+		List<PaymentsDBBean> paymentsDBBeans = null;
+	    paymentsDBBeans= paymentsDao.getPaymentsForUser(userProfile.getUserName());
 		PaymentProjectorOB paymentProjectorOB = new PaymentProjectorOB();
 		paymentProjectorOB.setPaymentsDBBeans(paymentsDBBeans);
 		return paymentProjectorOB;
 	}
+	
 	
 	public PaymentProjectorOB getPaymentsAdmin()
 	{
@@ -73,6 +77,13 @@ public class PaymentAppService {
 	public void setUserProfile(UserProfile userProfile) {
 		this.userProfile = userProfile;
 	}
-	
+
+	public ProductsDao getProductsDao() {
+		return productsDao;
+	}
+
+	public void setProductsDao(ProductsDao productsDao) {
+		this.productsDao = productsDao;
+	}
 	
 }

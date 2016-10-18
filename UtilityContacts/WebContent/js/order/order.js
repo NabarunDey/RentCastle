@@ -20,10 +20,16 @@ function checkPin() {
 			
 			for (i = 0; i < response.orderProjectorOB.cartItems.length; i++) {
 				$('#errorProductId'+response.orderProjectorOB.cartItems[i].productId).hide();
+				$('#successProductId'+response.orderProjectorOB.cartItems[i].productId).hide();
+
 				if (!response.orderProjectorOB.cartItems[i].deliveryAvailable) 
 				{
 					placeOrderEnable=false;
 					$('#errorProductId'+response.orderProjectorOB.cartItems[i].productId).show();
+				}
+				else
+				{
+					$('#successProductId'+response.orderProjectorOB.cartItems[i].productId).show();
 				}
 			}
 		},

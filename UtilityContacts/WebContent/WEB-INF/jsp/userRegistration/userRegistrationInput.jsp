@@ -8,7 +8,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
 
 <link rel="stylesheet" href="/Struts2Example/struts/xhtml/styles.css"
 	type="text/css" />
@@ -134,7 +134,7 @@
 				</div>
 				<div class="registration_left">
 					<h2>existing user</h2>
-					<a
+					<a target="_top"
 						href="http://www.facebook.com/dialog/oauth?client_id=841162669353192&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction&scope=email">
 						<div class="reg_fb">
 							<img src="images/facebook.png" alt=""><i>sign in using

@@ -13,6 +13,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		scope="request">
 		<property name="paymentsDao" ref="paymentsDao" />
 		<property name="userProfile" ref="userProfile" />
+		<property name="productsDao" ref="productsDao" />
+		
 	</bean>
 
 	<bean id="paymentAppContext" class="payment.PaymentAppContext" scope="session">

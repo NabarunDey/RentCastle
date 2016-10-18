@@ -26,8 +26,21 @@
 						<tr id="payment<s:property value='paymentid'/>">
 							<td>PMT00<s:property value="paymentid" /></td>
 							<td>ORD00<s:property value="orderid" /></td>
-							<td><s:property value="fromusername" /></td>
-							<td><s:property value="tousername" /></td>
+							<td>
+							<s:if test="%{ null != #attr.userProfile && fromusername.equalsIgnoreCase(#attr.userProfile.userName) }">
+							<s:property value="fromusername" />
+							</s:if>
+							<s:else>
+							RentCastle
+							</s:else>
+							</td>
+							<td><s:if test="%{ null != #attr.userProfile && tousername.equalsIgnoreCase(#attr.userProfile.userName) }">
+							<s:property value="tousername" />
+							</s:if>
+							<s:else>
+							RentCastle
+							</s:else>
+							</td>
 							<td><s:property value="datetime" /></td>
 							<td><s:property value="securitymoney" /></td>
 							<td><s:property value="rentamount" /></td>
