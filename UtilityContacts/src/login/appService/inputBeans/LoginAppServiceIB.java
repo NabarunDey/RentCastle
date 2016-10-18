@@ -6,8 +6,14 @@ public class LoginAppServiceIB {
 	private String username;
 	private String password;
 	private String fbCode;
+	private String googleCode;
 	
-	
+	public String getGoogleCode() {
+		return googleCode;
+	}
+	public void setGoogleCode(String googleCode) {
+		this.googleCode = googleCode;
+	}
 	public String getFbCode() {
 		return fbCode;
 	}

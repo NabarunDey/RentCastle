@@ -15,7 +15,7 @@
 
 		<action name="profileManagementInput" class="profileManagementAction"
 			method="profileManagementInput">
-			<result name="success" type="tiles">profileManagementConfirm</result>
+			<result name="success" type="tiles">profileManagementInput</result>
 		</action>
 
 		<action name="profileManagementConfirm" class="profileManagementAction"

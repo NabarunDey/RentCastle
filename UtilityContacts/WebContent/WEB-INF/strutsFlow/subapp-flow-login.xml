@@ -21,6 +21,10 @@
 			
 		</action>
 		
+		<action name="loginFunctionGoogle" class="loginAction" method="loginFunctionGoogle">
+			<result name="success" type="tiles">loadIndex</result>
+		</action>
+		
 		<action name="forgotPasswordInput" class="loginAction" method="forgotPasswordInput">
 				<result name="success" type="tiles">forgotPasswordInput</result>
 		</action>

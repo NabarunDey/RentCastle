@@ -26,7 +26,6 @@ public class ProfileManagementAppService {
 		{
 			userProfile.setFirstName(profileManagementAppServiceIB.getFirstname());
 			userProfile.setUserName(profileManagementAppServiceIB.getUsername());
-			userProfile.setUserType(profileManagementAppServiceIB.getUsertype());
 			profileManagementProjectorOB.setDataUpdated(true);
 		}
 		

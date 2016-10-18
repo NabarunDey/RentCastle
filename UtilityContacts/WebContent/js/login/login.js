@@ -14,7 +14,8 @@ function doAjaxPost() {
 				$('#logout').show();
 				$('#buyButton').show();
 				$('#addToCartButton').show();
-				$('#paymentHistory').show();
+				$('#paymentHistory').show();editProfile
+				$('#editProfile').show();
 				
 				if(response.loginProjectorOB.userProfile.userType == "VENDOR")
 				{

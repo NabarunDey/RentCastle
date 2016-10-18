@@ -13,25 +13,9 @@
 			<div class="registration">
 				<div class="registration_left">
 					<div class="registration_form">
-						<h1>Forgot Password</h1>
+						<h1>Edit User Details</h1>
 						<!-- Form -->
-						<form id="ForgotPassword_form" method="post">
-							<div>Enter Email Id
-								<label> <input placeholder="email:" type="email" 	name="username"
-									tabindex="3" required>
-								</label>
-							</div>
-
-							<div>
-								<input type="button" value="Submit" id="register-submit" onclick=forgotPasswordSubmit()>
-							</div>
-							<div id="errorUserNotExist"
-									style="display: none; color: #ff0000;">User doesnot exist.</div>
-							<div id="errorMailNotSent"
-									style="display: none; color: #ff0000;">Mail cannot be sent to the user. Contact Support team.</div>
-							<div id="successForgotPassword"
-									style="display: none; color: #17de69;">Email has been sent successfully</div>
-						</form>
+						User Edited Sucessfully.
 						<!-- /Form -->
 					</div>
 				</div>

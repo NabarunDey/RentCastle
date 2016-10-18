@@ -72,7 +72,7 @@
 <div class="col-md-8">
 	<label class="col-md-4">Pin Code</label>
 	<div class="col-md-8">
-		<input type="text" class="form-control" name=mobileno2 />
+		<input type="text" class="form-control" name=pinno />
 	</div>
 </div>
 <br/><br/>

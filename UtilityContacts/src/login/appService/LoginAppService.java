@@ -14,6 +14,7 @@ import com.dao.UsersDao;
 import com.databaseBeans.UsersDBBean;
 import com.sessionBeans.UserProfile;
 import com.util.FacebookHandler;
+import com.util.GoogleHandler;
 import com.util.MailHandler;
 
 
@@ -31,6 +32,18 @@ public class LoginAppService {
 		if(StringUtils.isNotEmpty(loginAppServiceIB.getFbCode()))
 		{
 			UserRegistrationAppServiceIB userRegistrationAppServiceIB = FacebookHandler.getfbData(loginAppServiceIB.getFbCode(),server);
+			LoginDaoOB loginDaoOB =  loginDao.getByUsername(userRegistrationAppServiceIB.getUsername());
+			if(null== loginDaoOB.getUserLoginDBBean())
+			{
+				userRegistrationAppService.addUser(userRegistrationAppServiceIB);
+			}
+			loginProjectorOB =new LoginProjectorOB();
+			loginAppServiceIB.setUsername(userRegistrationAppServiceIB.getUsername());
+		}
+		
+		if(StringUtils.isNotEmpty(loginAppServiceIB.getGoogleCode()))
+		{
+			UserRegistrationAppServiceIB userRegistrationAppServiceIB=  GoogleHandler.getGoogleData(loginAppServiceIB.getGoogleCode(), server);
 			LoginDaoOB loginDaoOB =  loginDao.getByUsername(userRegistrationAppServiceIB.getUsername());
 			if(null== loginDaoOB.getUserLoginDBBean())
 			{

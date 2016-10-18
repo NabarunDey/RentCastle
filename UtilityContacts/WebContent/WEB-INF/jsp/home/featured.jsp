@@ -22,10 +22,9 @@
 					<s:iterator value="context.featuredProducts">
 						<div class="col-md-3 grid1">
 							<a href="viewProduct.action?productId=<s:property value="productId"/>"> <img
-								src="<s:property value="imageUrl"/>" class="img-responsive" alt="" />
+								src="<s:property value="imageUrl"/>" class="img-responsive" alt="" style="width: 260px; height: 260px" />
 								<div class="look">
-									<h4>View</h4>
-									<p>Featured</p>
+									<p>View</p>
 								</div></a>
 						</div>
 

@@ -37,7 +37,7 @@ public class ProfileManagementAction {
 	
 	public String profileManagementConfirm()
 	{
-		ProfileManagementAppServiceIB profileManagementAppServiceIB = context.getProfileManagementAppServiceIB();
+		ProfileManagementAppServiceIB profileManagementAppServiceIB = new ProfileManagementAppServiceIB();
 		CommonUtility.copyBean(this, profileManagementAppServiceIB);
 		ProfileManagementProjectorOB profileManagementProjectorOB =profileManagementAppService.editUser(profileManagementAppServiceIB);
 		context.setProfileManagementProjectorOB(profileManagementProjectorOB);

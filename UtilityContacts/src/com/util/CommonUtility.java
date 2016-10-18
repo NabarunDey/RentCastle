@@ -19,7 +19,6 @@ public class CommonUtility {
 		try {
 			elementsMap = PropertyUtils.describe(destinationBean);
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block

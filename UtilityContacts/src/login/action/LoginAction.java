@@ -40,6 +40,19 @@ public class LoginAction  extends ActionSupport  implements ServletRequestAware{
 		return ActionSupport.SUCCESS;		
 	}
 	
+	public String loginFunctionGoogle()
+	{
+		LoginAppServiceIB loginAppServiceIB = new LoginAppServiceIB();
+		loginAppServiceIB.setUsername(username);
+		loginAppServiceIB.setPassword(password);
+		loginAppServiceIB.setGoogleCode(code);
+		String server=httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+httpServletRequest.getContextPath();
+		
+		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server);
+		context.setLoginProjectorOB(loginProjectorOB);
+		return ActionSupport.SUCCESS;		
+	}
+	
 	public String logoutFunction()
 	{
 		httpServletRequest.getSession().invalidate();

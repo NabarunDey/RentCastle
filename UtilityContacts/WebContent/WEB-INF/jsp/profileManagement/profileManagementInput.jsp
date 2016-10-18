@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,14 +18,14 @@
 				<div class="col-md-8">
 					<label class="col-md-4">First Name</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control" name=firstname />
+						<input type="text" class="form-control" name=firstname value="<s:property value = 'context.profileManagementProjectorOB.usersDBBean.firstname'/>" />
 					</div>
 				</div>
 
 				<div class="col-md-8">
 					<label class="col-md-4">Last Name</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control" name=lastname />
+						<input type="text" class="form-control" name=lastname value="<s:property value = 'context.profileManagementProjectorOB.usersDBBean.lastname'/>" />
 					</div>
 				</div>
 				
@@ -39,42 +41,44 @@
 						</ul>
 					</div>
 				</div>
-				<div>
-					<label> <input name="password" placeholder="password"
-						type="password" tabindex="4" required>
-					</label>
+				<div class="col-md-8">
+					<label class="col-md-4">Password :</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" name=password value="<s:property value = 'context.profileManagementProjectorOB.usersDBBean.firstname'/>" />
+					</div>
 				</div>
-				<div>
-					<label> <input placeholder="retype password"
-						type="password" tabindex="4" required>
-					</label>
+				<div class="col-md-8">
+					<label class="col-md-4">Retype Password :</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" name=retypepassword value="<s:property value = 'context.profileManagementProjectorOB.usersDBBean.firstname'/>" />
+					</div>
 				</div>
 
 				<div class="col-md-8">
 					<label class="col-md-4">Phone Number</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control" name="phoneno" />
+						<input type="text" class="form-control" name="phoneno" value="<s:property value = 'context.profileManagementProjectorOB.usersDBBean.phoneno'/>"/>
 					</div>
 				</div>
 				<br /> <br />
 				<div class="col-md-8">
 					<label class="col-md-4">Mobile 1</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control" name=mobileno1 />
+						<input type="text" class="form-control" name=mobileno1 value="<s:property value = 'context.profileManagementProjectorOB.usersDBBean.mobileno1'/>" />
 					</div>
 				</div>
 				<br /> <br />
 				<div class="col-md-8">
 					<label class="col-md-4">Mobile 2</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control" name=mobileno2 />
+						<input type="text" class="form-control" name=mobileno2 value="<s:property value = 'context.profileManagementProjectorOB.usersDBBean.mobileno2'/>" />
 					</div>
 				</div>
 				<br /> <br />
 				<div class="col-md-8">
 					<label class="col-md-4">Address</label>
 					<div class="col-md-8">
-						<textarea class="form-control" name=address></textarea>
+						<textarea class="form-control" name=address ><s:property value = 'context.profileManagementProjectorOB.usersDBBean.address'/></textarea>
 					</div>
 				</div>
 				<br /> <br /> <br />
@@ -101,7 +105,7 @@
 				<div class="col-md-8">
 					<label class="col-md-4">Pin Code</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control" name=mobileno2 />
+						<input type="text" class="form-control" name=pinno value="<s:property value = 'context.profileManagementProjectorOB.usersDBBean.pinno'/>" />
 					</div>
 				</div>
 				<br /> <br />

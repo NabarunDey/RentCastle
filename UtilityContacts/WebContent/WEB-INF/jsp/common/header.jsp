@@ -63,6 +63,15 @@
 						</s:else>
 						
 						<s:if
+							test="%{ null != #attr.userProfile && ('CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) || 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) )}">
+							<li id = "editProfile"><a href="<s:url  action='profileManagementInput'/>">Edit Profile</a></li>
+						</s:if>
+						<s:else>
+							<li id = "editProfile" style="display: none"><a href="<s:url  action='profileManagementInput'/>">Edit Profile</a></li>
+						</s:else>
+						
+						
+						<s:if
 							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
 							<li id = "paymentHistory"><a href="<s:url  action='getPaymentsAdmin'/>">Payment Admin</a></li>
 						</s:if>
@@ -98,6 +107,7 @@
 												<input id="login" value="Sign in" onclick="doAjaxPost()">
 												
 												<input id="loginFB" style="margin-top:5px;background-color:#354F88;width:197px;height:35px;color:white;border:none;cursor:pointer" value="Sign in using Facebook" onclick="top.location.href='http://www.facebook.com/dialog/oauth?client_id=841162669353192&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction&scope=email'">
+												<input id="loginGoogle" style="margin-top:5px;background-color:#de3b17;width:197px;height:35px;color:white;border:none;cursor:pointer" value="Sign in using Google" onclick="top.location.href='https://accounts.google.com/o/oauth2/auth?scope=email&response_type=code&client_id=968847956660-7cs0n3ke5m69hj96hp9sfmqql34gsd4s.apps.googleusercontent.com&approval_prompt=auto&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunctionGoogle'">
 											
 											
 												<label for="checkbox"><input type="checkbox"
