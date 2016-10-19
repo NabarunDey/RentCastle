@@ -52,8 +52,8 @@ public class MailHandler {
 				InternetAddress.parse(emailId));
 			message.setSubject("RentCastle Password Reset");
 			message.setText("Dear User,"
-				+ "\n\n We have received a Password Retrieval request from your RentCastle id."
-				+ "\n\n Your temporary password is "+password
+				+ "\n\nWe have received a Password Retrieval request from your RentCastle id."
+				+ "\n\nYour temporary password is "+password
 				+"\n\nRegards,"
 				+ "\nRentCastle Team");
 
@@ -65,6 +65,34 @@ public class MailHandler {
 			e.printStackTrace();
 		}
 		return mailSuccess;
+	}
+	
+	public static void welcomeMail(String emailId)
+	{
+		try {
+			
+			if(!initialized)
+			{
+				initialize();
+				initialized=true;
+			}
+
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("nabarundey@rentcastle.in"));
+			message.setRecipients(Message.RecipientType.TO,
+				InternetAddress.parse(emailId));
+			message.setSubject("Welcome to RentCastle");
+			message.setText("Dear User,"
+				+ "\n\nThanks for registering @ RentCastle. Wish you a pleasant experience."
+				+"\n\nRegards,"
+				+ "\nRentCastle Team");
+
+			Transport.send(message);
+			
+		} catch (Exception e) {
+			System.out.println("Mail Could not be sent to "+emailId +" " + e.getMessage());
+			e.printStackTrace();
+		}
 	}
 	
 	public static boolean orderConfirmationMailCustomer(ProductsDBBean productsDBBean, OrdersDBBean ordersDBBean,UserProfile userProfile)

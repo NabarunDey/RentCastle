@@ -21,6 +21,7 @@ import com.databaseBeans.RentOffersDBBean;
 import com.databaseBeans.UsersDBBean;
 import com.structures.userTypes.UserType;
 import com.util.CommonUtility;
+import com.util.MailHandler;
 
 @Transactional
 public class UsersDao {
@@ -89,6 +90,7 @@ public class UsersDao {
 		}
 		
 		saveUser(usersDBBean);
+		MailHandler.welcomeMail(usersDBBean.getEmail());
 		UserRegistrationDaoOB userRegistrationDaoOB =new UserRegistrationDaoOB();
 		userRegistrationDaoOB.setUserDetailsInserted(true);
 		userRegistrationDaoOB.setUsersDBBean(usersDBBean);
