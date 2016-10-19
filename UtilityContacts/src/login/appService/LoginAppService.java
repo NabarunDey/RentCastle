@@ -45,13 +45,22 @@ public class LoginAppService {
 		else if(StringUtils.isNotEmpty(loginAppServiceIB.getGoogleCode()))
 		{
 			UserRegistrationAppServiceIB userRegistrationAppServiceIB=  GoogleHandler.getGoogleData(loginAppServiceIB.getGoogleCode(), server);
+			loginProjectorOB =new LoginProjectorOB();
+			loginAppServiceIB.setUsername(userRegistrationAppServiceIB.getUsername());
 			LoginDaoOB loginDaoOB =  loginDao.getByUsername(userRegistrationAppServiceIB.getUsername());
 			if(null== loginDaoOB.getUserLoginDBBean())
 			{
-				userRegistrationAppService.addUser(userRegistrationAppServiceIB);
+				usersDBBean = usersDao.getUserDetailsByEmail(userRegistrationAppServiceIB.getEmail());
+				if(null == usersDBBean)
+				{
+					userRegistrationAppService.addUser(userRegistrationAppServiceIB);
+				}
+				else
+				{
+					loginAppServiceIB.setUsername(usersDBBean.getUsername());
+				}
 			}
-			loginProjectorOB =new LoginProjectorOB();
-			loginAppServiceIB.setUsername(userRegistrationAppServiceIB.getUsername());
+			
 		}
 
 		else{
