@@ -8,6 +8,8 @@
 		<id name="username"></id>
 		<property name="firstname"></property>
 		<property name="lastname"></property>
+ 		<property name="email"></property>
+		<property name="emailVerified"></property>
 		<property name="sex"></property>
 		<property name="address"></property>
 		<property name="city"></property>

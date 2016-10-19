@@ -2,6 +2,7 @@ package com.dao;
 
 import login.dao.outputBeans.LoginDaoOB;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,6 +48,22 @@ public class LoginDao {
 		CommonUtility.copyBean(userRegistrationAppServiceIB, userLoginDBBean);
 		saveUserLogin(userLoginDBBean);
 		return loginDaoOB;
+	}
+	
+	public String resetPassword(String username)
+	{
+		UserLoginDBBean userLoginDBBean= null;
+		String pass= "";
+		try{
+			userLoginDBBean = (UserLoginDBBean)template.get(UserLoginDBBean.class,username);  
+			pass = RandomStringUtils.randomAlphabetic(5);
+			userLoginDBBean.setPassword(pass);
+			template.update(userLoginDBBean);
+		}catch(Exception exception)
+		{
+			
+		}
+		return pass;
 	}
 	
 	/*public LoginDaoOB getAllUserLogin(){  

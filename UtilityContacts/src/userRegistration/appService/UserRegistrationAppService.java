@@ -34,6 +34,7 @@ public class UserRegistrationAppService {
 				userProfile.setFirstName(userRegistrationAppServiceIB.getFirstname());
 				userProfile.setUserName(userRegistrationAppServiceIB.getUsername());
 				userProfile.setUserType(userRegistrationAppServiceIB.getUsertype());
+				userProfile.setEmail(userRegistrationDaoOB.getUsersDBBean().getEmail());
 				registrationProjectorOB= userRegistrationProjector.addUser(userRegistrationDaoOB);
 			}
 		}

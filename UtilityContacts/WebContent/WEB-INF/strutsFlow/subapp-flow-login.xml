@@ -7,37 +7,47 @@
 	<constant name="struts.devMode" value="false" />
 
 	<package name="loginPackage" namespace="/" extends="default,json-default">
-	
-	<result-types>
+
+		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
 
 		<action name="loginFunction" class="loginAction" method="loginFunction">
-			<result name="success"  type="json">
+			<result name="success" type="json">
 				<param name="root">context</param>
 			</result>
-			<result name="fbLoginSuccess" type="tiles">loadIndex</result>
-			
+			<result type="redirectAction" name="fbLoginSuccess">
+				<param name="actionName">loadIndex</param>
+			</result>
+			<result type="redirectAction" name="fail">
+				<param name="actionName">loadIndex</param>
+			</result>
+
 		</action>
-		
+
 		<action name="loginFunctionGoogle" class="loginAction" method="loginFunctionGoogle">
-			<result name="success" type="tiles">loadIndex</result>
+			<result type="redirectAction" name="success">
+				<param name="actionName">loadIndex</param>
+			</result>
 		</action>
-		
+
 		<action name="forgotPasswordInput" class="loginAction" method="forgotPasswordInput">
-				<result name="success" type="tiles">forgotPasswordInput</result>
+			<result name="success" type="tiles">forgotPasswordInput</result>
 		</action>
-		
-		<action name="forgotPasswordSubmit" class="loginAction" method="forgotPasswordSubmit">
-			<result name="success"  type="json">
+
+		<action name="forgotPasswordSubmit" class="loginAction"
+			method="forgotPasswordSubmit">
+			<result name="success" type="json">
 				<param name="root">context</param>
 			</result>
 		</action>
-		
-		
+
+
 		<action name="logoutFunction" class="loginAction" method="logoutFunction">
-				<result name="success" type="tiles">loadIndex</result>
+			<result type="redirectAction" name="success">
+				<param name="actionName">loadIndex</param>
+			</result>
 		</action>
 
 	</package>

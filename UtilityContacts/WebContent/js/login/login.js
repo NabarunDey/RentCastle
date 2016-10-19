@@ -5,6 +5,29 @@ function doAjaxPost() {
 		url: "loginFunction",
 		data: $('#loginForm').serialize() ,
 		success: function(response){
+			
+			if(response.loginProjectorOB.userNotExist)
+			{
+				$('#loginError').show();
+				document.getElementById('loginError').innerHTML ="User does not exist. Please resgister."
+				return;
+			}
+			if(response.loginProjectorOB.invalidCredentials)
+			{
+				$('#loginError').show();
+				document.getElementById('loginError').innerHTML ="UserName and password does not match.";
+				return;
+			}
+			
+			
+			if(response.loginProjectorOB.loginFailure)
+			{
+				$('#loginError').show();
+				document.getElementById('loginError').innerHTML ="Fail to login."
+				return;
+			}
+		
+			
 			if (!response.loginProjectorOB.invalidCredentials) {
 				$('#loginBox').hide();
 				$('#loginButton').hide();

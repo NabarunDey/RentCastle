@@ -29,6 +29,7 @@ public class LoginAppService {
 	public LoginProjectorOB login(LoginAppServiceIB loginAppServiceIB,String server) {
 
 		LoginProjectorOB loginProjectorOB=null;
+		UsersDBBean usersDBBean = null;
 		if(StringUtils.isNotEmpty(loginAppServiceIB.getFbCode()))
 		{
 			UserRegistrationAppServiceIB userRegistrationAppServiceIB = FacebookHandler.getfbData(loginAppServiceIB.getFbCode(),server);
@@ -40,8 +41,8 @@ public class LoginAppService {
 			loginProjectorOB =new LoginProjectorOB();
 			loginAppServiceIB.setUsername(userRegistrationAppServiceIB.getUsername());
 		}
-		
-		if(StringUtils.isNotEmpty(loginAppServiceIB.getGoogleCode()))
+
+		else if(StringUtils.isNotEmpty(loginAppServiceIB.getGoogleCode()))
 		{
 			UserRegistrationAppServiceIB userRegistrationAppServiceIB=  GoogleHandler.getGoogleData(loginAppServiceIB.getGoogleCode(), server);
 			LoginDaoOB loginDaoOB =  loginDao.getByUsername(userRegistrationAppServiceIB.getUsername());
@@ -57,15 +58,34 @@ public class LoginAppService {
 			LoginDaoOB loginDaoOB =  loginDao.getByUsername(loginAppServiceIB.getUsername());
 			loginDaoOB.setUserNameEntered(loginAppServiceIB.getUsername());
 			loginDaoOB.setPasswordEntered(loginAppServiceIB.getPassword());
+
+			if(null==loginDaoOB.getUserLoginDBBean())
+			{
+				usersDBBean = usersDao.getUserDetailsByEmail(loginAppServiceIB.getUsername());
+				if(null!= usersDBBean)
+				{
+					loginDaoOB =  loginDao.getByUsername(usersDBBean.getUsername());
+					loginDaoOB.setUserNameEntered(usersDBBean.getUsername());
+					loginDaoOB.setPasswordEntered(loginAppServiceIB.getPassword());
+
+				}
+			}
 			loginProjectorOB = loginProjector.validateCredentials(loginDaoOB);
+			if(null==loginDaoOB.getUserLoginDBBean())
+			{
+				loginProjectorOB.setUserNotExist(true);
+			}
 		}
 		if(!loginProjectorOB.isInvalidCredentials())
 		{
-			UsersDBBean usersDBBean = usersDao.getUserDetails(loginAppServiceIB.getUsername());
+			if(null== usersDBBean)
+				usersDBBean = usersDao.getUserDetails(loginAppServiceIB.getUsername());
 			userProfile.setFirstName(usersDBBean.getFirstname());
 			userProfile.setUserName(usersDBBean.getUsername());
 			userProfile.setUserType(usersDBBean.getUsertype());
 			userProfile.setPin(usersDBBean.getPinno());
+			userProfile.setEmail(usersDBBean.getEmail());
+
 			loginProjectorOB.setUserProfile(userProfile);
 		}
 
@@ -77,10 +97,22 @@ public class LoginAppService {
 		LoginProjectorOB loginProjectorOB= new LoginProjectorOB();
 		loginProjectorOB.setUserNotExist(true);
 		LoginDaoOB loginDaoOB =  loginDao.getByUsername(loginAppServiceIB.getUsername());
+		UsersDBBean usersDBBean=usersDao.getUserDetails(loginAppServiceIB.getUsername());
+		
+		if(null==loginDaoOB.getUserLoginDBBean())
+		{
+			usersDBBean = usersDao.getUserDetailsByEmail(loginAppServiceIB.getUsername());
+			if(null!= usersDBBean)
+			{
+				loginDaoOB =  loginDao.getByUsername(usersDBBean.getUsername());
+			}
+		}
+		
 		if(null!= loginDaoOB && null!= loginDaoOB.getUserLoginDBBean() && StringUtils.isNotEmpty(loginDaoOB.getUserLoginDBBean().getUsername()))
 		{
 			loginProjectorOB.setUserNotExist(false);
-			boolean result = MailHandler.passwordResetMail(loginDaoOB.getUserLoginDBBean().getUsername(), loginDaoOB.getUserLoginDBBean().getPassword());
+			String password = loginDao.resetPassword(loginDaoOB.getUserLoginDBBean().getUsername());
+			boolean result = MailHandler.passwordResetMail(usersDBBean.getEmail(), password);
 			loginProjectorOB.setMailSent(result);
 		}
 		return loginProjectorOB;

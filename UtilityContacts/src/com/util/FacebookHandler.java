@@ -41,8 +41,8 @@ public class FacebookHandler {
 	public static String getFBGraphUrl(String code) {
 		String fbGraphUrl = "";
 		try {
-			fbGraphUrl = "https://graph.facebook.com/oauth/access_token?"
-					+ "client_id=" + FB_APP_ID + "&redirect_uri="
+			fbGraphUrl = "https://graph.facebook.com/oauth/access_token?"+"scope=public_profile,email"
+					+ "&client_id=" + FB_APP_ID + "&redirect_uri="
 					+ URLEncoder.encode(REDIRECT_URI, "UTF-8")
 					+ "&client_secret=" + FB_APP_SECRET + "&code=" + code;
 		} catch (UnsupportedEncodingException e) {
@@ -132,8 +132,6 @@ public class FacebookHandler {
 	{
 		
 		REDIRECT_URI = "http://"+server+"/loginFunction";
-		if(server.contains("localhost"))
-			REDIRECT_URI = "http://"+server+"/loginFunction";
 
 		UserRegistrationAppServiceIB userRegistrationAppServiceIB = new UserRegistrationAppServiceIB();
 		if (code == null || code.equals("")) {

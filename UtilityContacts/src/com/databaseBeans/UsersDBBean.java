@@ -18,6 +18,21 @@ public class UsersDBBean {
 	String mobileno2;
 	String status;
 	String cart;
+	String email;
+	boolean emailVerified;
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public boolean isEmailVerified() {
+		return emailVerified;
+	}
+	public void setEmailVerified(boolean emailVerified) {
+		this.emailVerified = emailVerified;
+	}
 	public String getUsername() {
 		return username;
 	}

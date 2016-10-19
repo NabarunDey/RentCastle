@@ -1,12 +1,12 @@
 package profileManagement.appService;
 
-import login.dao.outputBeans.LoginDaoOB;
 import profileManagement.appService.inputBeans.ProfileManagementAppServiceIB;
 import profileManagement.dao.outputBeans.ProfileManagementDaoOB;
 import profileManagement.projector.outputBeans.ProfileManagementProjectorOB;
 
 import com.dao.LoginDao;
 import com.dao.UsersDao;
+import com.databaseBeans.UserLoginDBBean;
 import com.databaseBeans.UsersDBBean;
 import com.sessionBeans.UserProfile;
 
@@ -35,8 +35,11 @@ public class ProfileManagementAppService {
 	public ProfileManagementProjectorOB getUserData()
 	{
 		UsersDBBean usersDBBean = usersDao.getUserDetails(userProfile.getUserName());
+		UserLoginDBBean userLoginDBBean = loginDao.getByUsername(userProfile.getUserName()).getUserLoginDBBean();
 		ProfileManagementProjectorOB profileManagementProjectorOB =new ProfileManagementProjectorOB();
 		profileManagementProjectorOB.setUsersDBBean(usersDBBean);
+		profileManagementProjectorOB.setUserLoginDBBean(userLoginDBBean);
+
 		return profileManagementProjectorOB;
 	}
 

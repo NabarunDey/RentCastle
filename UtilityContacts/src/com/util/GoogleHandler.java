@@ -64,6 +64,7 @@ public class GoogleHandler {
          userRegistrationAppServiceIB.setUsername(json2.get("id").getAsString());
          userRegistrationAppServiceIB.setFirstname(json2.get("given_name").getAsString());
          userRegistrationAppServiceIB.setLastname(json2.get("family_name").getAsString());
+         userRegistrationAppServiceIB.setEmail(json2.get("email").getAsString());
 
      } catch (Exception e) {
          e.printStackTrace();

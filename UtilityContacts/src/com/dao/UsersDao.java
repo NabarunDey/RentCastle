@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +17,7 @@ import userRegistration.dao.outputBeans.UserRegistrationDaoOB;
 import cart.appService.inputBeans.CartAppServiceIB;
 import cart.dao.outputBeans.CartDaoOB;
 
+import com.databaseBeans.RentOffersDBBean;
 import com.databaseBeans.UsersDBBean;
 import com.structures.userTypes.UserType;
 import com.util.CommonUtility;
@@ -46,6 +49,25 @@ public class UsersDao {
 		}
 		return usersDBBean;
 	}
+	
+	public UsersDBBean getUserDetailsByEmail(String email)
+	{
+		UsersDBBean usersDBBean = null;
+		try{
+			Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(UsersDBBean.class)
+					.add(Restrictions.like("email", email));
+		List<UsersDBBean> usersDBBeans = criteria.list();
+		if(null!= usersDBBeans && usersDBBeans.size()>=1)
+		{
+			usersDBBean = usersDBBeans.get(0);
+		}
+		}catch(Exception exception)
+		{
+			System.out.println("Error in fetchin UserDBBean");
+
+		}
+		return usersDBBean;
+	}
 
 	public UserRegistrationDaoOB addUser(
 			UserRegistrationAppServiceIB userRegistrationAppServiceIB) {
@@ -60,9 +82,16 @@ public class UsersDao {
 		{
 			usersDBBean.setUsertype(UserType.CUSTOMER);
 		}
+		
+		if(usersDBBean.getUsername().contains("@")&& usersDBBean.getUsername().contains("."))
+		{
+			usersDBBean.setEmail(usersDBBean.getUsername());
+		}
+		
 		saveUser(usersDBBean);
 		UserRegistrationDaoOB userRegistrationDaoOB =new UserRegistrationDaoOB();
 		userRegistrationDaoOB.setUserDetailsInserted(true);
+		userRegistrationDaoOB.setUsersDBBean(usersDBBean);
 		return userRegistrationDaoOB;
 	}
 

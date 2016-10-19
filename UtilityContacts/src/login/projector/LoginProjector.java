@@ -20,7 +20,6 @@ public class LoginProjector {
 	{
 		LoginProjectorOB loginProjectorOB =new LoginProjectorOB();
 		loginProjectorOB.setInvalidCredentials(true);
-		loginProjectorOB.setUserNotExist(true);
 		UserLoginDBBean userLoginDBBean = loginDaoOB.getUserLoginDBBean();
 
 		if( null!= userLoginDBBean && null != loginDaoOB 

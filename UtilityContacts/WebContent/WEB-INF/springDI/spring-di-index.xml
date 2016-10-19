@@ -10,8 +10,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="context" ref="loadIndexContext" />
 		
 	</bean>
-	<bean id="loadIndexContext" class="loadIndex.LoadIndexContext"
-		scope="session">
+	<bean id="loadIndexContext" class="loadIndex.LoadIndexContext">
 	</bean>
 
 </beans>

@@ -44,15 +44,28 @@
 				<div class="col-md-8">
 					<label class="col-md-4">Password :</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control" name=password value="<s:property value = 'context.profileManagementProjectorOB.usersDBBean.firstname'/>" />
+						<input type="password" class="form-control" name=password value="<s:property value = 'context.profileManagementProjectorOB.userLoginDBBean.password'/>" />
 					</div>
 				</div>
 				<div class="col-md-8">
 					<label class="col-md-4">Retype Password :</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control" name=retypepassword value="<s:property value = 'context.profileManagementProjectorOB.usersDBBean.firstname'/>" />
+						<input type="password" class="form-control" name=retypepassword value="<s:property value = 'context.profileManagementProjectorOB.userLoginDBBean.password'/>" />
 					</div>
 				</div>
+				
+				<s:if test="%{ null == context.profileManagementProjectorOB.usersDBBean.email || ''.equalsIgnoreCase(context.profileManagementProjectorOB.usersDBBean.email) }">
+								
+				
+				<div class="col-md-8">
+					<label class="col-md-4">Email : </label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" name="email" />
+					</div>
+				</div>
+				<br /> <br />
+				</s:if>
+
 
 				<div class="col-md-8">
 					<label class="col-md-4">Phone Number</label>
@@ -61,6 +74,7 @@
 					</div>
 				</div>
 				<br /> <br />
+				
 				<div class="col-md-8">
 					<label class="col-md-4">Mobile 1</label>
 					<div class="col-md-8">

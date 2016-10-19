@@ -33,6 +33,8 @@ public class LoginAction  extends ActionSupport  implements ServletRequestAware{
 		
 		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server);
 		context.setLoginProjectorOB(loginProjectorOB);
+		if(loginProjectorOB.isLoginFailure())
+			return "fail";
 		if(StringUtils.isNotEmpty(code))
 		{
 			return "fbLoginSuccess";

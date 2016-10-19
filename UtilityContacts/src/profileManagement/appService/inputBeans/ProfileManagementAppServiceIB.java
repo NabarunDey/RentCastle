@@ -18,9 +18,16 @@ public class ProfileManagementAppServiceIB {
 	String mobileno2;
 	String status;
 	String password;
+	String email;
 	
 	
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getPassword() {
 		return password;
 	}

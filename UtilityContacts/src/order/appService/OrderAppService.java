@@ -22,10 +22,12 @@ import com.dao.OrdersDao;
 import com.dao.PaymentsDao;
 import com.dao.ProductsDao;
 import com.dao.RentOffersDao;
+import com.dao.UsersDao;
 import com.databaseBeans.AddressDBBean;
 import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
+import com.databaseBeans.UsersDBBean;
 import com.sessionBeans.UserProfile;
 import com.structures.status.OrderStatus;
 import com.structures.userTypes.UserType;
@@ -45,6 +47,7 @@ public class OrderAppService {
 	RentOffersDao rentOffersDao;
 	PaymentsDao paymentsDao;
 	AddressDao addressDao;
+	UsersDao usersDao;
 
 	public OrderProjectorOB getCartOrderInput() {
 		CartProjectorOB cartProjectorOB = cartAppService.viewCart();
@@ -109,7 +112,8 @@ public class OrderAppService {
 			paymentAppServiceIB.setRentamount(cartItem.getRentAmount());
 			paymentAppServiceIB.setSecuritymoney(cartItem.getSecurityMoney());
 			ProductsDBBean productsDBBean =productsDao.getProductDetails(ordersDBBean.getProductid());
-			MailHandler.orderConfirmationMailVendor(productsDBBean,ordersDBBean);
+			UsersDBBean usersDBBean = usersDao.getUserDetails(productsDBBean.getUsername());
+			MailHandler.orderConfirmationMailVendor(productsDBBean,ordersDBBean,usersDBBean.getEmail());
 			MailHandler.orderConfirmationMailCustomer(productsDBBean,ordersDBBean,userProfile);
 
 			paymentAppServiceIB.setTousername(productsDBBean.getUsername());
@@ -255,5 +259,15 @@ public class OrderAppService {
 	public void setAddressDao(AddressDao addressDao) {
 		this.addressDao = addressDao;
 	}
+
+	public UsersDao getUsersDao() {
+		return usersDao;
+	}
+
+	public void setUsersDao(UsersDao usersDao) {
+		this.usersDao = usersDao;
+	}
+	
+	
 
 }

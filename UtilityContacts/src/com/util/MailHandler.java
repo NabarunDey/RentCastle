@@ -18,7 +18,7 @@ public class MailHandler {
 	private static Session session= null;
 	private static boolean initialized;
 	
-	public static void initialize() {
+	private static void initialize() {
 
 		final String username = "nabarundey@rentcastle.in";
 		final String password = "nabarunrent@1234";
@@ -53,7 +53,7 @@ public class MailHandler {
 			message.setSubject("RentCastle Password Reset");
 			message.setText("Dear User,"
 				+ "\n\n We have received a Password Retrieval request from your RentCastle id."
-				+ "\n\n Your password is "+password
+				+ "\n\n Your temporary password is "+password
 				+"\n\nRegards,"
 				+ "\nRentCastle Team");
 
@@ -81,13 +81,13 @@ public class MailHandler {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("nabarundey@rentcastle.in"));
 			message.setRecipients(Message.RecipientType.TO,
-				InternetAddress.parse(userProfile.getUserName()));
+				InternetAddress.parse(userProfile.getEmail()));
 			message.setSubject("RentCastle OrderConfirmation - ORD00"+ordersDBBean.getOrderid());
 			
 			
 			String order="\n\n\nOrder Id : ORD00"+ordersDBBean.getOrderid()+"\nProduct Id :PRD00"+ordersDBBean.getProductid()+
 					"\nProduct Name  : "+productsDBBean.getProductname()+"\nAddress : "+ordersDBBean.getAddress()+" "+ordersDBBean.getPin();
-			message.setText("Dear "+userProfile.getUserName()+","
+			message.setText("Dear "+userProfile.getFirstName()+","
 					+ "\n\n We have received the following order."+order+"\n\nRegards,"
 					+ "\nRentCastle Team");
 			
@@ -95,13 +95,13 @@ public class MailHandler {
 			mailSuccess= true;
 			
 		} catch (Exception e) {
-			System.out.println("Mail Could not be sent to "+userProfile.getUserName() +" " + e.getMessage());
+			System.out.println("Mail Could not be sent to "+userProfile.getEmail() +" " + e.getMessage());
 			e.printStackTrace();
 		}
 		return mailSuccess;
 	}
 	
-	public static boolean orderConfirmationMailVendor(ProductsDBBean productsDBBean, OrdersDBBean ordersDBBean)
+	public static boolean orderConfirmationMailVendor(ProductsDBBean productsDBBean, OrdersDBBean ordersDBBean, String email)
 	{
 		boolean mailSuccess =false;
 		try {
@@ -115,7 +115,7 @@ public class MailHandler {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("nabarundey@rentcastle.in"));
 			message.setRecipients(Message.RecipientType.TO,
-				InternetAddress.parse(productsDBBean.getUsername()));
+				InternetAddress.parse(email));
 			message.setSubject("RentCastle OrderConfirmation - ORD00"+ordersDBBean.getOrderid());
 			
 			

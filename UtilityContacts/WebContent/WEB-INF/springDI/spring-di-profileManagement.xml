@@ -13,6 +13,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="profileManagementAppService" class="profileManagement.appService.ProfileManagementAppService"
 		scope="request">
 		<property name="usersDao" ref="usersDao" />
+		<property name="loginDao" ref="loginDao" />
 		<property name="userProfile" ref="userProfile" />
 	</bean>
 

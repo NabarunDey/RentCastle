@@ -24,6 +24,7 @@ public class ProfileManagementAction {
 	String mobileno1;
 	String mobileno2;
 	String status;
+	String email;
 	
 	public ProfileManagementAppService profileManagementAppService;
 	ProfileManagementAppContext context;
@@ -171,6 +172,14 @@ public class ProfileManagementAction {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	
