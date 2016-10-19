@@ -17,7 +17,7 @@
 						need help? <a href="#">contact us <span> ></span>
 						</a>
 					</h5>
-					<p>(or) Call us: +91-8900788889</p>
+					<p>(or) Call us: +91-9641814868(Nabarun Dey)</p>
 					<p>mailto : support@rentcastle.in</p>
 				</div>
 				<div class="clearfix"></div>
