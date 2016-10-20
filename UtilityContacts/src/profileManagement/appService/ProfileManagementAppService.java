@@ -42,6 +42,14 @@ public class ProfileManagementAppService {
 
 		return profileManagementProjectorOB;
 	}
+	
+	public ProfileManagementProjectorOB changePassword(String password)
+	{
+		boolean result = loginDao.changePassword(userProfile.getUserName(), password);
+		ProfileManagementProjectorOB profileManagementProjectorOB = new ProfileManagementProjectorOB();
+		profileManagementProjectorOB.setPasswordChanged(result);
+		return profileManagementProjectorOB;
+	}
 
 	public UsersDao getUsersDao() {
 		return usersDao;

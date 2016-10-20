@@ -44,6 +44,13 @@ public class ProfileManagementAction {
 		context.setProfileManagementProjectorOB(profileManagementProjectorOB);
 		return "success";
 	}
+	
+	public String changePasswordSubmit()
+	{
+		ProfileManagementProjectorOB profileManagementProjectorOB =profileManagementAppService.changePassword(password);
+		context.setProfileManagementProjectorOB(profileManagementProjectorOB);
+		return "success";
+	}
 
 	public ProfileManagementAppService getProfileManagementAppService() {
 		return profileManagementAppService;

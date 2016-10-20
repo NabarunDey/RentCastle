@@ -66,6 +66,21 @@ public class LoginDao {
 		return pass;
 	}
 	
+	public boolean changePassword(String username,String password)
+	{
+		try
+		{
+			UserLoginDBBean userLoginDBBean = (UserLoginDBBean)template.get(UserLoginDBBean.class,username);  
+			userLoginDBBean.setPassword(password);
+			template.update(userLoginDBBean);
+			return true;
+			
+		}catch(Exception e)
+		{
+			return false;
+		}
+	}
+	
 	/*public LoginDaoOB getAllUserLogin(){  
 		LoginDaoOB loginDaoOB =new LoginDaoOB();
 	    List<UserLoginDBBean> list; 

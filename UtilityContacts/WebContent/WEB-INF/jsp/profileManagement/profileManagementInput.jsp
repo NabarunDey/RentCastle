@@ -41,18 +41,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-8">
-					<label class="col-md-4">Password :</label>
-					<div class="col-md-8">
-						<input type="password" class="form-control" name=password value="<s:property value = 'context.profileManagementProjectorOB.userLoginDBBean.password'/>" />
-					</div>
-				</div>
-				<div class="col-md-8">
-					<label class="col-md-4">Retype Password :</label>
-					<div class="col-md-8">
-						<input type="password" class="form-control" name=retypepassword value="<s:property value = 'context.profileManagementProjectorOB.userLoginDBBean.password'/>" />
-					</div>
-				</div>
+			
 				
 				<s:if test="%{ null == context.profileManagementProjectorOB.usersDBBean.email || ''.equalsIgnoreCase(context.profileManagementProjectorOB.usersDBBean.email) }">
 								
@@ -132,6 +121,20 @@
 				</div>
 				<br /> <br />
 			</form>
+			
+				<div class="col-md-8">
+					<label class="col-md-4">Password :</label>
+					<div class="col-md-8">
+						<input type="password" class="form-control" name=password value="<s:property value = 'context.profileManagementProjectorOB.userLoginDBBean.password'/>" />
+					</div>
+				</div>
+				<div class="col-md-8">
+					<label class="col-md-4">Retype Password :</label>
+					<div class="col-md-8">
+						<input type="password" class="form-control" name=retypepassword value="<s:property value = 'context.profileManagementProjectorOB.userLoginDBBean.password'/>" />
+					</div>
+				</div>
+			
 		</div>
 	</div>
 

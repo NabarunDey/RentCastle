@@ -8,8 +8,16 @@ public class ProfileManagementProjectorOB {
 	private boolean dataUpdated;
 	private UsersDBBean usersDBBean;
 	private UserLoginDBBean userLoginDBBean;
+	private boolean passwordChanged;
 	
-	
+	public boolean isPasswordChanged() {
+		return passwordChanged;
+	}
+
+	public void setPasswordChanged(boolean passwordChanged) {
+		this.passwordChanged = passwordChanged;
+	}
+
 	public UserLoginDBBean getUserLoginDBBean() {
 		return userLoginDBBean;
 	}
