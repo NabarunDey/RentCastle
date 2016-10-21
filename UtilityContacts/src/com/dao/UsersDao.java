@@ -167,7 +167,7 @@ public class UsersDao {
 	public ProfileManagementDaoOB editUser(
 			ProfileManagementAppServiceIB profileManagementAppServiceIB) {
 
-		UsersDBBean usersDBBean = new  UsersDBBean();
+		UsersDBBean usersDBBean = template.get(UsersDBBean.class,profileManagementAppServiceIB.getUsername());
 		ProfileManagementDaoOB profileManagementDaoOB =new ProfileManagementDaoOB();
 
 		try{

@@ -5,10 +5,11 @@ import profileManagement.appService.ProfileManagementAppService;
 import profileManagement.appService.inputBeans.ProfileManagementAppServiceIB;
 import profileManagement.projector.outputBeans.ProfileManagementProjectorOB;
 
+import com.opensymphony.xwork2.ActionSupport;
 import com.structures.userTypes.UserType;
 import com.util.CommonUtility;
 
-public class ProfileManagementAction {
+public class ProfileManagementAction extends ActionSupport{
 
 	String username;
 	String firstname;

@@ -7,7 +7,7 @@
 	<constant name="struts.devMode" value="false" />
 
 	<package name="profileManagementPackage" namespace="/"
-		extends="default">
+		extends="default,json-default">
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
@@ -20,14 +20,11 @@
 
 		<action name="profileManagementConfirm" class="profileManagementAction"
 			method="profileManagementConfirm">
-			<result name="success" type="tiles">profileManagementConfirm</result>
 		</action>
 		
 		<action name="changePasswordSubmit" class="profileManagementAction"
 			method="changePasswordSubmit">
-			<result name="success" type="json">
-				<param name="root">context</param>
-			</result>
+					<result name="success" type="tiles">profileManagementConfirm</result>
 		</action>
 
 

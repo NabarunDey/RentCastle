@@ -15,7 +15,7 @@
 					<div class="registration_form">
 						<h1>Edit User Details</h1>
 						<!-- Form -->
-						User Edited Sucessfully.
+						Data Updated Sucessfully.
 						<!-- /Form -->
 					</div>
 				</div>
