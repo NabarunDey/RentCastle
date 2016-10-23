@@ -11,7 +11,7 @@
 		<property name="url"
 			value="jdbc:mysql://aa17lnxwcd73w9g.cueqtxpojjik.ap-south-1.rds.amazonaws.com:3306/ebdb"></property>
 		<property name="username" value="rentcastledb"></property>
-		<property name="password" value="rentcastledb01"></property>
+		<property name="password" value="rentcastledb"></property>
 	</bean>
 	<!-- <context:annotation-config /> -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
@@ -36,6 +36,8 @@
 				<value>Orders.hbm.xml</value>
 				<value>Payments.hbm.xml</value>
 				<value>Address.hbm.xml</value>
+				<value>Credentials.hbm.xml</value>
+				
 			</list>
 		</property>
 

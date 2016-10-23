@@ -14,13 +14,15 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.dao.CredentialsDao;
+
 import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
 
 
 
 public class FacebookHandler {
 	public static final String FB_APP_ID = "841162669353192";
-	public static final String FB_APP_SECRET = "20b58a0418a61bad3d514c086afa8302";
+	public static final String FB_APP_SECRET = CredentialsDao.getValue("fb_app_secret");
 	public static String REDIRECT_URI = "";
 
 	static String accessToken = "";

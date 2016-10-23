@@ -104,6 +104,8 @@ public class OrderAppService {
 		Iterator<OrdersDBBean> orderIterator = ordersDBBeans.iterator();
 		List<PaymentAppServiceIB> paymentAppServiceIBs = new ArrayList<PaymentAppServiceIB>();
 		while (cartIterator.hasNext() && orderIterator.hasNext()) {
+			
+			try{
 			CartItem cartItem = cartIterator.next();
 			OrdersDBBean ordersDBBean = orderIterator.next();
 			PaymentAppServiceIB paymentAppServiceIB = new PaymentAppServiceIB();
@@ -115,9 +117,12 @@ public class OrderAppService {
 			UsersDBBean usersDBBean = usersDao.getUserDetails(productsDBBean.getUsername());
 			MailHandler.orderConfirmationMailVendor(productsDBBean,ordersDBBean,usersDBBean.getEmail());
 			MailHandler.orderConfirmationMailCustomer(productsDBBean,ordersDBBean,userProfile);
-
 			paymentAppServiceIB.setTousername(productsDBBean.getUsername());
 			paymentAppServiceIBs.add(paymentAppServiceIB);
+			}catch(Exception e){
+				
+			}
+		
 		}
 		paymentsDao.addPayment(paymentAppServiceIBs);
 		cartAppService.emptyCart();

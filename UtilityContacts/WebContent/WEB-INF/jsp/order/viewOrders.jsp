@@ -14,7 +14,7 @@
 						<th>OrderId</th>
 						<th>Date</th>
 						<th>Status</th>
-						<th>Address</th>
+						<s:if test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }"><th>Address</th></s:if>
 						<th>Pin</th>
 						<th>Payments</th>
 					</tr>
@@ -25,7 +25,9 @@
 							<td>ORD00<s:property value="ordersDBBean.orderid" /></td>
 							<td><s:property value="ordersDBBean.datetime" /></td>
 							<td><s:property value="ordersDBBean.orderstatus" /></td>
+							<s:if test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }">
 							<td><s:property value="ordersDBBean.address" /></td>
+							</s:if>
 							<td><s:property value="ordersDBBean.pin" /></td>
 							<td><a href="getPaymentsForOrder?orderid=${ordersDBBean.orderid }">View Payments</a></td>
 							

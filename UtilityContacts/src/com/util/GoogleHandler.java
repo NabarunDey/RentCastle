@@ -1,17 +1,14 @@
 package com.util;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 
 import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
 
-import com.google.gson.Gson;
+import com.dao.CredentialsDao;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -24,7 +21,7 @@ public class GoogleHandler {
 		  String urlParameters = "code="
                   + code
                   + "&client_id=968847956660-7cs0n3ke5m69hj96hp9sfmqql34gsd4s.apps.googleusercontent.com"
-                  + "&client_secret=p1i-Hhz-ZIoyuVWLE1Ht5w_7"
+                  + "&client_secret="+CredentialsDao.getValue("google_client_secret")
                   + "&redirect_uri=http://"+server+"/loginFunctionGoogle"
                   + "&grant_type=authorization_code";
 		try{

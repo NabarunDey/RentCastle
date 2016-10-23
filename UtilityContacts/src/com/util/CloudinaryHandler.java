@@ -6,13 +6,14 @@ import java.util.Map;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.dao.CredentialsDao;
 
 public class CloudinaryHandler {
 
 	private static Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
 			  "cloud_name", "rentcastlecloudimages",
 			  "api_key", "569927272779378",
-			  "api_secret", "3HczPLf1MKAbDdS8Omod1cV044w"));
+			  "api_secret", CredentialsDao.getValue("cloudinary_app_secret")));
 	
 	public static Map uploadImage(File file)
 	{
@@ -20,7 +21,7 @@ public class CloudinaryHandler {
 		
 		try {
 			 uploadResult = cloudinary.uploader().upload(file, ObjectUtils.emptyMap());
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

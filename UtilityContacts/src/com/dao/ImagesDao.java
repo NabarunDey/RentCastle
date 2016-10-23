@@ -132,7 +132,8 @@ public class ImagesDao {
 		{
 			/*File destFile  = new File(contextPath+"productImages\\", imageId+".jpg");
 			destFile.delete();*/
-			CloudinaryHandler.delete(imageId);
+			if(StringUtils.isNotEmpty(imageId))
+				CloudinaryHandler.delete(imageId);
 
 		}
 	}

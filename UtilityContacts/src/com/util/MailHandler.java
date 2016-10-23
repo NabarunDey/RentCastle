@@ -9,6 +9,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import com.dao.CredentialsDao;
 import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.sessionBeans.UserProfile;
@@ -21,7 +22,7 @@ public class MailHandler {
 	private static void initialize() {
 
 		final String username = "nabarundey@rentcastle.in";
-		final String password = "nabarunrent@1234";
+		final String password = CredentialsDao.getValue("mail_password");
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -148,7 +149,7 @@ public class MailHandler {
 			
 			
 			String order="\n\n\nOrder Id : ORD00"+ordersDBBean.getOrderid()+"\nProduct Id :PRD00"+ordersDBBean.getProductid()+
-							"\nProduct Name  : "+productsDBBean.getProductname()+"\nAddress : "+ordersDBBean.getAddress()+" "+ordersDBBean.getPin();
+							"\nProduct Name  : "+productsDBBean.getProductname();
 			message.setText("Dear User,"
 					+ "\n\n The following order have been placed on the items offerred by you."+order+"\n\nRegards,"
 					+ "\nRentCastle Team");
