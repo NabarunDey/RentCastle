@@ -1,5 +1,6 @@
 package com.databaseBeans;
 
+
 public class HelpDBBean {
 
 	private int id;
@@ -8,7 +9,7 @@ public class HelpDBBean {
 	private String mobile;
 	private String category;
 	private String message;
-	
+	private String status;
 	
 	public int getId() {
 		return id;
@@ -46,6 +47,11 @@ public class HelpDBBean {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	
 }

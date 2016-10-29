@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="helpAction" class="help.action.HelpAction"
+		scope="request">
+		<property name="helpAppService" ref="helpAppService" />
+		<property name="context" ref="helpAppContext" />
+	</bean>
+
+	<bean id="helpAppService" class="help.appService.HelpAppService"
+		scope="request">
+		<property name="helpDao" ref="helpDao" />
+		<property name="userProfile" ref="userProfile" />
+	</bean>
+
+	<bean id="helpAppContext" class="help.HelpAppContext" scope="session">
+	</bean>
+
+
+</beans>

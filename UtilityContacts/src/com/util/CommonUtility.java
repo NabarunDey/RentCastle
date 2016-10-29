@@ -42,7 +42,14 @@ public class CommonUtility {
 
 						PropertyUtils.setProperty(destinationBean, element, value);
 					}
-				} catch (IllegalAccessException e) {
+				} catch (IllegalArgumentException e) {
+					try {
+						PropertyUtils.setProperty(destinationBean, element, value.toString());
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}catch (IllegalAccessException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (InvocationTargetException e) {
@@ -50,6 +57,8 @@ public class CommonUtility {
 					e.printStackTrace();
 				} catch (NoSuchMethodException e) {
 					System.out.println(e.getMessage());
+				}catch (Exception e) {
+				System.out.println(e.getMessage());
 				}
 			}
 		}

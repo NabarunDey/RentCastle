@@ -20,6 +20,7 @@
 
 		<action name="profileManagementConfirm" class="profileManagementAction"
 			method="profileManagementConfirm">
+					<result name="success" type="tiles">profileManagementConfirm</result>
 		</action>
 		
 		<action name="changePasswordSubmit" class="profileManagementAction"

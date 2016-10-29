@@ -28,6 +28,6 @@
 	<include file="subapp-flow-order.xml"></include>
 	<include file="subapp-flow-payment.xml"></include>
 	<include file="subapp-flow-profileManagement.xml"></include>
-	
+	<include file="subapp-flow-help.xml"></include>
 
 </struts>

@@ -41,6 +41,10 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="credentialsDao" class="com.dao.CredentialsDao">
 		<property name="template" ref="template"></property>
 	</bean>
+	
+	<bean id="helpDao" class="com.dao.HelpDao">
+		<property name="template" ref="template"></property>
+	</bean>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

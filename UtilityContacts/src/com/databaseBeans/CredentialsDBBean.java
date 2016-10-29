@@ -2,13 +2,14 @@ package com.databaseBeans;
 
 public class CredentialsDBBean {
 
-	private String key;
+	private String element;
 	private String value;
-	public String getKey() {
-		return key;
+
+	public String getElement() {
+		return element;
 	}
-	public void setKey(String key) {
-		this.key = key;
+	public void setElement(String element) {
+		this.element = element;
 	}
 	public String getValue() {
 		return value;

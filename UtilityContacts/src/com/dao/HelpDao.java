@@ -1,15 +1,13 @@
 package com.dao;
 
-import java.util.List;
+import help.appService.inputBeans.HelpAppServiceIB;
 
-import order.appService.inputBeans.Address;
-
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.databaseBeans.AddressDBBean;
+import com.databaseBeans.HelpDBBean;
+import com.structures.status.HelpStatus;
+import com.util.CommonUtility;
 
 @Transactional
 public class HelpDao {
@@ -25,42 +23,21 @@ public class HelpDao {
 	}
 	
 	
-	public AddressDBBean getAddressForUser(String userName)
+	public boolean submitHelpRequest(HelpAppServiceIB helpAppServiceIB)
 	{
-		List<AddressDBBean> addressDBBeans = null;
-		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(AddressDBBean.class)
-				.add(Restrictions.like("username", userName));
-		addressDBBeans = criteria.list();
-		if(addressDBBeans.size()>=1)
-			return addressDBBeans.get(0);
-		return new AddressDBBean();
+		boolean result = false;
+		try{
+		HelpDBBean helpDBBean = new HelpDBBean();
+		CommonUtility.copyBean(helpAppServiceIB, helpDBBean);
+		helpDBBean.setStatus(HelpStatus.PENDING.toString());
+		template.save(helpDBBean);
+		result= true;
+		}catch(Exception e)
+		{
+			System.out.println("Exception in submitHelpRequest");
+		}
+		return result;
+		
 	}
 	
-	public void addAddress( Address address, String username)
-	{
-		AddressDBBean addressDBBean = new AddressDBBean(); 
-		addressDBBean.setAddress(address.getAddress());
-		addressDBBean.setCity(address.getCity());
-		addressDBBean.setPin(address.getPin());
-		addressDBBean.setState(address.getState());
-		addressDBBean.setTitle(address.getTitle());
-		addressDBBean.setUsername(username);
-		template.save(addressDBBean);
-	}
-	
-	public void updateAddress( Address address, String username)
-	{
-		AddressDBBean addressDBBean = new AddressDBBean(); 
-		addressDBBean.setAddressid(Integer.parseInt(address.getAddressId()));
-		addressDBBean.setAddress(address.getAddress());
-		addressDBBean.setCity(address.getCity());
-		addressDBBean.setPin(address.getPin());
-		addressDBBean.setState(address.getState());
-		addressDBBean.setTitle(address.getTitle());
-		addressDBBean.setUsername(username);
-		template.update(addressDBBean);
-	}
-	
-	
-
 }

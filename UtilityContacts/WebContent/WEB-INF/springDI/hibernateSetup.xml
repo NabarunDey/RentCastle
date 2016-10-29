@@ -9,7 +9,7 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://aa17lnxwcd73w9g.cueqtxpojjik.ap-south-1.rds.amazonaws.com:3306/ebdb"></property>
+			value="jdbc:mysql://aaqsb6o15c1oau.cueqtxpojjik.ap-south-1.rds.amazonaws.com:3306/ebdb"></property>
 		<property name="username" value="rentcastledb"></property>
 		<property name="password" value="rentcastledb"></property>
 	</bean>
@@ -37,7 +37,7 @@
 				<value>Payments.hbm.xml</value>
 				<value>Address.hbm.xml</value>
 				<value>Credentials.hbm.xml</value>
-				
+				<value>Help.hbm.xml</value>
 			</list>
 		</property>
 
@@ -79,6 +79,12 @@
 	</bean>
 
 	<bean id="addressDBBean" class="com.databaseBeans.AddressDBBean">
+	</bean>
+	
+	<bean id="credentialsDBBean" class="com.databaseBeans.CredentialsDBBean">
+	</bean>
+	
+	<bean id="helpDBBean" class="com.databaseBeans.HelpDBBean">
 	</bean>
 
 </beans>

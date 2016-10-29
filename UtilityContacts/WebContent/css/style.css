@@ -2270,7 +2270,6 @@ ul.s_icons {
 	width: 96.3333%;
 	outline: none;
 	-webkit-appearance: none;
-	text-transform: capitalize;
 }
 
 .contact-form textarea {
@@ -2278,7 +2277,7 @@ ul.s_icons {
 	height: 120px;
 }
 
-.contact-form input[type="submit"] {
+.contact-form input[type="submit"],  input[type="button"]  {
 	margin-top: 10px;
 	-webkit-appearance: none;
 	border: none;
