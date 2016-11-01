@@ -15,10 +15,15 @@
 	<div class="top_bg">
 		<div class="container">
 			<div class="header_top">
+				<div class="top_left">
+					<h2>
+						<a href="<s:url  action='helpInput'/>">Click Here</a> to request an item if not available here. 
+					</h2>
+				</div>
 				<div class="top_right">
 					<ul>
-						<li id="help"><a
-								href="<s:url  action='helpInput'/>">Help</a></li>
+						<li id="help"><a href="<s:url  action='helpInput'/>">Contact
+								Us</a></li>
 						<s:if
 							test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
 							<li id="addProductButton"><a
@@ -34,60 +39,80 @@
 						</s:else>
 						<s:if
 							test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id = "orderHistory"><a href="<s:url  action='viewOrders'/>">Order History</a></li>
+							<li id="orderHistory"><a
+								href="<s:url  action='viewOrders'/>">Order History</a></li>
 						</s:if>
 						<s:else>
-							<li id = "orderHistory" style="display: none"><a href="<s:url  action='viewOrders'/>">Order History</a></li>
+							<li id="orderHistory" style="display: none"><a
+								href="<s:url  action='viewOrders'/>">Order History</a></li>
 						</s:else>
-						
+
 						<s:if
 							test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id = "orderHistoryVendor"><a href="<s:url  action='viewOrdersVendor'/>">Order History</a></li>
+							<li id="orderHistoryVendor"><a
+								href="<s:url  action='viewOrdersVendor'/>">Order History</a></li>
 						</s:if>
 						<s:else>
-							<li id = "orderHistoryVendor" style="display: none"><a href="<s:url  action='viewOrdersVendor'/>">Order History</a></li>
+							<li id="orderHistoryVendor" style="display: none"><a
+								href="<s:url  action='viewOrdersVendor'/>">Order History</a></li>
 						</s:else>
-						
+
 						<s:if
 							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id = "getOrdersForAdmin"><a href="<s:url  action='getOrdersForAdmin'/>">Order History Admin</a></li>
+							<li id="getOrdersForAdmin"><a
+								href="<s:url  action='getOrdersForAdmin'/>">Order History
+									Admin</a></li>
 						</s:if>
 						<s:else>
-							<li id = "getOrdersForAdmin" style="display: none"><a href="<s:url  action='getOrdersForAdmin'/>">Order History Admin</a></li>
+							<li id="getOrdersForAdmin" style="display: none"><a
+								href="<s:url  action='getOrdersForAdmin'/>">Order History
+									Admin</a></li>
 						</s:else>
 
 						<s:if
 							test="%{ null != #attr.userProfile && ('CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) || 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) )}">
-							<li id = "paymentHistory"><a href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
+							<li id="paymentHistory"><a
+								href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
 						</s:if>
 						<s:else>
-							<li id = "paymentHistory" style="display: none"><a href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
+							<li id="paymentHistory" style="display: none"><a
+								href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
 						</s:else>
-						
+
 						<s:if
 							test="%{ null != #attr.userProfile && ('CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) || 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) )}">
-							<li id = "editProfile"><a href="<s:url  action='profileManagementInput'/>">Edit Profile</a></li>
+							<li id="editProfile"><a
+								href="<s:url  action='profileManagementInput'/>">Edit
+									Profile</a></li>
 						</s:if>
 						<s:else>
-							<li id = "editProfile" style="display: none"><a href="<s:url  action='profileManagementInput'/>">Edit Profile</a></li>
+							<li id="editProfile" style="display: none"><a
+								href="<s:url  action='profileManagementInput'/>">Edit
+									Profile</a></li>
 						</s:else>
-						
-						
+
+
 						<s:if
 							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id = "paymentHistory"><a href="<s:url  action='getPaymentsAdmin'/>">Payment Admin</a></li>
+							<li id="paymentHistory"><a
+								href="<s:url  action='getPaymentsAdmin'/>">Payment Admin</a></li>
 						</s:if>
 						<s:else>
-							<li id = "paymentHistory" style="display: none"><a href="<s:url  action='getPaymentsAdmin'/>">Payment Admin</a></li>
+							<li id="paymentHistory" style="display: none"><a
+								href="<s:url  action='getPaymentsAdmin'/>">Payment Admin</a></li>
 						</s:else>
-						
-						
+
+
 						<s:if
 							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id = "getPendingProducts"><a href="<s:url  action='getPendingProducts'/>">Pending Products</a></li>
+							<li id="getPendingProducts"><a
+								href="<s:url  action='getPendingProducts'/>">Pending
+									Products</a></li>
 						</s:if>
 						<s:else>
-							<li id = "getPendingProducts" style="display: none"><a href="<s:url  action='getPendingProducts'/>">Pending Products</a></li>
+							<li id="getPendingProducts" style="display: none"><a
+								href="<s:url  action='getPendingProducts'/>">Pending
+									Products</a></li>
 						</s:else>
 						<li class="login">
 							<div id="loginContainer">
@@ -106,28 +131,37 @@
 													<label for="password">Password</label> <input
 														type="password" name="password" id="password">
 												</fieldset>
-												<input id="login" value="Sign in" onclick="doAjaxPost()" type="button">
-												<div id= "loginError" style="color: red;display : none; font-size: 13px" ></div>
-												<input id="loginFB" style="margin-top:5px;background-color:#354F88;width:220px;height:35px;color:white;border:none;cursor:pointer" value="Sign in using Facebook" onclick="top.location.href='http://www.facebook.com/dialog/oauth?scope=public_profile,email&client_id=841162669353192&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction'">
-												<input id="loginGoogle" style="margin-top:5px;background-color:#de3b17;width:220px;height:35px;color:white;border:none;cursor:pointer" value="Sign in using Google" onclick="top.location.href='https://accounts.google.com/o/oauth2/auth?scope=email&response_type=code&client_id=968847956660-7cs0n3ke5m69hj96hp9sfmqql34gsd4s.apps.googleusercontent.com&approval_prompt=auto&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunctionGoogle'">
-											
-											
+												<input id="login" value="Sign in" onclick="doAjaxPost()"
+													type="button">
+												<div id="loginError"
+													style="color: red; display: none; font-size: 13px"></div>
+												<input id="loginFB"
+													style="margin-top: 5px; background-color: #354F88; width: 220px; height: 35px; color: white; border: none; cursor: pointer"
+													value="Sign in using Facebook"
+													onclick="top.location.href='http://www.facebook.com/dialog/oauth?scope=public_profile,email&client_id=841162669353192&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction'">
+												<input id="loginGoogle"
+													style="margin-top: 5px; background-color: #de3b17; width: 220px; height: 35px; color: white; border: none; cursor: pointer"
+													value="Sign in using Google"
+													onclick="top.location.href='https://accounts.google.com/o/oauth2/auth?scope=email&response_type=code&client_id=968847956660-7cs0n3ke5m69hj96hp9sfmqql34gsd4s.apps.googleusercontent.com&approval_prompt=auto&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunctionGoogle'">
+
+
 												<label for="checkbox"><input type="checkbox"
 													id="checkbox"> <i>Remember me</i></label>
 											</fieldset>
-											<span><a href="forgotPasswordInput">Forgot your password?</a></span>
+											<span><a href="forgotPasswordInput">Forgot your
+													password?</a></span>
 										</form>
 									</div>
 									<div id="loggedin" style="display: none"></div>
-									<div id="logout" style="display: none">
-										<a href="<s:url  action='logoutFunction'/>">Logout</a>
-									</div>
+									<li><div id="logout" style="display: none">
+											<a href="<s:url  action='logoutFunction'/>">Logout</a>
+										</div></li>
 								</s:if>
 								<s:else>
 									<div id="loggedin">Welcome ${userProfile.firstName}</div>
-									<div id="logout">
-										<a href="<s:url  action='logoutFunction'/>">Logout</a>
-									</div>
+									<li><div id="logout">
+											<a href="<s:url  action='logoutFunction'/>">Logout</a>
+										</div></li>
 								</s:else>
 							</div>
 						</li>

@@ -48,8 +48,10 @@
 								name="productSubtype" value="Bed"><i></i>Bed</label>
 							<label class="radio"><input type="radio"
 								name="productSubtype" value="Almirah"><i></i>Almirah</label>
-								<label class="radio"><input type="radio"
+							<label class="radio"><input type="radio"
 								name="productSubtype" value="Refrigerator"><i></i>Refrigerator</label>
+							<label class="radio"><input type="radio"
+								name="productSubtype" value="Television"><i></i>Television</label>	
 							<label class="radio"><input type="radio"
 								name="productSubtype" value="WashingMachine"><i></i>WashingMachine</label>
 						</div>

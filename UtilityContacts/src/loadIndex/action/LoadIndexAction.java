@@ -3,6 +3,8 @@ package loadIndex.action;
 import java.util.List;
 
 import loadIndex.LoadIndexContext;
+import loadIndex.appService.LoadIndexAppService;
+import loadIndex.projector.outputBeans.AdsSectionProjectorOB;
 import productManagement.appService.ProductManagementAppService;
 import search.projector.outputBeans.SearchProductProjectorOB;
 
@@ -13,11 +15,14 @@ public class LoadIndexAction {
 
 	LoadIndexContext context;
 	ProductManagementAppService productManagementAppService;
+	LoadIndexAppService loadIndexAppService;
 	
 	public String loadIndex()
 	{
 		List<SearchProductProjectorOB> featuredProducts = productManagementAppService.getFeaturedProducts();
+		AdsSectionProjectorOB adsSectionProjectorOB = loadIndexAppService.getAdsSection();
 		context.setFeaturedProducts(featuredProducts);
+		context.setAdsSectionProjectorOB(adsSectionProjectorOB);
 		return "success";
 	}
 
@@ -37,7 +42,13 @@ public class LoadIndexAction {
 			ProductManagementAppService productManagementAppService) {
 		this.productManagementAppService = productManagementAppService;
 	}
-	
-	
+
+	public LoadIndexAppService getLoadIndexAppService() {
+		return loadIndexAppService;
+	}
+
+	public void setLoadIndexAppService(LoadIndexAppService loadIndexAppService) {
+		this.loadIndexAppService = loadIndexAppService;
+	}
 	
 }

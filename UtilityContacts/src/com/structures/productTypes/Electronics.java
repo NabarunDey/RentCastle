@@ -3,7 +3,9 @@ package com.structures.productTypes;
 public enum Electronics {
 
 	REFRIGERATOR("Refrigerator"),
-	WASHINGMACHINE("WashingMachine");
+	WASHINGMACHINE("WashingMachine"),
+	TELEVISION("Television");
+
 
 	private String text;
 

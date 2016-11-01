@@ -64,6 +64,9 @@
 											<li><a
 												href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="'WashingMachine'"></s:param></s:url>">Washing
 													Machine</a></li>
+											<li><a
+												href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="'Television'"></s:param></s:url>">Television</a></li>
+											
 										</ul>
 									</div>
 								</div>

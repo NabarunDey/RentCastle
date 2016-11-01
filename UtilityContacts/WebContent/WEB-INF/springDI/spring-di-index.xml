@@ -7,9 +7,20 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="loadIndexAction" class="loadIndex.action.LoadIndexAction"
 		scope="request">
 		<property name="productManagementAppService" ref="productManagementAppService" />
+		<property name="loadIndexAppService" ref="loadIndexAppService" />
 		<property name="context" ref="loadIndexContext" />
-		
 	</bean>
+	
+	<bean id="loadIndexAppService" class="loadIndex.appService.LoadIndexAppService"
+		scope="request">
+		<property name="loadIndexProjector" ref="loadIndexProjector" />
+		<property name="dynamicContentDao" ref="dynamicContentDao" />
+	</bean>
+	
+	<bean id="loadIndexProjector" class="loadIndex.projector.LoadIndexProjector"
+		scope="request">
+	</bean>
+	
 	<bean id="loadIndexContext" class="loadIndex.LoadIndexContext">
 	</bean>
 
