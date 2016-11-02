@@ -32,7 +32,9 @@
 						</div>
 						<div class="shoping1_of_2">
 							<h4>
-								<a href="viewProduct.action?productId=<s:property value="productId"/>"><s:property value="productName" /></a>
+								<a
+									href="viewProduct.action?productId=<s:property value="productId"/>"><s:property
+										value="productName" /></a>
 							</h4>
 							<span>qty <b>1</b></span>
 							<ul class="s_icons">
@@ -52,6 +54,9 @@
 								For <s:property value="periodValue" /> <s:property
 									value="periodUnit" /></span>
 						</p>
+						<p>
+							Delivery Charge<span><s:property value="deliveryCharge" /></span>
+						</p>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -60,7 +65,8 @@
 	</div>
 	<div class="shoping_bag2">
 		<div class="shoping_left">
-			<a class="btn1" href="<s:url action='getCartOrderInput'/>">place order</a>
+			<a class="btn1" href="<s:url action='getCartOrderInput'/>">place
+				order</a>
 		</div>
 		<div class="clearfix"></div>
 	</div>

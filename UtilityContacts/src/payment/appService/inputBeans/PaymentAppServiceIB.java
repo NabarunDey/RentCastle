@@ -11,8 +11,16 @@ public class PaymentAppServiceIB {
 	private String tousername;
 	private String rentamount;
 	private String paymentStatus;
+	private String deliveryCharge;
 	private String securitymoney;
 	
+	
+	public String getDeliveryCharge() {
+		return deliveryCharge;
+	}
+	public void setDeliveryCharge(String deliveryCharge) {
+		this.deliveryCharge = deliveryCharge;
+	}
 	public String getRentamount() {
 		return rentamount;
 	}

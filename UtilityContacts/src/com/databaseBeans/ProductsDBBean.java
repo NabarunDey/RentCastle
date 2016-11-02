@@ -6,11 +6,9 @@ import javax.persistence.Id;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 
 @Entity
-@Indexed
 public class ProductsDBBean {
 
 	private int productid;
@@ -27,6 +25,8 @@ public class ProductsDBBean {
 	private String productcity;
 	private String productpin;
 	private String approvalStatus;
+	private String deliveryCharge;
+	
 
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	public String getDescription() {
@@ -117,6 +117,12 @@ public class ProductsDBBean {
 		this.productpin = productpin;
 	}
 
+	public String getDeliveryCharge() {
+		return deliveryCharge;
+	}
+	public void setDeliveryCharge(String deliveryCharge) {
+		this.deliveryCharge = deliveryCharge;
+	}
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder("ProductName: ").append(this.getProductname()).append(" | Description:").append(this.getDescription()).append(" | ProductType:").append(this.getProducttype()).append(" | SubproductType:").append(this.getSubproducttype());

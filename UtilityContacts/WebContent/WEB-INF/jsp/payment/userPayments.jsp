@@ -18,6 +18,7 @@
 						<th>Date</th>
 						<th>SecurityMoney</th>
 						<th>Rent Amount</th>
+						<th>Delivery Charges</th>
 						<th>Status</th>
 					</tr>
 				</thead>
@@ -28,14 +29,14 @@
 							<td>ORD00<s:property value="orderid" /></td>
 							<td>
 							<s:if test="%{ null != #attr.userProfile && fromusername.equalsIgnoreCase(#attr.userProfile.userName) }">
-							<s:property value="fromusername" />
+							Me
 							</s:if>
 							<s:else>
 							RentCastle
 							</s:else>
 							</td>
 							<td><s:if test="%{ null != #attr.userProfile && tousername.equalsIgnoreCase(#attr.userProfile.userName) }">
-							<s:property value="tousername" />
+							Me
 							</s:if>
 							<s:else>
 							RentCastle
@@ -44,6 +45,7 @@
 							<td><s:property value="datetime" /></td>
 							<td><s:property value="securitymoney" /></td>
 							<td><s:property value="rentamount" /></td>
+							<td><s:property value="deliveryCharge" /></td>
 							<td><s:property value="paymentStatus" /></td>
 						</tr>
 					</s:iterator>

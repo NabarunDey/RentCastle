@@ -112,6 +112,7 @@ public class OrderAppService {
 			paymentAppServiceIB.setFromusername(userProfile.getUserName());
 			paymentAppServiceIB.setOrderid(ordersDBBean.getOrderid());
 			paymentAppServiceIB.setRentamount(cartItem.getRentAmount());
+			paymentAppServiceIB.setDeliveryCharge(cartItem.getDeliveryCharge());
 			paymentAppServiceIB.setSecuritymoney(cartItem.getSecurityMoney());
 			ProductsDBBean productsDBBean =productsDao.getProductDetails(ordersDBBean.getProductid());
 			UsersDBBean usersDBBean = usersDao.getUserDetails(productsDBBean.getUsername());

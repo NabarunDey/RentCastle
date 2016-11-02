@@ -17,6 +17,7 @@ public class CartItem {
 	private String productType;
 	private String productSubtype;
 	private String securityMoney;
+	private String deliveryCharge;
 	private boolean deliveryAvailable;
 	private String itemTotal;
 	
@@ -110,4 +111,11 @@ public class CartItem {
 	public void setRentId(int rentId) {
 		this.rentId = rentId;
 	}
+	public String getDeliveryCharge() {
+		return deliveryCharge;
+	}
+	public void setDeliveryCharge(String deliveryCharge) {
+		this.deliveryCharge = deliveryCharge;
+	}
+	
 }

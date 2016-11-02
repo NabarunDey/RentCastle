@@ -17,6 +17,7 @@
 		<property name="status"></property>
 		<property name="description"></property>
 		<property name="securitymoney"></property>
+		<property name="deliveryCharge"></property>
 		<property name="productstate"></property>
 		<property name="productcity"></property>
 		<property name="productpin"></property>

@@ -81,6 +81,7 @@ public class RentOffersDao {
 
 		for(RentOffersDBBean rentOffersDBBean : rentOffersDBBeans)
 		{
+			try{
 			if(rentMap.containsKey(String.valueOf(rentOffersDBBean.getProductid()))
 					&& Integer.parseInt(rentMap.get(String.valueOf(rentOffersDBBean.getProductid())).getAmount().trim()) 
 					< Integer.parseInt(rentOffersDBBean.getAmount().trim()))
@@ -88,6 +89,10 @@ public class RentOffersDao {
 				continue;
 			}
 			rentMap.put(String.valueOf(rentOffersDBBean.getProductid()), rentOffersDBBean);
+			}catch(Exception e)
+			{
+				System.out.println("Error in RentOffersDao.getMinimumRents rent id :"+rentOffersDBBean.getRentid());
+			}
 		}
 
 		return rentMap;

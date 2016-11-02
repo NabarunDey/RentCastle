@@ -36,6 +36,7 @@ public class PaymentsDao {
 			PaymentsDBBean paymentsDBBean = new PaymentsDBBean();
 			paymentsDBBean.setSecuritymoney(paymentAppServiceIB.getSecuritymoney());
 			paymentsDBBean.setRentamount(paymentAppServiceIB.getRentamount());
+			paymentsDBBean.setDeliveryCharge(paymentAppServiceIB.getDeliveryCharge());
 			paymentsDBBean.setPaymentStatus(PaymentStatus.PENDING.toString());
 			paymentsDBBean.setFromusername(paymentAppServiceIB.getFromusername());
 			paymentsDBBean.setOrderid(paymentAppServiceIB.getOrderid());

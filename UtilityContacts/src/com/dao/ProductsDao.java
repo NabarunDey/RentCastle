@@ -60,6 +60,12 @@ public class ProductsDao {
 				pinConcat = pinConcat+pin+"|";
 			}
 		}
+		
+		if(StringUtils.isEmpty(productsDBBean.getDeliveryCharge()))
+		{
+			productsDBBean.setDeliveryCharge("0");
+		}
+		
 		productsDBBean.setProductpin(pinConcat);
 		productsDBBean.setImages(imageIdsConcat);
 		productsDBBean.setUsername(addProductAppServiceIB.getUsername());

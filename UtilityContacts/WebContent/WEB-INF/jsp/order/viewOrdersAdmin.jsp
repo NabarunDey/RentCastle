@@ -15,19 +15,27 @@
 						<th>OrderId</th>
 						<th>Date</th>
 						<th>Status</th>
+						<th>Address</th>
+						<th>Pin</th>
 						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<s:iterator value="context.orderProjectorOB.orderItems">
-						<tr >
+						<tr>
 							<td>ORD00<s:property value="ordersDBBean.orderid" /></td>
 							<td><s:property value="ordersDBBean.datetime" /></td>
-							<td>
-								<s:select list="{'INITIATED','PROCESSING','COMPLETE'}" id="%{'orderstatus' + #attr['ordersDBBean.orderid']}"   headerKey="%{ordersDBBean.orderstatus}" headerValue="%{ordersDBBean.orderstatus}" class="form-control" theme="simple"> 
-								</s:select>
-								</td>
-							<td><input type="button" class="btn btn-primary" value="Save" onclick="changeOrderStatus(${ordersDBBean.orderid})"/></td>
+							<td><s:select list="{'INITIATED','PROCESSING','COMPLETE'}"
+									id="%{'orderstatus' + #attr['ordersDBBean.orderid']}"
+									headerKey="%{ordersDBBean.orderstatus}"
+									headerValue="%{ordersDBBean.orderstatus}" class="form-control"
+									theme="simple">
+								</s:select></td>
+							<td><s:property value="ordersDBBean.address" /></td>
+							<td><s:property value="ordersDBBean.pin" /></td>
+							<td><input type="button" class="btn btn-primary"
+								value="Save"
+								onclick="changeOrderStatus(${ordersDBBean.orderid})" /></td>
 						</tr>
 					</s:iterator>
 				</tbody>

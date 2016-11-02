@@ -43,6 +43,7 @@ public class CartProjector {
 			cartItem.setPeriodValue(rentOffersDBBean.getPeriodvalue());
 			cartItem.setPeriodUnit(rentOffersDBBean.getPeriodunit());
 			cartItem.setSecurityMoney(productsDBBean.getSecuritymoney());
+			cartItem.setDeliveryCharge(productsDBBean.getDeliveryCharge());
 			cartItem.setImageUrl(cartDaoOB.getImageMap().get(String.valueOf(productsDBBean.getProductid())).getImagepath());
 			cartItem.setProductCity(productsDBBean.getProductcity());
 			cartItem.setProductState(productsDBBean.getProductstate());

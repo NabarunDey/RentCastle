@@ -20,6 +20,7 @@
 						<th>Date</th>
 						<th>SecurityMoney</th>
 						<th>Rent Amount</th>
+						<th>Delivery Charge</th>
 						<th>Status</th>
 						<th>Action</th>
 					</tr>
@@ -34,6 +35,8 @@
 							<td><s:property value="datetime" /></td>
 							<td>Rs. <s:property value="securitymoney" /></td>
 							<td>Rs. <s:property value="rentamount" /></td>
+							<td><s:property value="deliveryCharge" /></td>
+							
 							<td>
 							<s:select list="{'PENDING','COMPLETED','UPCOMING'}" id="%{'paymentstatus' + #attr['paymentid']}"   headerKey="%{paymentStatus}" headerValue="%{paymentStatus}" class="form-control" theme="simple"> 
 								</s:select>

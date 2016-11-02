@@ -81,6 +81,7 @@
 						<th>Product Name</th>
 						<th>Security Money</th>
 						<th>Rent Amount</th>
+						<th>Delivery Charge</th>
 						<th>Total Amount</th>
 					</tr>
 				</thead>
@@ -96,6 +97,7 @@
 									</td>
 							<td>Rs. <s:property value="securityMoney" /></td>
 							<td>Rs. <s:property value="rentAmount" /></td>
+							<td>Rs. <s:property value="deliveryCharge" /></td>
 							<td>Rs. <s:property value="itemTotal" /></td>
 						</tr>
 					</s:iterator>

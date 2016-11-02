@@ -148,6 +148,14 @@
 						id="securityMoney" />
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<label for="security" class="col-sm-2 control-label">Delivery Charge</label>
+				<div class="col-sm-4">
+					<s:textfield name="deliveryCharge" cssClass="form-control"
+						id="deliveryCharge" />
+				</div>
+			</div>
 			<div class="form-group">
 				<label for="productState" class="col-sm-2 control-label">Select
 					State</label>

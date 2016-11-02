@@ -17,6 +17,7 @@ public class AddProductAppServiceIB {
 	private String productcity;
 	private String productpin;
 	private String description;
+	private String deliveryCharge;
 	private AddRentOffersAppServiceIB addRentOfferAppServiceIB;
 	
 
@@ -104,6 +105,12 @@ public class AddProductAppServiceIB {
 	}
 	public void setProductpin(String productpin) {
 		this.productpin = productpin;
+	}
+	public String getDeliveryCharge() {
+		return deliveryCharge;
+	}
+	public void setDeliveryCharge(String deliveryCharge) {
+		this.deliveryCharge = deliveryCharge;
 	}
 	
 }

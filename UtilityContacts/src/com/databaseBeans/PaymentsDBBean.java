@@ -12,8 +12,15 @@ public class PaymentsDBBean {
 	private String rentamount;
 	private String securitymoney;
 	private String paymentStatus;
+	private String deliveryCharge;
 	
 	
+	public String getDeliveryCharge() {
+		return deliveryCharge;
+	}
+	public void setDeliveryCharge(String deliveryCharge) {
+		this.deliveryCharge = deliveryCharge;
+	}
 	public String getRentamount() {
 		return rentamount;
 	}
