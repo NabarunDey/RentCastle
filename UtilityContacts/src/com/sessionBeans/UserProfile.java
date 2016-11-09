@@ -10,8 +10,18 @@ public class UserProfile {
 	private String numberOfItemsInCart;
 	private String pin;
 	private String email;
+	private String mobile;
 	
 	
+
+	
+	
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 	public String getEmail() {
 		return email;
 	}

@@ -94,6 +94,7 @@ public class LoginAppService {
 			userProfile.setUserType(usersDBBean.getUsertype());
 			userProfile.setPin(usersDBBean.getPinno());
 			userProfile.setEmail(usersDBBean.getEmail());
+			userProfile.setMobile(usersDBBean.getMobileno1());
 
 			loginProjectorOB.setUserProfile(userProfile);
 		}

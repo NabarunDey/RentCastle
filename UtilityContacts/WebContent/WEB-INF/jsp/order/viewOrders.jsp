@@ -12,6 +12,10 @@
 				<thead>
 					<tr>
 						<th>OrderId</th>
+						<th>ProductId</th>
+						<th>ProductName</th>
+						<th>RentOffer</th>
+						<th>OrderId</th>
 						<th>Date</th>
 						<th>Status</th>
 						<s:if test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }"><th>Address</th></s:if>
@@ -23,6 +27,9 @@
 					<s:iterator value="context.orderProjectorOB.orderItems">
 						<tr id="order<s:property value='ordersDBBean.orderid'/>">
 							<td>ORD00<s:property value="ordersDBBean.orderid" /></td>
+							<td>PRD00<s:property value="productsDBBean.productid" /></td>
+							<td><s:property value="productsDBBean.productname" /></td>
+							<td><s:property value="rentOffersDBBean.periodvalue" /> <s:property value="rentOffersDBBean.periodunit" /> - Rs. <s:property value="rentOffersDBBean.amount" /></td>
 							<td><s:property value="ordersDBBean.datetime" /></td>
 							<td><s:property value="ordersDBBean.orderstatus" /></td>
 							<s:if test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }">

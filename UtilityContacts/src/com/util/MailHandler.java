@@ -96,7 +96,7 @@ public class MailHandler {
 		}
 	}
 	
-	public static boolean orderConfirmationMailCustomer(ProductsDBBean productsDBBean, OrdersDBBean ordersDBBean,UserProfile userProfile)
+	public static boolean orderConfirmationMailCustomer(ProductsDBBean productsDBBean, OrdersDBBean ordersDBBean,UserProfile userProfile,int total)
 	{
 		boolean mailSuccess =false;
 		try {
@@ -115,7 +115,8 @@ public class MailHandler {
 			
 			
 			String order="\n\n\nOrder Id : ORD00"+ordersDBBean.getOrderid()+"\nProduct Id :PRD00"+ordersDBBean.getProductid()+
-					"\nProduct Name  : "+productsDBBean.getProductname()+"\nAddress : "+ordersDBBean.getAddress()+" "+ordersDBBean.getPin();
+					"\nProduct Name  : "+productsDBBean.getProductname()+"\nAddress : "+ordersDBBean.getAddress()+" "+ordersDBBean.getPin()
+					+"\nTotal Amount  : "+total;
 			message.setText("Dear "+userProfile.getFirstName()+","
 					+ "\n\n We have received the following order."+order+"\n\nRegards,"
 					+ "\nRentCastle Team");

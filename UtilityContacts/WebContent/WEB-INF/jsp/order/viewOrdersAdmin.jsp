@@ -13,6 +13,9 @@
 				<thead>
 					<tr>
 						<th>OrderId</th>
+						<th>ProductId</th>
+						<th>ProductName</th>
+						<th>RentOffer</th>
 						<th>Date</th>
 						<th>Status</th>
 						<th>Address</th>
@@ -24,6 +27,9 @@
 					<s:iterator value="context.orderProjectorOB.orderItems">
 						<tr>
 							<td>ORD00<s:property value="ordersDBBean.orderid" /></td>
+							<td>PRD00<s:property value="productsDBBean.productid" /></td>
+							<td><s:property value="productsDBBean.productname" /></td>
+							<td><s:property value="rentOffersDBBean.periodvalue" /> <s:property value="rentOffersDBBean.periodunit" /> - Rs. <s:property value="rentOffersDBBean.amount" /></td>
 							<td><s:property value="ordersDBBean.datetime" /></td>
 							<td><s:select list="{'INITIATED','PROCESSING','COMPLETE'}"
 									id="%{'orderstatus' + #attr['ordersDBBean.orderid']}"

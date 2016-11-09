@@ -32,6 +32,7 @@ import com.sessionBeans.UserProfile;
 import com.structures.status.OrderStatus;
 import com.structures.userTypes.UserType;
 import com.util.MailHandler;
+import com.util.SMSHandler;
 
 /**
  * @author nd29794
@@ -116,8 +117,17 @@ public class OrderAppService {
 			paymentAppServiceIB.setSecuritymoney(cartItem.getSecurityMoney());
 			ProductsDBBean productsDBBean =productsDao.getProductDetails(ordersDBBean.getProductid());
 			UsersDBBean usersDBBean = usersDao.getUserDetails(productsDBBean.getUsername());
+			
+			int total = 0;
+			if(StringUtils.isNotEmpty(cartItem.getRentAmount()))
+				total=total+Integer.parseInt(cartItem.getRentAmount());
+			if(StringUtils.isNotEmpty(cartItem.getDeliveryCharge()))
+				total=total+Integer.parseInt(cartItem.getDeliveryCharge());
+			if(StringUtils.isNotEmpty(cartItem.getSecurityMoney()))
+				total=total+Integer.parseInt(cartItem.getSecurityMoney());
+			SMSHandler.sendOrderConfirmationSmsCustomer(userProfile.getMobile(), productsDBBean, ordersDBBean, total);
 			MailHandler.orderConfirmationMailVendor(productsDBBean,ordersDBBean,usersDBBean.getEmail());
-			MailHandler.orderConfirmationMailCustomer(productsDBBean,ordersDBBean,userProfile);
+			MailHandler.orderConfirmationMailCustomer(productsDBBean,ordersDBBean,userProfile,total);
 			paymentAppServiceIB.setTousername(productsDBBean.getUsername());
 			paymentAppServiceIBs.add(paymentAppServiceIB);
 			}catch(Exception e){
