@@ -89,10 +89,10 @@
 					<s:iterator value="context.orderProjectorOB.cartItems">
 						<tr id="cart<s:property value='productId'/>">
 							<td><s:property value="productName" />
-							<div id="errorProductId<s:property value='productId'/>"
+							<div class="errorProductId<s:property value='productId'/>"
 									style="display: none; color: #ff0000;">This item cannot
 									be delivered at the given Address.</div>
-							<div id="successProductId<s:property value='productId'/>"
+							<div class="successProductId<s:property value='productId'/>"
 									style="display: none; color: #17de69;">Item available in given address.</div>		
 									</td>
 							<td>Rs. <s:property value="securityMoney" /></td>

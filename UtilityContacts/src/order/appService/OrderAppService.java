@@ -125,6 +125,9 @@ public class OrderAppService {
 				total=total+Integer.parseInt(cartItem.getDeliveryCharge());
 			if(StringUtils.isNotEmpty(cartItem.getSecurityMoney()))
 				total=total+Integer.parseInt(cartItem.getSecurityMoney());
+			
+			SMSHandler.sendOrderConfirmationSmsVendor(usersDBBean.getMobileno1(), productsDBBean, ordersDBBean,cartItem, total);
+
 			SMSHandler.sendOrderConfirmationSmsCustomer(userProfile.getMobile(), productsDBBean, ordersDBBean, total);
 			MailHandler.orderConfirmationMailVendor(productsDBBean,ordersDBBean,usersDBBean.getEmail());
 			MailHandler.orderConfirmationMailCustomer(productsDBBean,ordersDBBean,userProfile,total);

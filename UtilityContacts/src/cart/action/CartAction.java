@@ -38,6 +38,8 @@ public class CartAction  extends ActionSupport {
 		cartAppServiceIB.setProductId(productId);
 		cartAppServiceIB.setRentOfferId(rentOfferId);
 		cartAppService.removeFromCart(cartAppServiceIB);
+		CartProjectorOB cartProjectorOB = cartAppService.viewCart();
+		context.setCartProjectorOB(cartProjectorOB);
 		return "success";
 	}
 	
