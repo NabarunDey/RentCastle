@@ -1,8 +1,6 @@
 package com.dao;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -10,7 +8,6 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.databaseBeans.DynamicContentDBBean;
-import com.databaseBeans.ProductsDBBean;
 
 @Transactional
 public class DynamicContentDao {

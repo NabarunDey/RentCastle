@@ -17,7 +17,6 @@ import userRegistration.dao.outputBeans.UserRegistrationDaoOB;
 import cart.appService.inputBeans.CartAppServiceIB;
 import cart.dao.outputBeans.CartDaoOB;
 
-import com.databaseBeans.RentOffersDBBean;
 import com.databaseBeans.UsersDBBean;
 import com.structures.userTypes.UserType;
 import com.util.CommonUtility;

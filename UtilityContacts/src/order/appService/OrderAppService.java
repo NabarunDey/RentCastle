@@ -34,6 +34,8 @@ import com.structures.userTypes.UserType;
 import com.util.MailHandler;
 import com.util.SMSHandler;
 
+import currentHoldings.appService.CurrentHoldingsAppService;
+
 /**
  * @author nd29794
  *
@@ -49,6 +51,7 @@ public class OrderAppService {
 	PaymentsDao paymentsDao;
 	AddressDao addressDao;
 	UsersDao usersDao;
+	CurrentHoldingsAppService currentHoldingsAppService;
 
 	public OrderProjectorOB getCartOrderInput() {
 		CartProjectorOB cartProjectorOB = cartAppService.viewCart();
@@ -211,8 +214,15 @@ public class OrderAppService {
 	}
 
 	public void changeOrderStatus(OrderAppServiceIB orderAppServiceIB) {
-		ordersDao.changeOrderStatus(orderAppServiceIB.getOrderId(),
-				OrderStatus.valueOf(orderAppServiceIB.getOrderStatus()));
+		if(null!=userProfile && userProfile.getUserType().equals(UserType.ADMIN))
+		{
+		   OrdersDBBean ordersDBBean =ordersDao.changeOrderStatus(orderAppServiceIB.getOrderId(),
+					OrderStatus.valueOf(orderAppServiceIB.getOrderStatus()));
+		   if(ordersDBBean.getOrderstatus().equals(OrderStatus.COMPLETE))
+		   {
+			   currentHoldingsAppService.addCurrentHolding(ordersDBBean);
+		   }
+		}
 	}
 
 	public CartAppService getCartAppService() {
@@ -286,7 +296,14 @@ public class OrderAppService {
 	public void setUsersDao(UsersDao usersDao) {
 		this.usersDao = usersDao;
 	}
-	
-	
+
+	public CurrentHoldingsAppService getCurrentHoldingsAppService() {
+		return currentHoldingsAppService;
+	}
+
+	public void setCurrentHoldingsAppService(
+			CurrentHoldingsAppService currentHoldingsAppService) {
+		this.currentHoldingsAppService = currentHoldingsAppService;
+	}
 
 }

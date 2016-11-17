@@ -99,5 +99,6 @@ public class PaymentsDao {
 		paymentsDBBeans = criteria.list();
 		return paymentsDBBeans;
 	}
+	
 
 }

@@ -126,5 +126,11 @@ public class RentOffersDao {
 		return rentOffersDBBean;
 	}
 
+	public RentOffersDBBean getRentOffersById(int rentId)
+	{
+		RentOffersDBBean rentOffersDBBean = null;
+		rentOffersDBBean = template.get(RentOffersDBBean.class, rentId);
+		return rentOffersDBBean;
+	}
 
 }

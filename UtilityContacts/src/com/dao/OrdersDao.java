@@ -60,7 +60,13 @@ public class OrdersDao {
 		List<OrdersDBBean> ordersDBBeans = criteria.list();
 		return ordersDBBeans;
 	}
+	public OrdersDBBean getOrder(int orderId)
+	{
+		OrdersDBBean ordersDBBean = template.get(OrdersDBBean.class, orderId);
+		return ordersDBBean;
+	}
 
+	
 	public List<OrdersDBBean> getOrdersForVendor(ArrayList<Integer> productIds )
 	{
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(OrdersDBBean.class)
@@ -75,11 +81,12 @@ public class OrdersDao {
 		return ordersDBBeans;
 	}
 
-	public void changeOrderStatus(String orderId, OrderStatus orderStatus)
+	public OrdersDBBean changeOrderStatus(String orderId, OrderStatus orderStatus)
 	{
 		OrdersDBBean ordersDBBean = template.get(OrdersDBBean.class, Integer.valueOf(orderId));
 		ordersDBBean.setOrderstatus(orderStatus.toString());
 		template.update(ordersDBBean);
+		return ordersDBBean;
 	}
 
 	public Map<Integer,Integer> getMostOrderedProducts()

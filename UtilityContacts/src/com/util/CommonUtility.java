@@ -1,6 +1,8 @@
 package com.util;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,4 +90,22 @@ public class CommonUtility {
 		return map;
 	}
 
+	public static Date addDate(Date currentDate, String periodUnit,String periodValue)
+	{
+		Calendar cal = Calendar.getInstance();
+	    cal.setTime(currentDate);
+	    if(periodUnit.equals("Months"))
+	    {
+	    	cal.add(Calendar.MONTH, Integer.parseInt(periodValue));
+	    }
+	    if(periodUnit.equals("Days"))
+	    {
+	    	cal.add(Calendar.DATE, Integer.parseInt(periodValue));
+	    }
+	    if(periodUnit.equals("Years"))
+	    {
+	    	cal.add(Calendar.YEAR, Integer.parseInt(periodValue));
+	    }
+	    return cal.getTime();
+	}
 }

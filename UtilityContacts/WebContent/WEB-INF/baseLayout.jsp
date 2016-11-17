@@ -12,7 +12,10 @@
 
 <head>
 
- <title>RentCastle - <tiles:getAsString name="title"/></title>
+ <title>RentCastle|Rent in Kolkata|Furniture|Electronics at RentCastle.in</title>
+ <meta name="description" content="Rent anything in Kolkata at RentCastle.in -> Furniture,Electronics,Cars,Medical Equipments,Services.">
+<meta name="keywords" content="Rent,Kolkata,Electronics,Furniture">
+<meta name="author" content="Hege Refsnes">
  <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/rentcastlecloudimages/image/upload/v1474766593/rentcastlefavicon_i6p2zj.jpg" />
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
@@ -23,8 +26,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--webfont-->
-<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-<!-- start menu -->
+<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+ --><!-- start menu -->
 <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="js/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu(); });</script>

@@ -40,10 +40,6 @@ public class ImagesDao {
 
 		ImagesDaoOB imagesDaoOB= new ImagesDaoOB();
 		ArrayList<String> imageIdsList = new ArrayList<String>();
-		/*String contextPath =  ServletActionContext.getServletContext().getRealPath("/images") +"\\";
-		ApplicationContextProvider appContext = new ApplicationContextProvider();
-		UserProfile userProfile = appContext.getApplicationContext().getBean("userProfile", UserProfile.class);
-*/
 		try{
 			for(FileBean fileBean: fileBeans)
 			{
