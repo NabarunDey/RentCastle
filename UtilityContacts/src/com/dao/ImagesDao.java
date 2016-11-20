@@ -46,12 +46,12 @@ public class ImagesDao {
 				Map uploadResult=  CloudinaryHandler.uploadImage(fileBean.getFile());
 				String imageId= (String)uploadResult.get("public_id");
 				String imagePath = (String)uploadResult.get("url");
-				
+
 				/*String imageId= userProfile.getUserName() + Calendar.getInstance().getTimeInMillis();
 				String imagePath = "productImages\\"+imageId+".jpg";
 				File destFile  = new File(contextPath+"productImages\\", imageId+".jpg");
 				FileUtils.copyFile(fileBean.getFile(), destFile);
-				*/
+				 */
 
 				ImagesDBBean imagesDBBean =new ImagesDBBean();
 				imagesDBBean.setImageid(imageId);
@@ -66,7 +66,7 @@ public class ImagesDao {
 		}
 		return imagesDaoOB;  
 	}  
-	
+
 	public List<ImagesDBBean> getImagesByIdList(List<String> imageIds)
 	{  
 		List<ImagesDBBean> list= null; 
@@ -98,31 +98,34 @@ public class ImagesDao {
 		Map<String,ImagesDBBean> imageMap = new HashMap<String, ImagesDBBean>();
 		Map<String,String> imageProductMap = new HashMap<String, String>();
 		List<String> imageIds = new ArrayList<String>();
-		for(ProductsDBBean productsDBBean : productsDBBeans)
+		if(null!= productsDBBeans && productsDBBeans.size()>0)
 		{
-			if(StringUtils.isNotEmpty(productsDBBean.getImages()))
+			for(ProductsDBBean productsDBBean : productsDBBeans)
 			{
-				String[] str = productsDBBean.getImages().split("\\|");
-				imageIds.add(str[0]);
-				imageProductMap.put(str[0],String.valueOf(productsDBBean.getProductid()));
+				if(StringUtils.isNotEmpty(productsDBBean.getImages()))
+				{
+					String[] str = productsDBBean.getImages().split("\\|");
+					imageIds.add(str[0]);
+					imageProductMap.put(str[0],String.valueOf(productsDBBean.getProductid()));
+				}
 			}
-		}
-		List<ImagesDBBean> imagesDBBeans= getImagesByIdList(imageIds);
+			List<ImagesDBBean> imagesDBBeans= getImagesByIdList(imageIds);
 
-		for(ImagesDBBean imagesDBBean : imagesDBBeans)
-		{
-			imageMap.put(imageProductMap.get(imagesDBBean.getImageid()), imagesDBBean);
+			for(ImagesDBBean imagesDBBean : imagesDBBeans)
+			{
+				imageMap.put(imageProductMap.get(imagesDBBean.getImageid()), imagesDBBean);
+			}
 		}
 		return imageMap;
 
 	}
-	
+
 	public void deleteImagesList(List<String> imageIds)
 	{
 
 		String hql = "delete from com.databaseBeans.ImagesDBBean where imageid in :imageIds";
 		template.getSessionFactory().getCurrentSession().createQuery(hql).setParameterList("imageIds", imageIds).executeUpdate();
-		
+
 		//String contextPath =  ServletActionContext.getServletContext().getRealPath("/images") +"\\";
 		for(String imageId: imageIds)
 		{

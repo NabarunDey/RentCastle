@@ -73,10 +73,14 @@
 							test="%{ null != #attr.userProfile && ('CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) || 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) )}">
 							<li id="paymentHistory"><a
 								href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
+							<li id="viewCurrentHoldings"><a
+								href="<s:url  action='viewCurrentHoldings'/>">My Holdings</a></li>
 						</s:if>
 						<s:else>
 							<li id="paymentHistory" style="display: none"><a
 								href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
+							<li id="viewCurrentHoldings" style="display: none"><a
+								href="<s:url  action='viewCurrentHoldings'/>">My Holdings</a></li>
 						</s:else>
 
 						<s:if

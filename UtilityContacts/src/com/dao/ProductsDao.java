@@ -184,9 +184,12 @@ public class ProductsDao {
 	public List<ProductsDBBean> getProductListByIdsInteger(List<Integer> productIds)
 	{
 		List<ProductsDBBean> productsDBBeans = null;
+		if(null!= productIds && productIds.size()>0)
+		{
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class)
 				.add(Restrictions.in("productid", productIds));
 		productsDBBeans=criteria.list();
+		}
 		return productsDBBeans;
 	}
 

@@ -1,6 +1,7 @@
 package currentHoldings.projector.outputBeans;
 
 import com.databaseBeans.CurrentHoldingsDBBean;
+import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
@@ -13,8 +14,15 @@ public class CurrentHoldingsProjectorOB {
 	private RentOffersDBBean rentOffersDBBean;
 	private OrdersDBBean ordersDBBean;
 	private CurrentHoldingsDBBean currentHoldingsDBBean;
-
+	private ImagesDBBean imagesDBBean;
 	
+	
+	public ImagesDBBean getImagesDBBean() {
+		return imagesDBBean;
+	}
+	public void setImagesDBBean(ImagesDBBean imagesDBBean) {
+		this.imagesDBBean = imagesDBBean;
+	}
 	public CurrentHoldingsDBBean getCurrentHoldingsDBBean() {
 		return currentHoldingsDBBean;
 	}

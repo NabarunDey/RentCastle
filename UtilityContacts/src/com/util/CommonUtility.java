@@ -10,6 +10,7 @@ import java.util.Set;
 
 import org.apache.commons.beanutils.PropertyUtils;
 
+import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
 
@@ -60,7 +61,7 @@ public class CommonUtility {
 				} catch (NoSuchMethodException e) {
 					System.out.println(e.getMessage());
 				}catch (Exception e) {
-				System.out.println(e.getMessage());
+					System.out.println(e.getMessage());
 				}
 			}
 		}
@@ -69,43 +70,63 @@ public class CommonUtility {
 	public static Map<String,ProductsDBBean> getProductMap(List<ProductsDBBean> list)
 	{
 		Map<String, ProductsDBBean>  map= new HashMap<String, ProductsDBBean>();
-		for(ProductsDBBean item :list)
+		if(null!= list && list.size()>0)
 		{
+			for(ProductsDBBean item :list)
+			{
 				String key = String.valueOf(item.getProductid());
 				map.put(key, item);
+			}
 		}
-		
+
 		return map;
 	}
-	
+
 	public static Map<String,RentOffersDBBean> getRentMap(List<RentOffersDBBean> list)
 	{
 		Map<String, RentOffersDBBean>  map= new HashMap<String, RentOffersDBBean>();
-		for(RentOffersDBBean item :list)
+		if(null!= list && list.size()>0)
 		{
+			for(RentOffersDBBean item :list)
+			{
 				String key = String.valueOf(item.getRentid());
 				map.put(key, item);
+			}
 		}
-		
+
+		return map;
+	}
+
+	public static Map<String,OrdersDBBean> getOrdersMap(List<OrdersDBBean> list)
+	{
+		Map<String, OrdersDBBean>  map= new HashMap<String, OrdersDBBean>();
+		if(null!= list && list.size()>0)
+		{
+			for(OrdersDBBean item :list)
+			{
+				String key = String.valueOf(item.getOrderid());
+				map.put(key, item);
+			}
+		}
 		return map;
 	}
 
 	public static Date addDate(Date currentDate, String periodUnit,String periodValue)
 	{
 		Calendar cal = Calendar.getInstance();
-	    cal.setTime(currentDate);
-	    if(periodUnit.equals("Months"))
-	    {
-	    	cal.add(Calendar.MONTH, Integer.parseInt(periodValue));
-	    }
-	    if(periodUnit.equals("Days"))
-	    {
-	    	cal.add(Calendar.DATE, Integer.parseInt(periodValue));
-	    }
-	    if(periodUnit.equals("Years"))
-	    {
-	    	cal.add(Calendar.YEAR, Integer.parseInt(periodValue));
-	    }
-	    return cal.getTime();
+		cal.setTime(currentDate);
+		if(periodUnit.equals("Months"))
+		{
+			cal.add(Calendar.MONTH, Integer.parseInt(periodValue));
+		}
+		if(periodUnit.equals("Days"))
+		{
+			cal.add(Calendar.DATE, Integer.parseInt(periodValue));
+		}
+		if(periodUnit.equals("Years"))
+		{
+			cal.add(Calendar.YEAR, Integer.parseInt(periodValue));
+		}
+		return cal.getTime();
 	}
 }

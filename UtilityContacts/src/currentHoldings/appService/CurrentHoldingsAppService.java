@@ -4,25 +4,34 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
 import payment.appService.inputBeans.PaymentAppServiceIB;
 
 import com.dao.CurrentHoldingsDao;
+import com.dao.ImagesDao;
 import com.dao.OrdersDao;
 import com.dao.PaymentsDao;
+import com.dao.ProductsDao;
 import com.dao.RentOffersDao;
 import com.databaseBeans.CurrentHoldingsDBBean;
+import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.PaymentsDBBean;
+import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
 import com.sessionBeans.UserProfile;
 import com.structures.status.CurrentHoldingStatus;
 import com.structures.status.PaymentStatus;
+import com.structures.userTypes.UserType;
 import com.util.CommonUtility;
 
 import currentHoldings.appService.inputBeans.CurrentHoldingsAppServiceIB;
+import currentHoldings.projector.CurrentHoldingsProjector;
+import currentHoldings.projector.input.CurrentHoldingsProjectorIB;
+import currentHoldings.projector.outputBeans.CurrentHoldingsProjectorOB;
 
 
 /**
@@ -36,6 +45,9 @@ public class CurrentHoldingsAppService {
 	UserProfile userProfile;
 	PaymentsDao paymentsDao;
 	OrdersDao ordersDao;
+	ProductsDao productsDao;
+	CurrentHoldingsProjector currentHoldingsProjector;
+	ImagesDao imagesDao;
 
 	public void addCurrentHolding(OrdersDBBean ordersDBBean)
 	{
@@ -84,6 +96,47 @@ public class CurrentHoldingsAppService {
 		}
 		
 	}
+	
+	public List<CurrentHoldingsProjectorOB> viewMyCurrentHoldingsCustomer()
+	{
+		List<CurrentHoldingsProjectorOB> currentHoldingsProjectorOBs= null;
+		if(null!= userProfile && userProfile.getUserType().equals(UserType.CUSTOMER))
+		{
+			List<Integer> productIds = new ArrayList<Integer>();
+			List<Integer> rentIds = new ArrayList<Integer>();
+			List<Integer> orderIds = new ArrayList<Integer>();
+			List<CurrentHoldingsDBBean> currentHoldingsDBBeans = currentHoldingsDao.getMyCurrentHoldingsCustomer(userProfile.getUserName());
+
+			if(null!=currentHoldingsDBBeans && currentHoldingsDBBeans.size()>0)
+			{
+				for(CurrentHoldingsDBBean currentHoldingsDBBean : currentHoldingsDBBeans)
+				{
+					productIds.add(currentHoldingsDBBean.getProductid());
+					rentIds.add(currentHoldingsDBBean.getRentOfferid());
+					orderIds.add(currentHoldingsDBBean.getOrderid());
+				}
+			}
+			List<ProductsDBBean> productsDBBeans = productsDao.getProductListByIdsInteger(productIds);
+			List<RentOffersDBBean> rentOffersDBBeans = rentOffersDao.getRentOffersByIdsInteger(rentIds);
+			List<OrdersDBBean> ordersDBBeans = ordersDao.getOrders(orderIds);
+
+			Map<String, ProductsDBBean> productsMap = CommonUtility.getProductMap(productsDBBeans);
+			Map<String, RentOffersDBBean> rentMap = CommonUtility.getRentMap(rentOffersDBBeans);
+			Map<String, OrdersDBBean> orderMap = CommonUtility.getOrdersMap(ordersDBBeans);
+			Map<String, ImagesDBBean> productImageMap = imagesDao.getPrimaryImageOfProduct(productsDBBeans);
+
+			CurrentHoldingsProjectorIB currentHoldingsProjectorIB = new CurrentHoldingsProjectorIB();
+			currentHoldingsProjectorIB.setCurrentHoldingsDBBeans(currentHoldingsDBBeans);
+			currentHoldingsProjectorIB.setOrdersMap(orderMap);
+			currentHoldingsProjectorIB.setProductsMap(productsMap);
+			currentHoldingsProjectorIB.setRentMap(rentMap);
+			currentHoldingsProjectorIB.setProductImagesMap(productImageMap);
+			
+
+			currentHoldingsProjectorOBs= currentHoldingsProjector.getMyCurrentHoldingsProjector(currentHoldingsProjectorIB);
+		}
+		return currentHoldingsProjectorOBs;
+	}
 
 	public RentOffersDao getRentOffersDao() {
 		return rentOffersDao;
@@ -108,7 +161,46 @@ public class CurrentHoldingsAppService {
 	public void setUserProfile(UserProfile userProfile) {
 		this.userProfile = userProfile;
 	}
-	
-	
+
+	public PaymentsDao getPaymentsDao() {
+		return paymentsDao;
+	}
+
+	public void setPaymentsDao(PaymentsDao paymentsDao) {
+		this.paymentsDao = paymentsDao;
+	}
+
+	public OrdersDao getOrdersDao() {
+		return ordersDao;
+	}
+
+	public void setOrdersDao(OrdersDao ordersDao) {
+		this.ordersDao = ordersDao;
+	}
+
+	public ProductsDao getProductsDao() {
+		return productsDao;
+	}
+
+	public void setProductsDao(ProductsDao productsDao) {
+		this.productsDao = productsDao;
+	}
+
+	public CurrentHoldingsProjector getCurrentHoldingsProjector() {
+		return currentHoldingsProjector;
+	}
+
+	public void setCurrentHoldingsProjector(
+			CurrentHoldingsProjector currentHoldingsProjector) {
+		this.currentHoldingsProjector = currentHoldingsProjector;
+	}
+
+	public ImagesDao getImagesDao() {
+		return imagesDao;
+	}
+
+	public void setImagesDao(ImagesDao imagesDao) {
+		this.imagesDao = imagesDao;
+	}
 	
 }

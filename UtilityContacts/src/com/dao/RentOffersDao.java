@@ -82,13 +82,13 @@ public class RentOffersDao {
 		for(RentOffersDBBean rentOffersDBBean : rentOffersDBBeans)
 		{
 			try{
-			if(rentMap.containsKey(String.valueOf(rentOffersDBBean.getProductid()))
-					&& Integer.parseInt(rentMap.get(String.valueOf(rentOffersDBBean.getProductid())).getAmount().trim()) 
-					< Integer.parseInt(rentOffersDBBean.getAmount().trim()))
-			{
-				continue;
-			}
-			rentMap.put(String.valueOf(rentOffersDBBean.getProductid()), rentOffersDBBean);
+				if(rentMap.containsKey(String.valueOf(rentOffersDBBean.getProductid()))
+						&& Integer.parseInt(rentMap.get(String.valueOf(rentOffersDBBean.getProductid())).getAmount().trim()) 
+						< Integer.parseInt(rentOffersDBBean.getAmount().trim()))
+				{
+					continue;
+				}
+				rentMap.put(String.valueOf(rentOffersDBBean.getProductid()), rentOffersDBBean);
 			}catch(Exception e)
 			{
 				System.out.println("Error in RentOffersDao.getMinimumRents rent id :"+rentOffersDBBean.getRentid());
@@ -102,7 +102,7 @@ public class RentOffersDao {
 		String hql = "delete from com.databaseBeans.RentOffersDBBean where productid= :productid";
 		template.getSessionFactory().getCurrentSession().createQuery(hql).setInteger("productid", Integer.parseInt(productId)).executeUpdate();
 	}
-	
+
 	public List<RentOffersDBBean> getRentOffersByIdsString(List<String> rentIds)
 	{
 		List<RentOffersDBBean> rentOffersDBBean = null;
@@ -116,13 +116,16 @@ public class RentOffersDao {
 		rentOffersDBBean=criteria.list();
 		return rentOffersDBBean;
 	}
-	
+
 	public List<RentOffersDBBean> getRentOffersByIdsInteger(List<Integer> rentIds)
 	{
 		List<RentOffersDBBean> rentOffersDBBean = null;
-		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(RentOffersDBBean.class)
-				.add(Restrictions.in("rentid", rentIds));
-		rentOffersDBBean=criteria.list();
+		if(null!= rentIds && rentIds.size()>0)
+		{
+			Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(RentOffersDBBean.class)
+					.add(Restrictions.in("rentid", rentIds));
+			rentOffersDBBean=criteria.list();
+		}
 		return rentOffersDBBean;
 	}
 

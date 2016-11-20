@@ -22,6 +22,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="spring-di-payment.xml" />
 	<import resource="spring-di-profileManagement.xml" />
 	<import resource="spring-di-help.xml" />
+	<import resource="spring-di-currentHoldings.xml" />
+	
 	
 	<!-- Modules End  -->
 	

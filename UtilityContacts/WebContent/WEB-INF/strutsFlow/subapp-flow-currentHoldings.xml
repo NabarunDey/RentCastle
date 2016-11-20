@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+
+	<package name="holdings" namespace="/" extends="default,json-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+
+		<action name="viewCurrentHoldings" class="currentHoldingsAction"
+			method="viewMyCurrentHoldingsCustomer">
+			<result name="success" type="tiles">viewCurrentHoldings</result>
+		</action>
+	</package>
+
+</struts>

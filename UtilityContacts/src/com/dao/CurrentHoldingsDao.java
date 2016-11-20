@@ -1,6 +1,10 @@
 package com.dao;
 
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,6 +52,20 @@ public class CurrentHoldingsDao {
 			e.printStackTrace();
 		}
 		return currentHoldingsDBBean;
+	}
+	
+	public List<CurrentHoldingsDBBean> getMyCurrentHoldingsCustomer(String username)
+	{
+		List<CurrentHoldingsDBBean> currentHoldingsDBBeans = null;
+		try{
+			Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(CurrentHoldingsDBBean.class)
+					.add(Restrictions.like("username", username));
+			currentHoldingsDBBeans = criteria.list();
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return currentHoldingsDBBeans;
 	}
 	
 }

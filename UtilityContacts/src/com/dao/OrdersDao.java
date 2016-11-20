@@ -66,7 +66,7 @@ public class OrdersDao {
 		return ordersDBBean;
 	}
 
-	
+
 	public List<OrdersDBBean> getOrdersForVendor(ArrayList<Integer> productIds )
 	{
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(OrdersDBBean.class)
@@ -74,6 +74,20 @@ public class OrdersDao {
 		List<OrdersDBBean> ordersDBBeans = criteria.list();
 		return ordersDBBeans;
 	}
+
+
+	public List<OrdersDBBean> getOrders(List<Integer> orderIds )
+	{
+		List<OrdersDBBean> ordersDBBeans= null;
+		if(null!= orderIds && orderIds.size()>0)
+		{
+			Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(OrdersDBBean.class)
+					.add(Restrictions.in("orderid", orderIds));
+			ordersDBBeans = criteria.list();
+		}
+		return ordersDBBeans;
+	}
+
 
 	public List<OrdersDBBean> getOrdersForAdmin()
 	{
@@ -132,7 +146,7 @@ public class OrdersDao {
 			} // returning 0 would merge keys
 		}
 
-		
+
 	}
 
 }

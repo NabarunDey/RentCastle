@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="currentHoldingsAction" class="currentHoldings.action.CurrentHoldingsAction" scope="request">
+		<property name="currentHoldingsAppService" ref="currentHoldingsAppService" />
+		<property name="context" ref="currentHoldingsAppContext" />
+	</bean>
+
+	<bean id="currentHoldingsAppService" class="currentHoldings.appService.CurrentHoldingsAppService"
+		scope="request">
+		<property name="rentOffersDao" ref="rentOffersDao" />
+		<property name="currentHoldingsDao" ref="currentHoldingsDao" />
+		<property name="userProfile" ref="userProfile" />
+		<property name="paymentsDao" ref="paymentsDao" />
+		<property name="ordersDao" ref="ordersDao" />
+		<property name="productsDao" ref="productsDao" />
+		<property name="currentHoldingsProjector" ref="currentHoldingsProjector" />
+		<property name="imagesDao" ref="imagesDao" />
+	</bean>
+
+	<bean id="currentHoldingsAppContext" class="currentHoldings.CurrentHoldingsAppContext" scope="session">
+	</bean>
+	
+	<bean id="currentHoldingsProjector" class="currentHoldings.projector.CurrentHoldingsProjector" scope="request">
+	</bean>
+	
+
+</beans>

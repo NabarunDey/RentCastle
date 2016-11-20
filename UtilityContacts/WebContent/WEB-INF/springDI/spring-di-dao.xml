@@ -49,6 +49,11 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="dynamicContentDao" class="com.dao.DynamicContentDao">
 		<property name="template" ref="template"></property>
 	</bean>
+	
+	<bean id="currentHoldingsDao" class="com.dao.CurrentHoldingsDao">
+		<property name="template" ref="template"></property>
+	</bean>
+	
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

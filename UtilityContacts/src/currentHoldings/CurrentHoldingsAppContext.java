@@ -1,31 +1,25 @@
 package currentHoldings;
 
-import order.appService.inputBeans.Address;
-import order.projector.outputBeans.OrderProjectorOB;
+import java.util.List;
+
+import currentHoldings.projector.outputBeans.CurrentHoldingsProjectorOB;
+
 
 
 
 
 public class CurrentHoldingsAppContext {
-	
-	private OrderProjectorOB orderProjectorOB;
-	private Address address;
-	
-	public Address getAddress() {
-		return address;
+
+	private List<CurrentHoldingsProjectorOB> currentHoldingsProjectorOBs;
+
+	public List<CurrentHoldingsProjectorOB> getCurrentHoldingsProjectorOBs() {
+		return currentHoldingsProjectorOBs;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setCurrentHoldingsProjectorOBs(
+			List<CurrentHoldingsProjectorOB> currentHoldingsProjectorOBs) {
+		this.currentHoldingsProjectorOBs = currentHoldingsProjectorOBs;
 	}
 
-	public OrderProjectorOB getOrderProjectorOB() {
-		return orderProjectorOB;
-	}
 
-	public void setOrderProjectorOB(OrderProjectorOB orderProjectorOB) {
-		this.orderProjectorOB = orderProjectorOB;
-	}
-	
-	
 }
