@@ -71,7 +71,7 @@ public class CurrentHoldingsAppService {
 		CurrentHoldingsAppServiceIB currentHoldingsAppServiceIB = new CurrentHoldingsAppServiceIB();
 		currentHoldingsAppServiceIB.setCurrentHoldinsId(currentHoldingId);
 		currentHoldingsAppServiceIB.setStatus(CurrentHoldingStatus.ENDREQUESTED.toString());
-		CurrentHoldingsDBBean currentHoldingsDBBean =  currentHoldingsDao.modiFyCurrentHolding(currentHoldingsAppServiceIB,userProfile);
+		CurrentHoldingsDBBean currentHoldingsDBBean =  currentHoldingsDao.modiFyCurrentHoldingStatus(currentHoldingsAppServiceIB,userProfile);
 		
 		OrdersDBBean ordersDBBean =  ordersDao.getOrder(currentHoldingsDBBean.getOrderid());
 		PaymentAppServiceIB paymentAppServiceIB = new PaymentAppServiceIB();

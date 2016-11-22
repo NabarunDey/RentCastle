@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html>
-<script type="text/javascript" src="js/cart/cart.js"></script>
+<script type="text/javascript" src="js/currentHoldings/currentHoldings.js"></script>
 
 <div class="container">
 	<div class="main">
@@ -30,6 +30,9 @@
 									href="viewProduct.action?productId=<s:property value="currentHoldingsDBBean.productid"/>"><s:property
 										value="productsDBBean.productname" /></a>
 							</h4>
+							<s:if test="currentHoldingsDBBean.status.equals('ONGOING')">
+								<input onclick="endRent(<s:property value='currentHoldingsDBBean.holdingid'/>)" type="button" value="End Rent">
+								</s:if>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -38,12 +41,15 @@
 							Security Money<span><s:property value="productsDBBean.securitymoney" /></span>
 						</p>
 						<p>
-							Rent Offer<span> Rs. <s:property value="rentOffersDBBean.rentamount" />
+							Rent Offer<span> Rs. <s:property value="rentOffersDBBean.amount" />
 								For <s:property value="rentOffersDBBean.periodvalue" /> <s:property
 									value="rentOffersDBBean.periodunit" /></span>
 						</p>
 						<p>
-							Delivery Charge<span><s:property value="productsDBBean.deliverycharge" /></span>
+							Expiry Date<span><s:property value="currentHoldingsDBBean.rentexpirydate" /></span>
+						</p>
+						<p>
+							Status <span><s:property value="currentHoldingsDBBean.status" /></span>
 						</p>
 					</div>
 					<div class="clearfix"></div>

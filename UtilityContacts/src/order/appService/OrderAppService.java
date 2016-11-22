@@ -129,11 +129,8 @@ public class OrderAppService {
 			if(StringUtils.isNotEmpty(cartItem.getSecurityMoney()))
 				total=total+Integer.parseInt(cartItem.getSecurityMoney());
 			
-			SMSHandler.sendOrderConfirmationSmsVendor(usersDBBean.getMobileno1(), productsDBBean, ordersDBBean,cartItem, total);
-
-			SMSHandler.sendOrderConfirmationSmsCustomer(userProfile.getMobile(), productsDBBean, ordersDBBean, total);
-			MailHandler.orderConfirmationMailVendor(productsDBBean,ordersDBBean,usersDBBean.getEmail());
-			MailHandler.orderConfirmationMailCustomer(productsDBBean,ordersDBBean,userProfile,total);
+			sendNotifications(usersDBBean, productsDBBean, cartItem, ordersDBBean, total);
+			
 			paymentAppServiceIB.setTousername(productsDBBean.getUsername());
 			paymentAppServiceIBs.add(paymentAppServiceIB);
 			}catch(Exception e){
@@ -218,11 +215,26 @@ public class OrderAppService {
 		{
 		   OrdersDBBean ordersDBBean =ordersDao.changeOrderStatus(orderAppServiceIB.getOrderId(),
 					OrderStatus.valueOf(orderAppServiceIB.getOrderStatus()));
-		   if(ordersDBBean.getOrderstatus().equals(OrderStatus.COMPLETE))
+		   if(ordersDBBean.getOrderstatus().equals(OrderStatus.COMPLETE.toString()))
 		   {
 			   currentHoldingsAppService.addCurrentHolding(ordersDBBean);
 		   }
 		}
+	}
+	
+	
+	private void sendNotifications(final UsersDBBean usersDBBean,final ProductsDBBean productsDBBean, final CartItem cartItem,
+			final OrdersDBBean ordersDBBean, final int total)
+	{
+		Runnable myrunnable = new Runnable() {
+		    public void run() {
+		    	SMSHandler.sendOrderConfirmationSmsVendor(usersDBBean.getMobileno1(), productsDBBean, ordersDBBean,cartItem, total);
+				SMSHandler.sendOrderConfirmationSmsCustomer(userProfile.getMobile(), productsDBBean, ordersDBBean, total);
+				MailHandler.orderConfirmationMailVendor(productsDBBean,ordersDBBean,usersDBBean.getEmail());
+				MailHandler.orderConfirmationMailCustomer(productsDBBean,ordersDBBean,userProfile,total);
+		    }
+		};
+		new Thread(myrunnable).start();
 	}
 
 	public CartAppService getCartAppService() {

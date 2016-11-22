@@ -14,12 +14,29 @@ public class CurrentHoldingsAction extends ActionSupport    {
 
 	CurrentHoldingsAppContext context;
 	CurrentHoldingsAppService currentHoldingsAppService;
+	private String holdingId;
 
 	public String viewMyCurrentHoldingsCustomer()
 	{
 		List<CurrentHoldingsProjectorOB> currentHoldingsProjectorOBs = currentHoldingsAppService.viewMyCurrentHoldingsCustomer();
 		context.setCurrentHoldingsProjectorOBs(currentHoldingsProjectorOBs);
 		return "success";
+	}
+	
+	public String endCurrentHolding()
+	{
+		currentHoldingsAppService.endCurrentHolding(holdingId);
+		return SUCCESS;
+	}
+
+	
+
+	public String getHoldingId() {
+		return holdingId;
+	}
+
+	public void setHoldingId(String holdingId) {
+		this.holdingId = holdingId;
 	}
 
 	public CurrentHoldingsAppContext getContext() {

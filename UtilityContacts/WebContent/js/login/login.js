@@ -37,24 +37,32 @@ function doAjaxPost() {
 				$('#logout').show();
 				$('#buyButton').show();
 				$('#addToCartButton').show();
-				$('#paymentHistory').show();editProfile
-				$('#editProfile').show();
+
 				
 				if(response.loginProjectorOB.userProfile.userType == "VENDOR")
 				{
 					$('#orderHistoryVendor').show();
 					$('#addProductButton').show();
 					$('#getProductListByVendor').show();
+					$('#viewCurrentHoldings').show();
+					$('#paymentHistory').show();
+					$('#editProfile').show();
+
 				}
 				if(response.loginProjectorOB.userProfile.userType == "CUSTOMER")
 				{
 					$('#myCart').show();
 					$('#orderHistory').show();
+					$('#viewCurrentHoldings').show();
+					$('#paymentHistory').show();
+					$('#editProfile').show();
+
 				}
 				if(response.loginProjectorOB.userProfile.userType == "ADMIN")
 				{
 					$('#getOrdersForAdmin').show();
 					$('#getPendingProducts').show();
+					$('#paymentHistoryAdmin').show();
 				}
 			}
 		},

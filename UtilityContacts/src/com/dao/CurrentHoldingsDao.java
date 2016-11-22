@@ -36,7 +36,7 @@ public class CurrentHoldingsDao {
 		template.save(currentHoldingsDBBean);
 	}
 	
-	public CurrentHoldingsDBBean modiFyCurrentHolding(CurrentHoldingsAppServiceIB currentHoldingsAppServiceIB, UserProfile userProfile)
+	public CurrentHoldingsDBBean modiFyCurrentHoldingStatus(CurrentHoldingsAppServiceIB currentHoldingsAppServiceIB, UserProfile userProfile)
 	{
 		CurrentHoldingsDBBean currentHoldingsDBBean = null;
 		try{
@@ -44,7 +44,7 @@ public class CurrentHoldingsDao {
 			if((StringUtils.isNotEmpty(userProfile.getUserName())&& userProfile.getUserName().equals(currentHoldingsDBBean.getUsername()))
 					|| userProfile.getUserType().equals(UserType.ADMIN) )
 			{
-				CommonUtility.copyBean(currentHoldingsAppServiceIB, currentHoldingsDBBean);
+				currentHoldingsDBBean.setStatus(currentHoldingsAppServiceIB.getStatus());
 				template.update(currentHoldingsDBBean);
 			}
 		}catch(Exception e)

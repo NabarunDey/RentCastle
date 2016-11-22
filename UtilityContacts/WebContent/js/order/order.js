@@ -76,7 +76,7 @@ function changeOrderStatus(orderid) {
 		url: "changeOrderSatus",
 		data: { orderId: orderid,orderStatus: orderstatus} ,
 		success: function(response){
-			debugger;
+			alert('Orderstatus changed successfully.')
 		},
 		error: function(e){
 			alert('Error: ' + e);

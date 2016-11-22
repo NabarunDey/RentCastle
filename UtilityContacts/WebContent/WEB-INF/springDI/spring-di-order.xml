@@ -21,7 +21,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="paymentsDao" ref="paymentsDao" />
 		<property name="addressDao" ref="addressDao" />
 		<property name="usersDao" ref="usersDao" />
-		
+		<property name="currentHoldingsAppService" ref="currentHoldingsAppService" />
 	</bean>
 
 	

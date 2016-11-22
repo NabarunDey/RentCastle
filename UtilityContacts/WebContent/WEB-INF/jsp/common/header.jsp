@@ -98,11 +98,11 @@
 
 						<s:if
 							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id="paymentHistory"><a
+							<li id="paymentHistoryAdmin"><a
 								href="<s:url  action='getPaymentsAdmin'/>">Payment Admin</a></li>
 						</s:if>
 						<s:else>
-							<li id="paymentHistory" style="display: none"><a
+							<li id="paymentHistoryAdmin" style="display: none"><a
 								href="<s:url  action='getPaymentsAdmin'/>">Payment Admin</a></li>
 						</s:else>
 

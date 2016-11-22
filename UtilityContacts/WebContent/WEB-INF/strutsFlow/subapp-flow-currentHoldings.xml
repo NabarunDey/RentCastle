@@ -16,6 +16,15 @@
 			method="viewMyCurrentHoldingsCustomer">
 			<result name="success" type="tiles">viewCurrentHoldings</result>
 		</action>
+		
+		
+		<action name="endCurrentHolding" class="currentHoldingsAction"
+			method="endCurrentHolding">
+			<result name="success" type="json">
+				<param name="root">context</param>
+			</result>
+		</action>
+		
 	</package>
 
 </struts>
