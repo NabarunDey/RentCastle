@@ -3,6 +3,7 @@ package com.structures.status;
 public enum CurrentHoldingStatus {
 	
 	ONGOING("ONGOING"),
+	UPCOMING("UPCOMING"),
 	ENDREQUESTED("ENDREQUESTED"),
 	CLOSED("CLOSED");
 	

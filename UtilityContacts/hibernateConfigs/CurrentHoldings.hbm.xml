@@ -16,7 +16,7 @@
 		<property name="itemreceiveddate"></property>
 		<property name="rentexpirydate"></property>
 		<property name="status"></property>
-
+		<property name="autorenew"></property>
 	</class>
 
 </hibernate-mapping>  	

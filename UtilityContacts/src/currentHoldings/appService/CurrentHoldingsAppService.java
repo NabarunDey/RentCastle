@@ -66,12 +66,12 @@ public class CurrentHoldingsAppService {
 		currentHoldingsDao.addCurrentHolding(currentHoldingsAppServiceIB);
 	}
 	
-	public void endCurrentHolding(String currentHoldingId)
+	public void endCurrentHolding(String currentHoldingId, boolean systemCall)
 	{
 		CurrentHoldingsAppServiceIB currentHoldingsAppServiceIB = new CurrentHoldingsAppServiceIB();
 		currentHoldingsAppServiceIB.setCurrentHoldinsId(currentHoldingId);
 		currentHoldingsAppServiceIB.setStatus(CurrentHoldingStatus.ENDREQUESTED.toString());
-		CurrentHoldingsDBBean currentHoldingsDBBean =  currentHoldingsDao.modiFyCurrentHoldingStatus(currentHoldingsAppServiceIB,userProfile);
+		CurrentHoldingsDBBean currentHoldingsDBBean =  currentHoldingsDao.modiFyCurrentHoldingStatus(currentHoldingsAppServiceIB,userProfile,systemCall);
 		
 		OrdersDBBean ordersDBBean =  ordersDao.getOrder(currentHoldingsDBBean.getOrderid());
 		PaymentAppServiceIB paymentAppServiceIB = new PaymentAppServiceIB();
@@ -96,6 +96,7 @@ public class CurrentHoldingsAppService {
 		}
 		
 	}
+	
 	
 	public List<CurrentHoldingsProjectorOB> viewMyCurrentHoldingsCustomer()
 	{

@@ -165,11 +165,11 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>4.1.4.Final</version>
 		</dependency>
-		 <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-search</artifactId>
-            <version>4.1.1.Final</version>
-        </dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-search</artifactId>
+			<version>4.1.1.Final</version>
+		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -233,6 +233,17 @@
 			<groupId>com.cloudinary</groupId>
 			<artifactId>cloudinary-http44</artifactId>
 			<version>1.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz-jobs</artifactId>
+			<version>2.2.1</version>
 		</dependency>
 
 	</dependencies>

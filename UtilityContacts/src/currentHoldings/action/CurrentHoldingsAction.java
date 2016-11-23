@@ -25,7 +25,7 @@ public class CurrentHoldingsAction extends ActionSupport    {
 	
 	public String endCurrentHolding()
 	{
-		currentHoldingsAppService.endCurrentHolding(holdingId);
+		currentHoldingsAppService.endCurrentHolding(holdingId,false);
 		return SUCCESS;
 	}
 

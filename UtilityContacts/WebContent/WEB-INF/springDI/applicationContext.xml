@@ -31,6 +31,13 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="userProfile" class="com.sessionBeans.UserProfile" scope="session">
 	</bean>
+	
+	<bean id="renewCurrentHoldings" class="com.util.RenewCurrentHoldings">
+		<property name="currentHoldingsDao" ref="currentHoldingsDao" />
+		<property name="currentHoldingsAppService" ref="currentHoldingsAppService" />
+		
+	</bean>
+	
 
 
 </beans>

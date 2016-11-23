@@ -10,6 +10,15 @@ public class CurrentHoldingsDBBean {
 	private String itemreceiveddate;
 	private String rentexpirydate;
 	private String status;
+	private boolean autorenew;
+	
+	
+	public boolean isAutorenew() {
+		return autorenew;
+	}
+	public void setAutorenew(boolean autorenew) {
+		this.autorenew = autorenew;
+	}
 	public int getHoldingid() {
 		return holdingid;
 	}
