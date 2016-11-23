@@ -9,10 +9,17 @@ public class CurrentHoldingsDBBean {
 	private int rentOfferid;
 	private String itemreceiveddate;
 	private String rentexpirydate;
+	private String renewedDate;
 	private String status;
 	private boolean autorenew;
 	
 	
+	public String getRenewedDate() {
+		return renewedDate;
+	}
+	public void setRenewedDate(String renewedDate) {
+		this.renewedDate = renewedDate;
+	}
 	public boolean isAutorenew() {
 		return autorenew;
 	}

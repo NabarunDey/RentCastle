@@ -19,7 +19,7 @@ import com.structures.status.CurrentHoldingStatus;
 
 import currentHoldings.appService.CurrentHoldingsAppService;
 
-public class RenewCurrentHoldings  implements Job{
+public class RenewCurrentHoldingsJob  implements Job{
 
 	private CurrentHoldingsDao currentHoldingsDao;
 	private CurrentHoldingsAppService currentHoldingsAppService;
@@ -56,6 +56,7 @@ public class RenewCurrentHoldings  implements Job{
 
 				else if(todaydate.after(expiryDate) && currentHoldingsDBBean.isAutorenew())
 				{
+					currentHoldingsAppService.renewCurrentHoldingDefault(currentHoldingsDBBean);
 
 				}
 				

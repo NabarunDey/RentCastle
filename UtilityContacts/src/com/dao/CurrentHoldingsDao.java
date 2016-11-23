@@ -24,7 +24,7 @@ import currentHoldings.appService.inputBeans.CurrentHoldingsAppServiceIB;
 public class CurrentHoldingsDao {
 
 	HibernateTemplate template;  
-	
+
 	public HibernateTemplate getTemplate() {
 		return template;
 	}
@@ -32,8 +32,8 @@ public class CurrentHoldingsDao {
 	public void setTemplate(HibernateTemplate template) {
 		this.template = template;
 	}
-	
-	
+
+
 	public void addCurrentHolding( CurrentHoldingsAppServiceIB currentHoldingsAppServiceIB)
 	{
 		CurrentHoldingsDBBean currentHoldingsDBBean = new CurrentHoldingsDBBean();
@@ -41,13 +41,13 @@ public class CurrentHoldingsDao {
 		currentHoldingsDBBean.setAutorenew(false); 
 		template.save(currentHoldingsDBBean);
 	}
-	
+
 	public CurrentHoldingsDBBean modiFyCurrentHoldingStatus(CurrentHoldingsAppServiceIB currentHoldingsAppServiceIB, UserProfile userProfile, boolean systemCall)
 	{
 		CurrentHoldingsDBBean currentHoldingsDBBean = null;
 		try{
 			currentHoldingsDBBean = template.get(CurrentHoldingsDBBean.class, Integer.parseInt(currentHoldingsAppServiceIB.getCurrentHoldinsId()));
-			if((StringUtils.isNotEmpty(userProfile.getUserName())&& userProfile.getUserName().equals(currentHoldingsDBBean.getUsername()))
+			if(null!= userProfile && StringUtils.isNotEmpty(userProfile.getUserName())&& userProfile.getUserName().equals(currentHoldingsDBBean.getUsername())
 					|| userProfile.getUserType().equals(UserType.ADMIN)
 					|| systemCall)
 			{
@@ -60,7 +60,7 @@ public class CurrentHoldingsDao {
 		}
 		return currentHoldingsDBBean;
 	}
-	
+
 	public List<CurrentHoldingsDBBean> getMyCurrentHoldingsCustomer(String username)
 	{
 		List<CurrentHoldingsDBBean> currentHoldingsDBBeans = null;
@@ -74,7 +74,7 @@ public class CurrentHoldingsDao {
 		}
 		return currentHoldingsDBBeans;
 	}
-	
+
 	public List<CurrentHoldingsDBBean> getAllCurrentHoldingsToBeRenewed()
 	{
 		List<CurrentHoldingsDBBean> currentHoldingsDBBeans = null;
@@ -95,7 +95,7 @@ public class CurrentHoldingsDao {
 		}
 		return currentHoldingsDBBeans;
 	}
-	
+
 	public void setStatusAsUpcoming(List<Integer> holdingIds)
 	{
 		try{
@@ -111,5 +111,14 @@ public class CurrentHoldingsDao {
 			e.printStackTrace();
 		}
 	}
-	
+
+	public void renewCurrentHolding(CurrentHoldingsDBBean currentHoldingsDBBean)
+	{
+		try{
+			template.update(currentHoldingsDBBean);
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
 }

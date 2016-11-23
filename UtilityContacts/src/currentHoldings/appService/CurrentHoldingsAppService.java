@@ -1,10 +1,14 @@
 package currentHoldings.appService;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -39,7 +43,7 @@ import currentHoldings.projector.outputBeans.CurrentHoldingsProjectorOB;
  *
  */
 public class CurrentHoldingsAppService {
-	
+
 	RentOffersDao rentOffersDao;
 	CurrentHoldingsDao currentHoldingsDao;
 	UserProfile userProfile;
@@ -62,22 +66,22 @@ public class CurrentHoldingsAppService {
 		Date todayDate= Calendar.getInstance().getTime();
 		Date expiryDate = CommonUtility.addDate(todayDate, rentOffersDBBean.getPeriodunit(), rentOffersDBBean.getPeriodvalue());
 		currentHoldingsAppServiceIB.setRentexpirydate(expiryDate.toString());
-		
+
 		currentHoldingsDao.addCurrentHolding(currentHoldingsAppServiceIB);
 	}
-	
+
 	public void endCurrentHolding(String currentHoldingId, boolean systemCall)
 	{
 		CurrentHoldingsAppServiceIB currentHoldingsAppServiceIB = new CurrentHoldingsAppServiceIB();
 		currentHoldingsAppServiceIB.setCurrentHoldinsId(currentHoldingId);
 		currentHoldingsAppServiceIB.setStatus(CurrentHoldingStatus.ENDREQUESTED.toString());
 		CurrentHoldingsDBBean currentHoldingsDBBean =  currentHoldingsDao.modiFyCurrentHoldingStatus(currentHoldingsAppServiceIB,userProfile,systemCall);
-		
+
 		OrdersDBBean ordersDBBean =  ordersDao.getOrder(currentHoldingsDBBean.getOrderid());
 		PaymentAppServiceIB paymentAppServiceIB = new PaymentAppServiceIB();
 		paymentAppServiceIB.setOrderid(ordersDBBean.getOrderid());
 		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.getPaymentsForOrder(paymentAppServiceIB);
-		
+
 		for(PaymentsDBBean paymentsDBBean : paymentsDBBeans)
 		{
 			if(StringUtils.isNotEmpty(paymentsDBBean.getSecuritymoney())&& !paymentsDBBean.getSecuritymoney().equals("0"))
@@ -88,16 +92,16 @@ public class CurrentHoldingsAppService {
 				paymentAppServiceIB2.setPaymentStatus(PaymentStatus.PENDING.toString());
 				paymentAppServiceIB2.setSecuritymoney(paymentsDBBean.getSecuritymoney());
 				paymentAppServiceIB2.setTousername(paymentsDBBean.getFromusername());
-				
+
 				List<PaymentAppServiceIB> paymentAppServiceIBs = new ArrayList<PaymentAppServiceIB>();
 				paymentAppServiceIBs.add(paymentAppServiceIB2);
 				paymentsDao.addPayment(paymentAppServiceIBs);
 			}
 		}
-		
+
 	}
-	
-	
+
+
 	public List<CurrentHoldingsProjectorOB> viewMyCurrentHoldingsCustomer()
 	{
 		List<CurrentHoldingsProjectorOB> currentHoldingsProjectorOBs= null;
@@ -132,11 +136,42 @@ public class CurrentHoldingsAppService {
 			currentHoldingsProjectorIB.setProductsMap(productsMap);
 			currentHoldingsProjectorIB.setRentMap(rentMap);
 			currentHoldingsProjectorIB.setProductImagesMap(productImageMap);
-			
+
 
 			currentHoldingsProjectorOBs= currentHoldingsProjector.getMyCurrentHoldingsProjector(currentHoldingsProjectorIB);
 		}
 		return currentHoldingsProjectorOBs;
+	}
+
+	public void renewCurrentHoldingDefault(CurrentHoldingsDBBean currentHoldingsDBBean)
+	{
+		try{
+			currentHoldingsDBBean.setStatus(CurrentHoldingStatus.ONGOING.toString());
+
+			String renewedDateStr = StringUtils.isNotEmpty(currentHoldingsDBBean.getRenewedDate())?currentHoldingsDBBean.getRenewedDate()
+					:currentHoldingsDBBean.getItemreceiveddate();
+			String expiryDateStr = currentHoldingsDBBean.getRentexpirydate();
+
+			DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+			Date expiryDate = (Date)formatter.parse(expiryDateStr);
+			Date renewedDate = (Date)formatter.parse(renewedDateStr);
+			long diff = expiryDate.getTime() - renewedDate.getTime();
+			long daysLeft = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+			TimeZone.setDefault(TimeZone.getTimeZone("IST"));
+			Calendar calendar = Calendar.getInstance();
+			calendar.add(Calendar.DATE, Integer.parseInt(String.valueOf(daysLeft)));
+			Date newExpDate = calendar.getTime();
+			currentHoldingsDBBean.setRentexpirydate(newExpDate.toString());
+
+			currentHoldingsDao.renewCurrentHolding(currentHoldingsDBBean);
+
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+
+
+
 	}
 
 	public RentOffersDao getRentOffersDao() {
@@ -203,5 +238,5 @@ public class CurrentHoldingsAppService {
 	public void setImagesDao(ImagesDao imagesDao) {
 		this.imagesDao = imagesDao;
 	}
-	
+
 }
