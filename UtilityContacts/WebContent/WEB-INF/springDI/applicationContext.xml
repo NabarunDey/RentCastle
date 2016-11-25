@@ -8,8 +8,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<import resource="hibernateSetup.xml" />
 	<import resource="spring-di-dao.xml" />
-	
-	<!--Modules Start  -->
+
+	<!--Modules Start -->
 	<import resource="spring-di-index.xml" />
 	<import resource="spring-di-login.xml" />
 	<import resource="spring-di-addproduct.xml" />
@@ -23,21 +23,21 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="spring-di-profileManagement.xml" />
 	<import resource="spring-di-help.xml" />
 	<import resource="spring-di-currentHoldings.xml" />
-	
-	
-	<!-- Modules End  -->
-	
-	
+	<import resource="spring-di-scheduler.xml" />
+
+	<!-- Modules End -->
+
+
 
 	<bean id="userProfile" class="com.sessionBeans.UserProfile" scope="session">
 	</bean>
-	
-	<bean id="renewCurrentHoldings" class="com.util.RenewCurrentHoldings">
-		<property name="currentHoldingsDao" ref="currentHoldingsDao" />
-		<property name="currentHoldingsAppService" ref="currentHoldingsAppService" />
-		
-	</bean>
-	
 
+	<bean id="renewCurrentHoldings" class="com.util.RenewCurrentHoldingsJob">
+		<property name="currentHoldingsDao" ref="currentHoldingsDao" />
+		<property name="paymentsDao" ref="paymentsDao" />
+		<property name="ordersDao" ref="ordersDao" />
+		<property name="productsDao" ref="productsDao" />
+		<property name="rentOffersDao" ref="rentOffersDao" />
+	</bean>
 
 </beans>

@@ -15,7 +15,7 @@
 						<th>ProductId</th>
 						<th>ProductName</th>
 						<th>RentOffer</th>
-						<th>OrderId</th>
+						<th>Date</th>
 						<th>Date</th>
 						<th>Status</th>
 						<s:if test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }"><th>Address</th></s:if>

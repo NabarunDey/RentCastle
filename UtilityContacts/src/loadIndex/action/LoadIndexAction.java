@@ -1,6 +1,7 @@
 package loadIndex.action;
 
 import java.util.List;
+import java.util.TimeZone;
 
 import loadIndex.LoadIndexContext;
 import loadIndex.appService.LoadIndexAppService;
@@ -19,6 +20,8 @@ public class LoadIndexAction {
 	
 	public String loadIndex()
 	{
+		TimeZone.setDefault(TimeZone.getTimeZone("IST"));
+
 		List<SearchProductProjectorOB> featuredProducts = productManagementAppService.getFeaturedProducts();
 		AdsSectionProjectorOB adsSectionProjectorOB = loadIndexAppService.getAdsSection();
 		context.setFeaturedProducts(featuredProducts);
