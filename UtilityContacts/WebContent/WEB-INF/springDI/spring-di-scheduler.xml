@@ -12,7 +12,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 		<property name="jobDetail" ref="renewHoldingsJob" />
-		<property name="cronExpression" value="0 10 12 * * ?" />
+		<property name="cronExpression" value="0 30 4 * * ?" />
 	</bean>
 
 	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">

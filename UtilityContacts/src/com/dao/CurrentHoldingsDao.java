@@ -100,10 +100,11 @@ public class CurrentHoldingsDao {
 	{
 		try{
 			Session session = template.getSessionFactory().getCurrentSession();
-			session.getTransaction().begin();
+			//session.getTransaction().begin();
 			Query query = session.createSQLQuery("update currentholdings set status = :newStatus" + " where holdingid in (:holdingIds)");
 			query.setParameter("newStatus", CurrentHoldingStatus.UPCOMING.toString());
-			query.setParameter("holdingIds", holdingIds);
+			String x=  StringUtils.join(holdingIds,',');
+			query.setParameter("holdingIds",x);
 			int result = query.executeUpdate();
 			session.getTransaction().commit();
 		}catch(Exception e)

@@ -81,6 +81,8 @@ public class RenewCurrentHoldingsJob {
 			}
 
 		}
+		if(null!= holdingIdsForUpcoming && holdingIdsForUpcoming.size()>0)
+			currentHoldingsDao.setStatusAsUpcoming(holdingIdsForUpcoming);
 	}
 
 
