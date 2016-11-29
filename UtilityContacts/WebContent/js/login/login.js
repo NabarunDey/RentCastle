@@ -37,7 +37,7 @@ function doAjaxPost() {
 				$('#logout').show();
 				$('#buyButton').show();
 				$('#addToCartButton').show();
-
+				$('#dummy').hide();
 				
 				if(response.loginProjectorOB.userProfile.userType == "VENDOR")
 				{

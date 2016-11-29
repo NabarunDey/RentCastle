@@ -17,11 +17,17 @@
 			<div class="header_top">
 				<div class="top_left">
 					<h2>
-						<a href="<s:url  action='helpInput'/>">Click Here</a> to request an item if not available here. 
+						<a href="<s:url  action='helpInput'/>">Click Here</a> to request
+						an item if not available here.
 					</h2>
 				</div>
 				<div class="top_right">
 					<ul>
+						<s:if
+							test="%{ null == #attr.userProfile || '' == #attr.userProfile.userName 
+											|| null == #attr.userProfile.userName }">
+							<li id="dummy" style="color: #00405d;" >DummyTxt</a></li>
+						</s:if>
 						<li id="help"><a href="<s:url  action='helpInput'/>">Contact
 								Us</a></li>
 						<s:if
@@ -135,10 +141,9 @@
 													<label for="password">Password</label> <input
 														type="password" name="password" id="password">
 												</fieldset>
-												<input id="login" value="Sign in" onclick="doAjaxPost()"
+												<input id="login1" value="Sign in" onclick="doAjaxPost()" style="background-color: #eebf05; color: white;"
 													type="button">
-												<div id="loginError"
-													style="color: red; display: none; "></div>
+												<div id="loginError" style="color: red; display: none;"></div>
 												<input id="loginFB" type="button"
 													style="margin-top: 5px; background-color: #354F88; color: white; border: none; cursor: pointer"
 													value="Sign in using Facebook"
