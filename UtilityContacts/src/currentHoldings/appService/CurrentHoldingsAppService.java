@@ -143,35 +143,26 @@ public class CurrentHoldingsAppService {
 		return currentHoldingsProjectorOBs;
 	}
 
-	public void renewCurrentHoldingDefault(CurrentHoldingsDBBean currentHoldingsDBBean)
+
+
+	public void enableAutorenewal(String holdingId)
 	{
-		try{
-			currentHoldingsDBBean.setStatus(CurrentHoldingStatus.ONGOING.toString());
-
-			String renewedDateStr = StringUtils.isNotEmpty(currentHoldingsDBBean.getRenewedDate())?currentHoldingsDBBean.getRenewedDate()
-					:currentHoldingsDBBean.getItemreceiveddate();
-			String expiryDateStr = currentHoldingsDBBean.getRentexpirydate();
-
-			DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
-			Date expiryDate = (Date)formatter.parse(expiryDateStr);
-			Date renewedDate = (Date)formatter.parse(renewedDateStr);
-			long diff = expiryDate.getTime() - renewedDate.getTime();
-			long daysLeft = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
-			TimeZone.setDefault(TimeZone.getTimeZone("IST"));
-			Calendar calendar = Calendar.getInstance();
-			calendar.add(Calendar.DATE, Integer.parseInt(String.valueOf(daysLeft)));
-			Date newExpDate = calendar.getTime();
-			currentHoldingsDBBean.setRentexpirydate(newExpDate.toString());
-
-			currentHoldingsDao.renewCurrentHolding(currentHoldingsDBBean);
-
-		}catch(Exception e)
+		CurrentHoldingsDBBean currentHoldingsDBBean = currentHoldingsDao.getCurrentHolding(holdingId);
+		if(null!=userProfile && userProfile.getUserName().equals(currentHoldingsDBBean.getUsername()))
 		{
-			e.printStackTrace();
+			currentHoldingsDBBean.setAutorenew(true);
+			currentHoldingsDao.setAutoRenewStatus(currentHoldingsDBBean);
 		}
+	}
 
-
-
+	public void disableAutorenewal(String holdingId)
+	{
+		CurrentHoldingsDBBean currentHoldingsDBBean = currentHoldingsDao.getCurrentHolding(holdingId);
+		if(null!=userProfile && userProfile.getUserName().equals(currentHoldingsDBBean.getUsername()))
+		{
+			currentHoldingsDBBean.setAutorenew(false);
+			currentHoldingsDao.setAutoRenewStatus(currentHoldingsDBBean);
+		}
 	}
 
 	public RentOffersDao getRentOffersDao() {

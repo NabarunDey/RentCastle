@@ -25,6 +25,20 @@
 			</result>
 		</action>
 		
+		<action name="enableAutoRenew" class="currentHoldingsAction"
+			method="enableAutoRenew">
+			<result name="success" type="json">
+				<param name="root">context</param>
+			</result>
+		</action>
+		
+		<action name="diableAutoRenew" class="currentHoldingsAction"
+			method="diableAutoRenew">
+			<result name="success" type="json">
+				<param name="root">context</param>
+			</result>
+		</action>
+		
 	</package>
 
 </struts>

@@ -28,8 +28,18 @@ public class CurrentHoldingsAction extends ActionSupport    {
 		currentHoldingsAppService.endCurrentHolding(holdingId,false);
 		return SUCCESS;
 	}
-
 	
+	public String enableAutoRenew()
+	{
+		currentHoldingsAppService.enableAutorenewal(holdingId);
+		return SUCCESS;
+	}
+	
+	public String diableAutoRenew()
+	{
+		currentHoldingsAppService.disableAutorenewal(holdingId);
+		return SUCCESS;
+	}
 
 	public String getHoldingId() {
 		return holdingId;

@@ -113,7 +113,29 @@ public class CurrentHoldingsDao {
 		}
 	}
 
+	public CurrentHoldingsDBBean getCurrentHolding(String holdingId)
+	{
+		CurrentHoldingsDBBean currentHoldingsDBBean = null;
+		try{
+			currentHoldingsDBBean = template.get(CurrentHoldingsDBBean.class, Integer.parseInt(holdingId));
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return currentHoldingsDBBean;
+	}
+
 	public void renewCurrentHolding(CurrentHoldingsDBBean currentHoldingsDBBean)
+	{
+		try{
+			template.update(currentHoldingsDBBean);
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void setAutoRenewStatus(CurrentHoldingsDBBean currentHoldingsDBBean)
 	{
 		try{
 			template.update(currentHoldingsDBBean);
