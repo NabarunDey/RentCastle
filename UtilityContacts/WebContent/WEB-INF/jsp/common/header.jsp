@@ -26,7 +26,7 @@
 						<s:if
 							test="%{ null == #attr.userProfile || '' == #attr.userProfile.userName 
 											|| null == #attr.userProfile.userName }">
-							<li id="dummy" style="color: #00405d;" >DummyTxt</a></li>
+							<li id="dummy" style="color: #00405d;">DummyTxt</a></li>
 						</s:if>
 						<li id="help"><a href="<s:url  action='helpInput'/>">Contact
 								Us</a></li>
@@ -47,20 +47,33 @@
 							test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }">
 							<li id="orderHistory"><a
 								href="<s:url  action='viewOrders'/>">Order History</a></li>
+							<li id="viewMyCurrentHoldingsCustomer"><a
+								href="<s:url  action='viewMyCurrentHoldingsCustomer'/>">My
+									Holdings</a></li>
 						</s:if>
 						<s:else>
 							<li id="orderHistory" style="display: none"><a
 								href="<s:url  action='viewOrders'/>">Order History</a></li>
+							<li id="viewMyCurrentHoldingsCustomer" style="display: none"><a
+								href="<s:url  action='viewMyCurrentHoldingsCustomer'/>">My
+									Holdings</a></li>
 						</s:else>
 
 						<s:if
 							test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
 							<li id="orderHistoryVendor"><a
 								href="<s:url  action='viewOrdersVendor'/>">Order History</a></li>
+							<li id="viewMyCurrentHoldingsVendor"><a
+								href="<s:url  action='viewMyCurrentHoldingsVendor'/>">My
+									Holdings</a></li>
 						</s:if>
 						<s:else>
 							<li id="orderHistoryVendor" style="display: none"><a
 								href="<s:url  action='viewOrdersVendor'/>">Order History</a></li>
+							<li id="viewMyCurrentHoldingsVendor" style="display: none"><a
+								href="<s:url  action='viewMyCurrentHoldingsVendor'/>">My
+									Holdings</a></li>
+
 						</s:else>
 
 						<s:if
@@ -79,14 +92,12 @@
 							test="%{ null != #attr.userProfile && ('CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) || 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) )}">
 							<li id="paymentHistory"><a
 								href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
-							<li id="viewCurrentHoldings"><a
-								href="<s:url  action='viewCurrentHoldings'/>">My Holdings</a></li>
+
 						</s:if>
 						<s:else>
 							<li id="paymentHistory" style="display: none"><a
 								href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
-							<li id="viewCurrentHoldings" style="display: none"><a
-								href="<s:url  action='viewCurrentHoldings'/>">My Holdings</a></li>
+
 						</s:else>
 
 						<s:if
@@ -141,7 +152,8 @@
 													<label for="password">Password</label> <input
 														type="password" name="password" id="password">
 												</fieldset>
-												<input id="login1" value="Sign in" onclick="doAjaxPost()" style="background-color: #eebf05; color: white;"
+												<input id="login1" value="Sign in" onclick="doAjaxPost()"
+													style="background-color: #eebf05; color: white;"
 													type="button">
 												<div id="loginError" style="color: red; display: none;"></div>
 												<input id="loginFB" type="button"

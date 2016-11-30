@@ -1,14 +1,11 @@
 package currentHoldings.appService;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.TimeZone;
-import java.util.concurrent.TimeUnit;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -143,7 +140,50 @@ public class CurrentHoldingsAppService {
 		return currentHoldingsProjectorOBs;
 	}
 
+	public List<CurrentHoldingsProjectorOB> viewMyCurrentHoldingsVendor()
+	{
+		List<CurrentHoldingsProjectorOB> currentHoldingsProjectorOBs = null;
 
+		List<ProductsDBBean> productsDBBeans = productsDao.searchByVendor(userProfile.getUserName());
+		if(null!= productsDBBeans && productsDBBeans.size()>0)
+		{
+			Map<String, ProductsDBBean> productsMap = CommonUtility.getProductMap(productsDBBeans);
+
+			Set<String> productIdSet = productsMap.keySet();
+			List<Integer> productIdListInt = new ArrayList<Integer>();
+			for(String productIdStr : productIdSet)
+			{
+				productIdListInt.add(Integer.parseInt(productIdStr));
+			}
+			List<CurrentHoldingsDBBean> currentHoldingsDBBeans = currentHoldingsDao.getMyCurrentHoldingsVendor(productIdListInt);
+			List<Integer> rentIds = new ArrayList<Integer>();
+			List<Integer> orderIds = new ArrayList<Integer>();
+			if(null!=currentHoldingsDBBeans && currentHoldingsDBBeans.size()>0)
+			{
+				for(CurrentHoldingsDBBean currentHoldingsDBBean : currentHoldingsDBBeans)
+				{
+					rentIds.add(currentHoldingsDBBean.getRentOfferid());
+					orderIds.add(currentHoldingsDBBean.getOrderid());
+				}
+			}
+			List<RentOffersDBBean> rentOffersDBBeans = rentOffersDao.getRentOffersByIdsInteger(rentIds);
+			List<OrdersDBBean> ordersDBBeans = ordersDao.getOrders(orderIds);
+
+			Map<String, RentOffersDBBean> rentMap = CommonUtility.getRentMap(rentOffersDBBeans);
+			Map<String, OrdersDBBean> orderMap = CommonUtility.getOrdersMap(ordersDBBeans);
+			Map<String, ImagesDBBean> productImageMap = imagesDao.getPrimaryImageOfProduct(productsDBBeans);
+
+			CurrentHoldingsProjectorIB currentHoldingsProjectorIB = new CurrentHoldingsProjectorIB();
+			currentHoldingsProjectorIB.setCurrentHoldingsDBBeans(currentHoldingsDBBeans);
+			currentHoldingsProjectorIB.setOrdersMap(orderMap);
+			currentHoldingsProjectorIB.setProductsMap(productsMap);
+			currentHoldingsProjectorIB.setRentMap(rentMap);
+			currentHoldingsProjectorIB.setProductImagesMap(productImageMap);
+
+			currentHoldingsProjectorOBs= currentHoldingsProjector.getMyCurrentHoldingsProjector(currentHoldingsProjectorIB);
+		}
+		return currentHoldingsProjectorOBs;
+	}
 
 	public void enableAutorenewal(String holdingId)
 	{

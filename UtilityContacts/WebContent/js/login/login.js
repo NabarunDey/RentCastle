@@ -44,7 +44,7 @@ function doAjaxPost() {
 					$('#orderHistoryVendor').show();
 					$('#addProductButton').show();
 					$('#getProductListByVendor').show();
-					$('#viewCurrentHoldings').show();
+					$('#viewMyCurrentHoldingsVendor').show();
 					$('#paymentHistory').show();
 					$('#editProfile').show();
 
@@ -53,7 +53,7 @@ function doAjaxPost() {
 				{
 					$('#myCart').show();
 					$('#orderHistory').show();
-					$('#viewCurrentHoldings').show();
+					$('#viewMyCurrentHoldingsCustomer').show();
 					$('#paymentHistory').show();
 					$('#editProfile').show();
 

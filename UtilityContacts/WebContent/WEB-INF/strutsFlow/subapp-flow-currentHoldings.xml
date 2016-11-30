@@ -12,9 +12,14 @@
 				class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
 
-		<action name="viewCurrentHoldings" class="currentHoldingsAction"
+		<action name="viewMyCurrentHoldingsCustomer" class="currentHoldingsAction"
 			method="viewMyCurrentHoldingsCustomer">
-			<result name="success" type="tiles">viewCurrentHoldings</result>
+			<result name="success" type="tiles">viewCurrentHoldingsCustomer</result>
+		</action>
+		
+		<action name="viewMyCurrentHoldingsVendor" class="currentHoldingsAction"
+			method="viewMyCurrentHoldingsVendor">
+			<result name="success" type="tiles">viewCurrentHoldingsVendor</result>
 		</action>
 		
 		

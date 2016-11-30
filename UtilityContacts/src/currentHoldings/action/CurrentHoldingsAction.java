@@ -23,6 +23,13 @@ public class CurrentHoldingsAction extends ActionSupport    {
 		return "success";
 	}
 	
+	public String viewMyCurrentHoldingsVendor()
+	{
+		List<CurrentHoldingsProjectorOB> currentHoldingsProjectorOBs = currentHoldingsAppService.viewMyCurrentHoldingsVendor();
+		context.setCurrentHoldingsProjectorOBs(currentHoldingsProjectorOBs);
+		return "success";
+	}
+	
 	public String endCurrentHolding()
 	{
 		currentHoldingsAppService.endCurrentHolding(holdingId,false);

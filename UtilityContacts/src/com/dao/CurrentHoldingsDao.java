@@ -74,6 +74,20 @@ public class CurrentHoldingsDao {
 		}
 		return currentHoldingsDBBeans;
 	}
+	
+	public List<CurrentHoldingsDBBean> getMyCurrentHoldingsVendor(List<Integer> productIds)
+	{
+		List<CurrentHoldingsDBBean> currentHoldingsDBBeans = null;
+		try{
+			Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(CurrentHoldingsDBBean.class)
+					.add(Restrictions.in("productid", productIds));
+			currentHoldingsDBBeans = criteria.list();
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return currentHoldingsDBBeans;
+	}
 
 	public List<CurrentHoldingsDBBean> getAllCurrentHoldingsToBeRenewed()
 	{
