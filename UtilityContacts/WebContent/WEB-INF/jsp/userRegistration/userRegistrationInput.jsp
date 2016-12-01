@@ -42,17 +42,17 @@
 							// Create the supports object
 							var supports = {};
 
-							supports.autofocus = 'autofocus' in inputs;
-							supports.required = 'required' in inputs;
+							supports.  = ' ' in inputs;
+							supports.  = ' ' in inputs;
 							supports.placeholder = 'placeholder' in inputs;
 
-							// Fallback for autofocus attribute
-							if (!supports.autofocus) {
+							// Fallback for   attribute
+							if (!supports. ) {
 
 							}
 
-							// Fallback for required attribute
-							if (!supports.required) {
+							// Fallback for   attribute
+							if (!supports. ) {
 
 							}
 
@@ -84,12 +84,12 @@
 							</div>
 							<div>
 								<s:textfield name="lastname" placeholder="last name:"
-									type="text" tabindex="2" required autofocus>
+									type="text" tabindex="2"  >
 								</s:textfield>
 							</div>
 							<div>
 								<s:textfield name="username"
-									placeholder="email address:" type="email" tabindex="3" required>
+									placeholder="email address:" type="email" tabindex="3"  >
 								</s:textfield>
 							</div>
 							<div class="sky-form">
@@ -105,12 +105,12 @@
 							</div>
 							<div>
 								<s:textfield name="password" placeholder="password"
-									type="password" tabindex="4" required>
+									type="password" tabindex="4"  >
 								</s:textfield>
 							</div>
 							<div>
 								<s:textfield placeholder="retype password"
-									type="password" tabindex="4" required>
+									type="password" tabindex="4"  >
 								</s:textfield>
 							</div>
 							<div>
