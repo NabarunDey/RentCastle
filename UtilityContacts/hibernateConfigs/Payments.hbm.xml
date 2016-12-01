@@ -16,6 +16,8 @@
 		<property name="rentamount"></property>
 		<property name="deliveryCharge"></property>
 		<property name="paymentStatus"></property>
+		<property name="comments"></property>
+		
 	</class>
 
 </hibernate-mapping>  	

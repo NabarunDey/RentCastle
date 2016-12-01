@@ -13,8 +13,14 @@ public class PaymentsDBBean {
 	private String securitymoney;
 	private String paymentStatus;
 	private String deliveryCharge;
+	private String comments;
 	
-	
+	public String getComments() {
+		return comments;
+	}
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
 	public String getDeliveryCharge() {
 		return deliveryCharge;
 	}

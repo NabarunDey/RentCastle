@@ -5,11 +5,16 @@ import userRegistration.appService.UserRegistrationAppService;
 import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
 import userRegistration.projector.outputBeans.UserRegistrationProjectorOB;
 
+import com.opensymphony.xwork2.ActionSupport;
 import com.structures.userTypes.UserType;
 import com.util.CommonUtility;
 
-public class UserRegistrationAction {
+public class UserRegistrationAction  extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	String username;
 	String firstname;
 	String lastname;

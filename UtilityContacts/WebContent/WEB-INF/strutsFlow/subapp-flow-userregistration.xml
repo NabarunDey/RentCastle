@@ -14,17 +14,18 @@
 		</result-types>
 
 
-		<action name="userRegistrationInput" class="userRegistrationAction"
+		<action name="userRegistrationInput" class="userRegistration.action.UserRegistrationAction"
 			method="userRegistrationInput">
 			<result name="success" type="tiles">userRegistrationInput</result>
 		</action>
 		
-		<action name="userRegistrationAdditionalInfo" class="userRegistrationAction"
+		<action name="userRegistrationAdditionalInfo" class="userRegistration.action.UserRegistrationAction"
 			method="userRegistrationAdditionalInfo">
+			<result name="input" type="tiles">userRegistrationInput</result>
 			<result name="success" type="tiles">userRegistrationAdditionalInfo</result>
 		</action>
 
-		<action name="userRegistrationConfirm" class="userRegistrationAction"
+		<action name="userRegistrationConfirm" class="userRegistration.action.UserRegistrationAction"
 			method="userRegistrationConfirm">
 			<result name="success" type="tiles">userRegistrationConfirm</result>
 		</action>

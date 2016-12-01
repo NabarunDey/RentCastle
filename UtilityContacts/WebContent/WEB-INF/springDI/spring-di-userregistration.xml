@@ -4,7 +4,7 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	<bean id="userRegistrationAction" class="userRegistration.action.UserRegistrationAction"
+	<bean id="userRegistration.action.UserRegistrationAction" class="userRegistration.action.UserRegistrationAction"
 		scope="request">
 		<property name="userRegistrationAppService" ref="userRegistrationAppService" />
 		<property name="context" ref="userRegistrationContext" />

@@ -75,22 +75,22 @@
 					<div class="registration_form">
 						<!-- Form -->
 						<form id="registration_form"
-							action="userRegistrationAdditionalInfo" method="post">
+							action="userRegistrationAdditionalInfo" method="post" validate="true">
 							<div>
-								<label> <input name="firstname"
-									placeholder="first name:" type="text" tabindex="1" required
-									autofocus>
-								</label>
+							
+								<s:textfield name="firstname"
+									placeholder="first name:" type="text" tabindex="1" >
+								</s:textfield>
 							</div>
 							<div>
-								<label> <input name="lastname" placeholder="last name:"
+								<s:textfield name="lastname" placeholder="last name:"
 									type="text" tabindex="2" required autofocus>
-								</label>
+								</s:textfield>
 							</div>
 							<div>
-								<label> <input name="username"
+								<s:textfield name="username"
 									placeholder="email address:" type="email" tabindex="3" required>
-								</label>
+								</s:textfield>
 							</div>
 							<div class="sky-form">
 								<div class="sky_form1">
@@ -104,14 +104,14 @@
 								</div>
 							</div>
 							<div>
-								<label> <input name="password" placeholder="password"
+								<s:textfield name="password" placeholder="password"
 									type="password" tabindex="4" required>
-								</label>
+								</s:textfield>
 							</div>
 							<div>
-								<label> <input placeholder="retype password"
+								<s:textfield placeholder="retype password"
 									type="password" tabindex="4" required>
-								</label>
+								</s:textfield>
 							</div>
 							<div>
 								<label> <s:select label="User Type" headerKey="-1"

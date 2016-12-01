@@ -79,7 +79,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/productManagement/editRentOffersInput.jsp" />
 	</definition>
-	
+
 	<definition name="editRentOffersConfirm" extends="baseLayout">
 		<put-attribute name="title" value="Edit Product" />
 		<put-attribute name="body"
@@ -90,60 +90,75 @@
 		<put-attribute name="title" value="My Cart" />
 		<put-attribute name="body" value="/WEB-INF/jsp/cart/cart.jsp" />
 	</definition>
-	
+
 	<definition name="orderPreview" extends="baseLayout">
 		<put-attribute name="title" value="Preview Order" />
-		<put-attribute name="body" value="/WEB-INF/jsp/order/orderPreview.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/order/orderPreview.jsp" />
 	</definition>
-	
+
 	<definition name="orderConfirmation" extends="baseLayout">
 		<put-attribute name="title" value="Order Confirm" />
-		<put-attribute name="body" value="/WEB-INF/jsp/order/orderConfirmation.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/order/orderConfirmation.jsp" />
 	</definition>
-	
+
 	<definition name="viewOrders" extends="baseLayout">
 		<put-attribute name="title" value="My Orders" />
 		<put-attribute name="body" value="/WEB-INF/jsp/order/viewOrders.jsp" />
 	</definition>
-	
+
 	<definition name="viewOrdersAdmin" extends="baseLayout">
 		<put-attribute name="title" value="Orders Admin" />
-		<put-attribute name="body" value="/WEB-INF/jsp/order/viewOrdersAdmin.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/order/viewOrdersAdmin.jsp" />
 	</definition>
-	
+
 	<definition name="userPayments" extends="baseLayout">
 		<put-attribute name="title" value="My Payments" />
-		<put-attribute name="body" value="/WEB-INF/jsp/payment/userPayments.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/payment/userPayments.jsp" />
 	</definition>
-	
+
 	<definition name="adminPayments" extends="baseLayout">
 		<put-attribute name="title" value="Admin Payments" />
-		<put-attribute name="body" value="/WEB-INF/jsp/payment/adminPayments.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/payment/adminPayments.jsp" />
 	</definition>
-	
+
 	<definition name="forgotPasswordInput" extends="baseLayout">
 		<put-attribute name="title" value="Forgot Password" />
-		<put-attribute name="body" value="/WEB-INF/jsp/profileManagement/forgotPasswordInput.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/profileManagement/forgotPasswordInput.jsp" />
 	</definition>
-	
+
 	<definition name="profileManagementInput" extends="baseLayout">
 		<put-attribute name="title" value="Edit Profile" />
-		<put-attribute name="body" value="/WEB-INF/jsp/profileManagement/profileManagementInput.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/profileManagement/profileManagementInput.jsp" />
 	</definition>
-	
+
 	<definition name="profileManagementConfirm" extends="baseLayout">
 		<put-attribute name="title" value="Edit Profile" />
-		<put-attribute name="body" value="/WEB-INF/jsp/profileManagement/profileManagementConfirm.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/profileManagement/profileManagementConfirm.jsp" />
 	</definition>
 
 	<definition name="helpInput" extends="baseLayout">
 		<put-attribute name="title" value="Contact Us" />
 		<put-attribute name="body" value="/WEB-INF/jsp/help/helpInput.jsp" />
 	</definition>
-	
-		<definition name="viewCurrentHoldings" extends="baseLayout">
+
+	<definition name="viewCurrentHoldingsCustomer" extends="baseLayout">
 		<put-attribute name="title" value="My Holdings" />
-		<put-attribute name="body" value="/WEB-INF/jsp/currentHoldings/currentHoldings.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/currentHoldings/currentHoldingsCustomer.jsp" />
+	</definition>
+	
+	<definition name="viewCurrentHoldingsVendor" extends="baseLayout">
+		<put-attribute name="title" value="My Holdings" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/currentHoldings/currentHoldingsVendor.jsp" />
 	</definition>
 
 </tiles-definitions>
