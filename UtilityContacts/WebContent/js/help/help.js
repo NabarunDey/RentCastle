@@ -1,5 +1,5 @@
 function helpRequestSubmit() {
-
+	 var lb = new $.LoadingBox({loadingImageSrc: "images/default.gif",});
 	$.ajax({
 		type: "POST",
 		url: "helpRequestSubmit",
@@ -18,4 +18,5 @@ function helpRequestSubmit() {
 			alert('Error: ' + e);
 		}
 	});
+	lb.close();
 }

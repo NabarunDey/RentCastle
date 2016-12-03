@@ -11,6 +11,7 @@ function placeCartOrder()
 }
 
 function checkPin() {
+	 var lb = new $.LoadingBox({loadingImageSrc: "images/default.gif",});
 	placeOrderEnable = true;
 	$.ajax({
 		type: "POST",
@@ -37,6 +38,7 @@ function checkPin() {
 			alert('Error: ' + e);
 		}
 	});
+	lb.close();
 }
 
 function populateCity() {

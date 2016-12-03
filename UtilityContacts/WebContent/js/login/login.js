@@ -1,5 +1,5 @@
 function doAjaxPost() {
-
+	  var lb = new $.LoadingBox({loadingImageSrc: "images/default.gif",});
 	$.ajax({
 		type: "POST",
 		url: "loginFunction",
@@ -70,10 +70,11 @@ function doAjaxPost() {
 			alert('Error: ' + e);
 		}
 	});
+	 lb.close();
 }
 
 function forgotPasswordSubmit() {
-
+	  var lb = new $.LoadingBox({loadingImageSrc: "images/default.gif",});
 	$.ajax({
 		type: "POST",
 		url: "forgotPasswordSubmit",
@@ -93,5 +94,6 @@ function forgotPasswordSubmit() {
 			alert('Error: ' + e);
 		}
 	});
+	lb.close();
 }
 
