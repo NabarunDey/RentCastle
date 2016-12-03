@@ -10,8 +10,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 
-<link rel="stylesheet" href="/Struts2Example/struts/xhtml/styles.css"
-	type="text/css" />
 </head>
 <body>
 
@@ -25,72 +23,30 @@
 					<h2>
 						new user? <span> create a rentcastle account </span>
 					</h2>
-					
-					<!-- [if IE] 
-		    < link rel='stylesheet' type='text/css' href='ie.css'/>  
-		 [endif] -->
 
-					<!-- [if lt IE 7]>  
-		    < link rel='stylesheet' type='text/css' href='ie6.css'/>  
-		<! [endif] -->
-					<script>
-						(function() {
-
-							// Create input element for testing
-							var inputs = document.createElement('input');
-
-							// Create the supports object
-							var supports = {};
-
-							supports.  = ' ' in inputs;
-							supports.  = ' ' in inputs;
-							supports.placeholder = 'placeholder' in inputs;
-
-							// Fallback for   attribute
-							if (!supports. ) {
-
-							}
-
-							// Fallback for   attribute
-							if (!supports. ) {
-
-							}
-
-							// Fallback for placeholder attribute
-							if (!supports.placeholder) {
-
-							}
-
-							// Change text inside send button on submit
-							var send = document
-									.getElementById('register-submit');
-							if (send) {
-								send.onclick = function() {
-									this.innerHTML = '...Sending';
-								}
-							}
-
-						})();
-					</script>
 					<div class="registration_form">
 						<!-- Form -->
-						<form id="registration_form"
-							action="userRegistrationAdditionalInfo" method="post" validate="true">
+						<s:form id="registration_form"
+							action="userRegistrationAdditionalInfo" method="post"
+							validate="true" theme="simple">
 							<div>
-							
-								<s:textfield name="firstname"
-									placeholder="first name:" type="text" tabindex="1" >
+								<s:textfield name="firstname" id="firstname"
+									placeholder="first name:" type="text" tabindex="1">
 								</s:textfield>
+								<s:fielderror fieldName="firstname"></s:fielderror>
 							</div>
 							<div>
-								<s:textfield name="lastname" placeholder="last name:"
-									type="text" tabindex="2"  >
+								<s:textfield name="lastname" id="lastname" placeholder="last name:"
+									type="text" tabindex="2">
 								</s:textfield>
+								<s:fielderror fieldName="lastname"></s:fielderror>
 							</div>
 							<div>
-								<s:textfield name="username"
-									placeholder="email address:" type="email" tabindex="3"  >
+								<s:textfield name="username" id="username" placeholder="email address:"
+									type="email" tabindex="3">
 								</s:textfield>
+								<s:fielderror fieldName="username"></s:fielderror>
+								
 							</div>
 							<div class="sky-form">
 								<div class="sky_form1">
@@ -105,19 +61,20 @@
 							</div>
 							<div>
 								<s:textfield name="password" placeholder="password"
-									type="password" tabindex="4"  >
+									type="password" tabindex="4">
 								</s:textfield>
 							</div>
 							<div>
-								<s:textfield placeholder="retype password"
-									type="password" tabindex="4"  >
+								<s:textfield placeholder="retype password" type="password"
+									tabindex="4">
 								</s:textfield>
 							</div>
 							<div>
 								<label> <s:select label="User Type" headerKey="-1"
 										list="#{'USERTYPE':'Select User Type','CUSTOMER':'Customer', 'VENDOR':'Vendor'}"
-										name="usertype" value="#{'usertype'}" />
+										name="usertype" value="#{'usertype'}" id="usertype"/>
 								</label>
+								<s:fielderror fieldName="usertype"></s:fielderror>
 							</div>
 							<div>
 								<input type="submit" value="create an account"
@@ -128,7 +85,7 @@
 									name="checkbox"><i></i>i agree to rentcastle.in &nbsp;<a
 									class="terms" href="#"> terms of service</a> </label>
 							</div>
-						</form>
+						</s:form>
 						<!-- /Form -->
 					</div>
 				</div>
@@ -146,13 +103,14 @@
 				<div class="registration_left">
 					<a target="_top"
 						href="https://accounts.google.com/o/oauth2/auth?scope=email&response_type=code&client_id=968847956660-7cs0n3ke5m69hj96hp9sfmqql34gsd4s.apps.googleusercontent.com&approval_prompt=auto&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunctionGoogle">
-							<img src="images/google-plus-sign-in.jpg" alt="" style="width: 508px; height: 50px" >
-							<div class="clear"></div>
+						<img src="images/google-plus-sign-in.jpg" alt=""
+						style="width: 508px; height: 50px">
+						<div class="clear"></div>
 					</a>
 				</div>
 				<div class="clearfix"></div>
 			</div>
-			
+
 		</div>
 	</div>
 

@@ -1896,7 +1896,7 @@ p.product_descr {
 }
 
 .registration_left {
-	float: left;
+	float: left;`
 	width: 45.33333%;
 	margin-left: 9.333%;
 }
@@ -1914,6 +1914,14 @@ p.product_descr {
 }
 
 .registration_form div {
+	padding: 10px 0;
+}
+
+.wwFormTable {
+	display: block;
+}
+
+.wwFormTable div {
 	padding: 10px 0;
 }
 
@@ -1943,7 +1951,7 @@ label {
 
 .registration_form input[type="text"], .registration_form textfield,
 	.registration_form input[type="email"], .registration_form input[type="tel"],
-	.registration_form input[type="password"], .registration_form select {
+	.registration_form input[type="password"], .registration_form select  {
 	padding: 8px;
 	display: block;
 	width: 100%;
@@ -2577,3 +2585,7 @@ border-bottom:1px solid #313030;
 
 }
 
+.errorMessage span,.errorMessage
+{
+	color: red !important;
+}

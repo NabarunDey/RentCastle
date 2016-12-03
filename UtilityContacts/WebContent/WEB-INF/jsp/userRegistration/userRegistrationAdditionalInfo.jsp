@@ -9,7 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 
-<link rel="stylesheet" href="/Struts2Example/struts/xhtml/styles.css" type="text/css"/> 
 </head>
 <body>
 
