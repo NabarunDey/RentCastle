@@ -30,7 +30,16 @@
  --><!-- start menu -->
 <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="js/megamenu.js"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu(); });</script>
+<script type='text/javascript' src='js/jquery.LoadingBox.js'></script>
+<script>$(document).ready(function(){
+	$(".megamenu").megamenu(); 
+	   var lb = new $.LoadingBox({loadingImageSrc: "images/default.gif",});
+      setTimeout(function(){
+          lb.close();
+      }, 500);
+	});
+	 
+	</script>
 <!-- start slider -->
 <link rel="stylesheet" href="css/fwslider.css" media="all">
 <link rel="stylesheet" href="css/jasny-bootstrap.min.css">
