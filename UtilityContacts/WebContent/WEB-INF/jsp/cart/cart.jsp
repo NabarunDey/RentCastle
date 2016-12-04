@@ -38,8 +38,7 @@
 							</h4>
 							<span>qty <b>1</b></span>
 							<ul class="s_icons">
-								<li><a href="#"
-									onclick="removeFromCart(<s:property value='productId'/>,<s:property value='rentId'/>)"><img
+								<li><a href="removeFromCart?productId=<s:property value='productId'/>&rentOfferId=<s:property value='rentId'/>"><img
 										src="images/s_icon3.png" alt=""> Remove</a></li>
 							</ul>
 						</div>

@@ -64,6 +64,7 @@
 			<!-- start content -->
 			<s:hidden id="productId"
 				value="%{context.ViewProductProjectorOB.productsDBBean.productid}" />
+				 <img id="imgId" src=<s:property value="context.ViewProductProjectorOB.productImagesList.get(0)" /> style="display: none;" />
 			<div class="row single">
 				<div class="col-md-12">
 					<div class="single_left">
@@ -71,10 +72,10 @@
 							<ul id="etalage">
 								<s:iterator
 									value="context.ViewProductProjectorOB.productImagesList">
-									<li><a href="optionallink.html"> <img
+									<li><a href="optionallink.html"> <img 
 											class="etalage_thumb_image" src="<s:property />"
 											class="img-responsive" /> <img class="etalage_source_image"
-											src="<s:property />" class="img-responsive" title="" />
+											src="<s:property  />" class="img-responsive" title="" />
 									</a></li>
 								</s:iterator>
 							</ul>

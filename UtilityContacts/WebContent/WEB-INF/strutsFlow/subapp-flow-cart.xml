@@ -24,9 +24,7 @@
 		</action>
 
 		<action name="removeFromCart" class="cartAction" method="removeFromCart">
-			<result name="success" type="json">
-				<param name="root">context</param>
-			</result>
+			<result name="success" type="tiles">cart</result>
 		</action>
 	</package>
 
