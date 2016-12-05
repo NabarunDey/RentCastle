@@ -30,7 +30,7 @@ public class ProductsDao {
 	HibernateTemplate template;  
 
 	boolean indexed = false;
-	
+
 	public void setTemplate(HibernateTemplate template) {  
 		this.template = template;  
 	}  
@@ -57,15 +57,16 @@ public class ProductsDao {
 		{
 			for(String pin : addProductAppServiceIB.getProductpin().split(",") )
 			{
-				pinConcat = pinConcat+pin+"|";
+				if(StringUtils.isNotEmpty(pin))
+					pinConcat = pinConcat+pin+"|";
 			}
 		}
-		
+
 		if(StringUtils.isEmpty(productsDBBean.getDeliveryCharge()))
 		{
 			productsDBBean.setDeliveryCharge("0");
 		}
-		
+
 		productsDBBean.setProductpin(pinConcat);
 		productsDBBean.setImages(imageIdsConcat);
 		productsDBBean.setUsername(addProductAppServiceIB.getUsername());
@@ -103,17 +104,17 @@ public class ProductsDao {
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class);
 
 		String[] querryParts  = searchString.split("[^.\\w]");
-		
-		
+
+
 		Disjunction disjunction = Restrictions.disjunction();
-		
+
 		for(String part : querryParts)
 		{
 			disjunction.add(Restrictions.like("productname", "%"+part.trim()+"%"));
 			disjunction.add(Restrictions.like("description", "%"+part.trim()+"%"));
 		}
-		
-		
+
+
 		Criterion completeCondition=disjunction;
 		criteria.add(completeCondition);
 		productsDBBeans = criteria.list();
@@ -186,9 +187,9 @@ public class ProductsDao {
 		List<ProductsDBBean> productsDBBeans = null;
 		if(null!= productIds && productIds.size()>0)
 		{
-		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class)
-				.add(Restrictions.in("productid", productIds));
-		productsDBBeans=criteria.list();
+			Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(ProductsDBBean.class)
+					.add(Restrictions.in("productid", productIds));
+			productsDBBeans=criteria.list();
 		}
 		return productsDBBeans;
 	}
@@ -213,7 +214,8 @@ public class ProductsDao {
 		String pinConcat = "";
 		for(String pin : productManagementAppServiceIB.getProductpin().split(",") )
 		{
-			pinConcat = pinConcat+pin+"|";
+			if(StringUtils.isNotEmpty(pin))
+				pinConcat = pinConcat+pin+"|";
 		}
 		productsDBBean.setProductpin(pinConcat);
 		productsDBBean.setUsername(productManagementAppServiceIB.getUsername());
@@ -280,26 +282,26 @@ public class ProductsDao {
 		}
 		List<ProductsDBBean> productsDBBeans =null;
 		try{
-		FullTextSession fullTextSession = Search.getFullTextSession(template.getSessionFactory().getCurrentSession());
+			FullTextSession fullTextSession = Search.getFullTextSession(template.getSessionFactory().getCurrentSession());
 
-		QueryBuilder queryBuilder = fullTextSession.getSearchFactory().buildQueryBuilder().forEntity(ProductsDBBean.class).get();
-	//	org.apache.lucene.search.Query luceneQuery = queryBuilder.keyword().onFields("productname").matching(queryString).createQuery();
+			QueryBuilder queryBuilder = fullTextSession.getSearchFactory().buildQueryBuilder().forEntity(ProductsDBBean.class).get();
+			//	org.apache.lucene.search.Query luceneQuery = queryBuilder.keyword().onFields("productname").matching(queryString).createQuery();
 
-		String[] querryParts  = queryString.split("[^.\\w]");
-		
-		
-		org.apache.lucene.search.Query luceneQuery =queryBuilder.bool()
-        .should( queryBuilder.keyword().wildcard().onField("productname").ignoreFieldBridge().matching("*"+queryString+"*").createQuery() )
-        .should( queryBuilder.keyword().wildcard().onField("description").ignoreFieldBridge().matching("*"+queryString+"*").createQuery() )
-      .createQuery();
-		
-		// wrap Lucene query in a javax.persistence.Query
-		org.hibernate.Query fullTextQuery = fullTextSession.createFullTextQuery(luceneQuery, ProductsDBBean.class);
+			String[] querryParts  = queryString.split("[^.\\w]");
 
-		productsDBBeans = fullTextQuery.list();
+
+			org.apache.lucene.search.Query luceneQuery =queryBuilder.bool()
+					.should( queryBuilder.keyword().wildcard().onField("productname").ignoreFieldBridge().matching("*"+queryString+"*").createQuery() )
+					.should( queryBuilder.keyword().wildcard().onField("description").ignoreFieldBridge().matching("*"+queryString+"*").createQuery() )
+					.createQuery();
+
+			// wrap Lucene query in a javax.persistence.Query
+			org.hibernate.Query fullTextQuery = fullTextSession.createFullTextQuery(luceneQuery, ProductsDBBean.class);
+
+			productsDBBeans = fullTextQuery.list();
 		}catch(Exception e)
 		{
-			 productsDBBeans = new ArrayList<ProductsDBBean>();
+			productsDBBeans = new ArrayList<ProductsDBBean>();
 		}
 
 		return productsDBBeans;

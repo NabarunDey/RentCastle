@@ -9,8 +9,6 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import payment.dao.outputBeans.PaymentDaoOB;
-
 import com.dao.CredentialsDao;
 import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.PaymentsDBBean;
@@ -213,6 +211,64 @@ public class MailHandler {
 				message.setText("Dear "+usersDBBean.getFirstname()+","
 						+ "\n\n A pending payment is generated for your below item."
 						+ "\n You will be contacted by our team regarding payment options."+pmt+"\n\nRegards,"
+						+ "\nRentCastle Team");
+				Transport.send(message);
+			}
+			
+			mailSuccess= true;
+			
+		} catch (Exception e) {
+			System.out.println("Mail Could not be sent to "+usersDBBean.getEmail() +" " + e.getMessage());
+			e.printStackTrace();
+		}
+		return mailSuccess;
+	}
+	
+	public static boolean paymentCompleted(PaymentsDBBean paymentsDBBean, UsersDBBean usersDBBean)
+	{
+		boolean mailSuccess =false;
+		try {
+			
+			if(!initialized)
+			{
+				initialize();
+				initialized=true;
+			}
+
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("nabarundey@rentcastle.in"));
+			message.setRecipients(Message.RecipientType.TO,
+				InternetAddress.parse(usersDBBean.getEmail()));
+			message.setSubject("Pending Payment - PMT00"+paymentsDBBean.getPaymentid());
+			
+			
+			String pmt="\n\n\nOrder Id : ORD00"+paymentsDBBean.getOrderid()
+						 +"\nPayment Id  : "+paymentsDBBean.getPaymentid()
+						 +"\nRent Amount : "+paymentsDBBean.getRentamount()
+						 +"\nSecurity Money : "+paymentsDBBean.getSecuritymoney()
+						 +"\nDelivery Charges : "+paymentsDBBean.getDeliveryCharge()
+						 +"\nDate : "+paymentsDBBean.getDatetime();
+		
+			
+			if(usersDBBean.getUsername().equals(paymentsDBBean.getTousername()))
+			{
+				message.setText("Dear "+usersDBBean.getFirstname()+","
+						+ "\n\nThe amount for the following payment has been made to you."
+						+ "\n Thank you for your business."
+						+ "\n In case you did not receive the money, please feel free to contact with us."
+						+pmt
+						+"\n\nRegards,"
+						+"\nRentCastle Team");
+				Transport.send(message);
+			}
+			
+			if(usersDBBean.getUsername().equals(paymentsDBBean.getFromusername()))
+			{
+				message.setText("Dear "+usersDBBean.getFirstname()+","
+						+ "\n\n We have received your payment with respect to the below order.."
+						+ "\n Thank you for your business."
+						+pmt
+						+"\n\nRegards,"
 						+ "\nRentCastle Team");
 				Transport.send(message);
 			}

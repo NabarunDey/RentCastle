@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
@@ -40,13 +41,16 @@ public class RentOffersDao {
 		try{
 			while(count<periodUnit.length)
 			{
-				RentOffersDBBean rentOffersDBBean  = new  RentOffersDBBean();
-				rentOffersDBBean.setProductid(addRentOfferAppServiceIB.getProductid());
-				rentOffersDBBean.setPeriodunit(periodUnit[count].trim());
-				rentOffersDBBean.setPeriodvalue(periodValue[count].trim());
-				rentOffersDBBean.setAmount(rentAmount[count].trim());
+				if(StringUtils.isNotEmpty(periodValue[count].trim()) && StringUtils.isNotEmpty(rentAmount[count].trim()))
+				{
+					RentOffersDBBean rentOffersDBBean  = new  RentOffersDBBean();
+					rentOffersDBBean.setProductid(addRentOfferAppServiceIB.getProductid());
+					rentOffersDBBean.setPeriodunit(periodUnit[count].trim());
+					rentOffersDBBean.setPeriodvalue(periodValue[count].trim());
+					rentOffersDBBean.setAmount(rentAmount[count].trim());
+					template.getSessionFactory().getCurrentSession().save(rentOffersDBBean);
+				}
 				count++;
-				template.getSessionFactory().getCurrentSession().save(rentOffersDBBean);
 			}
 		}catch (Exception exception)
 		{

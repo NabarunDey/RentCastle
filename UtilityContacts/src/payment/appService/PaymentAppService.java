@@ -13,6 +13,7 @@ import com.dao.UsersDao;
 import com.databaseBeans.PaymentsDBBean;
 import com.databaseBeans.UsersDBBean;
 import com.sessionBeans.UserProfile;
+import com.structures.status.PaymentStatus;
 import com.util.CommonUtility;
 import com.util.MailHandler;
 
@@ -58,7 +59,8 @@ public class PaymentAppService {
 	public void changePaymentStatus(PaymentAppServiceIB paymentAppServiceIB)
 	{
 		PaymentsDBBean paymentsDBBean = paymentsDao.changePaymentStatus(paymentAppServiceIB,userProfile);
-		sendPaymentNotifications(paymentsDBBean);
+		if(paymentsDBBean.getPaymentStatus().equals(PaymentStatus.COMPLETED.toString()))
+			sendPaymentNotificationsForComplete(paymentsDBBean);
 	}
 
 	public PaymentProjectorOB getPaymentsForOrder(PaymentAppServiceIB paymentAppServiceIB)
@@ -69,7 +71,7 @@ public class PaymentAppService {
 		return paymentProjectorOB;
 	}
 
-	private void sendPaymentNotifications(final PaymentsDBBean paymentsDBBean)
+	private void sendPaymentNotificationsForComplete(final PaymentsDBBean paymentsDBBean)
 	{
 		Runnable myrunnable = new Runnable() {
 			public void run() {
@@ -88,8 +90,8 @@ public class PaymentAppService {
 					List<UsersDBBean> usersDBBeans = usersDao.getMultipleUserDetails(usernames);
 					Map<String, UsersDBBean> usermap = CommonUtility.getUsersmap(usersDBBeans);
 
-					MailHandler.paymentAddedMail(paymentsDBBean, usermap.get(paymentsDBBean.getTousername()));
-					MailHandler.paymentAddedMail(paymentsDBBean, usermap.get(paymentsDBBean.getFromusername()));
+					MailHandler.paymentCompleted(paymentsDBBean, usermap.get(paymentsDBBean.getTousername()));
+					MailHandler.paymentCompleted(paymentsDBBean, usermap.get(paymentsDBBean.getFromusername()));
 				}
 			}
 		};
