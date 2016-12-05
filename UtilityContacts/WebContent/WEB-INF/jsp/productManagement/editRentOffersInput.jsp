@@ -9,11 +9,12 @@
 <title>Add Rent Offer</title>
 <script type="text/javascript" src="js/addProduct/addRentOffers.js"></script>
 <style type="text/css">
-.offerno{
-	display:inline-block;
+.offerno {
+	display: inline-block;
 }
-.panelFooter{
-	padding:20px 15px;
+
+.panelFooter {
+	padding: 20px 15px;
 }
 </style>
 </head>
@@ -31,34 +32,69 @@
 						<div class="panel-heading">
 							Offer: <label class="offerno">1</label>
 						</div>
-						<s:iterator value="context.viewProductProjectorOB.rentOffersDBBeans">
-						<div class="panel-body">
-							<div class="form-group">
-								<label for="periodunit" class="col-sm-2 control-label">Period
-									Unit</label>
-								<div class="col-sm-4">
-									<s:select list="{'Days','Months','Years'}" name="periodunit"
-										cssClass="form-control" value="periodunit"></s:select>
+						<s:if
+							test="null!=context.viewProductProjectorOB.rentOffersDBBeans && context.viewProductProjectorOB.rentOffersDBBeans.size>0 ">
+							<s:iterator
+								value="context.viewProductProjectorOB.rentOffersDBBeans">
+								<div class="panel-body">
+									<div class="form-group">
+										<label for="periodunit" class="col-sm-2 control-label">Period
+											Unit</label>
+										<div class="col-sm-4">
+											<s:select list="{'Days','Months','Years'}" name="periodunit"
+												cssClass="form-control" value="periodunit"></s:select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="periodvalue" class="col-sm-2 control-label">Period
+											Value</label>
+										<div class="col-sm-4">
+											<s:textfield name="periodvalue" cssClass="form-control"
+												value="%{periodvalue}" id="periodvalue"></s:textfield>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="rentAmount" class="col-sm-2 control-label">Rent
+											Amount</label>
+										<div class="col-sm-4">
+											<s:textfield name="rentAmount" cssClass="form-control"
+												value="%{amount}" id="rentAmount"></s:textfield>
+
+										</div>
+									</div>
+									<button type="button" class="btn btn-danger remove">Remove
+										Offer</button>
 								</div>
-							</div>
-							<div class="form-group">
-								<label for="periodvalue" class="col-sm-2 control-label">Period
-									Value</label>
-								<div class="col-sm-4">
-									<s:textfield name="periodvalue" cssClass="form-control" value = "%{periodvalue}"></s:textfield>
+							</s:iterator>
+						</s:if>
+						<s:else>
+							<div class="panel-body">
+								<div class="form-group">
+									<label for="periodunit" class="col-sm-2 control-label">Period
+										Unit</label>
+									<div class="col-sm-4">
+										<s:select list="{'Days','Months','Years'}" name="periodunit"
+											cssClass="form-control"></s:select>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label for="rentAmount" class="col-sm-2 control-label">Rent
-									Amount</label>
-								<div class="col-sm-4">
-									<s:textfield name="rentAmount" cssClass="form-control" value="%{amount}"></s:textfield>
+								<div class="form-group">
+									<label for="periodvalue" class="col-sm-2 control-label">Period
+										Value</label>
+									<div class="col-sm-4">
+										<s:textfield name="periodvalue" cssClass="form-control" id="periodvalue"></s:textfield>
+									</div>
 								</div>
+								<div class="form-group">
+									<label for="rentAmount" class="col-sm-2 control-label">Rent
+										Amount</label>
+									<div class="col-sm-4">
+										<s:textfield name="rentAmount" cssClass="form-control" id="rentAmount"></s:textfield>
+									</div>
+								</div>
+								<button type="button" class="btn btn-danger remove">Remove
+									Offer</button>
 							</div>
-							<button type="button" class="btn btn-danger remove">Remove
-								Offer</button>
-						</div>
-						</s:iterator>
+						</s:else>
 					</div>
 				</div>
 				<div class="panelFooter">
@@ -67,7 +103,7 @@
 				</div>
 				<div class="panelFooter ">
 					<s:submit type="button" name="submit" theme="simple"
-							cssClass="btn btn-success btn-lg" />
+						cssClass="btn btn-success btn-lg" />
 				</div>
 			</div>
 		</form>

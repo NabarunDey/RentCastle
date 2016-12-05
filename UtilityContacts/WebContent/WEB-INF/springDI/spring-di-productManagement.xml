@@ -4,7 +4,7 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	<bean id="productManagementAction" class="productManagement.action.ProductManagementAction"
+	<bean id="productManagement.action.ProductManagementAction" class="productManagement.action.ProductManagementAction"
 		scope="request">
 		<property name="productManagementAppService" ref="productManagementAppService" />
 		<property name="context" ref="productManagementAppContext" />

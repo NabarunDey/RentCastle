@@ -146,7 +146,8 @@
 					Description</label>
 				<div class="col-sm-4">
 					<s:textarea name="description" cssClass="form-control"
-						id="description" value="%{context.viewProductProjectorOB.productsDBBean.description}" />
+						id="description"
+						value="%{context.viewProductProjectorOB.productsDBBean.description}" />
 				</div>
 			</div>
 
@@ -159,6 +160,16 @@
 						value="%{context.viewProductProjectorOB.productsDBBean.securitymoney}" />
 				</div>
 			</div>
+
+			<div class="form-group">
+				<label for="security" class="col-sm-2 control-label">Delivery
+					Charge</label>
+				<div class="col-sm-4">
+					<s:textfield name="deliveryCharge" cssClass="form-control"
+						id="deliveryCharge" value="%{context.viewProductProjectorOB.productsDBBean.deliverycharge}" />
+				</div>
+			</div>
+
 			<div class="form-group">
 				<label for="productState" class="col-sm-2 control-label">Select
 					State</label>
@@ -184,7 +195,8 @@
 					Pin</label>
 				<div class="col-sm-4">
 
-					<s:textfield name="productPin" cssClass="form-control" value="%{context.viewProductProjectorOB.productsDBBean.productpin}"/>
+					<s:textfield name="productPin" cssClass="form-control"
+						value="%{context.viewProductProjectorOB.productsDBBean.productpin}" />
 
 				</div>
 			</div>

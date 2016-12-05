@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator Config 1.0//EN" 
+  "http://web.archive.org/web/20090207121525/http://www.opensymphony.com/xwork/xwork-validator-config-1.0.dtd">
+<validators>
+    <validator name="retypePassValidator" class="com.validators.RetypePasswordValidator" />
+</validators> 

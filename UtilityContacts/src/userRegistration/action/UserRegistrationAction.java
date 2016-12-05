@@ -29,6 +29,7 @@ public class UserRegistrationAction  extends ActionSupport {
 	String mobileno1;
 	String mobileno2;
 	String status;
+	String cnfPassword;
 	
 	public UserRegistrationAppService userRegistrationAppService;
 	UserRegistrationAppContext context;
@@ -183,7 +184,13 @@ public class UserRegistrationAction  extends ActionSupport {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+	public String getCnfPassword() {
+		return cnfPassword;
+	}
+
+	public void setCnfPassword(String cnfPassword) {
+		this.cnfPassword = cnfPassword;
+	}
 	
 }

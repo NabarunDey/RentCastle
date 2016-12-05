@@ -14,37 +14,39 @@
 				class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
 
-		<action name="getProductListByVendor" class="productManagementAction"
+		<action name="getProductListByVendor" class="productManagement.action.ProductManagementAction"
 			method="getProductListByVendor">
 			<result name="success" type="tiles">searchResult</result>
 		</action>
 
-		<action name="deleteProductFunction" class="productManagementAction"
+		<action name="deleteProductFunction" class="productManagement.action.ProductManagementAction"
 			method="deleteProductFunction">
 			<result name="success" type="tiles">searchResult</result>
 		</action>
 
-		<action name="editProductInputFunction" class="productManagementAction"
+		<action name="editProductInputFunction" class="productManagement.action.ProductManagementAction"
 			method="editProductInputFunction">
 			<result name="success" type="tiles">editProductInput</result>
 		</action>
 
-		<action name="editProductSubmitFunction" class="productManagementAction"
+		<action name="editProductSubmitFunction" class="productManagement.action.ProductManagementAction"
 			method="editProductSubmitFunction">
+			<result name="input" type="tiles">editProductInput</result>
 			<result name="success" type="tiles">editRentOffersInput</result>
 		</action>
 
-		<action name="editRentOffersSubmit" class="productManagementAction"
+		<action name="editRentOffersSubmit" class="productManagement.action.ProductManagementAction"
 			method="editRentOffersSubmit">
+			<result name="input" type="tiles">editRentOffersInput</result>
 			<result name="success" type="tiles">editRentOffersConfirm</result>
 		</action>
 
-		<action name="getPendingProducts" class="productManagementAction"
+		<action name="getPendingProducts" class="productManagement.action.ProductManagementAction"
 			method="getPendingProducts">
 			<result name="success" type="tiles">searchResult</result>
 		</action>
 
-		<action name="changeApprovalStatus" class="productManagementAction"
+		<action name="changeApprovalStatus" class="productManagement.action.ProductManagementAction"
 			method="changeApprovalStatus">
 			<result name="success" type="json">
 				<param name="root">context</param>

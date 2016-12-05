@@ -44,14 +44,14 @@
 								<label for="periodvalue" class="col-sm-2 control-label">Period
 									Value</label>
 								<div class="col-sm-4">
-									<s:textfield name="periodvalue" cssClass="form-control"></s:textfield>
+									<s:textfield name="periodvalue" cssClass="form-control" id="periodvalue"></s:textfield>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="rentAmount" class="col-sm-2 control-label">Rent
 									Amount</label>
 								<div class="col-sm-4">
-									<s:textfield name="rentAmount" cssClass="form-control"></s:textfield>
+									<s:textfield name="rentAmount" cssClass="form-control" id="rentAmount"></s:textfield>
 								</div>
 							</div>
 							<button type="button" class="btn btn-danger remove">Remove

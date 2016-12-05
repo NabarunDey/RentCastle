@@ -36,17 +36,17 @@
 								<s:fielderror fieldName="firstname"></s:fielderror>
 							</div>
 							<div>
-								<s:textfield name="lastname" id="lastname" placeholder="last name:"
-									type="text" tabindex="2">
+								<s:textfield name="lastname" id="lastname"
+									placeholder="last name:" type="text" tabindex="2">
 								</s:textfield>
 								<s:fielderror fieldName="lastname"></s:fielderror>
 							</div>
 							<div>
-								<s:textfield name="username" id="username" placeholder="email address:"
-									type="email" tabindex="3">
+								<s:textfield name="username" id="username"
+									placeholder="email address:" type="email" tabindex="3">
 								</s:textfield>
 								<s:fielderror fieldName="username"></s:fielderror>
-								
+
 							</div>
 							<div class="sky-form">
 								<div class="sky_form1">
@@ -66,13 +66,14 @@
 							</div>
 							<div>
 								<s:textfield placeholder="retype password" type="password"
-									tabindex="4">
+									name="cnfPassword" tabindex="4" id ="cnfPassword">
 								</s:textfield>
+								<s:fielderror fieldName="cnfPassword"></s:fielderror>
 							</div>
 							<div>
 								<label> <s:select label="User Type" headerKey="-1"
 										list="#{'USERTYPE':'Select User Type','CUSTOMER':'Customer', 'VENDOR':'Vendor'}"
-										name="usertype" value="#{'usertype'}" id="usertype"/>
+										name="usertype" value="#{'usertype'}" id="usertype" />
 								</label>
 								<s:fielderror fieldName="usertype"></s:fielderror>
 							</div>

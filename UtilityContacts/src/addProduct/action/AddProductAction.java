@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 import addProduct.AddProductAppContext;
 import addProduct.appService.AddProductAppService;
 import addProduct.appService.inputBeans.AddProductAppServiceIB;
@@ -12,7 +14,7 @@ import addProduct.appService.inputBeans.FileBean;
 import addProduct.projector.outputBeans.AddProductProjectorOB;
 import addProduct.projector.outputBeans.AddRentOffersProjectorOB;
 
-public class AddProductAction {
+public class AddProductAction  extends ActionSupport{
 
 
 	private AddProductAppService addProductAppService;

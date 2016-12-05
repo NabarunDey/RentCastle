@@ -21,6 +21,7 @@
 				<div class="col-sm-4">
 					<s:textfield name="productName" cssClass="form-control"
 						id="productName" />
+					<%-- <s:fielderror fieldName="productName"></s:fielderror> --%>
 				</div>
 			</div>
 			<div class="form-group">
@@ -133,7 +134,8 @@
 
 
 			<div class="form-group">
-				<label for="description" class="col-sm-2 control-label">Product Description</label>
+				<label for="description" class="col-sm-2 control-label">Product
+					Description</label>
 				<div class="col-sm-4">
 					<s:textarea name="description" cssClass="form-control"
 						id="description" />
@@ -146,14 +148,18 @@
 				<div class="col-sm-4">
 					<s:textfield name="securityMoney" cssClass="form-control"
 						id="securityMoney" />
-				</div>
+<%-- 					<s:fielderror fieldName="securityMoney"></s:fielderror>
+ --%>				</div>
 			</div>
-			
+
 			<div class="form-group">
-				<label for="security" class="col-sm-2 control-label">Delivery Charge</label>
+				<label for="security" class="col-sm-2 control-label">Delivery
+					Charge</label>
 				<div class="col-sm-4">
 					<s:textfield name="deliveryCharge" cssClass="form-control"
 						id="deliveryCharge" />
+<%-- 					<s:fielderror fieldName="deliveryCharge"></s:fielderror>
+ --%>
 				</div>
 			</div>
 			<div class="form-group">
@@ -161,7 +167,7 @@
 					State</label>
 				<div class="col-sm-4">
 
-					<s:select list="{'West Bengal','Assam'}" name="productState"
+					<s:select list="{'West Bengal'}" name="productState"
 						cssClass="form-control"></s:select>
 				</div>
 			</div>
@@ -170,16 +176,18 @@
 					City</label>
 				<div class="col-sm-4">
 
-					<s:select list="{'Kolkata','Siliguri'}" name="productCity"
+					<s:select list="{'Kolkata'}" name="productCity"
 						cssClass="form-control"></s:select>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="productPin" class="col-sm-2 control-label">Select
+				<label for="productPin" class="col-sm-2 control-label">Enter
 					Pin</label>
 				<div class="col-sm-4">
-					<s:textfield name="productPin" cssClass="form-control" />
-				</div>(Ex : 700156,700102,All)
+					<s:textfield name="productPin" cssClass="form-control" id ="productPin" />
+<%-- 					<s:fielderror fieldName="productPin"></s:fielderror>
+ --%>				</div>
+				(Ex : 700156,700102,All)
 			</div>
 
 			<div class="form-group">

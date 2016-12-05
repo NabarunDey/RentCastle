@@ -1,24 +1,38 @@
 <!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
         "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
-     <field name="username">
+	<field name="username">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Please enter email address</message>
+		</field-validator>
+		<field-validator type="email">
+			<param name="trim">true</param>
+			<message>Please enter valid email address</message>
+		</field-validator>
+	</field>
+
+	<field name="firstname">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Please enter FirstName</message>
+		</field-validator>
+	</field>
+
+	<field name="lastname">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Please enter LastName</message>
+		</field-validator>
+	</field>
+	
+	 <field name="cnfPassword">
         <field-validator type="requiredstring">
-            <message>Please enter email address</message>
+            <message>Please enter confirm password.</message>
         </field-validator>
-        <field-validator type="email">
-            <message>Please enter valid email address</message>
-        </field-validator>
+        <field-validator type="retypePassValidator">
+            <message>Password and confirm password do not match.</message>
+        </field-validator> 
     </field>
-     
-    <field name="firstname">
-        <field-validator type="requiredstring">
-            <message>Please enter FirstName</message>
-        </field-validator>
-    </field>
-    
-     <field name="lastname">
-        <field-validator type="requiredstring">
-            <message>Please enter LastName</message>
-        </field-validator>
-    </field>
+
 </validators>

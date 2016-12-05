@@ -13,18 +13,23 @@
 		</result-types>
 
 
-		<action name="addProductInput" class="addProductAction" method="addProductInput">
+		<action name="addProductInput" class="addProduct.action.AddProductAction"
+			method="addProductInput">
 			<result name="success" type="tiles">addProductInput</result>
 		</action>
 
-		<action name="addProductSubmit" class="addProductAction" method="addProductSubmit">
+		<action name="addProductSubmit" class="addProduct.action.AddProductAction"
+			method="addProductSubmit">
+			<result name="input" type="tiles">addProductInput</result>
 			<result name="success" type="tiles">addRentOffersInput</result>
 		</action>
-		
-		<action name="addRentOffersSubmit" class="addProductAction" method="addRentOffersSubmit">
+
+		<action name="addRentOffersSubmit" class="addProduct.action.AddProductAction"
+			method="addRentOffersSubmit">
+			<result name="input" type="tiles">addRentOffersInput</result>
 			<result name="success" type="tiles">addProductConfirm</result>
 		</action>
-		
+
 
 	</package>
 

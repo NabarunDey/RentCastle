@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.opensymphony.xwork2.ActionSupport;
 import com.sessionBeans.UserProfile;
 
 import productManagement.ProductManagementAppContext;
@@ -15,7 +16,7 @@ import addProduct.appService.inputBeans.FileBean;
 
 
 
-public class ProductManagementAction {
+public class ProductManagementAction extends ActionSupport {
 	
 	String productId;
 	private List<File> image;
@@ -35,6 +36,8 @@ public class ProductManagementAction {
 	private	String rentAmount;
 	private String rentId;
 	private String approvalStatus;
+	private String deliveryCharge;
+
 	
 	ProductManagementAppContext context;
 	ProductManagementAppService productManagementAppService;
@@ -127,6 +130,7 @@ public class ProductManagementAction {
 		productManagementAppServiceIB.setProductpin(productPin);
 		productManagementAppServiceIB.setProductstate(productState);
 		productManagementAppServiceIB.setProductcity(productCity);
+		productManagementAppServiceIB.setDeliveryCharge(deliveryCharge);
 		productManagementAppServiceIB.setOldImages(context.getViewProductProjectorOB().getProductsDBBean().getImages());
 		productManagementAppService.editProductSubmit(productManagementAppServiceIB);
 		return "success";
@@ -262,6 +266,12 @@ public class ProductManagementAction {
 	}
 	public void setRentId(String rentId) {
 		this.rentId = rentId;
+	}
+	public String getDeliveryCharge() {
+		return deliveryCharge;
+	}
+	public void setDeliveryCharge(String deliveryCharge) {
+		this.deliveryCharge = deliveryCharge;
 	}
 	
 }

@@ -29,8 +29,14 @@ public class ProductManagementAppServiceIB {
 	private	String amount;
 	private String oldImages;
 	private String approvalStatus;
+	private String deliveryCharge;
 	
-	
+	public String getDeliveryCharge() {
+		return deliveryCharge;
+	}
+	public void setDeliveryCharge(String deliveryCharge) {
+		this.deliveryCharge = deliveryCharge;
+	}
 	public String getApprovalStatus() {
 		return approvalStatus;
 	}

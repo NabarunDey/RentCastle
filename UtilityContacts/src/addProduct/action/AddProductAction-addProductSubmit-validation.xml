@@ -1,0 +1,33 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="productName">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Please enter product name.</message>
+		</field-validator>
+	</field>
+
+	<field name="securityMoney">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Please enter Security Money/Deposit.</message>
+		</field-validator>
+	</field>
+
+	<field name="deliveryCharge">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Please enter Delivery Charge</message>
+		</field-validator>
+	</field>
+	
+	<field name="productPin">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Please enter pin codes where product is available.</message>
+		</field-validator>
+	</field>
+	
+
+</validators>
