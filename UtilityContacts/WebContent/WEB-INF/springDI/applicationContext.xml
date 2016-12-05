@@ -38,6 +38,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="ordersDao" ref="ordersDao" />
 		<property name="productsDao" ref="productsDao" />
 		<property name="rentOffersDao" ref="rentOffersDao" />
+		<property name="usersDao" ref="usersDao" />
 	</bean>
 
 </beans>

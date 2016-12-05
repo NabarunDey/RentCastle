@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
@@ -18,11 +19,13 @@ import com.dao.OrdersDao;
 import com.dao.PaymentsDao;
 import com.dao.ProductsDao;
 import com.dao.RentOffersDao;
+import com.dao.UsersDao;
 import com.databaseBeans.CurrentHoldingsDBBean;
 import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.PaymentsDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
+import com.databaseBeans.UsersDBBean;
 import com.structures.status.CurrentHoldingStatus;
 import com.structures.status.PaymentStatus;
 
@@ -35,6 +38,7 @@ public class RenewCurrentHoldingsJob {
 	private ProductsDao productsDao;
 	private OrdersDao ordersDao;
 	private RentOffersDao rentOffersDao;
+	private UsersDao usersDao; 
 
 	public void execute() {
 
@@ -111,7 +115,8 @@ public class RenewCurrentHoldingsJob {
 
 				List<PaymentAppServiceIB> paymentAppServiceIBs = new ArrayList<PaymentAppServiceIB>();
 				paymentAppServiceIBs.add(paymentAppServiceIB2);
-				paymentsDao.addPayment(paymentAppServiceIBs);
+				List<PaymentsDBBean> paymentsDBBeansForMail = paymentsDao.addPayment(paymentAppServiceIBs);
+				sendPaymentNotifications(paymentsDBBeansForMail);
 			}
 		}
 	}
@@ -137,14 +142,44 @@ public class RenewCurrentHoldingsJob {
 
 			List<PaymentAppServiceIB> paymentAppServiceIBs = new ArrayList<PaymentAppServiceIB>() ;
 			paymentAppServiceIBs.add(paymentAppServiceIB);
-			paymentsDao.addPayment(paymentAppServiceIBs);
-
+			List<PaymentsDBBean> paymentsDBBeans = paymentsDao.addPayment(paymentAppServiceIBs);
+			sendPaymentNotifications(paymentsDBBeans);
+			
 		}catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-
 	}
+
+
+	private void sendPaymentNotifications(final List<PaymentsDBBean> paymentsDBBeans)
+	{
+		List<String> usernames = new ArrayList<String>();
+		for(PaymentsDBBean paymentsDBBean: paymentsDBBeans)
+		{
+			if(!usernames.contains(paymentsDBBean.getFromusername()))
+			{
+				usernames.add(paymentsDBBean.getFromusername());
+			}
+			if(!usernames.contains(paymentsDBBean.getTousername()))
+			{
+				usernames.add(paymentsDBBean.getTousername());
+			}
+		}
+
+		if(usernames.size()>0)
+		{
+			List<UsersDBBean> usersDBBeans = usersDao.getMultipleUserDetails(usernames);
+			Map<String, UsersDBBean> usermap = CommonUtility.getUsersmap(usersDBBeans);
+
+			for(PaymentsDBBean paymentsDBBean: paymentsDBBeans)
+			{
+				MailHandler.paymentAddedMail(paymentsDBBean, usermap.get(paymentsDBBean.getTousername()));
+				MailHandler.paymentAddedMail(paymentsDBBean, usermap.get(paymentsDBBean.getFromusername()));
+			}
+		}
+	}
+
 
 	public CurrentHoldingsDao getCurrentHoldingsDao() {
 		return currentHoldingsDao;
@@ -192,5 +227,16 @@ public class RenewCurrentHoldingsJob {
 	public void setRentOffersDao(RentOffersDao rentOffersDao) {
 		this.rentOffersDao = rentOffersDao;
 	}
+
+
+	public UsersDao getUsersDao() {
+		return usersDao;
+	}
+
+
+	public void setUsersDao(UsersDao usersDao) {
+		this.usersDao = usersDao;
+	}
+
 
 }

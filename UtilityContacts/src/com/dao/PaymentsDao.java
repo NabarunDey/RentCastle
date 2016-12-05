@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -30,7 +31,8 @@ public class PaymentsDao {
 		this.template = template;
 	}
 
-	public void addPayment(List<PaymentAppServiceIB> paymentAppServiceIBs) {
+	public List<PaymentsDBBean> addPayment(List<PaymentAppServiceIB> paymentAppServiceIBs) {
+		List<PaymentsDBBean> paymentsDBBeans = new ArrayList<PaymentsDBBean>();
 		for(PaymentAppServiceIB paymentAppServiceIB :paymentAppServiceIBs)
 		{
 			PaymentsDBBean paymentsDBBean = new PaymentsDBBean();
@@ -43,9 +45,10 @@ public class PaymentsDao {
 			paymentsDBBean.setTousername(paymentAppServiceIB.getTousername());
 			String dateTime= Calendar.getInstance().getTime().toString();
 			paymentsDBBean.setDatetime(dateTime);
-
 			template.save(paymentsDBBean);
+			paymentsDBBeans.add(paymentsDBBean);
 		}
+		return paymentsDBBeans;
 	}
 
 	public List<PaymentsDBBean> getPaymentsForUser(String userName)
@@ -75,30 +78,32 @@ public class PaymentsDao {
 		return paymentsDBBeans;
 	}
 
-	public void changePaymentStatus(PaymentAppServiceIB paymentAppServiceIB, UserProfile userProfile)
+	public PaymentsDBBean changePaymentStatus(PaymentAppServiceIB paymentAppServiceIB, UserProfile userProfile)
 	{
+		PaymentsDBBean paymentsDBBean = null;
 		if(userProfile.getUserType().equals(UserType.ADMIN))
 		{
-			PaymentsDBBean paymentsDBBean = new PaymentsDBBean();
+			paymentsDBBean = new PaymentsDBBean();
 			paymentsDBBean = template.get(PaymentsDBBean.class, paymentAppServiceIB.getPaymentid());
 			paymentsDBBean.setPaymentStatus(paymentAppServiceIB.getPaymentStatus());
 			template.update(paymentsDBBean);
 		}
+		return paymentsDBBean;
 	}
-	
+
 	public List<PaymentsDBBean> getPaymentsForOrder(PaymentAppServiceIB paymentAppServiceIB)
 	{
 		List<PaymentsDBBean> paymentsDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PaymentsDBBean.class);
-		
+
 		Criterion completeCondition = null;
 		Disjunction disjunction = Restrictions.disjunction();
 		disjunction.add(Restrictions.like("orderid", paymentAppServiceIB.getOrderid()));
-		
+
 		criteria.add(disjunction);
 		paymentsDBBeans = criteria.list();
 		return paymentsDBBeans;
 	}
-	
+
 
 }

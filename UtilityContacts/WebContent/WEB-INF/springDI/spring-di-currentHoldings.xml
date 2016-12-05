@@ -4,7 +4,8 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	<bean id="currentHoldingsAction" class="currentHoldings.action.CurrentHoldingsAction" scope="request">
+	<bean id="currentHoldingsAction" class="currentHoldings.action.CurrentHoldingsAction"
+		scope="request">
 		<property name="currentHoldingsAppService" ref="currentHoldingsAppService" />
 		<property name="context" ref="currentHoldingsAppContext" />
 	</bean>
@@ -19,13 +20,17 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="productsDao" ref="productsDao" />
 		<property name="currentHoldingsProjector" ref="currentHoldingsProjector" />
 		<property name="imagesDao" ref="imagesDao" />
+		<property name="usersDao" ref="usersDao" />
+
 	</bean>
 
-	<bean id="currentHoldingsAppContext" class="currentHoldings.CurrentHoldingsAppContext" scope="session">
+	<bean id="currentHoldingsAppContext" class="currentHoldings.CurrentHoldingsAppContext"
+		scope="session">
 	</bean>
-	
-	<bean id="currentHoldingsProjector" class="currentHoldings.projector.CurrentHoldingsProjector" scope="request">
+
+	<bean id="currentHoldingsProjector" class="currentHoldings.projector.CurrentHoldingsProjector"
+		scope="request">
 	</bean>
-	
+
 
 </beans>

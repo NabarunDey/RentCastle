@@ -17,17 +17,20 @@ import com.dao.OrdersDao;
 import com.dao.PaymentsDao;
 import com.dao.ProductsDao;
 import com.dao.RentOffersDao;
+import com.dao.UsersDao;
 import com.databaseBeans.CurrentHoldingsDBBean;
 import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.PaymentsDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
+import com.databaseBeans.UsersDBBean;
 import com.sessionBeans.UserProfile;
 import com.structures.status.CurrentHoldingStatus;
 import com.structures.status.PaymentStatus;
 import com.structures.userTypes.UserType;
 import com.util.CommonUtility;
+import com.util.MailHandler;
 
 import currentHoldings.appService.inputBeans.CurrentHoldingsAppServiceIB;
 import currentHoldings.projector.CurrentHoldingsProjector;
@@ -49,6 +52,7 @@ public class CurrentHoldingsAppService {
 	ProductsDao productsDao;
 	CurrentHoldingsProjector currentHoldingsProjector;
 	ImagesDao imagesDao;
+	UsersDao usersDao;
 
 	public void addCurrentHolding(OrdersDBBean ordersDBBean)
 	{
@@ -92,7 +96,8 @@ public class CurrentHoldingsAppService {
 
 				List<PaymentAppServiceIB> paymentAppServiceIBs = new ArrayList<PaymentAppServiceIB>();
 				paymentAppServiceIBs.add(paymentAppServiceIB2);
-				paymentsDao.addPayment(paymentAppServiceIBs);
+				List<PaymentsDBBean> paymentsDBBeansForMail= paymentsDao.addPayment(paymentAppServiceIBs);
+				sendPaymentNotifications(paymentsDBBeansForMail);
 			}
 		}
 
@@ -205,6 +210,39 @@ public class CurrentHoldingsAppService {
 		}
 	}
 
+	private void sendPaymentNotifications(final List<PaymentsDBBean> paymentsDBBeans)
+	{
+		Runnable myrunnable = new Runnable() {
+			public void run() {
+				List<String> usernames = new ArrayList<String>();
+				for(PaymentsDBBean paymentsDBBean: paymentsDBBeans)
+				{
+					if(!usernames.contains(paymentsDBBean.getFromusername()))
+					{
+						usernames.add(paymentsDBBean.getFromusername());
+					}
+					if(!usernames.contains(paymentsDBBean.getTousername()))
+					{
+						usernames.add(paymentsDBBean.getTousername());
+					}
+				}
+
+				if(usernames.size()>0)
+				{
+					List<UsersDBBean> usersDBBeans = usersDao.getMultipleUserDetails(usernames);
+					Map<String, UsersDBBean> usermap = CommonUtility.getUsersmap(usersDBBeans);
+
+					for(PaymentsDBBean paymentsDBBean: paymentsDBBeans)
+					{
+						MailHandler.paymentAddedMail(paymentsDBBean, usermap.get(paymentsDBBean.getTousername()));
+						MailHandler.paymentAddedMail(paymentsDBBean, usermap.get(paymentsDBBean.getFromusername()));
+					}
+				}
+			}
+		};
+		new Thread(myrunnable).start();
+	}
+	
 	public RentOffersDao getRentOffersDao() {
 		return rentOffersDao;
 	}
@@ -270,4 +308,11 @@ public class CurrentHoldingsAppService {
 		this.imagesDao = imagesDao;
 	}
 
+	public UsersDao getUsersDao() {
+		return usersDao;
+	}
+
+	public void setUsersDao(UsersDao usersDao) {
+		this.usersDao = usersDao;
+	}
 }

@@ -4,7 +4,8 @@
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	<bean id="paymentAction" class="payment.action.PaymentAction" scope="request">
+	<bean id="paymentAction" class="payment.action.PaymentAction"
+		scope="request">
 		<property name="paymentAppService" ref="paymentAppService" />
 		<property name="context" ref="paymentAppContext" />
 	</bean>
@@ -14,10 +15,11 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="paymentsDao" ref="paymentsDao" />
 		<property name="userProfile" ref="userProfile" />
 		<property name="productsDao" ref="productsDao" />
-		
+		<property name="usersDao" ref="usersDao" />
 	</bean>
 
-	<bean id="paymentAppContext" class="payment.PaymentAppContext" scope="session">
+	<bean id="paymentAppContext" class="payment.PaymentAppContext"
+		scope="session">
 	</bean>
 
 </beans>
