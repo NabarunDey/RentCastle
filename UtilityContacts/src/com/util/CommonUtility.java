@@ -13,6 +13,7 @@ import org.apache.commons.beanutils.PropertyUtils;
 import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
+import com.databaseBeans.UsersDBBean;
 
 public class CommonUtility {
 
@@ -75,6 +76,21 @@ public class CommonUtility {
 			for(ProductsDBBean item :list)
 			{
 				String key = String.valueOf(item.getProductid());
+				map.put(key, item);
+			}
+		}
+
+		return map;
+	}
+	
+	public static Map<String,UsersDBBean> getUsersmap(List<UsersDBBean> list)
+	{
+		Map<String, UsersDBBean>  map= new HashMap<String, UsersDBBean>();
+		if(null!= list && list.size()>0)
+		{
+			for(UsersDBBean item :list)
+			{
+				String key = String.valueOf(item.getUsername());
 				map.put(key, item);
 			}
 		}

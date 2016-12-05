@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -25,12 +26,14 @@ import com.dao.RentOffersDao;
 import com.dao.UsersDao;
 import com.databaseBeans.AddressDBBean;
 import com.databaseBeans.OrdersDBBean;
+import com.databaseBeans.PaymentsDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
 import com.databaseBeans.UsersDBBean;
 import com.sessionBeans.UserProfile;
 import com.structures.status.OrderStatus;
 import com.structures.userTypes.UserType;
+import com.util.CommonUtility;
 import com.util.MailHandler;
 import com.util.SMSHandler;
 
@@ -108,37 +111,38 @@ public class OrderAppService {
 		Iterator<OrdersDBBean> orderIterator = ordersDBBeans.iterator();
 		List<PaymentAppServiceIB> paymentAppServiceIBs = new ArrayList<PaymentAppServiceIB>();
 		while (cartIterator.hasNext() && orderIterator.hasNext()) {
-			
+
 			try{
-			CartItem cartItem = cartIterator.next();
-			OrdersDBBean ordersDBBean = orderIterator.next();
-			PaymentAppServiceIB paymentAppServiceIB = new PaymentAppServiceIB();
-			paymentAppServiceIB.setFromusername(userProfile.getUserName());
-			paymentAppServiceIB.setOrderid(ordersDBBean.getOrderid());
-			paymentAppServiceIB.setRentamount(cartItem.getRentAmount());
-			paymentAppServiceIB.setDeliveryCharge(cartItem.getDeliveryCharge());
-			paymentAppServiceIB.setSecuritymoney(cartItem.getSecurityMoney());
-			ProductsDBBean productsDBBean =productsDao.getProductDetails(ordersDBBean.getProductid());
-			UsersDBBean usersDBBean = usersDao.getUserDetails(productsDBBean.getUsername());
-			
-			int total = 0;
-			if(StringUtils.isNotEmpty(cartItem.getRentAmount()))
-				total=total+Integer.parseInt(cartItem.getRentAmount());
-			if(StringUtils.isNotEmpty(cartItem.getDeliveryCharge()))
-				total=total+Integer.parseInt(cartItem.getDeliveryCharge());
-			if(StringUtils.isNotEmpty(cartItem.getSecurityMoney()))
-				total=total+Integer.parseInt(cartItem.getSecurityMoney());
-			
-			sendNotifications(usersDBBean, productsDBBean, cartItem, ordersDBBean, total);
-			
-			paymentAppServiceIB.setTousername(productsDBBean.getUsername());
-			paymentAppServiceIBs.add(paymentAppServiceIB);
+				CartItem cartItem = cartIterator.next();
+				OrdersDBBean ordersDBBean = orderIterator.next();
+				PaymentAppServiceIB paymentAppServiceIB = new PaymentAppServiceIB();
+				paymentAppServiceIB.setFromusername(userProfile.getUserName());
+				paymentAppServiceIB.setOrderid(ordersDBBean.getOrderid());
+				paymentAppServiceIB.setRentamount(cartItem.getRentAmount());
+				paymentAppServiceIB.setDeliveryCharge(cartItem.getDeliveryCharge());
+				paymentAppServiceIB.setSecuritymoney(cartItem.getSecurityMoney());
+				ProductsDBBean productsDBBean =productsDao.getProductDetails(ordersDBBean.getProductid());
+				UsersDBBean usersDBBean = usersDao.getUserDetails(productsDBBean.getUsername());
+
+				int total = 0;
+				if(StringUtils.isNotEmpty(cartItem.getRentAmount()))
+					total=total+Integer.parseInt(cartItem.getRentAmount());
+				if(StringUtils.isNotEmpty(cartItem.getDeliveryCharge()))
+					total=total+Integer.parseInt(cartItem.getDeliveryCharge());
+				if(StringUtils.isNotEmpty(cartItem.getSecurityMoney()))
+					total=total+Integer.parseInt(cartItem.getSecurityMoney());
+
+				sendOrderNotifications(usersDBBean, productsDBBean, cartItem, ordersDBBean, total);
+
+				paymentAppServiceIB.setTousername(productsDBBean.getUsername());
+				paymentAppServiceIBs.add(paymentAppServiceIB);
 			}catch(Exception e){
-				
+
 			}
-		
+
 		}
-		paymentsDao.addPayment(paymentAppServiceIBs);
+		List<PaymentsDBBean> paymentsDBBeans = paymentsDao.addPayment(paymentAppServiceIBs);
+		sendPaymentNotifications(paymentsDBBeans);
 		cartAppService.emptyCart();
 		OrderProjectorOB orderProjectorOB = orderProjector
 				.confirmOrder(ordersDBBeans);
@@ -213,26 +217,59 @@ public class OrderAppService {
 	public void changeOrderStatus(OrderAppServiceIB orderAppServiceIB) {
 		if(null!=userProfile && userProfile.getUserType().equals(UserType.ADMIN))
 		{
-		   OrdersDBBean ordersDBBean =ordersDao.changeOrderStatus(orderAppServiceIB.getOrderId(),
+			OrdersDBBean ordersDBBean =ordersDao.changeOrderStatus(orderAppServiceIB.getOrderId(),
 					OrderStatus.valueOf(orderAppServiceIB.getOrderStatus()));
-		   if(ordersDBBean.getOrderstatus().equals(OrderStatus.COMPLETE.toString()))
-		   {
-			   currentHoldingsAppService.addCurrentHolding(ordersDBBean);
-		   }
+			if(ordersDBBean.getOrderstatus().equals(OrderStatus.COMPLETE.toString()))
+			{
+				currentHoldingsAppService.addCurrentHolding(ordersDBBean);
+			}
 		}
 	}
-	
-	
-	private void sendNotifications(final UsersDBBean usersDBBean,final ProductsDBBean productsDBBean, final CartItem cartItem,
+
+
+	private void sendOrderNotifications(final UsersDBBean usersDBBean,final ProductsDBBean productsDBBean, final CartItem cartItem,
 			final OrdersDBBean ordersDBBean, final int total)
 	{
 		Runnable myrunnable = new Runnable() {
-		    public void run() {
-		    	SMSHandler.sendOrderConfirmationSmsVendor(usersDBBean.getMobileno1(), productsDBBean, ordersDBBean,cartItem, total);
+			public void run() {
+				SMSHandler.sendOrderConfirmationSmsVendor(usersDBBean.getMobileno1(), productsDBBean, ordersDBBean,cartItem, total);
 				SMSHandler.sendOrderConfirmationSmsCustomer(userProfile.getMobile(), productsDBBean, ordersDBBean, total);
 				MailHandler.orderConfirmationMailVendor(productsDBBean,ordersDBBean,usersDBBean.getEmail());
 				MailHandler.orderConfirmationMailCustomer(productsDBBean,ordersDBBean,userProfile,total);
-		    }
+			}
+		};
+		new Thread(myrunnable).start();
+	}
+
+	private void sendPaymentNotifications(final List<PaymentsDBBean> paymentsDBBeans)
+	{
+		Runnable myrunnable = new Runnable() {
+			public void run() {
+				List<String> usernames = new ArrayList<String>();
+				for(PaymentsDBBean paymentsDBBean: paymentsDBBeans)
+				{
+					if(!usernames.contains(paymentsDBBean.getFromusername()))
+					{
+						usernames.add(paymentsDBBean.getFromusername());
+					}
+					if(!usernames.contains(paymentsDBBean.getTousername()))
+					{
+						usernames.add(paymentsDBBean.getTousername());
+					}
+				}
+
+				if(usernames.size()>0)
+				{
+					List<UsersDBBean> usersDBBeans = usersDao.getMultipleUserDetails(usernames);
+					Map<String, UsersDBBean> usermap = CommonUtility.getUsersmap(usersDBBeans);
+
+					for(PaymentsDBBean paymentsDBBean: paymentsDBBeans)
+					{
+						MailHandler.paymentAddedMail(paymentsDBBean, usermap.get(paymentsDBBean.getTousername()));
+						MailHandler.paymentAddedMail(paymentsDBBean, usermap.get(paymentsDBBean.getFromusername()));
+					}
+				}
+			}
 		};
 		new Thread(myrunnable).start();
 	}

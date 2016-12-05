@@ -49,18 +49,33 @@ public class UsersDao {
 		}
 		return usersDBBean;
 	}
-	
+
+	public List<UsersDBBean> getMultipleUserDetails(List<String> userNames)
+	{
+		List<UsersDBBean> usersDBBeans = null;
+		try{
+			Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(UsersDBBean.class)
+					.add(Restrictions.in("username", userNames));
+			usersDBBeans = criteria.list();		
+		}catch(Exception exception)
+		{
+			System.out.println("Error in fetchin UserDBBean");
+
+		}
+		return usersDBBeans;
+	}
+
 	public UsersDBBean getUserDetailsByEmail(String email)
 	{
 		UsersDBBean usersDBBean = null;
 		try{
 			Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(UsersDBBean.class)
 					.add(Restrictions.like("email", email));
-		List<UsersDBBean> usersDBBeans = criteria.list();
-		if(null!= usersDBBeans && usersDBBeans.size()>=1)
-		{
-			usersDBBean = usersDBBeans.get(0);
-		}
+			List<UsersDBBean> usersDBBeans = criteria.list();
+			if(null!= usersDBBeans && usersDBBeans.size()>=1)
+			{
+				usersDBBean = usersDBBeans.get(0);
+			}
 		}catch(Exception exception)
 		{
 			System.out.println("Error in fetchin UserDBBean");
@@ -82,12 +97,12 @@ public class UsersDao {
 		{
 			usersDBBean.setUsertype(UserType.CUSTOMER);
 		}
-		
+
 		if(usersDBBean.getUsername().contains("@")&& usersDBBean.getUsername().contains("."))
 		{
 			usersDBBean.setEmail(usersDBBean.getUsername());
 		}
-		
+
 		saveUser(usersDBBean);
 		MailHandler.welcomeMail(usersDBBean.getEmail());
 		UserRegistrationDaoOB userRegistrationDaoOB =new UserRegistrationDaoOB();

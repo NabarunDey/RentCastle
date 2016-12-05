@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -30,7 +31,8 @@ public class PaymentsDao {
 		this.template = template;
 	}
 
-	public void addPayment(List<PaymentAppServiceIB> paymentAppServiceIBs) {
+	public List<PaymentsDBBean> addPayment(List<PaymentAppServiceIB> paymentAppServiceIBs) {
+		List<PaymentsDBBean> paymentsDBBeans = new ArrayList<PaymentsDBBean>();
 		for(PaymentAppServiceIB paymentAppServiceIB :paymentAppServiceIBs)
 		{
 			PaymentsDBBean paymentsDBBean = new PaymentsDBBean();
@@ -43,9 +45,10 @@ public class PaymentsDao {
 			paymentsDBBean.setTousername(paymentAppServiceIB.getTousername());
 			String dateTime= Calendar.getInstance().getTime().toString();
 			paymentsDBBean.setDatetime(dateTime);
-
 			template.save(paymentsDBBean);
+			paymentsDBBeans.add(paymentsDBBean);
 		}
+		return paymentsDBBeans;
 	}
 
 	public List<PaymentsDBBean> getPaymentsForUser(String userName)
