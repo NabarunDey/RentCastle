@@ -14,7 +14,21 @@ public class PaymentsDBBean {
 	private String paymentStatus;
 	private String deliveryCharge;
 	private String comments;
+	private boolean toUserPaid;
+	private boolean fromUserPaid;
 	
+	public boolean isToUserPaid() {
+		return toUserPaid;
+	}
+	public void setToUserPaid(boolean toUserPaid) {
+		this.toUserPaid = toUserPaid;
+	}
+	public boolean isFromUserPaid() {
+		return fromUserPaid;
+	}
+	public void setFromUserPaid(boolean fromUserPaid) {
+		this.fromUserPaid = fromUserPaid;
+	}
 	public String getComments() {
 		return comments;
 	}
