@@ -1,6 +1,8 @@
 package login.action;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import login.LoginAppContext;
 import login.appService.LoginAppService;
@@ -8,6 +10,7 @@ import login.appService.inputBeans.LoginAppServiceIB;
 import login.projector.outputBeans.LoginProjectorOB;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -33,7 +36,7 @@ public class LoginAction  extends ActionSupport  implements ServletRequestAware{
 		
 		String refererUrl = httpServletRequest.getHeader("referer");
 		
-		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server);
+		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server,false);
 		loginProjectorOB.setRefererUrl(refererUrl);
 		context.setLoginProjectorOB(loginProjectorOB);
 		if(loginProjectorOB.isLoginFailure())
@@ -53,7 +56,7 @@ public class LoginAction  extends ActionSupport  implements ServletRequestAware{
 		loginAppServiceIB.setGoogleCode(code);
 		String server=httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+httpServletRequest.getContextPath();
 		
-		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server);
+		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server,false);
 		context.setLoginProjectorOB(loginProjectorOB);
 		return ActionSupport.SUCCESS;		
 	}

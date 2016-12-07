@@ -15,6 +15,10 @@
 
 		<action name="loadIndex" class="loadIndexAction" method="loadIndex">
 			<result name="success" type="tiles">loadIndex</result>
+		</action>
+		
+		<action name="loadIndexLogout" class="loadIndexAction" method="loadIndexLogout">
+			<result name="success" type="tiles">loadIndex</result>
 
 		</action>
 

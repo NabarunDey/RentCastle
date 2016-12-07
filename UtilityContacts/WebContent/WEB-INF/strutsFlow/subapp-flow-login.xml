@@ -46,7 +46,7 @@
 
 		<action name="logoutFunction" class="loginAction" method="logoutFunction">
 			<result type="redirectAction" name="success">
-				<param name="actionName">loadIndex</param>
+				<param name="actionName">loadIndexLogout</param>
 			</result>
 		</action>
 

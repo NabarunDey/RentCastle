@@ -111,8 +111,8 @@
 													onclick="top.location.href='https://accounts.google.com/o/oauth2/auth?scope=email&response_type=code&client_id=968847956660-7cs0n3ke5m69hj96hp9sfmqql34gsd4s.apps.googleusercontent.com&approval_prompt=auto&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunctionGoogle'">
 
 
-												<label for="checkbox"><input type="checkbox"
-													id="checkbox"> <i>Remember me</i></label>
+												<label for="checkbox"><input type="checkbox" name = "rememberMe"
+													id="rememberMe"> <i>Remember me</i></label>
 											</fieldset>
 											<span><a href="forgotPasswordInput">Forgot your
 													password?</a></span>

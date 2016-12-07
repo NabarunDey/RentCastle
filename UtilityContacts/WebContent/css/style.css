@@ -171,7 +171,7 @@ fieldset#body {
 	margin: 0;
 }
 
-#loginForm #checkbox {
+#loginForm #rememberMe {
 	width: auto;
 	margin: 3px 6px 0 0;
 	float: left;

@@ -9,6 +9,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="productManagementAppService" ref="productManagementAppService" />
 		<property name="loadIndexAppService" ref="loadIndexAppService" />
 		<property name="context" ref="loadIndexContext" />
+		<property name="loginAppService" ref="loginAppService" />
+		<property name="userProfile" ref="userProfile" />
 	</bean>
 	
 	<bean id="loadIndexAppService" class="loadIndex.appService.LoadIndexAppService"

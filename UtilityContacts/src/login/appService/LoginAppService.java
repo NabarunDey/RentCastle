@@ -26,7 +26,7 @@ public class LoginAppService {
 	UserProfile userProfile;
 	UserRegistrationAppService userRegistrationAppService;
 
-	public LoginProjectorOB login(LoginAppServiceIB loginAppServiceIB,String server) {
+	public LoginProjectorOB login(LoginAppServiceIB loginAppServiceIB,String server,boolean cookie) {
 
 		LoginProjectorOB loginProjectorOB=null;
 		UsersDBBean usersDBBean = null;
@@ -79,7 +79,7 @@ public class LoginAppService {
 
 				}
 			}
-			loginProjectorOB = loginProjector.validateCredentials(loginDaoOB);
+			loginProjectorOB = loginProjector.validateCredentials(loginDaoOB,cookie);
 			if(null==loginDaoOB.getUserLoginDBBean())
 			{
 				loginProjectorOB.setUserNotExist(true);

@@ -16,14 +16,14 @@ public class LoginProjector {
 		return loginProjectorOB;
 	}
 
-	public LoginProjectorOB validateCredentials(LoginDaoOB loginDaoOB)
+	public LoginProjectorOB validateCredentials(LoginDaoOB loginDaoOB,boolean cookie)
 	{
 		LoginProjectorOB loginProjectorOB =new LoginProjectorOB();
 		loginProjectorOB.setInvalidCredentials(true);
 		UserLoginDBBean userLoginDBBean = loginDaoOB.getUserLoginDBBean();
 
 		if( null!= userLoginDBBean && null != loginDaoOB 
-				&& StringUtils.isNotEmpty(loginDaoOB.getUserNameEntered()) && StringUtils.isNotEmpty(loginDaoOB.getPasswordEntered()))
+				&& StringUtils.isNotEmpty(loginDaoOB.getUserNameEntered()))
 		{
 
 				if((loginDaoOB.getUserNameEntered()).equals(userLoginDBBean.getUsername()))
@@ -31,7 +31,7 @@ public class LoginProjector {
 					loginProjectorOB.setUserNotExist(false);
 					if(!loginProjectorOB.isUserNotExist())
 					{
-						if(loginDaoOB.getPasswordEntered().equals(userLoginDBBean.getPassword()))
+						if((StringUtils.isNotEmpty(loginDaoOB.getPasswordEntered()) && loginDaoOB.getPasswordEntered().equals(userLoginDBBean.getPassword()) || cookie))
 						{
 							loginProjectorOB.setInvalidCredentials(false);;
 						}
