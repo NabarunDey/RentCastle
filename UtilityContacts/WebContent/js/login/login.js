@@ -5,7 +5,8 @@ function doAjaxPost() {
 		url: "loginFunction",
 		data: $('#loginForm').serialize() ,
 		success: function(response){
-			
+			 lb.close();
+
 			if(response.loginProjectorOB.userNotExist)
 			{
 				$('#loginError').show();
@@ -27,50 +28,13 @@ function doAjaxPost() {
 				return;
 			}
 		
+			window.location = response.loginProjectorOB.refererUrl;
 			
-			if (!response.loginProjectorOB.invalidCredentials) {
-				$('#loginBox').hide();
-				$('#loginButton').hide();
-				$('#createAccount').hide();
-				$('#loggedin').text("Welcome "+response.loginProjectorOB.userProfile.firstName);
-				$('#loggedin').show();
-				$('#logout').show();
-				$('#buyButton').show();
-				$('#addToCartButton').show();
-				$('#dummy').hide();
-				
-				if(response.loginProjectorOB.userProfile.userType == "VENDOR")
-				{
-					$('#orderHistoryVendor').show();
-					$('#addProductButton').show();
-					$('#getProductListByVendor').show();
-					$('#viewMyCurrentHoldingsVendor').show();
-					$('#paymentHistory').show();
-					$('#editProfile').show();
-
-				}
-				if(response.loginProjectorOB.userProfile.userType == "CUSTOMER")
-				{
-					$('#myCart').show();
-					$('#orderHistory').show();
-					$('#viewMyCurrentHoldingsCustomer').show();
-					$('#paymentHistory').show();
-					$('#editProfile').show();
-
-				}
-				if(response.loginProjectorOB.userProfile.userType == "ADMIN")
-				{
-					$('#getOrdersForAdmin').show();
-					$('#getPendingProducts').show();
-					$('#paymentHistoryAdmin').show();
-				}
-			}
 		},
 		error: function(e){
 			alert('Error: ' + e);
 		}
 	});
-	 lb.close();
 }
 
 function forgotPasswordSubmit() {
@@ -96,4 +60,65 @@ function forgotPasswordSubmit() {
 	});
 	lb.close();
 }
+
+
+var maxHeight = 400;
+
+$(function(){
+
+    $(".dropdown > li").hover(function() {
+    
+         var $container = $(this),
+             $list = $container.find("ul"),
+             $anchor = $container.find("a"),
+             height = $list.height() * 1.1,       // make sure there is enough room at the bottom
+             multiplier = height / maxHeight;     // needs to move faster if list is taller
+        
+        // need to save height here so it can revert on mouseout            
+        $container.data("origHeight", $container.height());
+        
+        // so it can retain it's rollover color all the while the dropdown is open
+        $anchor.addClass("hover");
+        
+        // make sure dropdown appears directly below parent list item    
+        $list
+            .show()
+            .css({
+                paddingTop: $container.data("origHeight")
+            });
+        
+        // don't do any animation if list shorter than max
+        if (multiplier > 1) {
+            $container
+                .css({
+                    height: maxHeight,
+                    overflow: "hidden"
+                })
+                .mousemove(function(e) {
+                    var offset = $container.offset();
+                    var relativeY = ((e.pageY - offset.top) * multiplier) - ($container.data("origHeight") * multiplier);
+                    if (relativeY > $container.data("origHeight")) {
+                        $list.css("top", -relativeY + $container.data("origHeight"));
+                    };
+                });
+        }
+        
+    }, function() {
+    
+        var $el = $(this);
+        
+        // put things back to normal
+        $el
+            .height($(this).data("origHeight"))
+            .find("ul")
+            .css({ top: 0 })
+            .hide()
+            .end()
+            .find("a")
+            .removeClass("hover");
+    
+    });  
+    
+});
+
 

@@ -7,11 +7,16 @@ public class LoginProjectorOB {
 	private boolean invalidCredentials;
 	private boolean loginFailure;
 	private UserProfile userProfile;
-
+	private String refererUrl;
 	private boolean mailSent;
 	
 	
-	
+	public String getRefererUrl() {
+		return refererUrl;
+	}
+	public void setRefererUrl(String refererUrl) {
+		this.refererUrl = refererUrl;
+	}
 	public boolean isMailSent() {
 		return mailSent;
 	}

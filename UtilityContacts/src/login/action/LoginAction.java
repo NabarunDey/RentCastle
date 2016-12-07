@@ -31,7 +31,10 @@ public class LoginAction  extends ActionSupport  implements ServletRequestAware{
 		loginAppServiceIB.setFbCode(code);
 		String server=httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+httpServletRequest.getContextPath();
 		
+		String refererUrl = httpServletRequest.getHeader("referer");
+		
 		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server);
+		loginProjectorOB.setRefererUrl(refererUrl);
 		context.setLoginProjectorOB(loginProjectorOB);
 		if(loginProjectorOB.isLoginFailure())
 			return "fail";

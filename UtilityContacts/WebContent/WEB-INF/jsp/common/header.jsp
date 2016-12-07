@@ -17,125 +17,70 @@
 			<div class="header_top">
 				<div class="top_left">
 					<h2>
-						<a href="<s:url  action='helpInput'/>">Click Here</a> to request
+						<a href="<s:url  action='helpInput'/>">Contact Us</a> to request
 						an item if not available here.
 					</h2>
 				</div>
 				<div class="top_right">
-					<ul>
-						<s:if
-							test="%{ null == #attr.userProfile || '' == #attr.userProfile.userName 
-											|| null == #attr.userProfile.userName }">
-							<li id="dummy" style="color: #00405d;">DummyTxt</a></li>
-						</s:if>
-						<li id="help"><a href="<s:url  action='helpInput'/>">Contact
-								Us</a></li>
+					<ul class="dropdown">
+
 						<s:if
 							test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id="addProductButton"><a
-								href="<s:url  action='addProductInput'/>">Add Product</a></li>
-							<li id="getProductListByVendor"><a
-								href="<s:url  action='getProductListByVendor'/>">My Products</a></li>
+
+
+							<li class="drop"><a href="#">My Products</a>
+								<ul class="sub_menu">
+									<li><a href="<s:url action='addProductInput'/>">Add
+											Product</a></li>
+									<li><a href="<s:url action='getProductListByVendor'/>">My
+											Products</a></li>
+								</ul></li>
+
+							<li class="drop"><a href="#">Orders</a>
+								<ul class="sub_menu">
+									<li><a href="<s:url action='viewOrdersVendor'/>">Order
+											History</a></li>
+									<li><a href="<s:url  action='getPaymentsForUser'/>">Payment
+											History</a></li>
+									<li><a
+										href="<s:url  action='viewMyCurrentHoldingsVendor'/>">My
+											Holdings</a></li>
+
+								</ul></li>
 						</s:if>
-						<s:else>
-							<li id="addProductButton" style="display: none"><a
-								href="<s:url  action='addProductInput'/>">Add Product</a></li>
-							<li id="getProductListByVendor" style="display: none"><a
-								href="<s:url  action='getProductListByVendor'/>">My Products</a></li>
-						</s:else>
+
 						<s:if
 							test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id="orderHistory"><a
-								href="<s:url  action='viewOrders'/>">Order History</a></li>
-							<li id="viewMyCurrentHoldingsCustomer"><a
-								href="<s:url  action='viewMyCurrentHoldingsCustomer'/>">My
-									Holdings</a></li>
+
+							<li class="drop"><a href="#">Orders</a>
+								<ul class="sub_menu">
+									<li><a href="<s:url action='viewOrders'/>">Order
+											History</a></li>
+									<li><a href="<s:url  action='getPaymentsForUser'/>">Payment
+											History</a></li>
+									<li><a
+										href="<s:url action='viewMyCurrentHoldingsCustomer'/>">My
+											Holdings</a></li>
+
+								</ul></li>
 						</s:if>
-						<s:else>
-							<li id="orderHistory" style="display: none"><a
-								href="<s:url  action='viewOrders'/>">Order History</a></li>
-							<li id="viewMyCurrentHoldingsCustomer" style="display: none"><a
-								href="<s:url  action='viewMyCurrentHoldingsCustomer'/>">My
-									Holdings</a></li>
-						</s:else>
-
-						<s:if
-							test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id="orderHistoryVendor"><a
-								href="<s:url  action='viewOrdersVendor'/>">Order History</a></li>
-							<li id="viewMyCurrentHoldingsVendor"><a
-								href="<s:url  action='viewMyCurrentHoldingsVendor'/>">My
-									Holdings</a></li>
-						</s:if>
-						<s:else>
-							<li id="orderHistoryVendor" style="display: none"><a
-								href="<s:url  action='viewOrdersVendor'/>">Order History</a></li>
-							<li id="viewMyCurrentHoldingsVendor" style="display: none"><a
-								href="<s:url  action='viewMyCurrentHoldingsVendor'/>">My
-									Holdings</a></li>
-
-						</s:else>
-
-						<s:if
-							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id="getOrdersForAdmin"><a
-								href="<s:url  action='getOrdersForAdmin'/>">Order History
-									Admin</a></li>
-						</s:if>
-						<s:else>
-							<li id="getOrdersForAdmin" style="display: none"><a
-								href="<s:url  action='getOrdersForAdmin'/>">Order History
-									Admin</a></li>
-						</s:else>
-
-						<s:if
-							test="%{ null != #attr.userProfile && ('CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) || 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) )}">
-							<li id="paymentHistory"><a
-								href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
-
-						</s:if>
-						<s:else>
-							<li id="paymentHistory" style="display: none"><a
-								href="<s:url  action='getPaymentsForUser'/>">Payment History</a></li>
-
-						</s:else>
-
-						<s:if
-							test="%{ null != #attr.userProfile && ('CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) || 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) )}">
-							<li id="editProfile"><a
-								href="<s:url  action='profileManagementInput'/>">Edit
-									Profile</a></li>
-						</s:if>
-						<s:else>
-							<li id="editProfile" style="display: none"><a
-								href="<s:url  action='profileManagementInput'/>">Edit
-									Profile</a></li>
-						</s:else>
 
 
 						<s:if
 							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id="paymentHistoryAdmin"><a
-								href="<s:url  action='getPaymentsAdmin'/>">Payment Admin</a></li>
-						</s:if>
-						<s:else>
-							<li id="paymentHistoryAdmin" style="display: none"><a
-								href="<s:url  action='getPaymentsAdmin'/>">Payment Admin</a></li>
-						</s:else>
 
-
-						<s:if
-							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<li id="getPendingProducts"><a
-								href="<s:url  action='getPendingProducts'/>">Pending
-									Products</a></li>
+							<li class="drop"><a href="#">Orders</a>
+								<ul class="sub_menu">
+									<li><a href="<s:url action='getOrdersForAdmin'/>">Order
+											History</a></li>
+									<li><a href="<s:url  action='getPaymentsAdmin'/>">Payment
+											History</a></li>
+								</ul></li>
+							<li class="drop"><a
+								href="<s:url action='getPendingProducts'/>">Pending Products</a></li>
 						</s:if>
-						<s:else>
-							<li id="getPendingProducts" style="display: none"><a
-								href="<s:url  action='getPendingProducts'/>">Pending
-									Products</a></li>
-						</s:else>
-						<li class="login">
+
+						<li class="drop">
 							<div id="loginContainer">
 								<s:if
 									test="%{ null == #attr.userProfile || '' == #attr.userProfile.userName 
@@ -173,16 +118,15 @@
 													password?</a></span>
 										</form>
 									</div>
-									<div id="loggedin" style="display: none"></div>
-									<li><div id="logout" style="display: none">
-											<a href="<s:url  action='logoutFunction'/>">Logout</a>
-										</div></li>
 								</s:if>
 								<s:else>
-									<div id="loggedin">Welcome ${userProfile.firstName}</div>
-									<li><div id="logout">
-											<a href="<s:url  action='logoutFunction'/>">Logout</a>
-										</div></li>
+									<li class="drop" style="width: 200px;"><a href="#">Welcomeeeeeee
+											${userProfile.firstName}</a>
+										<ul class="sub_menu">
+											<li><a href="<s:url  action='logoutFunction'/>">Logout</a></li>
+											<li><a href="<s:url  action='profileManagementInput'/>">Edit Profile</a></li>
+										</ul></li>
+
 								</s:else>
 							</div>
 						</li>
