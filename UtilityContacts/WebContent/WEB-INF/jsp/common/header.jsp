@@ -120,7 +120,7 @@
 									</div>
 								</s:if>
 								<s:else>
-									<li class="drop" style="width: 200px;"><a href="#">Welcomeeeeeee
+									<li class="drop" style="width: 200px;"><a href="#">Welcome 
 											${userProfile.firstName}</a>
 										<ul class="sub_menu">
 											<li><a href="<s:url  action='logoutFunction'/>">Logout</a></li>

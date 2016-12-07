@@ -3,4 +3,6 @@
   "http://web.archive.org/web/20090207121525/http://www.opensymphony.com/xwork/xwork-validator-config-1.0.dtd">
 <validators>
     <validator name="retypePassValidator" class="com.validators.RetypePasswordValidator" />
+    <validator name="usernameExistsValidator" class="com.validators.UsernameValidator" />
+    
 </validators> 
