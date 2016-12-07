@@ -91,13 +91,13 @@ $(function(){
 		if(values.length != 0){
 			$(".result").each(function(i){
 				if($('#pincode').val()!=''){
-					if ($.inArray($('#pincode').val(), products[i]["productPin"].split("|")) == -1 )
+					if ($.inArray($('#pincode').val(), products[i]["productPin"].split("|")) == -1)
 					{
 						$(this).remove();
 						return true;
 					}
 				}
-				if ($.inArray(products[i][filterBy], values) == -1 )
+				if ($.inArray(products[i][filterBy], values) == -1  )
 				{
 					$(this).remove();
 				}
@@ -129,14 +129,14 @@ $(function(){
 		if($('#pincode').val() != ''){
 			$(".result").each(function(i){
 				console.log(products[i]["productPin"]);
-				if ($.inArray($('#pincode').val(), products[i]["productPin"].split("|")) == -1 )
+				if ($.inArray($('#pincode').val(), products[i]["productPin"].split("|")) == -1 &&  products[i]["productPin"] != "All" )
 				{
 					$(this).remove();
 				}
 			});
 		}
 		$('#total').html($('.result').length+" items");
-		productsMoreLess(1);
+		productsMoreLess(4);
 	}
 	
 });
