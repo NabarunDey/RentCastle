@@ -97,6 +97,8 @@
 													<label for="password">Password</label> <input
 														type="password" name="password" id="password">
 												</fieldset>
+												<label for="checkbox"><input type="checkbox" name = "rememberMe"
+													id="rememberMe"> <i>Remember me</i></label>
 												<input id="login1" value="Sign in" onclick="doAjaxPost()"
 													style="background-color: #eebf05; color: white;"
 													type="button">
@@ -110,9 +112,6 @@
 													value="Sign in using Google"
 													onclick="top.location.href='https://accounts.google.com/o/oauth2/auth?scope=email&response_type=code&client_id=968847956660-7cs0n3ke5m69hj96hp9sfmqql34gsd4s.apps.googleusercontent.com&approval_prompt=auto&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunctionGoogle'">
 
-
-												<label for="checkbox"><input type="checkbox" name = "rememberMe"
-													id="rememberMe"> <i>Remember me</i></label>
 											</fieldset>
 											<span><a href="forgotPasswordInput">Forgot your
 													password?</a></span>

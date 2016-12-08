@@ -44,6 +44,8 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 		String server=httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+httpServletRequest.getContextPath();
 		Cookie[] cookies = httpServletRequest.getCookies();     // request is an instance of type 
 		String userNameFoundFromCookie = null;
+		String passwordFoundFromCookie = null;
+
 
 		if((null== userProfile || StringUtils.isEmpty(userProfile.getUserName())) && null!= cookies)
 		{
@@ -54,15 +56,21 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 				{
 					userNameFoundFromCookie = c.getValue();
 				}
+				if (c.getName().equals("passwordRemembered"))
+				{
+					passwordFoundFromCookie = c.getValue();
+				}
 			}  
 		}
-		if(StringUtils.isNotEmpty(userNameFoundFromCookie) )
+		if(StringUtils.isNotEmpty(userNameFoundFromCookie) && StringUtils.isNotEmpty(passwordFoundFromCookie)  )
 		{
 			loginAppServiceIB.setUsername(userNameFoundFromCookie);
-			LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server,true);
+			loginAppServiceIB.setPassword(passwordFoundFromCookie);
+			LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server);
 		}
 
-		if(StringUtils.isNotEmpty(rememberMe) && rememberMe.equals("on") && null!= userProfile && StringUtils.isNotEmpty(userProfile.getUserName()))
+		if(StringUtils.isNotEmpty(rememberMe) && rememberMe.equals("on")
+				&& null!= userProfile && StringUtils.isNotEmpty(userProfile.getUserName()))
 		{
 			HttpServletResponse response = ServletActionContext.getResponse();
 
@@ -70,6 +78,10 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 				Cookie c = new Cookie("usernameRemembered", userProfile.getUserName());
 				c.setMaxAge(24*60*60);
 				response.addCookie(c); 
+				
+				Cookie c1 = new Cookie("passwordRemembered", userProfile.getPassword());
+				c1.setMaxAge(24*60*60);
+				response.addCookie(c1); 
 			}
 		}
 
@@ -85,7 +97,9 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 		
 		HttpServletResponse response = ServletActionContext.getResponse();
 		Cookie cookie = new Cookie("usernameRemembered", "");
+		Cookie cookie1 = new Cookie("passwordRemembered", "");
 		response.addCookie(cookie);
+		response.addCookie(cookie1);
 
 		List<SearchProductProjectorOB> featuredProducts = productManagementAppService.getFeaturedProducts();
 		AdsSectionProjectorOB adsSectionProjectorOB = loadIndexAppService.getAdsSection();

@@ -26,14 +26,15 @@ public class LoginAppService {
 	UserProfile userProfile;
 	UserRegistrationAppService userRegistrationAppService;
 
-	public LoginProjectorOB login(LoginAppServiceIB loginAppServiceIB,String server,boolean cookie) {
+	public LoginProjectorOB login(LoginAppServiceIB loginAppServiceIB,String server) {
 
 		LoginProjectorOB loginProjectorOB=null;
 		UsersDBBean usersDBBean = null;
+		LoginDaoOB loginDaoOB =null;
 		if(StringUtils.isNotEmpty(loginAppServiceIB.getFbCode()))
 		{
 			UserRegistrationAppServiceIB userRegistrationAppServiceIB = FacebookHandler.getfbData(loginAppServiceIB.getFbCode(),server);
-			LoginDaoOB loginDaoOB =  loginDao.getByUsername(userRegistrationAppServiceIB.getUsername());
+			loginDaoOB =  loginDao.getByUsername(userRegistrationAppServiceIB.getUsername());
 			if(null== loginDaoOB.getUserLoginDBBean())
 			{
 				userRegistrationAppService.addUser(userRegistrationAppServiceIB);
@@ -47,7 +48,7 @@ public class LoginAppService {
 			UserRegistrationAppServiceIB userRegistrationAppServiceIB=  GoogleHandler.getGoogleData(loginAppServiceIB.getGoogleCode(), server);
 			loginProjectorOB =new LoginProjectorOB();
 			loginAppServiceIB.setUsername(userRegistrationAppServiceIB.getUsername());
-			LoginDaoOB loginDaoOB =  loginDao.getByUsername(userRegistrationAppServiceIB.getUsername());
+			loginDaoOB =  loginDao.getByUsername(userRegistrationAppServiceIB.getUsername());
 			if(null== loginDaoOB.getUserLoginDBBean())
 			{
 				usersDBBean = usersDao.getUserDetailsByEmail(userRegistrationAppServiceIB.getEmail());
@@ -64,7 +65,7 @@ public class LoginAppService {
 		}
 
 		else{
-			LoginDaoOB loginDaoOB =  loginDao.getByUsername(loginAppServiceIB.getUsername());
+			loginDaoOB =  loginDao.getByUsername(loginAppServiceIB.getUsername());
 			loginDaoOB.setUserNameEntered(loginAppServiceIB.getUsername());
 			loginDaoOB.setPasswordEntered(loginAppServiceIB.getPassword());
 
@@ -79,7 +80,7 @@ public class LoginAppService {
 
 				}
 			}
-			loginProjectorOB = loginProjector.validateCredentials(loginDaoOB,cookie);
+			loginProjectorOB = loginProjector.validateCredentials(loginDaoOB);
 			if(null==loginDaoOB.getUserLoginDBBean())
 			{
 				loginProjectorOB.setUserNotExist(true);
@@ -95,7 +96,7 @@ public class LoginAppService {
 			userProfile.setPin(usersDBBean.getPinno());
 			userProfile.setEmail(usersDBBean.getEmail());
 			userProfile.setMobile(usersDBBean.getMobileno1());
-
+			userProfile.setPassword(loginDaoOB.getUserLoginDBBean().getPassword());
 			loginProjectorOB.setUserProfile(userProfile);
 		}
 

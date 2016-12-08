@@ -11,11 +11,14 @@ public class UserProfile {
 	private String pin;
 	private String email;
 	private String mobile;
+	private String password;
 	
-	
-
-	
-	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getMobile() {
 		return mobile;
 	}

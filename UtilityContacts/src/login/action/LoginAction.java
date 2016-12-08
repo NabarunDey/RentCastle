@@ -36,7 +36,7 @@ public class LoginAction  extends ActionSupport  implements ServletRequestAware{
 		
 		String refererUrl = httpServletRequest.getHeader("referer");
 		
-		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server,false);
+		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server);
 		loginProjectorOB.setRefererUrl(refererUrl);
 		context.setLoginProjectorOB(loginProjectorOB);
 		if(loginProjectorOB.isLoginFailure())
@@ -56,7 +56,7 @@ public class LoginAction  extends ActionSupport  implements ServletRequestAware{
 		loginAppServiceIB.setGoogleCode(code);
 		String server=httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+httpServletRequest.getContextPath();
 		
-		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server,false);
+		LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server);
 		context.setLoginProjectorOB(loginProjectorOB);
 		return ActionSupport.SUCCESS;		
 	}
