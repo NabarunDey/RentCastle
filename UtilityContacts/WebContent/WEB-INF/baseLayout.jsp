@@ -16,7 +16,7 @@
  <meta name="description" content="Rent anything in Kolkata at RentCastle.in -> Furniture,Electronics,Cars,Medical Equipments,Services.">
 <meta name="keywords" content="Rent,Kolkata,Electronics,Furniture">
 <meta name="author" content="Hege Refsnes">
- <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/rentcastlecloudimages/image/upload/v1474766593/rentcastlefavicon_i6p2zj.jpg" />
+ <link rel="shortcut icon" type="image/x-icon" href="images/favicon.jpg" />
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
 <script type='text/javascript' src="js/jquery-1.11.1.min.js"></script>
