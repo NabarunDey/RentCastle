@@ -4,6 +4,7 @@ public enum UserType {
 
 	VENDOR("Vendor"),
 	CUSTOMER("Customer"),
+	SERVICEPROVIDER("ServiceProvider"),
 	ADMIN("Admin");
 
 	private String text;

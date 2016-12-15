@@ -40,7 +40,8 @@
 				<value>Help.hbm.xml</value>
 				<value>DynamicContent.hbm.xml</value>
 				<value>CurrentHoldings.hbm.xml</value>
-				
+				<value>Services.hbm.xml</value>
+				<value>ServiceRequest.hbm.xml</value>
 			</list>
 		</property>
 
@@ -83,17 +84,23 @@
 
 	<bean id="addressDBBean" class="com.databaseBeans.AddressDBBean">
 	</bean>
-	
+
 	<bean id="credentialsDBBean" class="com.databaseBeans.CredentialsDBBean">
 	</bean>
-	
+
 	<bean id="helpDBBean" class="com.databaseBeans.HelpDBBean">
 	</bean>
-	
+
 	<bean id="dynamicContentDBBean" class="com.databaseBeans.DynamicContentDBBean">
 	</bean>
-	
+
 	<bean id="currentHoldingsDBBean" class="com.databaseBeans.CurrentHoldingsDBBean">
+	</bean>
+	
+	<bean id="servicesDBBean" class="com.databaseBeans.ServicesDBBean">
+	</bean>
+	
+	<bean id="serviceRequestDBBean" class="com.databaseBeans.ServiceRequestDBBean">
 	</bean>
 
 </beans>

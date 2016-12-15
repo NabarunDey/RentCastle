@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="servicesAction" class="services.action.ServicesAction" scope="request">
+		<property name="servicesAppService" ref="servicesAppService" />
+		<property name="context" ref="servicesAppContext" />
+	</bean>
+
+	<bean id="servicesAppService" class="services.appService.ServicesAppService" scope="request">
+		<property name="servicesDao" ref="servicesDao" />
+		<property name="userProfile" ref="userProfile" />
+	</bean>
+
+	<bean id="servicesAppContext" class="services.ServicesAppContext" scope="session">
+	</bean>
+	
+</beans>
