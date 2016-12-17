@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib prefix="s" uri="/struts-tags"%>
-	
+<%@ taglib prefix="s" uri="/struts-tags"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,11 +16,25 @@
 			<div class="span_of_2">
 				<div class="span1_of_2">
 					<h5>
-						need help? <a href="<s:url  action='helpInput'/>">contact us <span> ></span>
+						need help? <a href="<s:url  action='helpInput'/>">contact us <span>
+								></span>
 						</a>
 					</h5>
 					<p>(or) Call us: +91-9641814868</p>
 					<p>mailto : support@rentcastle.in</p>
+				</div>
+
+				<div class="span1_of_2">
+					<h5>follow us</h5>
+					<div class="social-icons">
+						<ul>
+							<li><a href="https://www.facebook.com/RentCastle/" target="_blank"></a></li>
+							<li><a href="#" target="_blank"></a></li>
+							<li><a href="#" target="_blank"></a></li>
+							<li><a href="#" target="_blank"></a></li>
+							<li><a href="#" target="_blank"></a></li>
+						</ul>
+					</div>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -30,9 +44,7 @@
 	<div class="footer">
 		<div class="container">
 			<div class="copy">
-				<p class="link">
-					&copy;A product by Inflationby2 
-				</p>
+				<p class="link">&copy;A product by Inflationby2</p>
 			</div>
 		</div>
 	</div>
