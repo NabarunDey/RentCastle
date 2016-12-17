@@ -14,6 +14,7 @@ import cart.projector.outputBeans.CartItem;
 import com.dao.CredentialsDao;
 import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.ProductsDBBean;
+import com.databaseBeans.ServiceRequestDBBean;
 
 
 
@@ -50,7 +51,23 @@ public class SMSHandler
 		}
 	}
 	
-	public static void sendPost(String urlParameters)
+	public static void sendServiceRequestToAdmin(ServiceRequestDBBean serviceRequestDBBean){
+
+		if(StringUtils.isNotEmpty(smsEnabled)&&"true".equals(smsEnabled) )
+		{
+			String newline = System.getProperty("line.separator");
+			String orderTxt="Service Request:"+newline+"Service Type : "+serviceRequestDBBean.getServicetype()+""+newline+"Address : "+serviceRequestDBBean.getAddress()+" "+serviceRequestDBBean.getPin()
+					+""+newline+"Customer Mobile : "+serviceRequestDBBean.getCustomermobile()
+					+""+newline+"Regards,"+newline+"RentCastle Team";
+			
+			String mobile = CredentialsDao.getValue("adminMobile");
+			
+			String param="authkey="+auth+"&mobiles="+mobile+"&message="+orderTxt+"&sender=RentCS&route=4&country=91";
+			sendPost(param);
+		}
+	}
+	
+	private static void sendPost(String urlParameters)
 	{
 		String url = "https://control.msg91.com/api/sendhttp.php";
 		try{

@@ -38,7 +38,7 @@ public class UserRegistrationAppService {
 				registrationProjectorOB= userRegistrationProjector.addUser(userRegistrationDaoOB);
 			}
 		}
-		
+		registrationProjectorOB.setLoginDaoOB(loginDaoOB);
 		return registrationProjectorOB;
 	}
 

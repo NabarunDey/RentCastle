@@ -2,7 +2,7 @@ package com.databaseBeans;
 
 public class ServiceRequestDBBean {
 
-	private int servicereqestid;
+	private int servicerequestid;
 	private int serviceid;
 	private String customerusername;
 	private String customermobile;
@@ -13,18 +13,25 @@ public class ServiceRequestDBBean {
 	private String pin;
 	private String status;
 	private String rentcastlecut;
-
+	private String servicetype;
+	
+	public String getServicetype() {
+		return servicetype;
+	}
+	public void setServicetype(String servicetype) {
+		this.servicetype = servicetype;
+	}
 	public String getRentcastlecut() {
 		return rentcastlecut;
 	}
 	public void setRentcastlecut(String rentcastlecut) {
 		this.rentcastlecut = rentcastlecut;
 	}
-	public int getServicereqestid() {
-		return servicereqestid;
+	public int getServicerequestid() {
+		return servicerequestid;
 	}
-	public void setServicereqestid(int servicereqestid) {
-		this.servicereqestid = servicereqestid;
+	public void setServicerequestid(int servicerequestid) {
+		this.servicerequestid = servicerequestid;
 	}
 	public String getStatus() {
 		return status;

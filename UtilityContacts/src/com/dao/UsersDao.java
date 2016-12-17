@@ -104,7 +104,8 @@ public class UsersDao {
 		}
 
 		saveUser(usersDBBean);
-		MailHandler.welcomeMail(usersDBBean.getEmail());
+		if(StringUtils.isNotEmpty(usersDBBean.getEmail()))
+			MailHandler.welcomeMail(usersDBBean.getEmail());
 		UserRegistrationDaoOB userRegistrationDaoOB =new UserRegistrationDaoOB();
 		userRegistrationDaoOB.setUserDetailsInserted(true);
 		userRegistrationDaoOB.setUsersDBBean(usersDBBean);

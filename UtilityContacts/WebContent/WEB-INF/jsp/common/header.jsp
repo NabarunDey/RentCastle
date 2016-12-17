@@ -64,6 +64,16 @@
 
 								</ul></li>
 						</s:if>
+						
+						<s:if
+							test="%{ null != #attr.userProfile && 'SERVICEPROVIDER'.equalsIgnoreCase(#attr.userProfile.userType) }">
+
+							<li class="drop"><a href="#">Services</a>
+								<ul class="sub_menu">
+									<li><a href="<s:url action='getServicesForProvider'/>">My Services</a></li>
+									<li><a href="<s:url  action='addServiceInput'/>">Add Service</a></li>
+								</ul></li>
+						</s:if>
 
 
 						<s:if

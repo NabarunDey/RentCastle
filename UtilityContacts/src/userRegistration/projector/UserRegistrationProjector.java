@@ -7,7 +7,7 @@ public class UserRegistrationProjector {
 	
 	public UserRegistrationProjectorOB addUser(UserRegistrationDaoOB userRegistrationDaoOB)
 	{
-		UserRegistrationProjectorOB userRegistrationProjectorOB = null;
+		UserRegistrationProjectorOB userRegistrationProjectorOB = new UserRegistrationProjectorOB();
 		return userRegistrationProjectorOB;
 	}
 

@@ -72,7 +72,7 @@
 							</div>
 							<div>
 								<label> <s:select label="User Type" headerKey="-1"
-										list="#{'USERTYPE':'Select User Type','CUSTOMER':'Customer', 'VENDOR':'Vendor'}"
+										list="#{'USERTYPE':'Select User Type','CUSTOMER':'Customer', 'VENDOR':'Vendor','SERVICEPROVIDER':'Service Provider'}"
 										name="usertype" value="#{'usertype'}" id="usertype" />
 								</label>
 								<s:fielderror fieldName="usertype"></s:fielderror>

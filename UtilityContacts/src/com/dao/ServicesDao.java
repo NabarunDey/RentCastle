@@ -48,6 +48,7 @@ public class ServicesDao {
 		servicesDBBean.setTitle(servicesAppServiceIB.getTitle());
 		servicesDBBean.setUsername(username);
 		servicesDBBean.setServicetype(servicesAppServiceIB.getServicetype());
+		servicesDBBean.setRentcastlecut("0");
 		template.save(servicesDBBean);
 	}
 

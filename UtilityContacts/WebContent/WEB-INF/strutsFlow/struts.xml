@@ -6,6 +6,7 @@
 <struts>
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.multipart.maxSize" value="9434542" />
+	<constant name="struts.mapper.action.prefix.enabled" value="true" />
 	<package name="default" namespace="" extends="struts-default">
 		<global-results>
 			<result name="error">WEB-INF/jsp/error/error.jsp</result>

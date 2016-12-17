@@ -8,6 +8,7 @@
 		<id name="serviceid">
 			<generator class="increment"></generator>
 		</id>
+		<property name="servicetype"></property>
 		<property name="username"></property>
 		<property name="title"></property>
 		<property name="mobile1"></property>

@@ -13,7 +13,8 @@
 		<div class="container">
 			<div class="header">
 				<div class="logo">
-					<a href="loadIndex.action"><img src="images/RentCastleLogo.JPG" alt="" /> </a>
+					<a href="loadIndex.action"><img src="images/RentCastleLogo.JPG"
+						alt="" /> </a>
 				</div>
 				<!-- start header_right -->
 				<div class="header_right">
@@ -66,7 +67,7 @@
 													Machine</a></li>
 											<li><a
 												href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="'Television'"></s:param></s:url>">Television</a></li>
-											
+
 										</ul>
 									</div>
 								</div>
@@ -84,6 +85,24 @@
 												href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="'Bed'"></s:param></s:url>">Bed</a></li>
 											<li><a
 												href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="'Almirah'"></s:param></s:url>">Almirah</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div></li>
+
+					<li class="active grid"><a class="color4"
+						href="<s:url  action='serviceRequestInput'></s:url>">Services</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<h4>Items</h4>
+										<ul>
+											<li><a
+												href="<s:url  action='serviceRequestInput'><s:param name="serviceType" value="'Bike Servicing'"></s:param></s:url>">Bike Servicing</a></li>
+											<li><a
+												href="<s:url  action='serviceRequestInput'><s:param name="serviceType" value="'Car Servicing'"></s:param></s:url>">Car Servicing</a></li>
 										</ul>
 									</div>
 								</div>

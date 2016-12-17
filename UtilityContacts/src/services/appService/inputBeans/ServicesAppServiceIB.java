@@ -11,7 +11,14 @@ public class ServicesAppServiceIB {
 	private String city;
 	private String pin;
 	private String servicetype;
-
+	private String customerMobile;
+	
+	public String getCustomerMobile() {
+		return customerMobile;
+	}
+	public void setCustomerMobile(String customerMobile) {
+		this.customerMobile = customerMobile;
+	}
 	public String getServicetype() {
 		return servicetype;
 	}

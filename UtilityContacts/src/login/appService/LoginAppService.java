@@ -1,13 +1,15 @@
 package login.appService;
 
-import org.apache.commons.lang3.StringUtils;
-
 import login.appService.inputBeans.LoginAppServiceIB;
 import login.dao.outputBeans.LoginDaoOB;
 import login.projector.LoginProjector;
 import login.projector.outputBeans.LoginProjectorOB;
+
+import org.apache.commons.lang3.StringUtils;
+
 import userRegistration.appService.UserRegistrationAppService;
 import userRegistration.appService.inputBeans.UserRegistrationAppServiceIB;
+import userRegistration.projector.outputBeans.UserRegistrationProjectorOB;
 
 import com.dao.LoginDao;
 import com.dao.UsersDao;
@@ -37,7 +39,9 @@ public class LoginAppService {
 			loginDaoOB =  loginDao.getByUsername(userRegistrationAppServiceIB.getUsername());
 			if(null== loginDaoOB.getUserLoginDBBean())
 			{
-				userRegistrationAppService.addUser(userRegistrationAppServiceIB);
+				UserRegistrationProjectorOB userRegistrationProjectorOB = userRegistrationAppService.addUser(userRegistrationAppServiceIB);
+				LoginDaoOB loginDaoOBnew = userRegistrationProjectorOB.getLoginDaoOB();
+				loginDaoOB.setUserLoginDBBean(loginDaoOBnew.getUserLoginDBBean());
 			}
 			loginProjectorOB =new LoginProjectorOB();
 			loginAppServiceIB.setUsername(userRegistrationAppServiceIB.getUsername());
@@ -54,7 +58,9 @@ public class LoginAppService {
 				usersDBBean = usersDao.getUserDetailsByEmail(userRegistrationAppServiceIB.getEmail());
 				if(null == usersDBBean)
 				{
-					userRegistrationAppService.addUser(userRegistrationAppServiceIB);
+					UserRegistrationProjectorOB userRegistrationProjectorOB = userRegistrationAppService.addUser(userRegistrationAppServiceIB);
+					LoginDaoOB loginDaoOBnew = userRegistrationProjectorOB.getLoginDaoOB();
+					loginDaoOB.setUserLoginDBBean(loginDaoOBnew.getUserLoginDBBean());
 				}
 				else
 				{

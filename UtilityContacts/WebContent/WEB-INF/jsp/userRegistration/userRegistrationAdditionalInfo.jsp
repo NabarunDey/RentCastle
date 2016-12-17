@@ -18,7 +18,7 @@
 </div>
 </div>
 
-<form action="userRegistrationConfirm">
+<form action="userRegistrationConfirm" method="post">
 <br/><br/>
 <div class="col-md-8">
 	<label class="col-md-4">Phone Number</label>

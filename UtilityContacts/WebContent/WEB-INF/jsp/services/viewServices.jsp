@@ -5,39 +5,42 @@
 <html>
 <div class="container">
 	<div class="main">
+		<s:if test="context.serviceAdded">
+			<h4>
+				<br> <img src="images/checkmark.png" width="30" height="30">Service
+				added successfully.<br />
+			</h4>
+		</s:if>
+		<br>
 		<h1 style="">My Services</h1>
 
 		<div class="myservices">
 			<table class="table">
 				<thead>
 					<tr>
-						<th>OrderId</th>
-						<th>ProductId</th>
-						<th>ProductName</th>
-						<th>RentOffer</th>
-						<th>Date</th>
-						<th>Date</th>
-						<th>Status</th>
-						<s:if test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }"><th>Address</th></s:if>
-						<th>Pin</th>
-						<th>Payments</th>
+						<th>ServiceId</th>
+						<th>Service Type</th>
+						<th>Title</th>
+						<th>Mobile</th>
+						<th>Address</th>
+						<th>Description</th>
+						<th>ApprovalStatus</th>
+						<th>RentCastleCut</th>
 					</tr>
 				</thead>
 				<tbody>
-					<s:iterator value="context.orderProjectorOB.orderItems">
-						<tr id="order<s:property value='ordersDBBean.orderid'/>">
-							<td>ORD00<s:property value="ordersDBBean.orderid" /></td>
-							<td>PRD00<s:property value="productsDBBean.productid" /></td>
-							<td><s:property value="productsDBBean.productname" /></td>
-							<td><s:property value="rentOffersDBBean.periodvalue" /> <s:property value="rentOffersDBBean.periodunit" /> - Rs. <s:property value="rentOffersDBBean.amount" /></td>
-							<td><s:property value="ordersDBBean.datetime" /></td>
-							<td><s:property value="ordersDBBean.orderstatus" /></td>
-							<s:if test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }">
-							<td><s:property value="ordersDBBean.address" /></td>
-							</s:if>
-							<td><s:property value="ordersDBBean.pin" /></td>
-							<td><a href="getPaymentsForOrder?orderid=${ordersDBBean.orderid }">View Payments</a></td>
-							
+					<s:iterator value="context.servicesDBBeans">
+						<tr id="service<s:property value='serviceid'/>">
+							<td>SRV00<s:property value="serviceid" /></td>
+							<td><s:property value="servicetype" /></td>
+							<td><s:property value="title" /></td>
+							<td><s:property value="mobile1" /><br> <s:property
+									value="mobile2" /></td>
+							<td><s:property value="address" />,<br> <s:property
+									value="city" />-<s:property value="pin" /></td>
+							<td><s:property value="description" /></td>
+							<td><s:property value="approvalStatus" /></td>
+							<td><s:property value="rentcastlecut" /></td>
 						</tr>
 					</s:iterator>
 				</tbody>

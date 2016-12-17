@@ -8,15 +8,16 @@
 		<id name="servicerequestid">
 			<generator class="increment"></generator>
 		</id>
-		<property name="serviceid"></property>
+		<property name="servicetype"></property>
 		<property name="customerusername"></property>
-		<property name="providerrusername"></property>
 		<property name="customermobile"></property>
 		<property name="address"></property>
 		<property name="description"></property>
 		<property name="city"></property>
 		<property name="pin"></property>
 		<property name="status"></property>
+		<property name="serviceid"></property>
+		<property name="providerrusername"></property>
 		<property name="rentcastlecut"></property>
 	</class>
 

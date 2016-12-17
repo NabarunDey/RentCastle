@@ -47,6 +47,7 @@ public class LoginDao {
 		UserLoginDBBean userLoginDBBean = new UserLoginDBBean();
 		CommonUtility.copyBean(userRegistrationAppServiceIB, userLoginDBBean);
 		saveUserLogin(userLoginDBBean);
+		loginDaoOB.setUserLoginDBBean(userLoginDBBean);
 		return loginDaoOB;
 	}
 	

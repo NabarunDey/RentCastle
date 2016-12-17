@@ -2,6 +2,7 @@ package services.action;
 
 import java.util.List;
 
+import com.databaseBeans.ServiceRequestDBBean;
 import com.databaseBeans.ServicesDBBean;
 
 import services.ServicesAppContext;
@@ -11,10 +12,10 @@ import services.appService.inputBeans.ServicesAppServiceIB;
 
 
 public class ServicesAction {
-	
+
 	ServicesAppService servicesAppService;
 	ServicesAppContext context;
-	
+
 	private String title;
 	private String mobile1;
 	private String mobile2;
@@ -23,9 +24,19 @@ public class ServicesAction {
 	private String city;
 	private String pin;
 	private String servicetype;
-	
-	public String addService()
+	private String customerMobile;
+
+
+	public String addServiceInput()
 	{
+		return "success";
+	}
+
+
+	public String addServiceSubmit()
+	{
+		context.setServiceAdded(false);
+
 		ServicesAppServiceIB servicesAppServiceIB = new ServicesAppServiceIB();
 		servicesAppServiceIB.setAddress(address);
 		servicesAppServiceIB.setCity(city);
@@ -35,14 +46,37 @@ public class ServicesAction {
 		servicesAppServiceIB.setPin(pin);
 		servicesAppServiceIB.setTitle(title);
 		servicesAppServiceIB.setServicetype(servicetype);
-		
+
 		List<ServicesDBBean> servicesDBBeans = servicesAppService.addService(servicesAppServiceIB);
 		context.setServicesDBBeans(servicesDBBeans);
+		context.setServiceAdded(true);
 		return "success";
 	}
-	
+
+	public String serviceRequestInput()
+	{
+		return "success";
+	}
+
+	public String serviceRequestSubmit()
+	{
+		ServicesAppServiceIB servicesAppServiceIB = new ServicesAppServiceIB();
+		servicesAppServiceIB.setAddress(address);
+		servicesAppServiceIB.setCity(city);
+		servicesAppServiceIB.setDescription(description);
+		servicesAppServiceIB.setCustomerMobile(customerMobile);
+		servicesAppServiceIB.setPin(pin);
+		servicesAppServiceIB.setServicetype(servicetype);
+
+		ServiceRequestDBBean serviceRequestDBBean = servicesAppService.addServiceReqest(servicesAppServiceIB);
+		context.setServiceReqId(String.valueOf(serviceRequestDBBean.getServicerequestid()));
+		return "success";
+	}
+
+
 	public String getServicesForProvider()
 	{
+		context.setServiceAdded(false);
 		List<ServicesDBBean> servicesDBBeans = servicesAppService.getServicesForProvider();
 		context.setServicesDBBeans(servicesDBBeans);
 		return "success";
@@ -127,5 +161,15 @@ public class ServicesAction {
 	public void setServicetype(String servicetype) {
 		this.servicetype = servicetype;
 	}
-	
+
+
+	public String getCustomerMobile() {
+		return customerMobile;
+	}
+
+
+	public void setCustomerMobile(String customerMobile) {
+		this.customerMobile = customerMobile;
+	}
+
 }
