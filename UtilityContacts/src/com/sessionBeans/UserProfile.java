@@ -12,7 +12,14 @@ public class UserProfile {
 	private String email;
 	private String mobile;
 	private String password;
+	private boolean mobiledevice;
 	
+	public boolean isMobiledevice() {
+		return mobiledevice;
+	}
+	public void setMobiledevice(boolean mobiledevice) {
+		this.mobiledevice = mobiledevice;
+	}
 	public String getPassword() {
 		return password;
 	}

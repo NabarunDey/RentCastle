@@ -20,11 +20,7 @@
 <!-- start menu -->
 <link href="css/megamenu.css" rel="stylesheet" type="text/css"
 	media="all" />
-<script>
-	$(document).ready(function() {
-		$(".megamenu").megamenu();
-	});
-</script>
+
 <link rel="stylesheet" href="css/etalage.css">
 <script>
 	jQuery(document)
@@ -112,6 +108,7 @@
 
 											</div>
 										</li>
+										
 									</s:iterator>
 									<s:hidden id="rentOfferId" value="" />
 

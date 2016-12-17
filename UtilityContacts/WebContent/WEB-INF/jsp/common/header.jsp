@@ -64,14 +64,16 @@
 
 								</ul></li>
 						</s:if>
-						
+
 						<s:if
 							test="%{ null != #attr.userProfile && 'SERVICEPROVIDER'.equalsIgnoreCase(#attr.userProfile.userType) }">
 
 							<li class="drop"><a href="#">Services</a>
 								<ul class="sub_menu">
-									<li><a href="<s:url action='getServicesForProvider'/>">My Services</a></li>
-									<li><a href="<s:url  action='addServiceInput'/>">Add Service</a></li>
+									<li><a href="<s:url action='getServicesForProvider'/>">My
+											Services</a></li>
+									<li><a href="<s:url  action='addServiceInput'/>">Add
+											Service</a></li>
 								</ul></li>
 						</s:if>
 
@@ -88,6 +90,13 @@
 								</ul></li>
 							<li class="drop"><a
 								href="<s:url action='getPendingProducts'/>">Pending Products</a></li>
+						</s:if>
+
+						<s:if
+							test="%{ null != #attr.userProfile && #attr.userProfile.mobiledevice 
+							&& ('' == #attr.userProfile.userName 
+											|| null == #attr.userProfile.userName)}">
+							<li class="drop" style="color: #00405d">Dummy Text</li>
 						</s:if>
 
 						<li class="drop">
@@ -107,9 +116,10 @@
 													<label for="password">Password</label> <input
 														type="password" name="password" id="password">
 												</fieldset>
-												<label for="checkbox"><input type="checkbox" name = "rememberMe"
-													id="rememberMe"> <i>Remember me</i></label>
-												<input id="login1" value="Sign in" onclick="doAjaxPost()"
+												<label for="checkbox"><input type="checkbox"
+													name="rememberMe" id="rememberMe"> <i>Remember
+														me</i></label> <input id="login1" value="Sign in"
+													onclick="doAjaxPost()"
 													style="background-color: #eebf05; color: white;"
 													type="button">
 												<div id="loginError" style="color: red; display: none;"></div>
@@ -129,11 +139,12 @@
 									</div>
 								</s:if>
 								<s:else>
-									<li class="drop" style="width: 200px;"><a href="#">Welcome 
+									<li class="drop" ><a href="#">
 											${userProfile.firstName}</a>
 										<ul class="sub_menu">
 											<li><a href="<s:url  action='logoutFunction'/>">Logout</a></li>
-											<li><a href="<s:url  action='profileManagementInput'/>">Edit Profile</a></li>
+											<li><a href="<s:url  action='profileManagementInput'/>">Edit
+													Profile</a></li>
 										</ul></li>
 
 								</s:else>

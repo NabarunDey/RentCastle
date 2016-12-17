@@ -38,6 +38,11 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 	public String loadIndex()
 	{
 		TimeZone.setDefault(TimeZone.getTimeZone("IST"));
+		if(httpServletRequest.getHeader("User-Agent").indexOf("Mobile") != -1) {
+			userProfile.setMobiledevice(true);
+		} else {
+			userProfile.setMobiledevice(false);
+		}
 
 		LoginAppServiceIB loginAppServiceIB = new LoginAppServiceIB();
 
@@ -78,7 +83,7 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 				Cookie c = new Cookie("usernameRemembered", userProfile.getUserName());
 				c.setMaxAge(24*60*60);
 				response.addCookie(c); 
-				
+
 				Cookie c1 = new Cookie("passwordRemembered", userProfile.getPassword());
 				c1.setMaxAge(24*60*60);
 				response.addCookie(c1); 
@@ -91,10 +96,10 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 		context.setAdsSectionProjectorOB(adsSectionProjectorOB);
 		return "success";
 	}
-	
+
 	public String loadIndexLogout()
 	{
-		
+
 		HttpServletResponse response = ServletActionContext.getResponse();
 		Cookie cookie = new Cookie("usernameRemembered", "");
 		Cookie cookie1 = new Cookie("passwordRemembered", "");

@@ -1783,7 +1783,7 @@ p.product_descr {
 
 .det_nav ul li {
 	display: inline-block;
-	width: 20.33333%;
+
 	margin-left: 4%;
 	margin-top:2%;
 }
@@ -2564,6 +2564,7 @@ ul.s_icons {
 	line-height:35px;
 	text-align:center;
 	cursor:pointer;
+	min-width: 120px;
 }
 
 
@@ -2668,4 +2669,9 @@ ul.dropdown ul li a:hover{
    border-left: 5px solid transparent;
   border-top: 5px solid #fff;
   border-right: 5px solid transparent;
+}
+
+.logopic{
+	width: 100%;
+	
 }

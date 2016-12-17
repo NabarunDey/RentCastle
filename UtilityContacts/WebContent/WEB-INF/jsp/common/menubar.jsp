@@ -11,11 +11,15 @@
 
 	<div class="header_bg">
 		<div class="container">
-			<div class="header">
+			<div class="header" style="width: 100%">
 				<div class="logo">
-					<a href="loadIndex.action"><img src="images/RentCastleLogo.JPG"
-						alt="" /> </a>
+					<a href="loadIndex.action"><img class="logopic"
+						src="images/RentCastleLogo.JPG" alt="" /> </a>
 				</div>
+					
+				<s:if
+					test="%{ null != #attr.userProfile && !#attr.userProfile.mobiledevice }">
+				</s:if>
 				<!-- start header_right -->
 				<div class="header_right">
 					<s:if
@@ -35,11 +39,6 @@
 						</div>
 					</s:if>
 
-					<div id=myCart style="display: none">
-						<ul class="icon1 sub-icon1 profile_img">
-							<li><a class="active-icon c2" href="viewCart.action"> </a></li>
-						</ul>
-					</div>
 					<div class="search">
 						<s:form action="searchAction">
 							<input name="searchString" type="text" value=""
@@ -47,8 +46,13 @@
 							<s:submit type="submit" value="" />
 						</s:form>
 					</div>
-					<div class="clearfix"></div>
+
 				</div>
+
+
+				<div class="clearfix"></div>
+
+			
 				<!-- start header menu -->
 				<ul class="megamenu skyblue">
 					<li><a class="color1" href="loadIndex.action">Home</a></li>
@@ -100,9 +104,11 @@
 										<h4>Items</h4>
 										<ul>
 											<li><a
-												href="<s:url  action='serviceRequestInput'><s:param name="serviceType" value="'Bike Servicing'"></s:param></s:url>">Bike Servicing</a></li>
+												href="<s:url  action='serviceRequestInput'><s:param name="serviceType" value="'Bike Servicing'"></s:param></s:url>">Bike
+													Servicing</a></li>
 											<li><a
-												href="<s:url  action='serviceRequestInput'><s:param name="serviceType" value="'Car Servicing'"></s:param></s:url>">Car Servicing</a></li>
+												href="<s:url  action='serviceRequestInput'><s:param name="serviceType" value="'Car Servicing'"></s:param></s:url>">Car
+													Servicing</a></li>
 										</ul>
 									</div>
 								</div>
