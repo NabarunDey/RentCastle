@@ -16,10 +16,8 @@
 					<a href="loadIndex.action"><img class="logopic"
 						src="images/RentCastleLogo.JPG" alt="" /> </a>
 				</div>
-					
-				<s:if
-					test="%{ null != #attr.userProfile && !#attr.userProfile.mobiledevice }">
-				</s:if>
+
+
 				<!-- start header_right -->
 				<div class="header_right">
 					<s:if
@@ -39,20 +37,31 @@
 						</div>
 					</s:if>
 
-					<div class="search">
-						<s:form action="searchAction">
-							<input name="searchString" type="text" value=""
-								placeholder="search...">
-							<s:submit type="submit" value="" />
-						</s:form>
-					</div>
-
+					<s:if
+						test="%{ null != #attr.userProfile && 'true'.equalsIgnoreCase(#attr.userProfile.mobiledevice) }">
+						<div class="search" style="width: 50%">
+							<s:form action="searchAction">
+								<input name="searchString" type="text" value=""
+									placeholder="search...">
+								<s:submit type="submit" value="" />
+							</s:form>
+						</div>
+					</s:if>
+					<s:else>
+						<div class="search" style="width: 25%">
+							<s:form action="searchAction">
+								<input name="searchString" type="text" value=""
+									placeholder="search...">
+								<s:submit type="submit" value="" />
+							</s:form>
+						</div>
+					</s:else>
 				</div>
 
 
 				<div class="clearfix"></div>
 
-			
+
 				<!-- start header menu -->
 				<ul class="megamenu skyblue">
 					<li><a class="color1" href="loadIndex.action">Home</a></li>

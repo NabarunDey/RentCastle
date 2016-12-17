@@ -39,9 +39,9 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 	{
 		TimeZone.setDefault(TimeZone.getTimeZone("IST"));
 		if(httpServletRequest.getHeader("User-Agent").indexOf("Mobile") != -1) {
-			userProfile.setMobiledevice(true);
+			userProfile.setMobiledevice("true");
 		} else {
-			userProfile.setMobiledevice(false);
+			userProfile.setMobiledevice("false");
 		}
 
 		LoginAppServiceIB loginAppServiceIB = new LoginAppServiceIB();

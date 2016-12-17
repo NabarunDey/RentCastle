@@ -12,12 +12,12 @@ public class UserProfile {
 	private String email;
 	private String mobile;
 	private String password;
-	private boolean mobiledevice;
+	private String mobiledevice;
 	
-	public boolean isMobiledevice() {
+	public String getMobiledevice() {
 		return mobiledevice;
 	}
-	public void setMobiledevice(boolean mobiledevice) {
+	public void setMobiledevice(String mobiledevice) {
 		this.mobiledevice = mobiledevice;
 	}
 	public String getPassword() {

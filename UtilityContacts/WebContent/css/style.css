@@ -278,7 +278,7 @@ input:focus {
 	background: #f3f4f5;
 	border: 1px solid #D8D8D8;
 	margin-right: 3%;
-	width: 24.33333%;
+	/* width: 24.33333%; */
 }
 
 .search form {
@@ -2451,7 +2451,7 @@ ul.s_icons {
 		line-height: 1.5em;
 	}
 	.search {
-		display: none;
+		/* display: none; */
 	}
 	.span1_of_4 {
 		width: 46.33333%;
@@ -2497,13 +2497,13 @@ ul.s_icons {
 
 @media ( max-width :320px) {
 	ul.icon1 {
-		display: none;
+		/* display: none; */
 	}
 	.logo {
 		float: none;
 	}
 	.create_btn {
-		display: none;
+		/* display: none; */
 	}
 	.container {
 		width: 282px;
