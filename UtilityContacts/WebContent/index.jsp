@@ -13,10 +13,10 @@
 <body>
  
 <% 
-response.sendRedirect(request.getContextPath()+"/loadIndex.action");
+response.sendRedirect(request.getContextPath()+"/loadIndex");
 %> 
 
-<%-- <jsp:forward page="/loadIndex.action" />
+<%-- <jsp:forward page="/loadIndex" />
  --%>	<h1>Hello World From Struts2 - Spring integration</h1> 
 
 	<p><a href="<s:url  action='addProductInput'/>">Add Product</a></p>

@@ -28,7 +28,7 @@
 						<div class="shoping1_of_2">
 							<h4>
 								<a
-									href="viewProduct.action?productId=<s:property value="currentHoldingsDBBean.productid"/>"><s:property
+									href="viewProduct?productId=<s:property value="currentHoldingsDBBean.productid"/>"><s:property
 										value="productsDBBean.productname" /></a>
 							</h4>
 						

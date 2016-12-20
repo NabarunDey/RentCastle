@@ -67,7 +67,7 @@ public class ProductManagementAppService {
 		for(SearchProductProjectorOB searchProductProjectorOB : searchProductProjectorOBs)
 		{
 			if(productManagementAppServiceIB.getProductId().equals(String.valueOf(searchProductProjectorOB.getProductId()))
-					&& searchProductProjectorOB.getUserName().equals(userProfile.getUserName()) || userProfile.getUserType().equals(UserType.ADMIN))
+					&& (searchProductProjectorOB.getUserName().equals(userProfile.getUserName()) || userProfile.getUserType().equals(UserType.ADMIN)))
 			{
 				ProductsDBBean productsDBBean = productsDao.deleteProduct(productManagementAppServiceIB.getProductId());
 				rentOffersDao.deleteRentOffer(productManagementAppServiceIB.getProductId());

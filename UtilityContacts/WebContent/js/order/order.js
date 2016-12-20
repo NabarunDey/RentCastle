@@ -7,7 +7,7 @@ function placeCartOrder()
 			alert('Please check delivery address before placing order');
 			return;
 		}
-	location.href='placeCartOrder.action';
+	location.href='placeCartOrder';
 }
 
 function checkPin() {

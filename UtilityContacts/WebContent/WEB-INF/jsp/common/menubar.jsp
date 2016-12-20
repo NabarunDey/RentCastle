@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="header" style="width: 100%">
 				<div class="logo">
-					<a href="loadIndex.action"><img class="logopic"
+					<a href="loadIndex"><img class="logopic"
 						src="images/RentCastleLogo.JPG" alt="" /> </a>
 				</div>
 
@@ -23,7 +23,7 @@
 					<s:if
 						test="%{ null == #attr.userProfile || '' == #attr.userProfile.userName || null == #attr.userProfile.userName }">
 						<div class="create_btn" id="createAccount">
-							<a class="arrow" href="userRegistrationInput.action">create
+							<a class="arrow" href="userRegistrationInput">create
 								account <img src="images/right_arrow.png" alt="" />
 							</a>
 						</div>
@@ -32,7 +32,7 @@
 						test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }">
 						<div id=myCart>
 							<ul class="icon1 sub-icon1 profile_img">
-								<li><a class="active-icon c2" href="viewCart.action"> </a></li>
+								<li><a class="active-icon c2" href="viewCart"> </a></li>
 							</ul>
 						</div>
 					</s:if>
@@ -64,7 +64,7 @@
 
 				<!-- start header menu -->
 				<ul class="megamenu skyblue">
-					<li><a class="color1" href="loadIndex.action">Home</a></li>
+					<li><a class="color1" href="loadIndex">Home</a></li>
 					<li class="grid"><a class="color2"
 						href="<s:url  action='searchByCriteria'><s:param name="searchType" value="'Electronics'"></s:param></s:url>">Electronics</a>
 						<div class="megapanel">

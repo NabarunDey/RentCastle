@@ -115,7 +115,7 @@
 			</table>
 			<div class="form-group pull-right">
 				<input type="button" value="Place Order" class="btn-primary"
-					onclick=placeCartOrder() /> <%-- javascript:location.href='placeCartOrder.action';"--%>
+					onclick=placeCartOrder() /> <%-- javascript:location.href='placeCartOrder';"--%>
 			</div>
 
 		</div>

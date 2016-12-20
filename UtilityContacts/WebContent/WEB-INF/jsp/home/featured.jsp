@@ -21,8 +21,8 @@
 
 					<s:iterator value="context.featuredProducts">
 						<div class="col-md-3 grid1">
-							<a href="viewProduct.action?productId=<s:property value="productId"/>"> <img
-								src="<s:property value="imageUrl"/>" class="img-responsive" alt="" style="width: 260px; height: 260px" />
+							<a href="viewProduct?productId=<s:property value="productId"/>"> <img
+								src="<s:property value="imageUrl"/>" class="img-responsive" alt="" style="width: 220px; height: 220px" />
 								<div class="look">
 									<p>View</p>
 								</div></a>
