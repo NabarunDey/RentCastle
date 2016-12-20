@@ -40,7 +40,7 @@
 		<div class="col-md-6">
 			<label class="control-label col-md-3">State</label>
 			<div class="col-md-9">
-					<s:select list="{'West Bengal','Assam'}"
+					<s:select list="{'West Bengal'}"
 						headerKey="%{context.orderProjectorOB.addressDBBean.state}"
 						headerValue="%{context.orderProjectorOB.addressDBBean.state}"
 						id="state" name="state" cssClass="form-control" theme="simple"

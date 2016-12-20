@@ -38,7 +38,8 @@
 							</h4>
 							<span>qty <b>1</b></span>
 							<ul class="s_icons">
-								<li><a href="removeFromCart?productId=<s:property value='productId'/>&rentOfferId=<s:property value='rentId'/>"><img
+								<li><a
+									href="removeFromCart?productId=<s:property value='productId'/>&rentOfferId=<s:property value='rentId'/>"><img
 										src="images/s_icon3.png" alt=""> Remove</a></li>
 							</ul>
 						</div>
@@ -64,8 +65,11 @@
 	</div>
 	<div class="shoping_bag2">
 		<div class="shoping_left">
-			<a class="btn1" href="<s:url action='getCartOrderInput'/>">place
-				order</a>
+			<s:if
+				test="!context.cartProjectorOB.numberOfItemsInCart.equalsIgnoreCase('0')">
+				<a class="btn1" href="<s:url action='getCartOrderInput'/>">place
+					order</a>
+			</s:if>
 		</div>
 		<div class="clearfix"></div>
 	</div>

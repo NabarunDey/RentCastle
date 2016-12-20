@@ -175,7 +175,7 @@
 					State</label>
 				<div class="col-sm-4">
 
-					<s:select list="{'West Bengal','Assam'}" name="productState"
+					<s:select list="{'West Bengal'}" name="productState"
 						cssClass="form-control"
 						value="%{context.viewProductProjectorOB.productsDBBean.productstate}"></s:select>
 				</div>

@@ -11,7 +11,7 @@
 
 
 <head>
-
+<meta name="google-site-verification" content="rrZ1Dwm3Iete-AgAMdhQCTm4nnuVVjnSOlQxxANfv4k" />
  <title>RentCastle|Rent in Kolkata|Furniture|Electronics at RentCastle.in</title>
  <meta name="description" content="Rent anything in Kolkata at RentCastle.in -> Furniture,Electronics,Cars,Medical Equipments,Services.">
 <meta name="keywords" content="Rent,Kolkata,Electronics,Furniture">

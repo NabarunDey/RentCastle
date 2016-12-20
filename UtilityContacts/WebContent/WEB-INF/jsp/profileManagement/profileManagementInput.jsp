@@ -108,7 +108,6 @@
 					<div class="col-md-8">
 						<select name="state" class="form-control">
 							<option value="West Bengal">West Bengal</option>
-							<option value="Assam">Assam</option>
 						</select>
 					</div>
 				</div>
