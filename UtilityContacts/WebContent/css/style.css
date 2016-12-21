@@ -68,7 +68,7 @@ body a {
 	float: right;
 	color: #ffffff;
 	margin-top: -5px;
-	margin-right: -100px;
+	margin-right: -80px;
 }
 
 .top_right ul {
@@ -137,6 +137,14 @@ body a {
 	right: 0px;
 	display: none;
 	z-index: 29;
+}
+
+#loginBoxMobile {
+	height: 100%;
+	width: 10%;
+	position: fixed;
+	z-index: 9999 !important;
+	display: none;
 }
 
 #loginForm:after {

@@ -120,6 +120,8 @@
 								<s:property
 									value="context.ViewProductProjectorOB.productsDBBean.deliveryCharge" />
 							</p>
+							
+							<div> Delivery will be made within 1-3 days within Kolkata.</div>
 
 							<s:if
 								test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }">

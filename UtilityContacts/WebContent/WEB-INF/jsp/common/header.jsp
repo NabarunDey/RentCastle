@@ -92,12 +92,12 @@
 								href="<s:url action='getPendingProducts'/>">Pending Products</a></li>
 						</s:if>
 
-						<s:if
+						<%-- <s:if
 							test="%{ null != #attr.userProfile && #attr.userProfile.mobiledevice 
 							&& ('' == #attr.userProfile.userName 
 											|| null == #attr.userProfile.userName)}">
 							<li class="drop" style="color: #00405d">Dummy Text</li>
-						</s:if>
+						</s:if> --%>
 
 						<li class="drop">
 							<div id="loginContainer">
@@ -105,56 +105,64 @@
 									test="%{ null == #attr.userProfile || '' == #attr.userProfile.userName 
 											|| null == #attr.userProfile.userName }">
 									<a href="#" id="loginButton"><span>Login</span></a>
-									<div id="loginBox">
-										<form id="loginForm">
-											<fieldset id="body">
-												<fieldset>
-													<label for="email">Email Address</label> <input type="text"
-														name="username" id="email">
-												</fieldset>
-												<fieldset>
-													<label for="password">Password</label> <input
-														type="password" name="password" id="password">
-												</fieldset>
-												<label for="checkbox"><input type="checkbox"
-													name="rememberMe" id="rememberMe"> <i>Remember
-														me</i></label> <input id="login1" value="Sign in"
-													onclick="doAjaxPost()"
-													style="background-color: #eebf05; color: white;"
-													type="button">
-												<div id="loginError" style="color: red; display: none;"></div>
-												<input id="loginFB" type="button"
-													style="margin-top: 5px; background-color: #354F88; color: white; border: none; cursor: pointer"
-													value="Sign in using Facebook"
-													onclick="top.location.href='http://www.facebook.com/dialog/oauth?scope=public_profile,email&client_id=841162669353192&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction'">
-												<input id="loginGoogle" type="button"
-													style="margin-top: 5px; background-color: #de3b17; color: white; border: none; cursor: pointer"
-													value="Sign in using Google"
-													onclick="top.location.href='https://accounts.google.com/o/oauth2/auth?scope=email&response_type=code&client_id=968847956660-7cs0n3ke5m69hj96hp9sfmqql34gsd4s.apps.googleusercontent.com&approval_prompt=auto&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunctionGoogle'">
 
+									<s:if
+										test="%{ null != #attr.userProfile && #attr.userProfile.mobiledevice == 'true' 
+																	&& ('' == #attr.userProfile.userName 
+																|| null == #attr.userProfile.userName)}">
+										<div id="loginBoxMobile">ll
+									</s:if>
+									<s:else>
+										<div id="loginBox">yy
+									</s:else>
+
+
+									<form id="loginForm">
+										<fieldset id="body">
+											<fieldset>
+												<label for="email">Email Address</label> <input type="text"
+													name="username" id="email">
 											</fieldset>
-											<span><a href="forgotPasswordInput">Forgot your
-													password?</a></span>
-										</form>
-									</div>
-								</s:if>
-								<s:else>
-									<li class="drop" ><a href="#">
-											${userProfile.firstName}</a>
-										<ul class="sub_menu">
-											<li><a href="<s:url  action='logoutFunction'/>">Logout</a></li>
-											<li><a href="<s:url  action='profileManagementInput'/>">Edit
-													Profile</a></li>
-										</ul></li>
+											<fieldset>
+												<label for="password">Password</label> <input
+													type="password" name="password" id="password">
+											</fieldset>
+											<label for="checkbox"><input type="checkbox"
+												name="rememberMe" id="rememberMe"> <i>Remember
+													me</i></label> <input id="login1" value="Sign in"
+												onclick="doAjaxPost()"
+												style="background-color: #eebf05; color: white;"
+												type="button">
+											<div id="loginError" style="color: red; display: none;"></div>
+											<input id="loginFB" type="button"
+												style="margin-top: 5px; background-color: #354F88; color: white; border: none; cursor: pointer"
+												value="Sign in using Facebook"
+												onclick="top.location.href='http://www.facebook.com/dialog/oauth?scope=public_profile,email&client_id=841162669353192&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction'">
+											<input id="loginGoogle" type="button"
+												style="margin-top: 5px; background-color: #de3b17; color: white; border: none; cursor: pointer"
+												value="Sign in using Google"
+												onclick="top.location.href='https://accounts.google.com/o/oauth2/auth?scope=email&response_type=code&client_id=968847956660-7cs0n3ke5m69hj96hp9sfmqql34gsd4s.apps.googleusercontent.com&approval_prompt=auto&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunctionGoogle'">
 
-								</s:else>
-							</div>
-						</li>
-					</ul>
+										</fieldset>
+										<span><a href="forgotPasswordInput">Forgot your
+												password?</a></span>
+									</form>
+							</div> </s:if> <s:else>
+								<li class="drop"><a href="#"> ${userProfile.firstName}</a>
+									<ul class="sub_menu">
+										<li><a href="<s:url  action='logoutFunction'/>">Logout</a></li>
+										<li><a href="<s:url  action='profileManagementInput'/>">Edit
+												Profile</a></li>
+									</ul></li>
+
+							</s:else>
 				</div>
-				<div class="clearfix"></div>
+				</li>
+				</ul>
 			</div>
+			<div class="clearfix"></div>
 		</div>
+	</div>
 	</div>
 
 </body>

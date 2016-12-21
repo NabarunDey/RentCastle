@@ -24,10 +24,14 @@ $('#cssmenu > ul > li > a').click(function() {
 $(function() {
     var button = $('#loginButton');
     var box = $('#loginBox');
+    var boxMobile = $('#loginBoxMobile');
     var form = $('#loginForm');
     button.removeAttr('href');
     button.mouseup(function(login) {
-        box.toggle();
+    	if(undefined!= box)
+    		box.toggle();
+    	if(undefined!= boxMobile)
+    		boxMobile.toggle();
         button.toggleClass('active');
     });
     form.mouseup(function() { 
@@ -36,7 +40,10 @@ $(function() {
     $(this).mouseup(function(login) {
         if(!($(login.target).parent('#loginButton').length > 0)) {
             button.removeClass('active');
-            box.hide();
+        	if(undefined!= box)
+        		box.hide();
+        	if(undefined!= boxMobile)
+        		boxMobile.hide();
         }
     });
 });

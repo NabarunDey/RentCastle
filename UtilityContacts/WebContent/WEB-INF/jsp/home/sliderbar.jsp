@@ -3,7 +3,6 @@
 
 <html>
 <head>
-<title>Shoppe Bootstarp Website Template | Home :: w3layouts</title>
 <!-- jQuery (necessary JavaScript plugins) -->
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
