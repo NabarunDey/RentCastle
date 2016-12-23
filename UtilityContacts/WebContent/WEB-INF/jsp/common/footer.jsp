@@ -20,7 +20,7 @@
 								></span>
 						</a>
 					</h5>
-					<p>(or) Call us: +91-9641814868</p>
+					<p>(or) Call us: +91-7980149480</p>
 					<p>mailto : support@rentcastle.in</p>
 				</div>
 

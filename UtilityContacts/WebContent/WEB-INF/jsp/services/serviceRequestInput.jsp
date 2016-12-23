@@ -7,14 +7,18 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>RentCastle - Services</title>
+<meta name="keywords"
+	content="Bike Servicing,Bike Repair Service,Kolkata Bike Service">
+<meta name="description"
+	content="Online Bike Servicing and Repair at Kolkata. Request for Bike Servicing and repair now at your doorstep.">
+<title>RentCastle - Bike Servicing in Kolkata at RentCastle.in</title>
 </head>
 <body>
 
 
 	<div class="container">
 		<div class="main">
-		<br>
+			<br>
 			<h1 style="">Request Service</h1>
 
 			<h4>
@@ -36,14 +40,17 @@
 				<div class="col-md-8">
 					<label class="col-md-4">Mobile</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control" name=customerMobile />
+						<input type="text" class="form-control" name=customerMobile
+							id="customerMobile" />
+						<s:fielderror fieldName="customerMobile"></s:fielderror>
 					</div>
 				</div>
 				<br /> <br />
 				<div class="col-md-8">
 					<label class="col-md-4">Address</label>
 					<div class="col-md-8">
-						<textarea class="form-control" name=address></textarea>
+						<textarea class="form-control" name=address id="address"></textarea>
+						<s:fielderror fieldName="address"></s:fielderror>
 					</div>
 				</div>
 				<br /> <br /> <br /> <br />
@@ -67,7 +74,8 @@
 				<div class="col-md-8">
 					<label class="col-md-4">Pin Code</label>
 					<div class="col-md-8">
-						<input type="text" class="form-control" name=pin />
+						<input type="text" class="form-control" name=pin id="pin" />
+						<s:fielderror fieldName="pin"></s:fielderror>
 					</div>
 				</div>
 				<br /> <br />
@@ -85,8 +93,8 @@
 						</s:if>
 
 						<s:else>
-							<input type="button" class="btn btn-primary" onclick="alert('Please login to continue.');" 
-								value="Call Me" />
+							<input type="button" class="btn btn-primary"
+								onclick="alert('Please login to continue.');" value="Call Me" />
 						</s:else>
 						<s:reset type="button" cssClass="btn btn-danger" theme="simple" />
 

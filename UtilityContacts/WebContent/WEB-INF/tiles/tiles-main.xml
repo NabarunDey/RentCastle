@@ -15,7 +15,8 @@
 	</definition>
 
 	<definition name="loadIndex" extends="baseLayout">
-		<put-attribute name="title" value="RentCastle - Rent in Kolkata|Furniture|Electronics at RentCastle.in" />
+		<put-attribute name="title"
+			value="RentCastle - Rent in Kolkata|Furniture|Electronics at RentCastle.in" />
 		<put-attribute name="body" value="/WEB-INF/jsp/home/index.jsp" />
 	</definition>
 
@@ -181,6 +182,18 @@
 		<put-attribute name="title" value="RentCastle - Service Request" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/services/serviceRequestConfirm.jsp" />
+	</definition>
+
+	<definition name="viewServicesForAdmin" extends="baseLayout">
+		<put-attribute name="title" value="RentCastle - Services" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/services/viewServicesForAdmin.jsp" />
+	</definition>
+
+	<definition name="viewServiceRequestsForAdmin" extends="baseLayout">
+		<put-attribute name="title" value="RentCastle - Services" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/services/viewServiceRequestsForAdmin.jsp" />
 	</definition>
 
 </tiles-definitions>

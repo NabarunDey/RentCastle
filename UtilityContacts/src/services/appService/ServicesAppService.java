@@ -1,21 +1,15 @@
 package services.appService;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import services.appService.inputBeans.ServicesAppServiceIB;
 
 import com.dao.ServiceRequestDao;
 import com.dao.ServicesDao;
-import com.databaseBeans.PaymentsDBBean;
 import com.databaseBeans.ServiceRequestDBBean;
 import com.databaseBeans.ServicesDBBean;
-import com.databaseBeans.UsersDBBean;
 import com.sessionBeans.UserProfile;
 import com.structures.userTypes.UserType;
-import com.util.CommonUtility;
-import com.util.MailHandler;
 import com.util.SMSHandler;
 
 
@@ -59,6 +53,38 @@ public class ServicesAppService {
 		return servicesDBBeans;
 	}
 
+	public List<ServicesDBBean> getServicesForAdmin()
+	{
+
+		List<ServicesDBBean> servicesDBBeans = null;
+		try{
+			if(null!= userProfile && UserType.ADMIN.equals(userProfile.getUserType()))
+				servicesDBBeans=servicesDao.getServicesForAdmin();
+		}catch(Exception exception)
+		{
+			System.out.println("Error in getting Service");
+		}
+		return servicesDBBeans;
+	}
+	
+
+	public boolean changeApprovalSatus(String id, String status)
+	{
+
+		boolean result=false;
+		try{
+			if(null!= userProfile && UserType.ADMIN.equals(userProfile.getUserType()))
+			{
+				servicesDao.changeServiceApprovalStatus(id, status);
+				result=true;
+			}
+		}catch(Exception exception)
+		{
+			System.out.println("Error in updating Service");
+		}
+		return result;
+	}
+
 	public ServiceRequestDBBean addServiceReqest(ServicesAppServiceIB servicesAppServiceIB)
 	{
 		ServiceRequestDBBean serviceRequestDBBean = null;
@@ -74,7 +100,38 @@ public class ServicesAppService {
 		}
 		return serviceRequestDBBean;
 	}
+	
+	public List<ServiceRequestDBBean> getServiceRequestsAdmin()
+	{
+		 List<ServiceRequestDBBean> serviceRequestDBBeans = null;
+		try{
+			if(null!= userProfile && userProfile.getUserType().equals(UserType.ADMIN))
+			{
+				serviceRequestDBBeans = serviceRequestDao.getServiceRequestAdmin();
+			}
+		}catch(Exception exception)
+		{
+			System.out.println("Error in getting ServiceReq");
+		}
+		return serviceRequestDBBeans;
+	}
 
+	public boolean changeServiceRequestStatus(String id, String status)
+	{
+
+		boolean result=false;
+		try{
+			if(null!= userProfile && UserType.ADMIN.equals(userProfile.getUserType()))
+			{
+				serviceRequestDao.changeServiceRequestStatus(id, status);
+				result=true;
+			}
+		}catch(Exception exception)
+		{
+			System.out.println("Error in updating ServiceReq");
+		}
+		return result;
+	}
 
 	private void sendServiceRequestSMStoAdmin(final ServiceRequestDBBean serviceRequestDBBean)
 	{

@@ -22,6 +22,7 @@
 					<label class="col-md-4">Service Name</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control" name="title" />
+						<s:fielderror fieldName="title"></s:fielderror>
 					</div>
 				</div>
 				<br /> <br />
@@ -29,6 +30,7 @@
 					<label class="col-md-4">Mobile 1</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control" name=mobile1 />
+						<s:fielderror fieldName="mobile1"></s:fielderror>
 					</div>
 				</div>
 				<br /> <br />
@@ -43,6 +45,7 @@
 					<label class="col-md-4">Address</label>
 					<div class="col-md-8">
 						<textarea class="form-control" name=address></textarea>
+						<s:fielderror fieldName="address"></s:fielderror>
 					</div>
 				</div>
 				<br /> <br /> <br /> <br />
@@ -66,6 +69,7 @@
 					<label class="col-md-4">Pin Code</label>
 					<div class="col-md-8">
 						<input type="text" class="form-control" name=pin />
+						<s:fielderror fieldName="pin"></s:fielderror>
 					</div>
 				</div>
 				<br /> <br />

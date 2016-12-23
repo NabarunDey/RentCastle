@@ -1,0 +1,25 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="customerMobile">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Please enter mobile number.</message>
+		</field-validator>
+	</field>
+
+	<field name="address">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Please enter address.</message>
+		</field-validator>
+	</field>
+
+	<field name="pin">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Please enter your Pin code</message>
+		</field-validator>
+	</field>
+
+</validators>

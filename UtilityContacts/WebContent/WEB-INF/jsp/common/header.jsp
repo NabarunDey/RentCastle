@@ -81,6 +81,14 @@
 						<s:if
 							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
 
+
+							<li class="drop"><a href="#">Services</a>
+								<ul class="sub_menu">
+									<li><a href="<s:url  action='getServicesForAdmin'/>">All
+											Services </a></li>
+									<li><a href="<s:url  action='getServiceRequestForAdmin'/>">Service Request</a></li>
+								</ul></li>
+
 							<li class="drop"><a href="#">Orders</a>
 								<ul class="sub_menu">
 									<li><a href="<s:url action='getOrdersForAdmin'/>">Order

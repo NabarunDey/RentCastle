@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.databaseBeans.ServiceRequestDBBean;
 import com.databaseBeans.ServicesDBBean;
+import com.opensymphony.xwork2.ActionSupport;
 
 import services.ServicesAppContext;
 import services.appService.ServicesAppService;
@@ -11,7 +12,7 @@ import services.appService.inputBeans.ServicesAppServiceIB;
 
 
 
-public class ServicesAction {
+public class ServicesAction  extends ActionSupport {
 
 	ServicesAppService servicesAppService;
 	ServicesAppContext context;
@@ -25,6 +26,10 @@ public class ServicesAction {
 	private String pin;
 	private String servicetype;
 	private String customerMobile;
+	private String serviceId;
+	private String approvalStatus;
+	private String serviceRequestId;
+	private String serviceRequestStatus;
 
 
 	public String addServiceInput()
@@ -76,12 +81,42 @@ public class ServicesAction {
 
 	public String getServicesForProvider()
 	{
-		context.setServiceAdded(false);
 		List<ServicesDBBean> servicesDBBeans = servicesAppService.getServicesForProvider();
 		context.setServicesDBBeans(servicesDBBeans);
 		return "success";
 	}
+	
+	public String changeServiceProviderStatus()
+	{
+		boolean result= servicesAppService.changeApprovalSatus(serviceId, approvalStatus);
+		context.setApprovalStatusChanged(result);
+		return "success";
+	}
+	
 
+	public String getServicesForAdmin()
+	{
+		context.setServiceAdded(false);
+		List<ServicesDBBean> servicesDBBeans = servicesAppService.getServicesForAdmin();
+		context.setServicesDBBeans(servicesDBBeans);
+		return "success";
+	}
+
+	public String changeServiceRequestStatus()
+	{
+		servicesAppService.changeServiceRequestStatus(serviceRequestId, serviceRequestStatus);
+		return "success";
+	}
+	
+
+	public String getServiceRequestForAdmin()
+	{
+		context.setServiceAdded(false);
+		List<ServiceRequestDBBean> serviceRequestDBBeans = servicesAppService.getServiceRequestsAdmin();
+		context.setServiceRequestDBBeans(serviceRequestDBBeans);
+		return "success";
+	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -171,5 +206,47 @@ public class ServicesAction {
 	public void setCustomerMobile(String customerMobile) {
 		this.customerMobile = customerMobile;
 	}
+
+
+	public String getServiceId() {
+		return serviceId;
+	}
+
+
+	public void setServiceId(String serviceId) {
+		this.serviceId = serviceId;
+	}
+
+
+	public String getApprovalStatus() {
+		return approvalStatus;
+	}
+
+
+	public void setApprovalStatus(String approvalStatus) {
+		this.approvalStatus = approvalStatus;
+	}
+
+
+	public String getServiceRequestId() {
+		return serviceRequestId;
+	}
+
+
+	public void setServiceRequestId(String serviceRequestId) {
+		this.serviceRequestId = serviceRequestId;
+	}
+
+
+	public String getServiceRequestStatus() {
+		return serviceRequestStatus;
+	}
+
+
+	public void setServiceRequestStatus(String serviceRequestStatus) {
+		this.serviceRequestStatus = serviceRequestStatus;
+	}
+	
+	
 
 }

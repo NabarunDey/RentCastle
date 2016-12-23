@@ -16,8 +16,9 @@
 		<action name="addServiceInput" class="servicesAction" method="addServiceInput">
 			<result name="success" type="tiles">addServiceInput</result>
 		</action>
-		
+
 		<action name="addServiceSubmit" class="servicesAction" method="addServiceSubmit">
+			<result name="input" type="tiles">addServiceInput</result>
 			<result name="success" type="tiles">viewServicesForProvider</result>
 		</action>
 
@@ -25,15 +26,41 @@
 			method="getServicesForProvider">
 			<result name="success" type="tiles">viewServicesForProvider</result>
 		</action>
-		
-		<action name="serviceRequestInput" class="servicesAction" method="serviceRequestInput">
+
+		<action name="serviceRequestInput" class="servicesAction"
+			method="serviceRequestInput">
 			<result name="success" type="tiles">serviceRequestInput</result>
 		</action>
-		
-		<action name="serviceRequestSubmit" class="servicesAction" method="serviceRequestSubmit">
+
+		<action name="serviceRequestSubmit" class="servicesAction"
+			method="serviceRequestSubmit">
+			<result name="input" type="tiles">serviceRequestInput</result>
 			<result name="success" type="tiles">serviceRequestConfirm</result>
 		</action>
+
+		<action name="getServicesForAdmin" class="servicesAction"
+			method="getServicesForAdmin">
+			<result name="success" type="tiles">viewServicesForAdmin</result>
+		</action>
+
+		<action name="changeServiceProviderStatus" class="servicesAction"
+			method="changeServiceProviderStatus">
+			<result name="success" type="json">
+				<param name="root">context</param>
+			</result>
+		</action>
 		
+		<action name="getServiceRequestForAdmin" class="servicesAction"
+			method="getServiceRequestForAdmin">
+			<result name="success" type="tiles">viewServiceRequestsForAdmin</result>
+		</action>
+
+		<action name="changeServiceRequestStatus" class="servicesAction"
+			method="changeServiceRequestStatus">
+			<result name="success" type="json">
+				<param name="root">context</param>
+			</result>
+		</action>
 
 	</package>
 

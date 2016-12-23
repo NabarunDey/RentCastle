@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta name="keywords"
-	content="Rent,Kolkata,Electronics,Furniture,Bike Serviving,Refridgerator,Television,Washing Machine">
+	content="Rent,Kolkata,<s:property value="searchType"/>, <s:property value="searchSubType"/>">
 <meta name="description"
 	content="Rent <s:property value="searchType"/> <s:property value="searchSubType"/> in Kolkata at RentCastle.in<s:property value="searchType"/> <s:property value="searchSubType"/> on rent in Kolkata.Delivery at your doorstep.">
 <title>Rent <s:property value="searchType"/> <s:property value="searchSubType"/> in Kolkata at RentCastle.in</title>

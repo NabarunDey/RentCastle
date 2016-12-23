@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +42,30 @@ public class ServiceRequestDao {
 			e.printStackTrace();
 		}
 		return serviceRequestDBBean;
+	}
+	
+	public List<ServiceRequestDBBean> getServiceRequestAdmin()
+	{
+		List<ServiceRequestDBBean> serviceRequestDBBeans = null;
+		try{
+			serviceRequestDBBeans = template.loadAll(ServiceRequestDBBean.class);
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return serviceRequestDBBeans;
+	}
+	
+	public void changeServiceRequestStatus(String id, String status)
+	{
+		try{
+			ServiceRequestDBBean serviceRequestDBBean = template.get(ServiceRequestDBBean.class, Integer.parseInt(id));
+			serviceRequestDBBean.setStatus(status);
+			template.update(serviceRequestDBBean);
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 

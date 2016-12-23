@@ -52,5 +52,28 @@ public class ServicesDao {
 		template.save(servicesDBBean);
 	}
 
+	public List<ServicesDBBean> getServicesForAdmin()
+	{
+		List<ServicesDBBean> servicesDBBeans = null;
+		servicesDBBeans = template.loadAll(ServicesDBBean.class);
+		return servicesDBBeans;
+	}
+
+	public boolean changeServiceApprovalStatus(String serviceId, String status)
+	{
+		boolean result=false;
+		try{
+			ServicesDBBean servicesDBBean = (ServicesDBBean)template.get(ServicesDBBean.class, Integer.parseInt(serviceId));
+			servicesDBBean.setApprovalStatus(status);
+			template.update(servicesDBBean);
+			result= true;
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
 
 }
