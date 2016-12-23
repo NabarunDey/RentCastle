@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+<title>RentCastle - Orders</title>
+</head>
 <div class="container">
 	<div class="main">
 		<h1 style="">My Orders</h1>

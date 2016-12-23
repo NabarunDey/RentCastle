@@ -4,6 +4,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta name="keywords"
+	content="Rent,Kolkata,Electronics,Furniture,Bike Serviving,Refridgerator,Television,Washing Machine">
+<meta name="description"
+	content="Rent <s:property value="searchType"/> <s:property value="searchSubType"/> in Kolkata at RentCastle.in<s:property value="searchType"/> <s:property value="searchSubType"/> on rent in Kolkata.Delivery at your doorstep.">
+<title>Rent <s:property value="searchType"/> <s:property value="searchSubType"/> in Kolkata at RentCastle.in</title>
 <script type="text/javascript" src="js/search/search.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script type="text/javascript" id="sourcecode">

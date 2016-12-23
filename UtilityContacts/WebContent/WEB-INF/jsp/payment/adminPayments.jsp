@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+<title>RentCastle - Payments</title>
+</head>
 <script type="text/javascript" src="js/payment/payment.js"></script>
 
 <div class="container">

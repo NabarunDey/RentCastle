@@ -9,14 +9,10 @@
 
 <html>
 <head>
-<title><tiles:insertAttribute name="title" ignore="true" /></title>
+
 <meta name="google-site-verification"
 	content="rrZ1Dwm3Iete-AgAMdhQCTm4nnuVVjnSOlQxxANfv4k" />
-<meta name="description"
-	content="Rent anything in Kolkata at RentCastle.in.Rent Furniture, Rent Electronics,Refridgerator,Television,Washing Machine,Bike Servicing, Car Servicing. Delivery at your doorstep.">
-<meta name="keywords"
-	content="Rent,Kolkata,Electronics,Furniture,Bike Serviving,Refridgerator,Television,Washing Machine">
-<meta name="author" content="Hege Refsnes">
+<meta name="author" content="Nabarun Dey (nabarundeysit@gmail.com)">
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.jpg" />
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
@@ -65,9 +61,25 @@
 <script type="text/javascript" src="js/common.js"></script>
 </head>
 <body>
-	<%-- <script>$(document).ready(function(){window.parent.document.title ="RentCastle - <tiles:getAsString name='title'/>"; });</script>
-<script>$(document).ready(function(){top.document.title ="RentCastle - <tiles:getAsString name='title'/>"; });</script>
- --%>
+	
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=841162669353192";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=841162669353192";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 	<tiles:insertAttribute name="header" />
 	<tiles:insertAttribute name="menu" />
 	<tiles:insertAttribute name="body" />

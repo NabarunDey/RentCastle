@@ -3,6 +3,10 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+<title>RentCastle - My Holdings</title>
+</head>
+
 <script type="text/javascript"
 	src="js/currentHoldings/currentHoldings.js"></script>
 

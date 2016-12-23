@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+<title>RentCastle - Orders</title>
+</head>
 <script type="text/javascript" src="js/order/order.js"></script>
 <div class="container">
 	<div class="main">

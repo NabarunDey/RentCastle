@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+<title>RentCastle - Payments</title>
+</head>
 <div class="container">
 	<div class="main">
 		<h1 style="">My Payments</h1>

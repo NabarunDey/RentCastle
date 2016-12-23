@@ -3,6 +3,10 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+<title>RentCastle - My Cart</title>
+</head>
+
 <script type="text/javascript" src="js/cart/cart.js"></script>
 
 <div class="container">

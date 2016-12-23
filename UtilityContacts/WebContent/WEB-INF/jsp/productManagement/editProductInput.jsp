@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+<title>RentCastle - Product Management</title>
+</head>
 <script type="text/javascript" src="js/addProduct/addProduct.js"></script>
 <style>
 .fileinput-new .thumbnail {

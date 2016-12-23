@@ -7,7 +7,6 @@
 <tiles-definitions>
 
 	<definition name="baseLayout" template="/WEB-INF/baseLayout.jsp">
-		<put-attribute name="title" value="RentCastle - Base Layout" />
 		<put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp" />
 		<put-attribute name="menu" value="/WEB-INF/jsp/common/menubar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/jsp/home/index.jsp" />
@@ -16,7 +15,7 @@
 	</definition>
 
 	<definition name="loadIndex" extends="baseLayout">
-		<put-attribute name="title" value="RentCastle - RentCastle|Rent in Kolkata|Furniture|Electronics at RentCastle.in" />
+		<put-attribute name="title" value="RentCastle - Rent in Kolkata|Furniture|Electronics at RentCastle.in" />
 		<put-attribute name="body" value="/WEB-INF/jsp/home/index.jsp" />
 	</definition>
 
@@ -64,7 +63,6 @@
 	</definition>
 
 	<definition name="searchResult" extends="baseLayout">
-		<put-attribute name="title" value="RentCastle - Search" />
 		<put-attribute name="body" value="/WEB-INF/jsp/search/search.jsp" />
 	</definition>
 
@@ -154,31 +152,31 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/currentHoldings/currentHoldingsCustomer.jsp" />
 	</definition>
-	
+
 	<definition name="viewCurrentHoldingsVendor" extends="baseLayout">
 		<put-attribute name="title" value="RentCastle - My Holdings" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/currentHoldings/currentHoldingsVendor.jsp" />
 	</definition>
-	
+
 	<definition name="addServiceInput" extends="baseLayout">
 		<put-attribute name="title" value="RentCastle - Add Service" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/services/addServiceInput.jsp" />
 	</definition>
-	
+
 	<definition name="viewServicesForProvider" extends="baseLayout">
 		<put-attribute name="title" value="RentCastle - My Services" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/services/viewServices.jsp" />
 	</definition>
-	
+
 	<definition name="serviceRequestInput" extends="baseLayout">
 		<put-attribute name="title" value="RentCastle - Service Request" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/services/serviceRequestInput.jsp" />
 	</definition>
-	
+
 	<definition name="serviceRequestConfirm" extends="baseLayout">
 		<put-attribute name="title" value="RentCastle - Service Request" />
 		<put-attribute name="body"

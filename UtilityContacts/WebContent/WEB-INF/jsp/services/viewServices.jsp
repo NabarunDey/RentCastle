@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+<title>RentCastle - Services</title>
+</head>
 <div class="container">
 	<div class="main">
 		<s:if test="context.serviceAdded">

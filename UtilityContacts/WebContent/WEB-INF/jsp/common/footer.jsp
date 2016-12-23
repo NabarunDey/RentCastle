@@ -28,7 +28,8 @@
 					<h5>follow us</h5>
 					<div class="social-icons">
 						<ul>
-							<li><a href="https://www.facebook.com/RentCastle/" target="_blank"></a></li>
+							<li><a href="https://www.facebook.com/RentCastle/"
+								target="_blank"></a></li>
 							<li><a href="#" target="_blank"></a></li>
 							<li><a href="#" target="_blank"></a></li>
 							<li><a href="#" target="_blank"></a></li>
@@ -36,6 +37,23 @@
 						</ul>
 					</div>
 				</div>
+				<div class="fb-page"
+					data-href="https://www.facebook.com/RentCastle/"
+					data-small-header="true" data-adapt-container-width="true"
+					data-hide-cover="false" data-show-facepile="true">
+					<blockquote cite="https://www.facebook.com/RentCastle/"
+						class="fb-xfbml-parse-ignore">
+						<a href="https://www.facebook.com/RentCastle/">RentCastle</a>
+					</blockquote>
+				</div>
+				<div class="fb-share-button"
+					data-href="https://www.facebook.com/RentCastle/"
+					data-layout="button_count" data-size="small"
+					data-mobile-iframe="true">
+					<a class="fb-xfbml-parse-ignore" target="_blank"
+						href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FRentCastle%2F&amp;src=sdkpreparse">Share</a>
+				</div>
+
 				<div class="clearfix"></div>
 			</div>
 		</div>

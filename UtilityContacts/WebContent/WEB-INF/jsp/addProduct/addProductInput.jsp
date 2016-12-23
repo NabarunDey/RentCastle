@@ -3,6 +3,10 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+<title>RentCastle - Add Product</title>
+</head>
+
 <script type="text/javascript" src="js/addProduct/addProduct.js"></script>
 
 <style>

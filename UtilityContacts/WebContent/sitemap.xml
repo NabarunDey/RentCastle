@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<urlset xmlns="http://www.xml-sitemaps.com/validate-xml-sitemap.html"
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-	<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 	<url>
 		<loc>http://www.rentcastle.in/loadIndex</loc>
@@ -19,34 +17,42 @@
 		<loc>http://www.rentcastle.in/userRegistrationInput</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchType=Electronics</loc>
+		<loc>http://www.rentcastle.in/searchByCriteria?searchType=Electronics
+		</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=Refrigerator</loc>
+		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=Refrigerator
+		</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=WashingMachine</loc>
+		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=WashingMachine
+		</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=Television</loc>
+		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=Television
+		</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchType=Furniture</loc>
+		<loc>http://www.rentcastle.in/searchByCriteria?searchType=Furniture
+		</loc>
 	</url>
 	<url>
 		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=Bed</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=Almirah</loc>
+		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=Almirah
+		</loc>
 	</url>
 	<url>
 		<loc>http://www.rentcastle.in/serviceRequestInput</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/serviceRequestInput?serviceType=Bike+Servicing</loc>
+		<loc>http://www.rentcastle.in/serviceRequestInput?serviceType=Bike+Servicing
+		</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/serviceRequestInput?serviceType=Car+Servicing</loc>
+		<loc>http://www.rentcastle.in/serviceRequestInput?serviceType=Car+Servicing
+		</loc>
 	</url>
 	<url>
 		<loc>http://www.rentcastle.in/viewProduct?productId=1</loc>
