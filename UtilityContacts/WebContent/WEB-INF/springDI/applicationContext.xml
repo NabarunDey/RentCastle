@@ -25,6 +25,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="spring-di-currentHoldings.xml" />
 	<import resource="spring-di-scheduler.xml" />
 	<import resource="spring-di-services.xml" />
+	<import resource="spring-di-poc.xml" />
 
 
 	<!-- Modules End -->

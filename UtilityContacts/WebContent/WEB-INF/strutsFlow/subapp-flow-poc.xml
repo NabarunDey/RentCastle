@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+
+	<package name="loginPackagepoc" namespace="/"
+		extends="default,json-default">
+
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		
+		<action name="authdemo" class="loginActionpoc"
+			method="loginInputFunctionPoc">
+			<result name="success">/WEB-INF/jsp/poc/loginpocinput.jsp</result>
+		</action>
+
+		<action name="loginFunctionStep1" class="loginActionpoc" method="loginFunctionStep1">
+			<result name="success">/WEB-INF/jsp/poc/loginpocStep2.jsp</result>
+		</action>
+
+		<action name="loginFunctionStep2" class="loginActionpoc"
+			method="loginFunctionStep2">
+			<result name="success">/WEB-INF/jsp/poc/loginpocStep3.jsp</result>
+		</action>
+
+		<action name="loginFunctionStep3" class="loginActionpoc"
+			method="loginFunctionStep3">
+			<result name="success">/WEB-INF/jsp/poc/loginpocStep4.jsp</result>
+		</action>
+
+
+
+	</package>
+
+</struts>
