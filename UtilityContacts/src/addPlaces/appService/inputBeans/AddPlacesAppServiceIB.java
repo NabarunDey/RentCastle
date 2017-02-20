@@ -1,7 +1,9 @@
-package com.databaseBeans;
+package addPlaces.appService.inputBeans;
+
+import java.io.File;
 
 
-public class PlacesDBBean {
+public class AddPlacesAppServiceIB {
 
 	private int placeid;
 	private String placename;
@@ -17,8 +19,14 @@ public class PlacesDBBean {
 	private String pin;
 	private String address;
 	private String approvalStatus;
+	private File imageFile;
 	
-	
+	public File getImageFile() {
+		return imageFile;
+	}
+	public void setImageFile(File imageFile) {
+		this.imageFile = imageFile;
+	}
 	public int getPlaceid() {
 		return placeid;
 	}
@@ -105,6 +113,4 @@ public class PlacesDBBean {
 	}
 	
 	
-	
-
 }

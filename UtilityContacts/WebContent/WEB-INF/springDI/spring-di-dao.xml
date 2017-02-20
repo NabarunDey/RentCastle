@@ -61,6 +61,18 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="serviceRequestDao" class="com.dao.ServiceRequestDao">
 		<property name="template" ref="template"></property>
 	</bean>
+	
+	<bean id="placesDao" class="com.dao.PlacesDao">
+		<property name="template" ref="template"></property>
+	</bean>
+	
+	<bean id="facilitiesDao" class="com.dao.FacilitiesDao">
+		<property name="template" ref="template"></property>
+	</bean>
+	
+	<bean id="imagesGalleryDao" class="com.dao.ImagesGalleryDao">
+		<property name="template" ref="template"></property>
+	</bean>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

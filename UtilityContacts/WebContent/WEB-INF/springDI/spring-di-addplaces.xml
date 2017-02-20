@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="addPlaces.action.AddPlacesAction" class="addPlaces.action.AddPlacesAction" scope="request">
+		<property name="addPlacesAppService" ref="addPlacesAppService" />
+		<property name="context" ref="addPlacesContext" />
+	</bean>
+
+	<bean id="addPlacesAppService" class="addPlaces.appService.AddPlacesAppService" scope="request">
+		<property name="placesDao" ref="placesDao" />
+		<property name="facilitiesDao" ref="facilitiesDao" />
+		<property name="imagesGalleryDao" ref="imagesGalleryDao" />
+		<property name="imagesDao" ref="imagesDao" />
+		<property name="userProfile" ref="userProfile" />
+		
+	</bean>
+
+
+	
+	<bean id="addPlacesContext" class="addPlaces.AddPlacesAppContext" scope="session">
+	</bean>
+	
+	
+
+</beans>

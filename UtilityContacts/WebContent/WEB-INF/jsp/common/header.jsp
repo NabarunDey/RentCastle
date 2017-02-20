@@ -28,14 +28,14 @@
 							test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
 
 
-							<li class="drop"><a href="#">My Products</a>
+							<li class="drop"><a href="#">My Places</a>
 								<ul class="sub_menu">
-									<li><a href="<s:url action='addProductInput'/>">Add
-											Product</a></li>
+									<li><a href="<s:url action='addPlacesInput'/>">Add
+											Place</a></li>
 									<li><a href="<s:url action='getProductListByVendor'/>">My
-											Products</a></li>
+											Places</a></li>
 								</ul></li>
-
+							<%--
 							<li class="drop"><a href="#">Orders</a>
 								<ul class="sub_menu">
 									<li><a href="<s:url action='viewOrdersVendor'/>">Order
@@ -47,7 +47,10 @@
 											Holdings</a></li>
 
 								</ul></li>
+								--%>
 						</s:if>
+
+						<%--
 
 						<s:if
 							test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }">
@@ -99,6 +102,7 @@
 							<li class="drop"><a
 								href="<s:url action='getPendingProducts'/>">Pending Products</a></li>
 						</s:if>
+						 --%>
 
 						<%-- <s:if
 							test="%{ null != #attr.userProfile && #attr.userProfile.mobiledevice 
@@ -118,10 +122,10 @@
 										test="%{ null != #attr.userProfile && #attr.userProfile.mobiledevice == 'true' 
 																	&& ('' == #attr.userProfile.userName 
 																|| null == #attr.userProfile.userName)}">
-										<div id="loginBoxMobile">ll
+										<div id="loginBoxMobile">
 									</s:if>
 									<s:else>
-										<div id="loginBox">yy
+										<div id="loginBox">
 									</s:else>
 
 
@@ -155,15 +159,17 @@
 										<span><a href="forgotPasswordInput">Forgot your
 												password?</a></span>
 									</form>
-							</div> </s:if> <s:else>
-								<li class="drop"><a href="#"> ${userProfile.firstName}</a>
-									<ul class="sub_menu">
-										<li><a href="<s:url  action='logoutFunction'/>">Logout</a></li>
-										<li><a href="<s:url  action='profileManagementInput'/>">Edit
-												Profile</a></li>
-									</ul></li>
+							</div>
+						</s:if>
+						<s:else>
+							<li class="drop"><a href="#"> ${userProfile.firstName}</a>
+								<ul class="sub_menu">
+									<li><a href="<s:url  action='logoutFunction'/>">Logout</a></li>
+									<li><a href="<s:url  action='profileManagementInput'/>">Edit
+											Profile</a></li>
+								</ul></li>
 
-							</s:else>
+						</s:else>
 				</div>
 				</li>
 				</ul>

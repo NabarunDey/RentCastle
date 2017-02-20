@@ -10,6 +10,7 @@ import java.util.Set;
 
 import org.apache.commons.beanutils.PropertyUtils;
 
+import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.OrdersDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.databaseBeans.RentOffersDBBean;
@@ -144,5 +145,19 @@ public class CommonUtility {
 			cal.add(Calendar.YEAR, Integer.parseInt(periodValue));
 		}
 		return cal.getTime();
+	}
+	
+	public static String getProfileImage(String imageId, List<ImagesDBBean> imagesDBBeans)
+	{
+		String imagePath = "";
+		for (ImagesDBBean  imagesDBBean :imagesDBBeans) {
+			
+			if(imagesDBBean.getImageid().equals(imageId))
+			{
+				imagePath = imagesDBBean.getImagepath();
+				break;
+			}
+		}
+		return imagePath;
 	}
 }

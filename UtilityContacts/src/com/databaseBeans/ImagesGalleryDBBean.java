@@ -2,13 +2,16 @@ package com.databaseBeans;
 
 public class ImagesGalleryDBBean {
 	
-	private String imagegalleryid;
+	private int imagesgalleryid;
 	private String imageids;
-	public String getImagegalleryid() {
-		return imagegalleryid;
+	
+
+	
+	public int getImagesgalleryid() {
+		return imagesgalleryid;
 	}
-	public void setImagegalleryid(String imagegalleryid) {
-		this.imagegalleryid = imagegalleryid;
+	public void setImagesgalleryid(int imagesgalleryid) {
+		this.imagesgalleryid = imagesgalleryid;
 	}
 	public String getImageids() {
 		return imageids;

@@ -42,6 +42,10 @@
 				<value>CurrentHoldings.hbm.xml</value>
 				<value>Services.hbm.xml</value>
 				<value>ServiceRequest.hbm.xml</value>
+				<value>Facilities.hbm.xml</value>
+				<value>ImagesGallery.hbm.xml</value>
+				<value>Places.hbm.xml</value>
+				
 			</list>
 		</property>
 
@@ -101,6 +105,15 @@
 	</bean>
 	
 	<bean id="serviceRequestDBBean" class="com.databaseBeans.ServiceRequestDBBean">
+	</bean>
+	
+	<bean id="facilitiesDBBean" class="com.databaseBeans.FacilitiesDBBean">
+	</bean>
+	
+	<bean id="imagesGalleryDBBean" class="com.databaseBeans.ImagesGalleryDBBean">
+	</bean>
+	
+	<bean id="placesDBBean" class="com.databaseBeans.PlacesDBBean">
 	</bean>
 
 </beans>

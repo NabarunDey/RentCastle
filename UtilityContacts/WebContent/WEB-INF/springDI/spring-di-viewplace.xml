@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="viewPlaceAction" class="viewPlace.action.ViewPlaceAction"
+		scope="request">
+		<property name="viewPlaceAppService" ref="viewPlaceAppService" />
+		<property name="context" ref="viewPlaceAppContext" />
+
+	</bean>
+
+	<bean id="viewPlaceAppService" class="viewPlace.appService.ViewPlaceAppService"
+		scope="request">
+		<property name="placesDao" ref="placesDao" />
+		<property name="facilitiesDao" ref="facilitiesDao" />
+		<property name="imagesDao" ref="imagesDao" />
+		<property name="imagesGalleryDao" ref="imagesGalleryDao" />
+	</bean>
+
+	<bean id="viewPlaceAppContext" class="viewPlace.ViewPlaceAppContext" scope="session">
+	</bean>
+
+
+</beans>

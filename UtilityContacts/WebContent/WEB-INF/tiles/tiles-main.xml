@@ -195,5 +195,17 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/services/viewServiceRequestsForAdmin.jsp" />
 	</definition>
+	
+	<definition name="addPlacesInput" extends="baseLayout">
+		<put-attribute name="title" value="RentCastle - Add Place" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/addPlaces/addPlacesInput.jsp" />
+	</definition>
+	
+	<definition name="viewPlace" extends="baseLayout">
+		<put-attribute name="title" value="RentCastle - Place" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/viewPlace/viewPlace.jsp" />
+	</definition>
 
 </tiles-definitions>
