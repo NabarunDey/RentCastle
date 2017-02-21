@@ -23,6 +23,7 @@
 			<result name="input" type="tiles">addPlacesInput</result>
 			<result type="redirectAction" name="success">
 				<param name="actionName">viewPlace</param>
+				<param name="placeId">${placeid}</param>
 			</result>
 		</action>
 

@@ -14,6 +14,7 @@ import com.dao.ImagesGalleryDao;
 import com.dao.PlacesDao;
 import com.databaseBeans.FacilitiesDBBean;
 import com.databaseBeans.ImagesGalleryDBBean;
+import com.databaseBeans.PlacesDBBean;
 import com.sessionBeans.UserProfile;
 import com.structures.userTypes.UserType;
 
@@ -35,7 +36,7 @@ public class AddPlacesAppService {
 		return false;
 	}
 
-	public void addPlace(AddPlacesAppServiceIB addPlacesAppServiceIB)
+	public int addPlace(AddPlacesAppServiceIB addPlacesAppServiceIB)
 	{
 		List<FileBean> fileBeans = new ArrayList<FileBean>();
 		FileBean fileBean = new FileBean();
@@ -52,7 +53,8 @@ public class AddPlacesAppService {
 		ImagesGalleryDBBean imagesGalleryDBBean = imagesGalleryDao.addImagesGallery();
 		addPlacesAppServiceIB.setImagesGalleryId(imagesGalleryDBBean.getImagesgalleryid());
 
-		placesDao.addPlaces(addPlacesAppServiceIB);
+		PlacesDBBean placesDBBean =  placesDao.addPlaces(addPlacesAppServiceIB);
+		return placesDBBean.getPlaceid();
 	}
 
 	public ImagesDao getImagesDao() {

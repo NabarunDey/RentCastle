@@ -35,7 +35,7 @@
 						cssClass="form-control"></s:select>
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Profile Image</label>
 				<div class="col-sm-10">
@@ -71,6 +71,14 @@
 				<div class="col-sm-4">
 					<s:textarea name="description" cssClass="form-control"
 						id="description" />
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="security" class="col-sm-2 control-label">Joining Fees</label>
+				<div class="col-sm-4">
+					<s:textfield name="joiningFees" cssClass="form-control" id="joiningFees" />
 				</div>
 			</div>
 

@@ -49,4 +49,10 @@ public class ImagesGalleryDao {
 		ImagesGalleryDBBean imagesGalleryDBBean = template.get(ImagesGalleryDBBean.class, imageGalleryId);
 		return imagesGalleryDBBean;
 	}
+	
+	public void editImageGallery(String imageIds, int imageGalleryId )
+	{
+		ImagesGalleryDBBean imagesGalleryDBBean = template.get(ImagesGalleryDBBean.class, imageGalleryId);
+		imagesGalleryDBBean.setImageids(imageIds);
+	}
 }

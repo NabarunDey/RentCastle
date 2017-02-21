@@ -22,13 +22,14 @@ public class PlacesDao {
 
 
 
-	public void addPlaces(
+	public PlacesDBBean addPlaces(
 			AddPlacesAppServiceIB addPlacesAppServiceIB) {
 
 		PlacesDBBean placesDBBean = new  PlacesDBBean();
 		CommonUtility.copyBean(addPlacesAppServiceIB, placesDBBean);
 		placesDBBean.setApprovalStatus(ProductStatus.PENDING.toString());
 		template.save(placesDBBean);
+		return placesDBBean;
 	}
 
 	public PlacesDBBean getPlaceDetails(int placeId)

@@ -17,9 +17,12 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="facilitiesDao" ref="facilitiesDao" />
 		<property name="imagesDao" ref="imagesDao" />
 		<property name="imagesGalleryDao" ref="imagesGalleryDao" />
+		<property name="userProfile" ref="userProfile" />
+
 	</bean>
 
-	<bean id="viewPlaceAppContext" class="viewPlace.ViewPlaceAppContext" scope="session">
+	<bean id="viewPlaceAppContext" class="viewPlace.ViewPlaceAppContext"
+		scope="session">
 	</bean>
 
 

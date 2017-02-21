@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="RentCastle">
+    <wb-module deploy-name="iFitIndia">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/transferObjects"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent/WEB-INF/strutsFlow"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/hibernateConfigs"/>
-        <property name="java-output-path" value="/RentCastle/build/classes"/>
-        <property name="context-root" value="RentCastle"/>
+        <property name="java-output-path" value="/iFitIndia/build/classes"/>
+        <property name="context-root" value="iFitIndia"/>
     </wb-module>
 </project-modules>

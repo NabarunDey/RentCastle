@@ -46,7 +46,7 @@ public class AddPlacesAction  extends ActionSupport{
 	{
 		AddPlacesAppServiceIB addPlacesAppServiceIB = new AddPlacesAppServiceIB();
 		CommonUtility.copyBean(this, addPlacesAppServiceIB);
-		addPlacesAppService.addPlace(addPlacesAppServiceIB);	
+		placeid = addPlacesAppService.addPlace(addPlacesAppServiceIB);	
 		return "success";
 	}
 
