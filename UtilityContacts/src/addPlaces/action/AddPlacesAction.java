@@ -24,13 +24,16 @@ public class AddPlacesAction  extends ActionSupport{
 	private int imagesGalleryId;
 	private int facilitiesId;
 	private String status;
-	private String joiningFees;
 	private String city;
 	private String pin;
 	private String address;
 	private String approvalStatus;
 	private File imageFile;
-
+	private String daysOpen;
+	private String timing;
+	private String contactno1;
+	private String contactno2;
+	private String email;
 
 
 	public String addPlacesInput()
@@ -139,14 +142,6 @@ public class AddPlacesAction  extends ActionSupport{
 		this.status = status;
 	}
 
-	public String getJoiningFees() {
-		return joiningFees;
-	}
-
-	public void setJoiningFees(String joiningFees) {
-		this.joiningFees = joiningFees;
-	}
-
 	public String getCity() {
 		return city;
 	}
@@ -187,4 +182,44 @@ public class AddPlacesAction  extends ActionSupport{
 		this.imageFile = imageFile;
 	}
 
+	public String getDaysOpen() {
+		return daysOpen;
+	}
+
+	public void setDaysOpen(String daysOpen) {
+		this.daysOpen = daysOpen;
+	}
+
+	public String getTiming() {
+		return timing;
+	}
+
+	public void setTiming(String timing) {
+		this.timing = timing;
+	}
+
+	public String getContactno1() {
+		return contactno1;
+	}
+
+	public void setContactno1(String contactno1) {
+		this.contactno1 = contactno1;
+	}
+
+	public String getContactno2() {
+		return contactno2;
+	}
+
+	public void setContactno2(String contactno2) {
+		this.contactno2 = contactno2;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 }

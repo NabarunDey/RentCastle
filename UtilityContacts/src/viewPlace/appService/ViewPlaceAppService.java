@@ -9,7 +9,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import viewPlace.appService.inputBeans.ViewPlaceAppServiceIB;
 import viewPlace.projector.outputBeans.ViewPlaceProjectorOB;
-import viewProduct.projector.outputBeans.ViewProductProjectorOB;
 import addProduct.appService.inputBeans.FileBean;
 import addProduct.dao.outputBeans.ImagesDaoOB;
 
@@ -17,6 +16,7 @@ import com.dao.FacilitiesDao;
 import com.dao.ImagesDao;
 import com.dao.ImagesGalleryDao;
 import com.dao.PlacesDao;
+import com.dao.PriceDetailsDao;
 import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.ImagesGalleryDBBean;
 import com.databaseBeans.PlacesDBBean;
@@ -35,6 +35,7 @@ public class ViewPlaceAppService {
 	private FacilitiesDao facilitiesDao;
 	private ImagesDao imagesDao;
 	private ImagesGalleryDao imagesGalleryDao;
+	private PriceDetailsDao priceDetailsDao;
 	private UserProfile userProfile; 
 
 	public ViewPlaceProjectorOB viewPlace(ViewPlaceAppServiceIB viewPlaceAppServiceIB) {
@@ -55,15 +56,25 @@ public class ViewPlaceAppService {
 		List<String> facilitiesList = new ArrayList<String>();
 		if(StringUtils.isNotEmpty(facilitiesString))
 		{
-			facilitiesList= Arrays.asList(facilitiesString.split("|"));
+			facilitiesList= Arrays.asList(facilitiesString.split("\\|"));
 		}
 
+		String priceString = priceDetailsDao.getPrice(placesDBBean.getPriceId()).getPriceDetails();
+		List<String> priceList = new ArrayList<String>();
+		if(StringUtils.isNotEmpty(priceString))
+		{
+			priceList= Arrays.asList(priceString.split("\\|"));
+		}
 
 		ViewPlaceProjectorOB viewPlaceProjectorOB = new ViewPlaceProjectorOB();
 		viewPlaceProjectorOB.setFacilitiesList(facilitiesList);
+		viewPlaceProjectorOB.setPriceList(priceList);
 		viewPlaceProjectorOB.setImagesList(imagesDBBeans);
 		viewPlaceProjectorOB.setPlacesDBBean(placesDBBean);
 		viewPlaceProjectorOB.setProfileImage(profileImagePath);
+		
+		if(null!=userProfile && placesDBBean.getUsername().equals(userProfile.getUserName()))
+			viewPlaceProjectorOB.setVendor(true);
 
 		return viewPlaceProjectorOB;
 
@@ -102,6 +113,24 @@ public class ViewPlaceAppService {
 		}
 	}
 
+	public void addFacilities(ViewPlaceAppServiceIB viewPlaceAppServiceIB)
+	{
+		if(null!= userProfile && viewPlaceAppServiceIB.getPlacesDBBean().getUsername().equals(userProfile.getUserName()))
+		{
+			String facilitiesArr= viewPlaceAppServiceIB.getFacilities().replace(",", "|");
+			facilitiesDao.updateFacilities(viewPlaceAppServiceIB.getPlacesDBBean().getFacilitiesId(), facilitiesArr); 
+		}
+	}
+	
+	public void addPrice(ViewPlaceAppServiceIB viewPlaceAppServiceIB)
+	{
+		if(null!= userProfile && viewPlaceAppServiceIB.getPlacesDBBean().getUsername().equals(userProfile.getUserName()))
+		{
+			String priceArr= viewPlaceAppServiceIB.getPriceDetails().replace(",", "|");
+			priceDetailsDao.updatePrice(viewPlaceAppServiceIB.getPlacesDBBean().getPriceId(), priceArr); 
+		}
+	}
+	
 	public PlacesDao getPlacesDao() {
 		return placesDao;
 	}
@@ -149,4 +178,12 @@ public class ViewPlaceAppService {
 		this.userProfile = userProfile;
 	}
 
+	public PriceDetailsDao getPriceDetailsDao() {
+		return priceDetailsDao;
+	}
+
+	public void setPriceDetailsDao(PriceDetailsDao priceDetailsDao) {
+		this.priceDetailsDao = priceDetailsDao;
+	}
+	
 }

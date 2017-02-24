@@ -45,7 +45,7 @@
 				<value>Facilities.hbm.xml</value>
 				<value>ImagesGallery.hbm.xml</value>
 				<value>Places.hbm.xml</value>
-				
+				<value>PriceDetails.hbm.xml</value>
 			</list>
 		</property>
 
@@ -54,9 +54,9 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">true</prop>
-			    <prop key="checkWriteOperations">false</prop>
-				<!-- <prop key="hibernate.search.default.directory_provider">filesystem</prop>
-				<prop key="hibernate.search.default.indexBase">C:\lucene\indexes</prop> -->
+				<prop key="checkWriteOperations">false</prop>
+				<!-- <prop key="hibernate.search.default.directory_provider">filesystem</prop> 
+					<prop key="hibernate.search.default.indexBase">C:\lucene\indexes</prop> -->
 			</props>
 		</property>
 	</bean>
@@ -100,20 +100,23 @@
 
 	<bean id="currentHoldingsDBBean" class="com.databaseBeans.CurrentHoldingsDBBean">
 	</bean>
-	
+
 	<bean id="servicesDBBean" class="com.databaseBeans.ServicesDBBean">
 	</bean>
-	
+
 	<bean id="serviceRequestDBBean" class="com.databaseBeans.ServiceRequestDBBean">
 	</bean>
-	
+
 	<bean id="facilitiesDBBean" class="com.databaseBeans.FacilitiesDBBean">
 	</bean>
-	
+
 	<bean id="imagesGalleryDBBean" class="com.databaseBeans.ImagesGalleryDBBean">
 	</bean>
-	
+
 	<bean id="placesDBBean" class="com.databaseBeans.PlacesDBBean">
+	</bean>
+
+	<bean id="prideDetailsDBBean" class="com.databaseBeans.PriceDetailsDBBean">
 	</bean>
 
 </beans>

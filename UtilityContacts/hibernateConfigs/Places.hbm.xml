@@ -15,8 +15,13 @@
 		<property name="profileImage"></property>
 		<property name="imagesGalleryId"></property>
 		<property name="facilitiesId"></property>
+		<property name="priceId"></property>
+		<property name="daysOpen"></property>
+		<property name="timing"></property>
+		<property name="contactno1"></property>
+		<property name="contactno2"></property>
+		<property name="email"></property>
 		<property name="status"></property>
-		<property name="joiningFees"></property>
 		<property name="city"></property>
 		<property name="pin"></property>
 		<property name="address"></property>

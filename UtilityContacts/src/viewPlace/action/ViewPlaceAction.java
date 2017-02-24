@@ -18,6 +18,8 @@ public class ViewPlaceAction {
 	
 	private String placeId;
 	private List<File> galleryImages; 
+	private String facilitiesDescription;
+	private String price;
 	
 	
 	public String viewPlace()
@@ -35,6 +37,24 @@ public class ViewPlaceAction {
 	public String addGalleryImages()
 	{
 		viewPlaceAppService.addGalleryImages(context.getViewPlaceProjectorOB().getPlacesDBBean(), galleryImages);
+		return "success";
+	}
+
+	public String addFacilites()
+	{
+		ViewPlaceAppServiceIB viewPlaceAppServiceIB = new ViewPlaceAppServiceIB();
+		viewPlaceAppServiceIB.setFacilities(facilitiesDescription);
+		viewPlaceAppServiceIB.setPlacesDBBean(context.getViewPlaceProjectorOB().getPlacesDBBean());
+		viewPlaceAppService.addFacilities(viewPlaceAppServiceIB);
+		return "success";
+	}
+	
+	public String addPrice()
+	{
+		ViewPlaceAppServiceIB viewPlaceAppServiceIB = new ViewPlaceAppServiceIB();
+		viewPlaceAppServiceIB.setPriceDetails(price);
+		viewPlaceAppServiceIB.setPlacesDBBean(context.getViewPlaceProjectorOB().getPlacesDBBean());
+		viewPlaceAppService.addPrice(viewPlaceAppServiceIB);
 		return "success";
 	}
 
@@ -73,6 +93,26 @@ public class ViewPlaceAction {
 
 	public void setGalleryImages(List<File> galleryImages) {
 		this.galleryImages = galleryImages;
+	}
+
+
+	public String getFacilitiesDescription() {
+		return facilitiesDescription;
+	}
+
+
+	public void setFacilitiesDescription(String facilitiesDescription) {
+		this.facilitiesDescription = facilitiesDescription;
+	}
+
+
+	public String getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(String price) {
+		this.price = price;
 	}
 	
 }

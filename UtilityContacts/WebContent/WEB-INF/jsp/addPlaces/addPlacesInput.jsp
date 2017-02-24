@@ -74,14 +74,6 @@
 				</div>
 			</div>
 
-
-			<div class="form-group">
-				<label for="security" class="col-sm-2 control-label">Joining Fees</label>
-				<div class="col-sm-4">
-					<s:textfield name="joiningFees" cssClass="form-control" id="joiningFees" />
-				</div>
-			</div>
-
 			<div class="form-group">
 				<label for="security" class="col-sm-2 control-label">City</label>
 				<div class="col-sm-4">
@@ -101,6 +93,38 @@
 				<label for="productState" class="col-sm-2 control-label">Address</label>
 				<div class="col-sm-4">
 					<s:textarea name="address" cssClass="form-control" id="address" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="security" class="col-sm-2 control-label">Days Open</label>
+				<div class="col-sm-4">
+					<s:textfield name="daysOpen" cssClass="form-control" id="daysOpen" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="security" class="col-sm-2 control-label">Working Hours</label>
+				<div class="col-sm-4">
+					<s:textfield name="timing" cssClass="form-control" id="timing" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="security" class="col-sm-2 control-label">Contact No 1</label>
+				<div class="col-sm-4">
+					<s:textfield name="contactno1" cssClass="form-control" id="contactno1" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="security" class="col-sm-2 control-label">Contact No 2</label>
+				<div class="col-sm-4">
+					<s:textfield name="contactno2" cssClass="form-control" id="contactno2" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="security" class="col-sm-2 control-label">Email</label>
+				<div class="col-sm-4">
+					<s:textfield name="email" cssClass="form-control" id="email" />
 				</div>
 			</div>
 

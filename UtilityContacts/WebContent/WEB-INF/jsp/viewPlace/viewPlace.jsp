@@ -13,6 +13,7 @@
 
 <script type="text/javascript"
 	src="js/viewPlace/jssor.slider-22.2.8.min.js"></script>
+<script type="text/javascript" src="js/viewPlace/viewPlace.js"></script>
 
 <script type="text/javascript">
 	jssor_1_slider_init = function() {
@@ -167,17 +168,7 @@
 <script type="application/x-javascript">
 	
 	
-	
-	
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-
-
 
 
 </script>
@@ -226,27 +217,64 @@
 
 						<div class="grid images_3_of_2">
 							<ul id="etalage">
-								<li><a href="optionallink.html"> <img
-										class="etalage_thumb_image"
-										src="<s:property value="context.viewPlaceProjectorOB.profileImage" />"
-										class="img-responsive" /> <img class="etalage_source_image"
-										src="<s:property value="context.viewPlaceProjectorOB.profileImage" />"
-										class="img-responsive" title="" />
-								</a></li>
+								<li><img class="etalage_thumb_image"
+									src="<s:property value="context.viewPlaceProjectorOB.profileImage" />"
+									class="img-responsive" /> <img class="etalage_source_image"
+									src="<s:property value="context.viewPlaceProjectorOB.profileImage" />"
+									class="img-responsive" title="" /></li>
 							</ul>
-							<div class="clearfix"></div>
 						</div>
 
 						<div class="desc1 span_3_of_2">
-							<h2>
+							<p class="money">
 								<s:property
 									value="context.viewPlaceProjectorOB.placesDBBean.placename" />
-							</h2>
-							<p class="money">
+							</p>
+							<h4>
+								Category :
+								<s:property
+									value="context.viewPlaceProjectorOB.placesDBBean.placetype" />
+							</h4>
+							<h4>
 								Joining Amount: Rs.
 								<s:property
 									value="context.viewPlaceProjectorOB.placesDBBean.joiningFees" />
-							</p>
+							</h4>
+							<h4>
+								Address :
+								<s:property
+									value="context.viewPlaceProjectorOB.placesDBBean.address" />
+								<s:property
+									value="context.viewPlaceProjectorOB.placesDBBean.city" />
+								<s:property
+									value="context.viewPlaceProjectorOB.placesDBBean.pin" />
+							</h4>
+
+							<h4>
+								Days Open :
+								<s:property
+									value="context.viewPlaceProjectorOB.placesDBBean.daysOpen" />
+							</h4>
+
+							<h4>
+								Working Hours :
+								<s:property
+									value="context.viewPlaceProjectorOB.placesDBBean.timing" />
+							</h4>
+
+							<h4>
+								Contact :
+								<s:property
+									value="context.viewPlaceProjectorOB.placesDBBean.contactno1" />
+								<s:property
+									value="context.viewPlaceProjectorOB.placesDBBean.contactno2" />
+							</h4>
+
+							<h4>
+								Email :
+								<s:property
+									value="context.viewPlaceProjectorOB.placesDBBean.email" />
+							</h4>
 
 							<s:if
 								test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
@@ -259,26 +287,16 @@
 							</s:if>
 							<s:elseif
 								test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
-								<h5>
-									<p class="money">
-										Status :
-										<s:property
-											value="context.viewPlaceProjectorOB.placesDBBean.approvalStatus" />
-									</p>
-								</h5>
+								<h4>
+									Status :
+									<s:property
+										value="context.viewPlaceProjectorOB.placesDBBean.approvalStatus" />
+								</h4>
 							</s:elseif>
 
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<div class="single-bottom1">
-						<h6>Details</h6>
-					<!-- 	<p class="prod-desc"> -->
-							<s:property
-								value="context.viewPlaceProjectorOB.placesDBBean.description" />
-						</p>
-					</div>
-					<div class="clearfix"></div>
 
 					<div class="single-bottom1">
 						<h6>Gallery</h6>
@@ -321,24 +339,130 @@
 						</div>
 					</div>
 
+					<s:if test="context.viewPlaceProjectorOB.vendor">
+
+						<table align="left" width="50%">
+							<tr>
+								<td>Add more images</td>
+								<form action="addGalleryImages" enctype="multipart/form-data"
+									method="post">
+									<td><input name="galleryImages" type="file" multiple
+										class="btn btn-primary add" /></td>
+									<td><input type="submit" value="Submit" name="Submit"
+										class="btn btn-primary add" /></td>
+								</form>
+						</table>
+
+						<div class="clearfix"></div>
+					</s:if>
 
 
-					<s:form action="addGalleryImages" enctype="multipart/form-data"
-						method="post">
-						<input name="galleryImages" type="file" multiple />
-						<s:submit type="submit" value="Submit" name="Submit" />
-					</s:form>
+
+					<div class="single-bottom1">
+						<h6>About Us</h6>
+						<!-- 	<p class="prod-desc"> -->
+						<s:property
+							value="context.viewPlaceProjectorOB.placesDBBean.description" />
+					</div>
+					<div class="clearfix"></div>
+
+					<div style="padding: 3% 0 0%;">
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion"
+										href="#collapseTwo"><span
+										class="glyphicon glyphicon-th-list"> </span>Facilities</a>
+								</h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse">
+								<div class="panel-body">
+									<form action="addFacilites" method="post">
+										<div class="row">
+											<div class="col-md-6">
+
+												<s:iterator
+													value="context.viewPlaceProjectorOB.facilitiesList">
+													<div class="form-group">
+														<s:property />
+													</div>
+												</s:iterator>
+
+
+												<s:if test="context.viewPlaceProjectorOB.vendor">
+													<div class="form-group" id="facilitiesSection">
+														<input type="text" name="facilitiesDescription"
+															style="width: 600px;"><br> <br>
+													</div>
+
+													<input value="Add More" id="addFacility"
+														class="btn btn-primary add" />
+													<input type="submit" value="Submit" name="Submit"
+														class="btn btn-primary add" />
+												</s:if>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div style="padding: 3% 0 0%;">
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion"
+										href="#collapseOne"><span
+										class="glyphicon glyphicon-th-list"> </span>Charges</a>
+								</h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse">
+								<div class="panel-body">
+									<form action="addPrice" method="post">
+										<div class="row">
+											<div class="col-md-6">
+
+												<s:iterator
+													value="context.viewPlaceProjectorOB.priceList">
+													<div class="form-group">
+														<s:property />
+													</div>
+												</s:iterator>
+
+
+												<s:if test="context.viewPlaceProjectorOB.vendor">
+													<div class="form-group" id="priceSection">
+														<input type="text" name="price"
+															style="width: 600px;"><br> <br>
+													</div>
+
+													<input value="Add More" id="addPrice"
+														class="btn btn-primary add" />
+													<input type="submit" value="Submit" name="Submit"
+														class="btn btn-primary add" />
+												</s:if>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
 
 				</div>
 
-				<div class="clearfix"></div>
 			</div>
 			<!-- end content -->
 		</div>
 
 	</div>
 	<script type="text/javascript">
-			jssor_1_slider_init();
-		</script>
+		jssor_1_slider_init();
+	</script>
 </body>
 </html>

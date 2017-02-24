@@ -19,18 +19,18 @@ import productManagement.appService.inputBeans.ProductManagementAppServiceIB;
 import search.appService.inputBeans.SearchProductAppServiceIB;
 import addPlaces.appService.inputBeans.AddFacilitiesAppServiceIB;
 
-import com.databaseBeans.FacilitiesDBBean;
+import com.databaseBeans.PriceDetailsDBBean;
 import com.databaseBeans.PlacesDBBean;
+import com.databaseBeans.PriceDetailsDBBean;
 import com.databaseBeans.ProductsDBBean;
 import com.structures.status.ProductStatus;
 import com.util.CommonUtility;
 
 @Transactional
-public class FacilitiesDao {
+public class PriceDetailsDao {
 
 	HibernateTemplate template;  
 
-	boolean indexed = false;
 
 	public void setTemplate(HibernateTemplate template) {  
 		this.template = template;  
@@ -38,31 +38,31 @@ public class FacilitiesDao {
 
 
 
-	public FacilitiesDBBean addFacilities() {
+	public PriceDetailsDBBean addPrice() {
 
-		FacilitiesDBBean facilitiesDBBean = new  FacilitiesDBBean();
-		template.save(facilitiesDBBean);
-		return facilitiesDBBean;
+		PriceDetailsDBBean priceDetailsDBBean = new  PriceDetailsDBBean();
+		template.save(priceDetailsDBBean);
+		return priceDetailsDBBean;
 	}
 	
-	public FacilitiesDBBean getFacilities(int failitiesId)
+	public PriceDetailsDBBean getPrice(int priceId)
 	{
-		FacilitiesDBBean facilitiesDBBean = null;
-		facilitiesDBBean = template.get(FacilitiesDBBean.class, failitiesId);
-		return facilitiesDBBean;
+		PriceDetailsDBBean priceDetailsDBBean = null;
+		priceDetailsDBBean = template.get(PriceDetailsDBBean.class, priceId);
+		return priceDetailsDBBean;
 	}
 	
-	public void updateFacilities(int failitiesId, String description)
+	public void updatePrice(int priceId, String priceDetails)
 	{
-		FacilitiesDBBean facilitiesDBBean = null;
-		facilitiesDBBean = template.get(FacilitiesDBBean.class, failitiesId);
-		if(StringUtils.isNotEmpty(facilitiesDBBean.getFacilitiesDescription()))
+		PriceDetailsDBBean priceDetailsDBBean = null;
+		priceDetailsDBBean = template.get(PriceDetailsDBBean.class, priceId);
+		if(StringUtils.isNotEmpty(priceDetailsDBBean.getPriceDetails()))
 		{
-			facilitiesDBBean.setFacilitiesDescription(facilitiesDBBean.getFacilitiesDescription().concat(description+"|"));
+			priceDetailsDBBean.setPriceDetails(priceDetailsDBBean.getPriceDetails().concat(priceDetails+"|"));
 		}
 		else
 		{
-			facilitiesDBBean.setFacilitiesDescription(description+"|");
+			priceDetailsDBBean.setPriceDetails(priceDetails+"|");
 
 		}
 	}
