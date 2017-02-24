@@ -20,12 +20,16 @@ $(document).ready(function() {
     $(add_button1).click(function(e){ //on add input button click
         e.preventDefault();
         if(x1 < max_fields1){ //max input box allowed
-            x++; //text box increment
-            $(wrapper1).append('<div><input type="text" name="price" style="width: 600px;"><a href="#" class="remove_field">Remove</a></div> <br> </div>'); //add input box
+            x1++; //text box increment
+            $(wrapper1).append('<div><input type="text" name="price" style="width: 600px;"><a href="#" class="remove_field1">Remove</a></div> <br> </div>'); //add input box
         }
     });
    
     $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
         e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+    
+    $(wrapper1).on("click",".remove_field1", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x1--;
     })
 });
