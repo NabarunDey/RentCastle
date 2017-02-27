@@ -1,4 +1,4 @@
-package com.structures.status;
+package com.structures.place;
 
 public enum PlaceType {
 	

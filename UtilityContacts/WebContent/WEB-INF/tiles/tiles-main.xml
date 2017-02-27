@@ -207,5 +207,9 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/viewPlace/viewPlace.jsp" />
 	</definition>
+	
+	<definition name="searchPlaces" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/search/searchPlaces.jsp" />
+	</definition>
 
 </tiles-definitions>

@@ -28,6 +28,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="spring-di-poc.xml" />
 	<import resource="spring-di-addplaces.xml" />
 	<import resource="spring-di-viewplace.xml" />
+	<import resource="spring-di-placeManagement.xml" />
+	
 
 	<bean id="userProfile" class="com.sessionBeans.UserProfile" scope="session">
 	</bean>

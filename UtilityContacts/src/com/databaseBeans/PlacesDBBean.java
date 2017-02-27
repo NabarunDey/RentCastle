@@ -22,7 +22,15 @@ public class PlacesDBBean {
 	private String address;
 	private String approvalStatus;
 	private String email;
+	private String quality;
 	
+	
+	public String getQuality() {
+		return quality;
+	}
+	public void setQuality(String quality) {
+		this.quality = quality;
+	}
 	public String getEmail() {
 		return email;
 	}

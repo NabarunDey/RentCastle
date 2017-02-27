@@ -3,6 +3,7 @@ package placeManagement.appService;
 import java.util.ArrayList;
 import java.util.List;
 
+import placeManagement.appService.inputBeans.SearchPlaceCriteria;
 import placeManagement.appService.outputBeans.PlaceManagementProjectorOB;
 
 import com.dao.ImagesDao;
@@ -52,8 +53,37 @@ public class PlaceManagementAppService {
 		}
 		return placeManagementProjectorOBs;
 	}
-
 	
+	public List<PlaceManagementProjectorOB> getPlacesByCriteria(SearchPlaceCriteria searchPlaceCriteria)
+	{
+		List<PlaceManagementProjectorOB> placeManagementProjectorOBs = null;
+		List<PlacesDBBean> placesDBBeans = placesDao.getPlacesByCriteria(searchPlaceCriteria);
+		List<String> imageIds = new ArrayList<String>();
+		
+		if(null!= placesDBBeans && placesDBBeans.size()>0)
+		{
+			for(PlacesDBBean  placesDBBean : placesDBBeans)
+			{
+				imageIds.add(placesDBBean.getProfileImage());
+			}
+			
+			List<ImagesDBBean> imagesDBBeans = imagesDao.getImagesByIdList(imageIds);
+			
+			placeManagementProjectorOBs = new ArrayList<PlaceManagementProjectorOB>();
+			
+			for(PlacesDBBean  placesDBBean : placesDBBeans)
+			{
+				PlaceManagementProjectorOB placeManagementProjectorOB = new PlaceManagementProjectorOB();
+				placeManagementProjectorOB.setPlacesDBBean(placesDBBean);
+				String profileImagePath = CommonUtility.getProfileImage(placesDBBean.getProfileImage(), imagesDBBeans);
+				placeManagementProjectorOB.setProfileImagePath(profileImagePath);
+				placeManagementProjectorOBs.add(placeManagementProjectorOB);
+			}
+		}
+		
+		return placeManagementProjectorOBs;
+	}
+
 	public UserProfile getUserProfile() {
 		return userProfile;
 	}

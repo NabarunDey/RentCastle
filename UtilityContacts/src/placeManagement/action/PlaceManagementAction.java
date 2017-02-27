@@ -22,5 +22,25 @@ public class PlaceManagementAction  extends ActionSupport{
 		return "success";
 	}
 
+
+	public PlaceManagementAppService getPlaceManagementAppService() {
+		return placeManagementAppService;
+	}
+
+
+	public void setPlaceManagementAppService(
+			PlaceManagementAppService placeManagementAppService) {
+		this.placeManagementAppService = placeManagementAppService;
+	}
+
+
+	public PlaceManagementContext getContext() {
+		return context;
+	}
+
+
+	public void setContext(PlaceManagementContext context) {
+		this.context = context;
+	}
 	
 }

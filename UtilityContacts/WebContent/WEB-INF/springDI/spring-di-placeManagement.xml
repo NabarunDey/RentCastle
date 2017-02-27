@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="placeManagementAction" class="placeManagement.action.PlaceManagementAction"
+		scope="request">
+		<property name="placeManagementAppService" ref="placeManagementAppService" />
+		<property name="context" ref="placeManagementContext" />
+
+	</bean>
+
+	<bean id="placeManagementAppService" class="placeManagement.appService.PlaceManagementAppService"
+		scope="request">
+		<property name="placesDao" ref="placesDao" />
+		<property name="imagesDao" ref="imagesDao" />
+		<property name="userProfile" ref="userProfile" />
+	</bean>
+
+	<bean id="placeManagementContext" class="placeManagement.PlaceManagementContext"
+		scope="session">
+	</bean>
+
+
+</beans>

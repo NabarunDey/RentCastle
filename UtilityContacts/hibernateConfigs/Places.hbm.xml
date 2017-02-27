@@ -25,7 +25,8 @@
 		<property name="city"></property>
 		<property name="pin"></property>
 		<property name="address"></property>
-		<property name="approvalStatus"></property>
+		<property name="approvalStatus"></property>		
+		<property name="quality"></property>
 	</class>
 
 </hibernate-mapping>  	

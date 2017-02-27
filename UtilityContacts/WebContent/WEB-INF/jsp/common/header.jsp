@@ -32,7 +32,7 @@
 								<ul class="sub_menu">
 									<li><a href="<s:url action='addPlacesInput'/>">Add
 											Place</a></li>
-									<li><a href="<s:url action='getProductListByVendor'/>">My
+									<li><a href="<s:url action='myPlaces'/>">My
 											Places</a></li>
 								</ul></li>
 							<%--

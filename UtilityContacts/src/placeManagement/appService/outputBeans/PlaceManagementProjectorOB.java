@@ -6,6 +6,14 @@ public class PlaceManagementProjectorOB {
 	
 	private PlacesDBBean placesDBBean;
 	private String profileImagePath;
+	private boolean editable;
+	
+	public boolean isEditable() {
+		return editable;
+	}
+	public void setEditable(boolean editable) {
+		this.editable = editable;
+	}
 	public PlacesDBBean getPlacesDBBean() {
 		return placesDBBean;
 	}
