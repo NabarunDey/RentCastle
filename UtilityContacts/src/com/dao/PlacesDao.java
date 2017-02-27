@@ -1,11 +1,16 @@
 package com.dao;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 import addPlaces.appService.inputBeans.AddPlacesAppServiceIB;
 
 import com.databaseBeans.PlacesDBBean;
+import com.databaseBeans.ProductsDBBean;
 import com.structures.status.ProductStatus;
 import com.util.CommonUtility;
 
@@ -45,6 +50,15 @@ public class PlacesDao {
 		return placesDBBean;
 	}
 
+	public List<PlacesDBBean> getPlacesForVendor(String userName)
+	{
+		List<PlacesDBBean> placesDBBeans = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PlacesDBBean.class)
+				.add(Restrictions.like("username", userName));
+		placesDBBeans = criteria.list();
+
+		return placesDBBeans;
+	}
 	
 
 }
