@@ -108,8 +108,8 @@
 							</a>
 						</div>
 						<div class="caption">
-							<h4><a href="<s:url  action='viewProduct'><s:param name="productId" value="productId"></s:param></s:url>"><s:property value="productName"/></a></h4>
-							<p>Rs. <s:property value="rentAmount"/> / <s:property value="periodValue"/> <s:property value="periodUnit"/></p>
+							<h4><a href="<s:url  action='viewPlace'><s:param name="placeId" value="placesDBBean.placeid"></s:param></s:url>"><s:property value="placesDBBean.placename"/></a></h4>
+							<p><s:property value="placesDBBean.placetype"/> - <s:property value="placesDBBean.address"/></p>
 						</div>
 						<s:if test="context.editable">
 							<a href="<s:url  action='editProductInputFunction'><s:param name="productId" value="productId"></s:param></s:url>">Edit</a>
