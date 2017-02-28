@@ -77,7 +77,7 @@ $(function(){
 			performFilter($(this).attr('name'));
 		})
 		$('#total').html($('.result').length+" items");
-		productsMoreLess(1);
+		productsMoreLess(4);
 	}
 	
 	function performFilter(filterBy){

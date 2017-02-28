@@ -77,7 +77,7 @@ $(function(){
 			performFilter($(this).attr('name'));
 		})
 		$('#total').html($('.result').length+" items");
-		placeMoreLess(1);
+		placeMoreLess(4);
 	}
 	
 	function performFilter(filterBy){
@@ -97,7 +97,7 @@ $(function(){
 						return true;
 					}
 				}
-				if ($.inArray(place[i][filterBy], values) == -1  )
+				if ($.inArray(place[i].placesDBBean[filterBy], values) == -1  )
 				{
 					$(this).remove();
 				}
@@ -138,5 +138,11 @@ $(function(){
 		$('#total').html($('.result').length+" items");
 		placeMoreLess(4);
 	}
+	
+	function resetProducts(){
+		$(".result").remove();
+		$('.results').append(actualResult);
+	}
+	
 	
 });

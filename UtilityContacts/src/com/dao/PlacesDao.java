@@ -65,30 +65,33 @@ public class PlacesDao {
 
 		return placesDBBeans;
 	}
-	
+
 	public List<PlacesDBBean> searchByPlaceText(String searchString)
 	{
 		List<PlacesDBBean> placesDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PlacesDBBean.class);
 
-		String[] querryParts  = searchString.split("[^.\\w]");
-		Disjunction disjunction = Restrictions.disjunction();
-
-		for(String part : querryParts)
+		if(StringUtils.isNotEmpty(searchString))
 		{
-			disjunction.add(Restrictions.like("placename", "%"+part.trim()+"%"));
-			disjunction.add(Restrictions.like("description", "%"+part.trim()+"%")); 
-			disjunction.add(Restrictions.like("placetype", "%"+part.trim()+"%"));
-			disjunction.add(Restrictions.like("address", "%"+part.trim()+"%"));
-		}
+			String[] querryParts  = searchString.split("[^.\\w]");
+			Disjunction disjunction = Restrictions.disjunction();
 
-		Criterion completeCondition=disjunction;
-		criteria.add(completeCondition);
+			for(String part : querryParts)
+			{
+				disjunction.add(Restrictions.like("placename", "%"+part.trim()+"%"));
+				disjunction.add(Restrictions.like("description", "%"+part.trim()+"%")); 
+				disjunction.add(Restrictions.like("placetype", "%"+part.trim()+"%"));
+				disjunction.add(Restrictions.like("address", "%"+part.trim()+"%"));
+			}
+
+			Criterion completeCondition=disjunction;
+			criteria.add(completeCondition);
+		}
 		placesDBBeans = criteria.list();
 
 		return placesDBBeans;
 	}
-	
+
 	public List<PlacesDBBean> getPlacesByCriteria(SearchPlaceCriteria searchPlaceCriteria)
 	{
 		List<PlacesDBBean> placesDBBeans = null;
@@ -104,10 +107,10 @@ public class PlacesDao {
 
 		completeCondition = disjunction;
 		criteria.add(completeCondition);
-		
+
 		placesDBBeans = criteria.list();
 		return placesDBBeans;
 	}
-	
+
 
 }

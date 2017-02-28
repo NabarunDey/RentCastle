@@ -1,6 +1,7 @@
 package placeManagement.appService.outputBeans;
 
 import com.databaseBeans.PlacesDBBean;
+import com.google.gson.Gson;
 
 public class PlaceManagementProjectorOB {
 	
@@ -25,6 +26,11 @@ public class PlaceManagementProjectorOB {
 	}
 	public void setProfileImagePath(String profileImagePath) {
 		this.profileImagePath = profileImagePath;
+	}
+	
+	public String getPlaceJson(){
+		Gson gson = new Gson();
+		return gson.toJson(this);
 	}
 	
 }

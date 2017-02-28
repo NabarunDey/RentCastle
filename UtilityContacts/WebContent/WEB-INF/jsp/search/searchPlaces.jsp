@@ -43,23 +43,23 @@
 					</h3>
 					<section class="sky-form">
 					<h4>
-						Product Type<span
+						Place Type<span
 							class="glyphicon glyphicon-repeat pull-right reset-icon "
 							aria-hidden="true"
 							style="font-size: 14px; color: #aaaaaa; text-transform: capitalize;">Reset</span>
 					</h4>
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
-							<label class="radio"><input type="radio"
-								name="productType" value="Furniture"><i></i>Furniture</label> <label
-								class="radio"><input type="radio" name="productType"
-								value="Electronics"><i></i>Electronics</label>
+							<label class="radio"><input type="radio" name="placeType"
+								value="Gym"><i></i>Gym</label> <label class="radio"><input
+								type="radio" name="placeType" value="SwimmingPool"><i></i>Swimming
+								Pool</label>
 						</div>
 					</div>
 					</section>
 					<section class="sky-form">
 					<h4>
-						Product Sub Type<span
+						Category<span
 							class="glyphicon glyphicon-repeat pull-right reset-icon"
 							aria-hidden="true"
 							style="font-size: 14px; color: #aaaaaa; text-transform: capitalize;">Reset</span>
@@ -67,14 +67,12 @@
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
 							<label class="radio"><input type="radio"
-								name="productSubtype" value="Bed"><i></i>Bed</label> <label
-								class="radio"><input type="radio" name="productSubtype"
-								value="Almirah"><i></i>Almirah</label> <label class="radio"><input
-								type="radio" name="productSubtype" value="Refrigerator"><i></i>Refrigerator</label>
+								name="quality" value="Premium"><i></i>Premium</label>
+						    <label
+								class="radio"><input type="radio" name="quality"
+								value="Regular"><i></i>Regular</label> 
 							<label class="radio"><input type="radio"
-								name="productSubtype" value="Television"><i></i>Television</label>
-							<label class="radio"><input type="radio"
-								name="productSubtype" value="WashingMachine"><i></i>WashingMachine</label>
+								name="quality" value="Economy"><i></i>Economy</label>
 						</div>
 					</div>
 					</section>
@@ -116,7 +114,7 @@
 					<s:iterator value="context.placeManagementProjectorOBs">
 						<div class="col-md-3 col-sm-6 result">
 							<div class="content_box">
-								<%-- <input type="hidden" id="place<s:property value="placesDBBean.placeid"/>"  value="<s:property value="getProductJson()"/>" /> --%>
+								<input type="hidden" id="place<s:property value="placesDBBean.placeid"/>"  value="<s:property value="getPlaceJson()"/>" />
 								<a
 									href="<s:url  action='viewPlace'><s:param name="placeId" value="placesDBBean.placeid"></s:param></s:url>">
 									<div class="view view-fifth">
