@@ -14,7 +14,7 @@ import placeManagement.appService.inputBeans.SearchPlaceCriteria;
 import addPlaces.appService.inputBeans.AddPlacesAppServiceIB;
 
 import com.databaseBeans.PlacesDBBean;
-import com.databaseBeans.ProductsDBBean;
+import com.databaseBeans.PlacesDBBean;
 import com.structures.place.PlaceQuality;
 import com.structures.status.ProductStatus;
 import com.util.CommonUtility;
@@ -61,6 +61,29 @@ public class PlacesDao {
 		List<PlacesDBBean> placesDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PlacesDBBean.class)
 				.add(Restrictions.like("username", userName));
+		placesDBBeans = criteria.list();
+
+		return placesDBBeans;
+	}
+	
+	public List<PlacesDBBean> searchByPlaceText(String searchString)
+	{
+		List<PlacesDBBean> placesDBBeans = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PlacesDBBean.class);
+
+		String[] querryParts  = searchString.split("[^.\\w]");
+		Disjunction disjunction = Restrictions.disjunction();
+
+		for(String part : querryParts)
+		{
+			disjunction.add(Restrictions.like("placename", "%"+part.trim()+"%"));
+			disjunction.add(Restrictions.like("description", "%"+part.trim()+"%")); 
+			disjunction.add(Restrictions.like("placetype", "%"+part.trim()+"%"));
+			disjunction.add(Restrictions.like("address", "%"+part.trim()+"%"));
+		}
+
+		Criterion completeCondition=disjunction;
+		criteria.add(completeCondition);
 		placesDBBeans = criteria.list();
 
 		return placesDBBeans;

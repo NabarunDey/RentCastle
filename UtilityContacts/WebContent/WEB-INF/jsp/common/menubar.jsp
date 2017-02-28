@@ -23,8 +23,8 @@
 					<s:if
 						test="%{ null == #attr.userProfile || '' == #attr.userProfile.userName || null == #attr.userProfile.userName }">
 						<div class="create_btn" id="createAccount">
-							<a class="arrow" href="userRegistrationInput">create
-								account <img src="images/right_arrow.png" alt="" />
+							<a class="arrow" href="userRegistrationInput">create account
+								<img src="images/right_arrow.png" alt="" />
 							</a>
 						</div>
 					</s:if>
@@ -40,8 +40,8 @@
 					<s:if
 						test="%{ null != #attr.userProfile && 'true'.equalsIgnoreCase(#attr.userProfile.mobiledevice) }">
 						<div class="search" style="width: 50%">
-							<s:form action="searchAction">
-								<input name="searchString" type="text" value=""
+							<s:form action="search">
+								<input name="query" type="text" value=""
 									placeholder="search...">
 								<s:submit type="submit" value="" />
 							</s:form>
@@ -49,8 +49,8 @@
 					</s:if>
 					<s:else>
 						<div class="search" style="width: 25%">
-							<s:form action="searchAction">
-								<input name="searchString" type="text" value=""
+							<s:form action="search">
+								<input name="query" type="text" value=""
 									placeholder="search...">
 								<s:submit type="submit" value="" />
 							</s:form>
@@ -66,7 +66,7 @@
 				<ul class="megamenu skyblue">
 					<li><a class="color1" href="loadIndex">Home</a></li>
 					<li class="grid"><a class="color2"
-						href="<s:url  action='searchByCriteria'><s:param name="searchType" value="'Electronics'"></s:param></s:url>">Electronics</a>
+						href="<s:url  action='searchCategory'><s:param name="category" value="'Gym'"></s:param></s:url>">Gym</a>
 						<div class="megapanel">
 							<div class="row">
 								<div class="col1">
@@ -74,12 +74,12 @@
 										<h4>Items</h4>
 										<ul>
 											<li><a
-												href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="'Refrigerator'"></s:param></s:url>">Refrigerator</a></li>
+												href="<s:url  action='searchCategory'><s:param name="qt" value="'Premium'"></s:param><s:param name="category" value="'Gym'"></s:param></s:url>">Premium</a></li>
 											<li><a
-												href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="'WashingMachine'"></s:param></s:url>">Washing
+												href="<s:url  action='searchCategory'><s:param name="qt" value="'Regular'"></s:param><s:param name="category" value="'Gym'"></s:param></s:url>">Regular
 													Machine</a></li>
 											<li><a
-												href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="'Television'"></s:param></s:url>">Television</a></li>
+												href="<s:url  action='searchCategory'><s:param name="qt" value="'Economy'"></s:param><s:param name="category" value="'Gym'"></s:param></s:url>">Economy</a></li>
 
 										</ul>
 									</div>
@@ -87,7 +87,8 @@
 							</div>
 						</div></li>
 					<li class="active grid"><a class="color4"
-						href="<s:url  action='searchByCriteria'><s:param name="searchType" value="'Furniture'"></s:param></s:url>">Furniture</a>
+						href="<s:url  action='searchCategory'><s:param name="category" value="'SwimmingPool'"></s:param></s:url>">Swimming
+							Pool</a>
 						<div class="megapanel">
 							<div class="row">
 								<div class="col1">
@@ -95,34 +96,18 @@
 										<h4>Items</h4>
 										<ul>
 											<li><a
-												href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="'Bed'"></s:param></s:url>">Bed</a></li>
+												href="<s:url  action='searchCategory'><s:param name="qt" value="'Premium'"></s:param><s:param name="category" value="'SwimmingPool'"></s:param></s:url>">Premium</a></li>
 											<li><a
-												href="<s:url  action='searchByCriteria'><s:param name="searchSubType" value="'Almirah'"></s:param></s:url>">Almirah</a></li>
+												href="<s:url  action='searchCategory'><s:param name="qt" value="'Regular'"></s:param><s:param name="category" value="'SwimmingPool'"></s:param></s:url>">Regular
+													Machine</a></li>
+											<li><a
+												href="<s:url  action='searchCategory'><s:param name="qt" value="'Economy'"></s:param><s:param name="category" value="'SwimmingPool'"></s:param></s:url>">Economy</a></li>
 										</ul>
 									</div>
 								</div>
 							</div>
 						</div></li>
 
-					<li class="active grid"><a class="color4"
-						href="<s:url  action='serviceRequestInput'></s:url>">Services</a>
-						<div class="megapanel">
-							<div class="row">
-								<div class="col1">
-									<div class="h_nav">
-										<h4>Items</h4>
-										<ul>
-											<li><a
-												href="<s:url  action='serviceRequestInput'><s:param name="serviceType" value="'Bike Servicing'"></s:param></s:url>">Bike
-													Servicing</a></li>
-											<li><a
-												href="<s:url  action='serviceRequestInput'><s:param name="serviceType" value="'Car Servicing'"></s:param></s:url>">Car
-													Servicing</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div></li>
 
 				</ul>
 			</div>

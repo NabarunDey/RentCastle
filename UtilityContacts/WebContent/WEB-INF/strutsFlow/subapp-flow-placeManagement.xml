@@ -17,6 +17,14 @@
 		<action name="myPlaces" class="placeManagementAction" method="myPlaces">
 			<result name="success" type="tiles">searchPlaces</result>
 		</action>
+		
+		<action name="search" class="placeManagementAction" method="search">
+			<result name="success" type="tiles">searchPlaces</result>
+		</action>
+		
+		<action name="searchCategory" class="placeManagementAction" method="searchCategory">
+			<result name="success" type="tiles">searchPlaces</result>
+		</action>
 
 	</package>
 

@@ -2,8 +2,8 @@ package com.structures.place;
 
 public enum PlaceQuality {
 	
-	Premium("Gym"),
-	Regular("SwimmingPool"),
+	Premium("Premium"),
+	Regular("Regular"),
 	Economy("Economy");
 	
 	private String text;

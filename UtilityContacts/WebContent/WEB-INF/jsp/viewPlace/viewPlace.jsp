@@ -286,7 +286,7 @@
 									onclick="changeApprovalStatus()">
 							</s:if>
 							<s:elseif
-								test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) }">
+								test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) && context.ViewProductProjectorOB.productsDBBean.userName.equalsIgnoreCase(#attr.userProfile.userName) }">
 								<h4>
 									Status :
 									<s:property
