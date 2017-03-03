@@ -35,6 +35,7 @@
 				<param name="actionName">viewPlace</param>
 			</result>
 		</action>
+		
 
 	</package>
 

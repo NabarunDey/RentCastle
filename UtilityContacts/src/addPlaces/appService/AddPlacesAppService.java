@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import addPlaces.appService.inputBeans.AddPlacesAppServiceIB;
-import addProduct.appService.inputBeans.AddProductAppServiceIB;
 import addProduct.appService.inputBeans.FileBean;
 import addProduct.dao.outputBeans.ImagesDaoOB;
 
@@ -52,7 +51,7 @@ public class AddPlacesAppService {
 
 		FacilitiesDBBean facilitiesDBBean = facilitiesDao.addFacilities();
 		addPlacesAppServiceIB.setFacilitiesId(facilitiesDBBean.getFacilitiesId());
-		
+
 		PriceDetailsDBBean priceDetailsDBBean = priceDetailsDao.addPrice();
 		addPlacesAppServiceIB.setPriceId(priceDetailsDBBean.getPriceId());
 
@@ -62,6 +61,28 @@ public class AddPlacesAppService {
 		PlacesDBBean placesDBBean =  placesDao.addPlaces(addPlacesAppServiceIB);
 		return placesDBBean.getPlaceid();
 	}
+
+	public PlacesDBBean editPlace(int placeId)
+	{
+		PlacesDBBean placesDBBean = placesDao.getPlaceDetails(placeId);
+		if(null!= userProfile && (placesDBBean.getUsername().equals(userProfile.getUserName()) 
+				|| userProfile.getUserType().equals(UserType.ADMIN)))
+		{
+			return placesDBBean;		
+		}
+		return null;
+
+	}
+
+	public void editPlaceSubmit(AddPlacesAppServiceIB addPlacesAppServiceIB ,PlacesDBBean placesDBBean)
+	{
+		if(null!= userProfile && (placesDBBean.getUsername().equals(userProfile.getUserName()) 
+				|| userProfile.getUserType().equals(UserType.ADMIN)))
+		{
+			placesDao.editPlace(addPlacesAppServiceIB);
+		}
+	}
+
 
 	public ImagesDao getImagesDao() {
 		return imagesDao;
@@ -110,5 +131,5 @@ public class AddPlacesAppService {
 	public void setPriceDetailsDao(PriceDetailsDao priceDetailsDao) {
 		this.priceDetailsDao = priceDetailsDao;
 	}
-	
+
 }

@@ -91,7 +91,7 @@ $(function(){
 		if(values.length != 0){
 			$(".result").each(function(i){
 				if($('#pincode').val()!=''){
-					if ($('#pincode').val() != place[i]["pin"])
+					if ($('#pincode').val() != place[i].placesDBBean["pin"])
 					{
 						$(this).remove();
 						return true;
@@ -128,8 +128,7 @@ $(function(){
 		});
 		if($('#pincode').val() != ''){
 			$(".result").each(function(i){
-				console.log(place[i]["pin"]);
-				if ($('#pincode').val() != place[i]["pin"])
+				if ($('#pincode').val() != place[i].placesDBBean["pin"])
 				{
 					$(this).remove();
 				}

@@ -43,7 +43,7 @@ public class PlaceManagementAction  extends ActionSupport{
 		context.setPlaceManagementProjectorOBs(placeManagementProjectorOBs);
 		return "success";
 	}
-
+	
 	public PlaceManagementAppService getPlaceManagementAppService() {
 		return placeManagementAppService;
 	}

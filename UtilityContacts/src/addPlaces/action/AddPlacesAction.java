@@ -6,6 +6,7 @@ import addPlaces.AddPlacesAppContext;
 import addPlaces.appService.AddPlacesAppService;
 import addPlaces.appService.inputBeans.AddPlacesAppServiceIB;
 
+import com.databaseBeans.PlacesDBBean;
 import com.opensymphony.xwork2.ActionSupport;
 import com.util.CommonUtility;
 
@@ -52,6 +53,23 @@ public class AddPlacesAction  extends ActionSupport{
 		placeid = addPlacesAppService.addPlace(addPlacesAppServiceIB);	
 		return "success";
 	}
+	
+	public String editPlace()
+	{
+		PlacesDBBean placesDBBean = addPlacesAppService.editPlace(placeid);
+		context.setPlacesDBBean(placesDBBean);
+		return "success";
+	}
+	
+	public String editPlaceSubmit()
+	{
+		AddPlacesAppServiceIB addPlacesAppServiceIB = new AddPlacesAppServiceIB();
+		CommonUtility.copyBean(this, addPlacesAppServiceIB);
+		PlacesDBBean placesDBBean = context.getPlacesDBBean();
+		addPlacesAppService.editPlaceSubmit(addPlacesAppServiceIB, placesDBBean);	
+		return "success";
+	}
+
 
 
 	public AddPlacesAppService getAddPlacesAppService() {

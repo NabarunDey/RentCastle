@@ -50,9 +50,9 @@
 					</h4>
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
-							<label class="radio"><input type="radio" name="placeType"
+							<label class="radio"><input type="radio" name="placetype"
 								value="Gym"><i></i>Gym</label> <label class="radio"><input
-								type="radio" name="placeType" value="SwimmingPool"><i></i>Swimming
+								type="radio" name="placetype" value="SwimmingPool"><i></i>Swimming
 								Pool</label>
 						</div>
 					</div>
@@ -139,11 +139,11 @@
 									<s:property value="placesDBBean.address" />
 								</p>
 							</div>
-							<s:if test="context.editable">
-								<a
-									href="<s:url  action='editPlace'><s:param name="placeId" value="placeid"></s:param></s:url>">Edit</a>
-								<a
-									href="<s:url  action='deletePlace'><s:param name="placeId" value="placeid"></s:param></s:url>">Delete</a>
+							<s:if test="editable">
+								<a class="btn btn-blue"
+									href="<s:url  action='editPlace'><s:param name="placeid" value="placesDBBean.placeid"></s:param></s:url>">Edit</a>
+								<a class="btn btn-red"
+									href="<s:url  action='deletePlace'><s:param name="placeid" value="placesDBBean.placeid"></s:param></s:url>">Delete</a>
 							</s:if>
 						</div>
 					</s:iterator>

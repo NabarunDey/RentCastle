@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Conjunction;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Restrictions;
@@ -13,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import placeManagement.appService.inputBeans.SearchPlaceCriteria;
 import addPlaces.appService.inputBeans.AddPlacesAppServiceIB;
 
-import com.databaseBeans.PlacesDBBean;
 import com.databaseBeans.PlacesDBBean;
 import com.structures.place.PlaceQuality;
 import com.structures.status.ProductStatus;
@@ -53,6 +53,16 @@ public class PlacesDao {
 			System.out.println("Error in fetchin PlacesDBBean");
 
 		}
+		return placesDBBean;
+	}
+	
+	public PlacesDBBean editPlace(
+			AddPlacesAppServiceIB addPlacesAppServiceIB) {
+
+		PlacesDBBean placesDBBean = (PlacesDBBean) template.get(PlacesDBBean.class,addPlacesAppServiceIB.getPlaceid());
+		CommonUtility.copyBean(addPlacesAppServiceIB, placesDBBean);
+		placesDBBean.setApprovalStatus(ProductStatus.PENDING.toString());
+		template.update(placesDBBean);
 		return placesDBBean;
 	}
 
@@ -98,19 +108,20 @@ public class PlacesDao {
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PlacesDBBean.class);
 
 		Criterion completeCondition = null;
-		Disjunction disjunction = Restrictions.disjunction();
+		Conjunction conjunction = Restrictions.conjunction();
 
 		if(StringUtils.isNotEmpty(searchPlaceCriteria.getPlaceType()))
-			disjunction.add(Restrictions.like("placetype", "%"+searchPlaceCriteria.getPlaceType()+"%"));
+			conjunction.add(Restrictions.like("placetype", "%"+searchPlaceCriteria.getPlaceType()+"%"));
 		if(StringUtils.isNotEmpty(searchPlaceCriteria.getQuality()))
-			disjunction.add(Restrictions.like("quality", "%"+searchPlaceCriteria.getQuality()+"%"));
+			conjunction.add(Restrictions.like("quality", "%"+searchPlaceCriteria.getQuality()+"%"));
 
-		completeCondition = disjunction;
+		completeCondition = conjunction;
 		criteria.add(completeCondition);
 
 		placesDBBeans = criteria.list();
 		return placesDBBeans;
 	}
+	
 
 
 }

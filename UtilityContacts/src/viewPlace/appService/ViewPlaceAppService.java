@@ -21,6 +21,7 @@ import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.ImagesGalleryDBBean;
 import com.databaseBeans.PlacesDBBean;
 import com.sessionBeans.UserProfile;
+import com.structures.userTypes.UserType;
 import com.util.CommonUtility;
 
 
@@ -130,6 +131,7 @@ public class ViewPlaceAppService {
 			priceDetailsDao.updatePrice(viewPlaceAppServiceIB.getPlacesDBBean().getPriceId(), priceArr); 
 		}
 	}
+	
 	
 	public PlacesDao getPlacesDao() {
 		return placesDao;

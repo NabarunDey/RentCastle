@@ -6,7 +6,7 @@
 <struts>
 	<constant name="struts.devMode" value="false" />
 
-	<package name="addPlacesPackage" namespace="/" extends="default">
+	<package name="addPlacesPackage" namespace="/" extends="default,json-default">
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
@@ -24,6 +24,18 @@
 			<result type="redirectAction" name="success">
 				<param name="actionName">viewPlace</param>
 				<param name="placeId">${placeid}</param>
+			</result>
+		</action>
+
+		<action name="editPlace" class="addPlaces.action.AddPlacesAction"
+			method="editPlace">
+			<result name="success" type="tiles">editPlace</result>
+		</action>
+		
+		<action name="editPlaceSubmit" class="addPlaces.action.AddPlacesAction"
+			method="editPlaceSubmit">
+			<result name="success" type="json">
+				<param name="root">context</param>
 			</result>
 		</action>
 

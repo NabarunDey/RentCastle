@@ -5,6 +5,8 @@ import java.util.List;
 
 import placeManagement.appService.inputBeans.SearchPlaceCriteria;
 import placeManagement.appService.outputBeans.PlaceManagementProjectorOB;
+import addPlaces.appService.inputBeans.AddPlacesAppServiceIB;
+import addProduct.appService.inputBeans.AddProductAppServiceIB;
 
 import com.dao.ImagesDao;
 import com.dao.PlacesDao;
@@ -47,6 +49,7 @@ public class PlaceManagementAppService {
 					placeManagementProjectorOB.setPlacesDBBean(placesDBBean);
 					String profileImagePath = CommonUtility.getProfileImage(placesDBBean.getProfileImage(), imagesDBBeans);
 					placeManagementProjectorOB.setProfileImagePath(profileImagePath);
+					placeManagementProjectorOB.setEditable(true);
 					placeManagementProjectorOBs.add(placeManagementProjectorOB);
 				}
 			}
@@ -113,7 +116,8 @@ public class PlaceManagementAppService {
 		
 		return placeManagementProjectorOBs;
 	}
-
+	
+	
 	public UserProfile getUserProfile() {
 		return userProfile;
 	}

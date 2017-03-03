@@ -5,13 +5,16 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.databaseBeans.PlacesDBBean;
+import com.opensymphony.xwork2.ActionSupport;
+
 import viewPlace.ViewPlaceAppContext;
 import viewPlace.appService.ViewPlaceAppService;
 import viewPlace.appService.inputBeans.ViewPlaceAppServiceIB;
 import viewPlace.projector.outputBeans.ViewPlaceProjectorOB;
 
 
-public class ViewPlaceAction {
+public class ViewPlaceAction{
 	
 	ViewPlaceAppService viewPlaceAppService;
 	ViewPlaceAppContext context;
@@ -57,7 +60,6 @@ public class ViewPlaceAction {
 		viewPlaceAppService.addPrice(viewPlaceAppServiceIB);
 		return "success";
 	}
-
 
 	public ViewPlaceAppService getViewPlaceAppService() {
 		return viewPlaceAppService;
