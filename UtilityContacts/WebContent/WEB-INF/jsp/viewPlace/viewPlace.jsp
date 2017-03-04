@@ -168,7 +168,15 @@
 <script type="application/x-javascript">
 	
 	
+	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
 
 
 </script>
@@ -276,23 +284,55 @@
 									value="context.viewPlaceProjectorOB.placesDBBean.email" />
 							</h4>
 
+							<s:hidden id="placeId"
+								value="%{context.viewPlaceProjectorOB.placesDBBean.placeid}"
+								name="placeId" />
 							<s:if
 								test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
-
-								<s:select id="approvalStatus" list="{'PENDING','APPROVED'}"
-									headerKey="%{context.ViewProductProjectorOB.productsDBBean.approvalStatus}"
-									headerValue="%{context.ViewProductProjectorOB.productsDBBean.approvalStatus}"></s:select>
-								<input type="button" value="Save Status"
-									onclick="changeApprovalStatus()">
-							</s:if>
-							<s:elseif
-								test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) && context.ViewProductProjectorOB.productsDBBean.userName.equalsIgnoreCase(#attr.userProfile.userName) }">
 								<h4>
 									Status :
 									<s:property
+										value="context.viewPlaceProjectorOB.placesDBBean.status" />
+								</h4>
+								<h4>
+									<table>
+										<tr>
+											<td>Approval Status :</td>
+											<td><s:select list="{'APPROVED','PENDING'}"
+													name="approvalStatus" theme="simple"
+													cssStyle="width : auto;"
+													value="%{context.viewPlaceProjectorOB.placesDBBean.approvalStatus}"
+													id="approvalStatus" cssClass="form-control"></s:select></td>
+											<td><input  value="Save Status"
+												class="form-control btn btn-info" style="width: auto;"
+												onclick="changePlaceApprovalStatus()"></td>
+										</tr>
+									</table>
+
+
+								</h4>
+								<input value="Edit" class="form-control btn btn-success"
+									style="width: auto;" onclick=editPlace()>
+							</s:if>
+							<s:elseif
+								test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) && context.viewPlaceProjectorOB.placesDBBean.username.equalsIgnoreCase(#attr.userProfile.userName) }">
+
+								<h4>
+									Status :
+									<s:property
+										value="context.viewPlaceProjectorOB.placesDBBean.status" />
+								</h4>
+
+								<h4>
+									Approval Status :
+									<s:property
 										value="context.viewPlaceProjectorOB.placesDBBean.approvalStatus" />
 								</h4>
+								<input value="Edit" class="form-control btn btn-success"
+									style="width: auto;" onclick=editPlace()>
 							</s:elseif>
+
+
 
 						</div>
 						<div class="clearfix"></div>
@@ -425,8 +465,7 @@
 										<div class="row">
 											<div class="col-md-6">
 
-												<s:iterator
-													value="context.viewPlaceProjectorOB.priceList">
+												<s:iterator value="context.viewPlaceProjectorOB.priceList">
 													<div class="form-group">
 														<s:property />
 													</div>
@@ -435,8 +474,8 @@
 
 												<s:if test="context.viewPlaceProjectorOB.vendor">
 													<div class="form-group" id="priceSection">
-														<input type="text" name="price"
-															style="width: 600px;"><br> <br>
+														<input type="text" name="price" style="width: 600px;"><br>
+														<br>
 													</div>
 
 													<input value="Add More" id="addPrice"

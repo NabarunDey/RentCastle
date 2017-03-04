@@ -18,7 +18,8 @@ public class PlaceManagementAction  extends ActionSupport{
 	private String qt;
 	private String category;
 	private String query;
-
+	private int placeid;
+	private String approvalStatus;
 
 	public String myPlaces()
 	{
@@ -41,6 +42,12 @@ public class PlaceManagementAction  extends ActionSupport{
 	{
 		List<PlaceManagementProjectorOB> placeManagementProjectorOBs  = placeManagementAppService.searchPlaceByText(query);
 		context.setPlaceManagementProjectorOBs(placeManagementProjectorOBs);
+		return "success";
+	}
+	
+	public String changePlaceApprovalStatus()
+	{
+		placeManagementAppService.changeApprovalStatus(placeid, approvalStatus);
 		return "success";
 	}
 	
@@ -87,7 +94,20 @@ public class PlaceManagementAction  extends ActionSupport{
 	public void setQuery(String query) {
 		this.query = query;
 	}
-	
-	
-	
+
+	public int getPlaceid() {
+		return placeid;
+	}
+
+	public void setPlaceid(int placeid) {
+		this.placeid = placeid;
+	}
+
+	public String getApprovalStatus() {
+		return approvalStatus;
+	}
+
+	public void setApprovalStatus(String approvalStatus) {
+		this.approvalStatus = approvalStatus;
+	}
 }

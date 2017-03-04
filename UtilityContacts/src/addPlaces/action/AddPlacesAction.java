@@ -66,6 +66,7 @@ public class AddPlacesAction  extends ActionSupport{
 		AddPlacesAppServiceIB addPlacesAppServiceIB = new AddPlacesAppServiceIB();
 		CommonUtility.copyBean(this, addPlacesAppServiceIB);
 		PlacesDBBean placesDBBean = context.getPlacesDBBean();
+		addPlacesAppServiceIB.setPlaceid(placesDBBean.getPlaceid());
 		addPlacesAppService.editPlaceSubmit(addPlacesAppServiceIB, placesDBBean);	
 		return "success";
 	}

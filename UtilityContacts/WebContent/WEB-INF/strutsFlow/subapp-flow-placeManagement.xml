@@ -17,13 +17,21 @@
 		<action name="myPlaces" class="placeManagementAction" method="myPlaces">
 			<result name="success" type="tiles">searchPlaces</result>
 		</action>
-		
+
 		<action name="search" class="placeManagementAction" method="search">
 			<result name="success" type="tiles">searchPlaces</result>
 		</action>
-		
-		<action name="searchCategory" class="placeManagementAction" method="searchCategory">
+
+		<action name="searchCategory" class="placeManagementAction"
+			method="searchCategory">
 			<result name="success" type="tiles">searchPlaces</result>
+		</action>
+
+		<action name="changePlaceApprovalStatus" class="placeManagementAction"
+			method="changePlaceApprovalStatus">
+			<result name="success" type="json">
+				<param name="root">context</param>
+			</result>
 		</action>
 
 	</package>

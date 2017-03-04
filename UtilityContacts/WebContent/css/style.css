@@ -2690,17 +2690,12 @@ ul.dropdown ul li a:hover {
 	margin-top: 10px;
 }
 
-a {
-	text-decoration: none;
-	margin: 0 10px;
-}
-
 .hot-container {
 	width: 50%;
 	text-align: center;
 }
 
-a.btn {
+a.btnEdit {
 	display: inline-block;
 	color: #666;
 	background-color: #eee;
@@ -2714,48 +2709,48 @@ a.btn {
 	border-bottom-width: 3px;
 }
 
-a.btn:hover {
+a.btnEdit:hover {
 	background-color: #e3e3e3;
 	border-color: rgba(0, 0, 0, 0.5);
 }
 
-a.btn:active {
+a.btnEdit {
 	background-color: #CCC;
 	border-color: rgba(0, 0, 0, 0.9);
 }
 
 /* blue button */
-a.btn.btn-blue {
+a.btnEdit.btn-blue {
 	background-color: #699DB6;
 	border-color: rgba(0, 0, 0, 0.3);
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 	color: #FFF;
 }
 
-a.btn.btn-blue:hover {
+a.btnEdit.btn-blue:hover {
 	background-color: #4F87A2;
 	border-color: rgba(0, 0, 0, 0.5);
 }
 
-a.btn.btn-blue:active {
+a.btnEdit.btn-blue:active {
 	background-color: #3C677B;
 	border-color: rgba(0, 0, 0, 0.9);
 }
 
 /* red button */
-a.btn.btn-red {
+a.btnEdit.btn-red {
 	background-color: #E48681;
 	border-color: rgba(0, 0, 0, 0.3);
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 	color: #FFF;
 }
 
-a.btn.btn-red:hover {
+a.btnEdit.btn-red:hover {
 	background-color: #DA4F49;
 	border-color: rgba(0, 0, 0, 0.5);
 }
 
-a.btn.btn-red:active {
+a.btnEdit.btn-red:active {
 	background-color: #B32C24;
 	border-color: rgba(0, 0, 0, 0.9);
 }

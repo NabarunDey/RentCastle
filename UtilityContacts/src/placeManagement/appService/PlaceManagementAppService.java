@@ -117,6 +117,14 @@ public class PlaceManagementAppService {
 		return placeManagementProjectorOBs;
 	}
 	
+	public void changeApprovalStatus(int placeid, String approvalStatus)
+	{
+		if(null!=userProfile && UserType.ADMIN.equals(userProfile.getUserType()))
+		{
+			placesDao.changeApprovalStatus(placeid, approvalStatus);
+		}
+	}
+	
 	
 	public UserProfile getUserProfile() {
 		return userProfile;

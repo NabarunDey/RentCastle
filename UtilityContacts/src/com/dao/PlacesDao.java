@@ -122,6 +122,12 @@ public class PlacesDao {
 		return placesDBBeans;
 	}
 	
+	public void changeApprovalStatus(int placeid, String approvalStatus)
+	{
+		PlacesDBBean placesDBBean= (PlacesDBBean) template.get(PlacesDBBean.class,placeid);
+		placesDBBean.setApprovalStatus(approvalStatus);
+		template.update(placesDBBean);
+	}
 
 
 }

@@ -140,9 +140,9 @@
 								</p>
 							</div>
 							<s:if test="editable">
-								<a class="btn btn-blue"
+								<a class="btnEdit btn-blue"
 									href="<s:url  action='editPlace'><s:param name="placeid" value="placesDBBean.placeid"></s:param></s:url>">Edit</a>
-								<a class="btn btn-red"
+								<a class="btnEdit btn-red"
 									href="<s:url  action='deletePlace'><s:param name="placeid" value="placesDBBean.placeid"></s:param></s:url>">Delete</a>
 							</s:if>
 						</div>

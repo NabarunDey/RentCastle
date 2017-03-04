@@ -79,6 +79,9 @@ public class AddPlacesAppService {
 		if(null!= userProfile && (placesDBBean.getUsername().equals(userProfile.getUserName()) 
 				|| userProfile.getUserType().equals(UserType.ADMIN)))
 		{
+			addPlacesAppServiceIB.setFacilitiesId(placesDBBean.getFacilitiesId());
+			addPlacesAppServiceIB.setImagesGalleryId(placesDBBean.getImagesGalleryId());
+			addPlacesAppServiceIB.setPriceId(placesDBBean.getPriceId());
 			placesDao.editPlace(addPlacesAppServiceIB);
 		}
 	}
