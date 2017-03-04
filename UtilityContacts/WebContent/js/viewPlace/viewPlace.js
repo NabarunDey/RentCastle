@@ -56,3 +56,4 @@ function changePlaceApprovalStatus() {
 	});
 	lb.close();
 }
+
