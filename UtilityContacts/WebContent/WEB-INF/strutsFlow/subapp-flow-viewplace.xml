@@ -23,19 +23,32 @@
 				<param name="actionName">viewPlace</param>
 			</result>
 		</action>
-		
+
 		<action name="addFacilites" class="viewPlaceAction" method="addFacilites">
 			<result type="redirectAction" name="success">
 				<param name="actionName">viewPlace</param>
 			</result>
 		</action>
-		
+
 		<action name="addPrice" class="viewPlaceAction" method="addPrice">
 			<result type="redirectAction" name="success">
 				<param name="actionName">viewPlace</param>
 			</result>
 		</action>
-		
+
+
+		<action name="editGallery" class="viewPlaceAction" method="editGallery">
+			<result name="success" type="tiles">editGallery</result>
+
+		</action>
+
+		<action name="deleteImage" class="viewPlaceAction" method="deleteImage">
+			<result name="success" type="json">
+				<param name="root">context</param>
+			</result>
+		</action>
+
+
 
 	</package>
 

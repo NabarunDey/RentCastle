@@ -1,10 +1,12 @@
 package viewPlace.action;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.PlacesDBBean;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -15,16 +17,17 @@ import viewPlace.projector.outputBeans.ViewPlaceProjectorOB;
 
 
 public class ViewPlaceAction{
-	
+
 	ViewPlaceAppService viewPlaceAppService;
 	ViewPlaceAppContext context;
-	
+
 	private String placeId;
 	private List<File> galleryImages; 
 	private String facilitiesDescription;
 	private String price;
-	
-	
+	private String imagePath;
+
+
 	public String viewPlace()
 	{
 		if(StringUtils.isNotEmpty(placeId))
@@ -35,8 +38,8 @@ public class ViewPlaceAction{
 		context.setViewPlaceProjectorOB(viewPlaceProjectorOB);
 		return "success";
 	}
-	
-	
+
+
 	public String addGalleryImages()
 	{
 		viewPlaceAppService.addGalleryImages(context.getViewPlaceProjectorOB().getPlacesDBBean(), galleryImages);
@@ -51,13 +54,35 @@ public class ViewPlaceAction{
 		viewPlaceAppService.addFacilities(viewPlaceAppServiceIB);
 		return "success";
 	}
-	
+
 	public String addPrice()
 	{
 		ViewPlaceAppServiceIB viewPlaceAppServiceIB = new ViewPlaceAppServiceIB();
 		viewPlaceAppServiceIB.setPriceDetails(price);
 		viewPlaceAppServiceIB.setPlacesDBBean(context.getViewPlaceProjectorOB().getPlacesDBBean());
 		viewPlaceAppService.addPrice(viewPlaceAppServiceIB);
+		return "success";
+	}
+
+	public String editGallery()
+	{
+		return "success";
+	}
+
+	public String deleteImage()
+	{
+		String imageId = viewPlaceAppService.deleteImage(context.getViewPlaceProjectorOB().getPlacesDBBean(), imagePath);
+		/*List<ImagesDBBean> list = context.getViewPlaceProjectorOB().getImagesList();
+		for (ImagesDBBean imagesDBBean : list)
+		{
+			String tempName = imagesDBBean.getImageid();
+			if(tempName.equals(imageId))
+			{
+				list.remove(imagesDBBean);
+				break;
+			}
+		}
+*/
 		return "success";
 	}
 
@@ -116,5 +141,14 @@ public class ViewPlaceAction{
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	
+
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
 }

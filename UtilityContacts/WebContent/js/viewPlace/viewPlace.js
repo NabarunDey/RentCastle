@@ -48,7 +48,7 @@ function changePlaceApprovalStatus() {
 		url: "changePlaceApprovalStatus",
 		data: {placeid :$('#placeId').val(), approvalStatus : $('#approvalStatus').val() } ,
 		success: function(response){
-				alert('Item approved.')
+			alert('Item approved.')
 		},
 		error: function(e){
 			alert('Error: ' + e);
@@ -56,4 +56,26 @@ function changePlaceApprovalStatus() {
 	});
 	lb.close();
 }
+
+function deleteImage(imagePath,thumbId) {
+
+	var r = confirm("Are you sure?");
+	if (r == true) 
+	{
+		var lb = new $.LoadingBox({loadingImageSrc: "images/default.gif",});
+		$.ajax({
+			type: "POST",
+			url: "deleteImage",
+			data: {imagePath :imagePath } ,
+			success: function(response){
+			},
+			error: function(e){
+				alert('Error: ' + e);
+			}
+		});
+		$('#myThumb'+thumbId).hide();
+		lb.close();
+	} 	
+}
+
 

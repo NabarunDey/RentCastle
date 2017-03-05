@@ -21,6 +21,7 @@ import com.databaseBeans.ImagesDBBean;
 import com.databaseBeans.ImagesGalleryDBBean;
 import com.databaseBeans.PlacesDBBean;
 import com.sessionBeans.UserProfile;
+import com.structures.status.ProductStatus;
 import com.structures.userTypes.UserType;
 import com.util.CommonUtility;
 
@@ -110,6 +111,7 @@ public class ViewPlaceAppService {
 
 				}
 				imagesGalleryDao.editImageGallery(imageIdConcat, placesDBBean.getImagesGalleryId());
+				placesDao.changeApprovalStatus(placesDBBean.getPlaceid(), ProductStatus.PENDING.toString());
 			}
 		}
 	}
@@ -132,6 +134,26 @@ public class ViewPlaceAppService {
 		}
 	}
 	
+	public String deleteImage(PlacesDBBean placesDBBean, String imagePath)
+	{
+		String imageId ="";
+		if(placesDBBean.getUsername().equals(userProfile.getUserName()) 
+				|| UserType.ADMIN.equals(userProfile.getUserType()))
+		{
+			String[] imageArr = imagePath.split("\\/");
+			String imageName = imageArr[imageArr.length-1] ;
+			String[] arr = imageName.split("\\.");
+			imageId = arr[0];
+			ImagesGalleryDBBean imagesGalleryDBBean = imagesGalleryDao.getImagesGallery(placesDBBean.getImagesGalleryId());
+			String imageIds = imagesGalleryDBBean.getImageids().replace(imageId+"|", "");
+			imagesGalleryDBBean.setImageids(imageIds);
+			imagesGalleryDao.editImageGallery(imageIds, imagesGalleryDBBean.getImagesgalleryid());
+			List<String> imageIdList = new ArrayList<String>();
+			imageIdList.add(imageId);
+			imagesDao.deleteImagesList(imageIdList);
+		}
+		return imageId;
+	}
 	
 	public PlacesDao getPlacesDao() {
 		return placesDao;

@@ -382,7 +382,7 @@
 
 					<s:if test="context.viewPlaceProjectorOB.vendor">
 						<br>
-						<table align="left" width="50%">
+						<table align="left" width="60%">
 							<tr>
 								<td>Add more images</td>
 								<form action="addGalleryImages" enctype="multipart/form-data"
@@ -392,6 +392,8 @@
 									<td><input type="submit" value="Submit" name="Submit"
 										class="btn btn-primary add" /></td>
 								</form>
+								<td><a href="<s:url  action='editGallery'/>" class="btn btn-primary add">Edit Gallery</a></td>
+							</tr>
 						</table>
 
 						<div class="clearfix"></div>

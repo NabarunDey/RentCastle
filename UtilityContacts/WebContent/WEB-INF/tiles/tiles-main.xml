@@ -203,7 +203,7 @@
 	</definition>
 	
 	<definition name="viewPlace" extends="baseLayout">
-		<put-attribute name="title" value="RentCastle - Place" />
+		<put-attribute name="title" value="RentCastle - View Place" />
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/viewPlace/viewPlace.jsp" />
 	</definition>
@@ -218,5 +218,10 @@
 			value="/WEB-INF/jsp/editPlace/editPlace.jsp" />
 	</definition>
 	
+	<definition name="editGallery" extends="baseLayout">
+		<put-attribute name="title" value="RentCastle - Edit Gallery" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/viewPlace/editGallery.jsp" />
+	</definition>
 
 </tiles-definitions>
