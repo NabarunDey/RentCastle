@@ -18,7 +18,7 @@
 			<div class="contact">
 				<div class="contact-form">
 					<h2>Contact Us</h2>
-					<h5>You may request an item if what you are looking for is not available on RentCastle.</h5>
+					<h5>For any queries, suggestions, complaints, etc please write to us.</h5>
 					<div id="errorRequestSubmit"
 									style="display: none; color: #ff0000;">Error! Request not delivered.</div>
 					<div id="successRequestSubmit"

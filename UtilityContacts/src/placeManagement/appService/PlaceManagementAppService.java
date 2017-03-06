@@ -31,18 +31,18 @@ public class PlaceManagementAppService {
 		{
 			placesDBBeans = placesDao.getPlacesForVendor(userProfile.getUserName());
 			List<String> imageIds = new ArrayList<String>();
-			
+
 			if(null!= placesDBBeans && placesDBBeans.size()>0)
 			{
 				for(PlacesDBBean  placesDBBean : placesDBBeans)
 				{
 					imageIds.add(placesDBBean.getProfileImage());
 				}
-				
+
 				List<ImagesDBBean> imagesDBBeans = imagesDao.getImagesByIdList(imageIds);
-				
+
 				placeManagementProjectorOBs = new ArrayList<PlaceManagementProjectorOB>();
-				
+
 				for(PlacesDBBean  placesDBBean : placesDBBeans)
 				{
 					PlaceManagementProjectorOB placeManagementProjectorOB = new PlaceManagementProjectorOB();
@@ -56,24 +56,24 @@ public class PlaceManagementAppService {
 		}
 		return placeManagementProjectorOBs;
 	}
-	
+
 	public List<PlaceManagementProjectorOB> getPlacesByCriteria(SearchPlaceCriteria searchPlaceCriteria)
 	{
 		List<PlaceManagementProjectorOB> placeManagementProjectorOBs = null;
 		List<PlacesDBBean> placesDBBeans = placesDao.getPlacesByCriteria(searchPlaceCriteria);
 		List<String> imageIds = new ArrayList<String>();
-		
+
 		if(null!= placesDBBeans && placesDBBeans.size()>0)
 		{
 			for(PlacesDBBean  placesDBBean : placesDBBeans)
 			{
 				imageIds.add(placesDBBean.getProfileImage());
 			}
-			
+
 			List<ImagesDBBean> imagesDBBeans = imagesDao.getImagesByIdList(imageIds);
-			
+
 			placeManagementProjectorOBs = new ArrayList<PlaceManagementProjectorOB>();
-			
+
 			for(PlacesDBBean  placesDBBean : placesDBBeans)
 			{
 				PlaceManagementProjectorOB placeManagementProjectorOB = new PlaceManagementProjectorOB();
@@ -83,27 +83,27 @@ public class PlaceManagementAppService {
 				placeManagementProjectorOBs.add(placeManagementProjectorOB);
 			}
 		}
-		
+
 		return placeManagementProjectorOBs;
 	}
-	
+
 	public List<PlaceManagementProjectorOB> searchPlaceByText(String searchString)
 	{
 		List<PlaceManagementProjectorOB> placeManagementProjectorOBs = null;
 		List<PlacesDBBean> placesDBBeans = placesDao.searchByPlaceText(searchString);
 		List<String> imageIds = new ArrayList<String>();
-		
+
 		if(null!= placesDBBeans && placesDBBeans.size()>0)
 		{
 			for(PlacesDBBean  placesDBBean : placesDBBeans)
 			{
 				imageIds.add(placesDBBean.getProfileImage());
 			}
-			
+
 			List<ImagesDBBean> imagesDBBeans = imagesDao.getImagesByIdList(imageIds);
-			
+
 			placeManagementProjectorOBs = new ArrayList<PlaceManagementProjectorOB>();
-			
+
 			for(PlacesDBBean  placesDBBean : placesDBBeans)
 			{
 				PlaceManagementProjectorOB placeManagementProjectorOB = new PlaceManagementProjectorOB();
@@ -113,10 +113,10 @@ public class PlaceManagementAppService {
 				placeManagementProjectorOBs.add(placeManagementProjectorOB);
 			}
 		}
-		
+
 		return placeManagementProjectorOBs;
 	}
-	
+
 	public void changeApprovalStatus(int placeid, String approvalStatus)
 	{
 		if(null!=userProfile && UserType.ADMIN.equals(userProfile.getUserType()))
@@ -124,17 +124,17 @@ public class PlaceManagementAppService {
 			placesDao.changeApprovalStatus(placeid, approvalStatus);
 		}
 	}
-	
+
 	public void deletePlace(int placeid)
 	{
 		PlacesDBBean placesDBBean = placesDao.getPlaceDetails(placeid);
-		
+
 		if(null!=userProfile && (UserType.ADMIN.equals(userProfile.getUserType()) || placesDBBean.getUsername().equals(userProfile.getUserName())))
 		{
 			placesDao.deletePlace(placeid);
 		}
 	}
-	
+
 	public List<PlaceManagementProjectorOB> getPendingPlaces()
 	{
 		List<PlacesDBBean> placesDBBeans = null;
@@ -143,18 +143,18 @@ public class PlaceManagementAppService {
 		{
 			placesDBBeans = placesDao.getPendingPlaces();
 			List<String> imageIds = new ArrayList<String>();
-			
+
 			if(null!= placesDBBeans && placesDBBeans.size()>0)
 			{
 				for(PlacesDBBean  placesDBBean : placesDBBeans)
 				{
 					imageIds.add(placesDBBean.getProfileImage());
 				}
-				
+
 				List<ImagesDBBean> imagesDBBeans = imagesDao.getImagesByIdList(imageIds);
-				
+
 				placeManagementProjectorOBs = new ArrayList<PlaceManagementProjectorOB>();
-				
+
 				for(PlacesDBBean  placesDBBean : placesDBBeans)
 				{
 					PlaceManagementProjectorOB placeManagementProjectorOB = new PlaceManagementProjectorOB();
@@ -168,7 +168,38 @@ public class PlaceManagementAppService {
 		}
 		return placeManagementProjectorOBs;
 	}
-	
+
+	public List<PlaceManagementProjectorOB> getFeaturedPlaces()
+	{
+		List<PlacesDBBean> placesDBBeans = null;
+		List<PlaceManagementProjectorOB> placeManagementProjectorOBs = null;
+		placesDBBeans = placesDao.getFeaturedPlaces();
+		List<String> imageIds = new ArrayList<String>();
+
+		if(null!= placesDBBeans && placesDBBeans.size()>0)
+		{
+			for(PlacesDBBean  placesDBBean : placesDBBeans)
+			{
+				imageIds.add(placesDBBean.getProfileImage());
+			}
+
+			List<ImagesDBBean> imagesDBBeans = imagesDao.getImagesByIdList(imageIds);
+
+			placeManagementProjectorOBs = new ArrayList<PlaceManagementProjectorOB>();
+
+			for(PlacesDBBean  placesDBBean : placesDBBeans)
+			{
+				PlaceManagementProjectorOB placeManagementProjectorOB = new PlaceManagementProjectorOB();
+				placeManagementProjectorOB.setPlacesDBBean(placesDBBean);
+				String profileImagePath = CommonUtility.getProfileImage(placesDBBean.getProfileImage(), imagesDBBeans);
+				placeManagementProjectorOB.setProfileImagePath(profileImagePath);
+				placeManagementProjectorOB.setEditable(true);
+				placeManagementProjectorOBs.add(placeManagementProjectorOB);
+			}
+		}
+		return placeManagementProjectorOBs;
+	}
+
 	public UserProfile getUserProfile() {
 		return userProfile;
 	}
@@ -194,5 +225,5 @@ public class PlaceManagementAppService {
 	public void setImagesDao(ImagesDao imagesDao) {
 		this.imagesDao = imagesDao;
 	}
-	
+
 }

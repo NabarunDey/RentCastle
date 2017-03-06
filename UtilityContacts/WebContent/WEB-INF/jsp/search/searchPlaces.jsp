@@ -7,9 +7,9 @@
 <meta name="keywords"
 	content="Rent,Kolkata,<s:property value="searchType"/>, <s:property value="searchSubType"/>">
 <meta name="description"
-	content="Rent <s:property value="searchType"/> <s:property value="searchSubType"/> in Kolkata at RentCastle.in<s:property value="searchType"/> <s:property value="searchSubType"/> on rent in Kolkata.Delivery at your doorstep.">
-<title>Rent <s:property value="searchType" /> <s:property
-		value="searchSubType" /> in Kolkata at RentCastle.in
+	content="i-Fit <s:property value="qt"/> <s:property value="category"/>. Fitnes Centers near you.">
+<title>i-Fit <s:property value="qt" /> <s:property
+		value="category" /> Fitness Hub
 </title>
 <script type="text/javascript" src="js/search/searchPlace.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

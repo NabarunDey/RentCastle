@@ -2,11 +2,11 @@
 <html>
 <head>
 <meta name="description"
-	content="Rent anything in Kolkata at RentCastle.in.Rent Furniture, Rent Electronics,Refridgerator,Television,Washing Machine,Bike Servicing, Car Servicing. Delivery at your doorstep.">
+	content="Gym, SwimmingPool, Fitness Center, Club in Kolkata at iFit">
 </head>
-<title>RentCastle - Rent in Kolkata|Furniture|Electronics at RentCastle.in</title>
+<title>i-Fit - Fitness Hub</title>
 <meta name="keywords"
-	content="Rent,Kolkata,Electronics,Furniture,Bike Serviving,Refridgerator,Television,Washing Machine">
+	content="Gym, Swimming Pool, Fitness Center, Kolkata">
 <body>
 
 <%@ include file="sliderbar.jsp" %>

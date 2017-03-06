@@ -20,6 +20,8 @@ import loadIndex.projector.outputBeans.AdsSectionProjectorOB;
 import login.appService.LoginAppService;
 import login.appService.inputBeans.LoginAppServiceIB;
 import login.projector.outputBeans.LoginProjectorOB;
+import placeManagement.appService.PlaceManagementAppService;
+import placeManagement.appService.outputBeans.PlaceManagementProjectorOB;
 import productManagement.appService.ProductManagementAppService;
 import search.projector.outputBeans.SearchProductProjectorOB;
 
@@ -29,7 +31,7 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 
 	private HttpServletRequest httpServletRequest;
 	LoadIndexContext context;
-	ProductManagementAppService productManagementAppService;
+	PlaceManagementAppService placeManagementAppService;
 	LoadIndexAppService loadIndexAppService;
 	LoginAppService loginAppService; 
 	UserProfile userProfile;
@@ -90,9 +92,9 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 			}
 		}
 
-		List<SearchProductProjectorOB> featuredProducts = productManagementAppService.getFeaturedProducts();
+		List<PlaceManagementProjectorOB> placeManagementProjectorOBs = placeManagementAppService.getFeaturedPlaces();
 		AdsSectionProjectorOB adsSectionProjectorOB = loadIndexAppService.getAdsSection();
-		context.setFeaturedProducts(featuredProducts);
+		context.setPlaceManagementProjectorOBs(placeManagementProjectorOBs);
 		context.setAdsSectionProjectorOB(adsSectionProjectorOB);
 		return "success";
 	}
@@ -106,9 +108,9 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 		response.addCookie(cookie);
 		response.addCookie(cookie1);
 
-		List<SearchProductProjectorOB> featuredProducts = productManagementAppService.getFeaturedProducts();
+		List<PlaceManagementProjectorOB> placeManagementProjectorOBs = placeManagementAppService.getFeaturedPlaces();
 		AdsSectionProjectorOB adsSectionProjectorOB = loadIndexAppService.getAdsSection();
-		context.setFeaturedProducts(featuredProducts);
+		context.setPlaceManagementProjectorOBs(placeManagementProjectorOBs);
 		context.setAdsSectionProjectorOB(adsSectionProjectorOB);
 		return "success";
 	}
@@ -121,14 +123,6 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 		this.context = context;
 	}
 
-	public ProductManagementAppService getProductManagementAppService() {
-		return productManagementAppService;
-	}
-
-	public void setProductManagementAppService(
-			ProductManagementAppService productManagementAppService) {
-		this.productManagementAppService = productManagementAppService;
-	}
 
 	public LoadIndexAppService getLoadIndexAppService() {
 		return loadIndexAppService;
@@ -165,6 +159,15 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 
 	public void setRememberMe(String rememberMe) {
 		this.rememberMe = rememberMe;
+	}
+
+	public PlaceManagementAppService getPlaceManagementAppService() {
+		return placeManagementAppService;
+	}
+
+	public void setPlaceManagementAppService(
+			PlaceManagementAppService placeManagementAppService) {
+		this.placeManagementAppService = placeManagementAppService;
 	}
 
 }

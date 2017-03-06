@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Conjunction;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Disjunction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
@@ -153,4 +154,25 @@ public class PlacesDao {
 		placesDBBean.setStatus(ProductStatus.DELETED.toString());
 		template.update(placesDBBean);
 	}
+	
+	public List<PlacesDBBean> getFeaturedPlaces()
+	{
+		List<PlacesDBBean> placesDBBeans = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PlacesDBBean.class);
+		
+		Criterion completeCondition = null;
+		Conjunction conjunction = Restrictions.conjunction();
+
+		conjunction.add(Restrictions.isNotNull("featured"));
+		conjunction.add(Restrictions.like("approvalStatus", ProductStatus.APPROVED.toString()));
+		conjunction.add(Restrictions.like("status", ProductStatus.AVAILABLE.toString()));
+
+		completeCondition = conjunction;
+		criteria.add(completeCondition);
+		criteria.addOrder(Order.asc("featured"));
+		
+		placesDBBeans = criteria.list();
+		return placesDBBeans;
+	}
+
 }

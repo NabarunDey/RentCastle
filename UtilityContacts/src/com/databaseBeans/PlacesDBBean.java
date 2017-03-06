@@ -23,8 +23,14 @@ public class PlacesDBBean {
 	private String approvalStatus;
 	private String email;
 	private String quality;
+	private String featured;
 	
-	
+	public String getFeatured() {
+		return featured;
+	}
+	public void setFeatured(String featured) {
+		this.featured = featured;
+	}
 	public String getQuality() {
 		return quality;
 	}

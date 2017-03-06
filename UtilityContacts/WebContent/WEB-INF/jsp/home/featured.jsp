@@ -14,18 +14,18 @@
 		<div class="main">
 			<div class="content">
 				<div class="content_text">
-					<h3>Featured Products</h3>
+					<h3>Featured PLaces</h3>
 				</div>
 				<!-- grids_of_3 -->
 				<div class="row grids">
 
-					<s:iterator value="context.featuredProducts">
+					<s:iterator value="context.placeManagementProjectorOBs">
 						<div class="col-md-3 grid1">
-							<a href="viewProduct?productId=<s:property value="productId"/>"> <img
-								src="<s:property value="imageUrl"/>" class="img-responsive" alt="" style="width: 220px; height: 220px" />
+							<a href="viewPlace?placeId=<s:property value="placesDBBean.placeid"/>"> <img
+								src="<s:property value="profileImagePath"/>" class="img-responsive" alt="" style="width: 220px; height: 220px" />
 								<div class="look">
 									<p>View</p>
-								</div></a>
+								</div><s:property value="placesDBBean.placename"/></a>
 						</div>
 
 					</s:iterator>

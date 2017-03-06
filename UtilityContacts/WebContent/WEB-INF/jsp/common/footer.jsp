@@ -21,7 +21,7 @@
 						</a>
 					</h5>
 					<p>(or) Call us: +91-7980149480</p>
-					<p>mailto : support@rentcastle.in</p>
+					<p>mailto : support@i-fit.in</p>
 				</div>
 
 				<div class="span1_of_2">

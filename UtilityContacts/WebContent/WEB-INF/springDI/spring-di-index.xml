@@ -6,7 +6,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="loadIndexAction" class="loadIndex.action.LoadIndexAction"
 		scope="request">
-		<property name="productManagementAppService" ref="productManagementAppService" />
+		<property name="placeManagementAppService" ref="placeManagementAppService" />
 		<property name="loadIndexAppService" ref="loadIndexAppService" />
 		<property name="context" ref="loadIndexContext" />
 		<property name="loginAppService" ref="loginAppService" />
