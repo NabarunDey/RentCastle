@@ -28,14 +28,14 @@
 							</a>
 						</div>
 					</s:if>
-					<s:if
+					<%-- <s:if
 						test="%{ null != #attr.userProfile && 'CUSTOMER'.equalsIgnoreCase(#attr.userProfile.userType) }">
 						<div id=myCart>
 							<ul class="icon1 sub-icon1 profile_img">
 								<li><a class="active-icon c2" href="viewCart"> </a></li>
 							</ul>
 						</div>
-					</s:if>
+					</s:if> --%>
 
 					<s:if
 						test="%{ null != #attr.userProfile && 'true'.equalsIgnoreCase(#attr.userProfile.mobiledevice) }">

@@ -55,7 +55,7 @@ public class PlacesDao {
 		}
 		return placesDBBean;
 	}
-	
+
 	public PlacesDBBean editPlace(
 			AddPlacesAppServiceIB addPlacesAppServiceIB) {
 
@@ -71,6 +71,16 @@ public class PlacesDao {
 		List<PlacesDBBean> placesDBBeans = null;
 		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PlacesDBBean.class)
 				.add(Restrictions.like("username", userName));
+		placesDBBeans = criteria.list();
+
+		return placesDBBeans;
+	}
+	
+	public List<PlacesDBBean> getPendingPlaces()
+	{
+		List<PlacesDBBean> placesDBBeans = null;
+		Criteria criteria = template.getSessionFactory().getCurrentSession().createCriteria(PlacesDBBean.class)
+				.add(Restrictions.like("approvalStatus", ProductStatus.PENDING.toString()));
 		placesDBBeans = criteria.list();
 
 		return placesDBBeans;
@@ -95,8 +105,13 @@ public class PlacesDao {
 			}
 
 			Criterion completeCondition=disjunction;
+
 			criteria.add(completeCondition);
 		}
+		Conjunction conjunction = Restrictions.conjunction();
+		conjunction.add(Restrictions.like("approvalStatus", ProductStatus.APPROVED.toString()));
+		conjunction.add(Restrictions.like("status", ProductStatus.AVAILABLE.toString()));
+		criteria.add(conjunction);
 		placesDBBeans = criteria.list();
 
 		return placesDBBeans;
@@ -115,19 +130,27 @@ public class PlacesDao {
 		if(StringUtils.isNotEmpty(searchPlaceCriteria.getQuality()))
 			conjunction.add(Restrictions.like("quality", "%"+searchPlaceCriteria.getQuality()+"%"));
 
+		conjunction.add(Restrictions.like("approvalStatus", ProductStatus.APPROVED.toString()));
+		conjunction.add(Restrictions.like("status", ProductStatus.AVAILABLE.toString()));
+
 		completeCondition = conjunction;
 		criteria.add(completeCondition);
 
 		placesDBBeans = criteria.list();
 		return placesDBBeans;
 	}
-	
+
 	public void changeApprovalStatus(int placeid, String approvalStatus)
 	{
 		PlacesDBBean placesDBBean= (PlacesDBBean) template.get(PlacesDBBean.class,placeid);
 		placesDBBean.setApprovalStatus(approvalStatus);
 		template.update(placesDBBean);
 	}
-
-
+	
+	public void deletePlace(int placeid)
+	{
+		PlacesDBBean placesDBBean= (PlacesDBBean) template.get(PlacesDBBean.class,placeid);
+		placesDBBean.setStatus(ProductStatus.DELETED.toString());
+		template.update(placesDBBean);
+	}
 }

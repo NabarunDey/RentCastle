@@ -104,7 +104,7 @@
 					<a target="_top"
 						href="https://accounts.google.com/o/oauth2/auth?scope=email&response_type=code&client_id=968847956660-7cs0n3ke5m69hj96hp9sfmqql34gsd4s.apps.googleusercontent.com&approval_prompt=auto&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunctionGoogle">
 						<img src="images/google-plus-sign-in.jpg" alt=""
-						style="width: 508px; height: 50px">
+						style="width: 308px; height: 50px">
 						<div class="clear"></div>
 					</a>
 				</div>

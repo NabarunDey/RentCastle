@@ -60,7 +60,7 @@
 			<div class="form-group">
 				<label for="status" class="col-sm-2 control-label">Status</label>
 				<div class="col-sm-4">
-					<s:select list="{'Available','NotAvailable'}" name="status"
+					<s:select list="{'AVAILABLE','NOTAVAILABLE'}" name="status"
 						cssClass="form-control"></s:select>
 				</div>
 			</div>

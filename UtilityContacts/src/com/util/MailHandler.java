@@ -23,12 +23,12 @@ public class MailHandler {
 	
 	private static void initialize() {
 
-		final String username = "nabarundey@rentcastle.in";
+		final String username = "support@i-fit.in";
 		final String password = CredentialsDao.getValue("mail_password");
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.host", "smtp.rentcastle.in");
+		props.put("mail.smtp.host", "smtp.i-fit.in");
 
 		 session = Session.getInstance(props,
 		  new javax.mail.Authenticator() {
@@ -50,15 +50,15 @@ public class MailHandler {
 			}
 
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("nabarundey@rentcastle.in"));
+			message.setFrom(new InternetAddress("support@i-fit.in"));
 			message.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse(emailId));
-			message.setSubject("RentCastle Password Reset");
+			message.setSubject("i-Fit Password Reset");
 			message.setText("Dear User,"
-				+ "\n\nWe have received a Password Retrieval request from your RentCastle id."
+				+ "\n\nWe have received a Password Retrieval request from your i-Fit id."
 				+ "\n\nYour temporary password is "+password
 				+"\n\nRegards,"
-				+ "\nRentCastle Team");
+				+ "\ni-Fit Team");
 
 			Transport.send(message);
 			mailSuccess= true;
@@ -81,14 +81,14 @@ public class MailHandler {
 			}
 
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("nabarundey@rentcastle.in"));
+			message.setFrom(new InternetAddress("support@i-fit.in"));
 			message.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse(emailId));
-			message.setSubject("Welcome to RentCastle");
+			message.setSubject("Welcome to i_Fit");
 			message.setText("Dear User,"
-				+ "\n\nThanks for registering @ RentCastle. Wish you a pleasant experience."
+				+ "\n\nThanks for registering @ i-Fit. Wish you a pleasant experience."
 				+"\n\nRegards,"
-				+ "\nRentCastle Team");
+				+ "\ni-Fit Team");
 
 			Transport.send(message);
 			

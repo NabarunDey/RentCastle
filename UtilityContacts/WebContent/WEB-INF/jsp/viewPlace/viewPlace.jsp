@@ -173,7 +173,9 @@
 	
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -314,6 +316,8 @@
 								</h4>
 								<input value="Edit" class="form-control btn btn-success"
 									style="width: auto;" onclick=editPlace()>
+								<input value="Delete" class="form-control btn btn-danger"
+									style="width: auto;" onclick=deletePlace()>
 							</s:if>
 							<s:elseif
 								test="%{ null != #attr.userProfile && 'VENDOR'.equalsIgnoreCase(#attr.userProfile.userType) && context.viewPlaceProjectorOB.placesDBBean.username.equalsIgnoreCase(#attr.userProfile.userName) }">
@@ -331,6 +335,8 @@
 								</h4>
 								<input value="Edit" class="form-control btn btn-success"
 									style="width: auto;" onclick=editPlace()>
+								<input value="Delete" class="form-control btn btn-danger"
+									style="width: auto;" onclick=deletePlace()>
 							</s:elseif>
 
 
@@ -392,7 +398,8 @@
 									<td><input type="submit" value="Submit" name="Submit"
 										class="btn btn-primary add" /></td>
 								</form>
-								<td><a href="<s:url  action='editGallery'/>" class="btn btn-primary add">Edit Gallery</a></td>
+								<td><a href="<s:url  action='editGallery'/>"
+									class="btn btn-primary add">Edit Gallery</a></td>
 							</tr>
 						</table>
 

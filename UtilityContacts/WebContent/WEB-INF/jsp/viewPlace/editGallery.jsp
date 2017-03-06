@@ -8,12 +8,6 @@
 <link href="css/thumbnail-gallery.css" rel='stylesheet' type='text/css' />
 <script type="text/javascript" src="js/viewPlace/viewPlace.js"></script>
 
-<script>
-function goBack() {
-    window.history.back();
-}
-</script>
-
 </head>
 
 

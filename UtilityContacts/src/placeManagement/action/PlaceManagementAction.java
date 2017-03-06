@@ -27,6 +27,20 @@ public class PlaceManagementAction  extends ActionSupport{
 		context.setPlaceManagementProjectorOBs(placeManagementProjectorOBs);
 		return "success";
 	}
+	
+	public String pendingPLaces()
+	{
+		List<PlaceManagementProjectorOB> placeManagementProjectorOBs = placeManagementAppService.getPendingPlaces();
+		context.setPlaceManagementProjectorOBs(placeManagementProjectorOBs);
+		return "success";
+	}
+	
+	public String deletePlace()
+	{
+		placeManagementAppService.deletePlace(placeid);
+		return "success";
+	}
+
 
 	public String searchCategory()
 	{

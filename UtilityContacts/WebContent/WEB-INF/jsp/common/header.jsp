@@ -17,8 +17,7 @@
 			<div class="header_top">
 				<div class="top_left">
 					<h2>
-						<a href="<s:url  action='helpInput'/>">Contact Us</a> to request
-						an item if not available here.
+						<a href="<s:url  action='helpInput'/>">Contact Us</a> for any queries and suggestions.
 					</h2>
 				</div>
 				<div class="top_right">
@@ -80,12 +79,12 @@
 								</ul></li>
 						</s:if>
 
-
+						--%>
 						<s:if
 							test="%{ null != #attr.userProfile && 'ADMIN'.equalsIgnoreCase(#attr.userProfile.userType) }">
 
 
-							<li class="drop"><a href="#">Services</a>
+							<%-- <li class="drop"><a href="#">Services</a>
 								<ul class="sub_menu">
 									<li><a href="<s:url  action='getServicesForAdmin'/>">All
 											Services </a></li>
@@ -98,11 +97,10 @@
 											History</a></li>
 									<li><a href="<s:url  action='getPaymentsAdmin'/>">Payment
 											History</a></li>
-								</ul></li>
+								</ul></li> --%>
 							<li class="drop"><a
-								href="<s:url action='getPendingProducts'/>">Pending Products</a></li>
+								href="<s:url action='pendingPLaces'/>">Pending Places</a></li>
 						</s:if>
-						 --%>
 
 						<%-- <s:if
 							test="%{ null != #attr.userProfile && #attr.userProfile.mobiledevice 

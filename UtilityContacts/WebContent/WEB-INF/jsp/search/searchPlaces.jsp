@@ -66,13 +66,11 @@
 					</h4>
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
-							<label class="radio"><input type="radio"
-								name="quality" value="Premium"><i></i>Premium</label>
-						    <label
-								class="radio"><input type="radio" name="quality"
-								value="Regular"><i></i>Regular</label> 
-							<label class="radio"><input type="radio"
-								name="quality" value="Economy"><i></i>Economy</label>
+							<label class="radio"><input type="radio" name="quality"
+								value="Premium"><i></i>Premium</label> <label class="radio"><input
+								type="radio" name="quality" value="Regular"><i></i>Regular</label>
+							<label class="radio"><input type="radio" name="quality"
+								value="Economy"><i></i>Economy</label>
 						</div>
 					</div>
 					</section>
@@ -114,8 +112,9 @@
 					<s:iterator value="context.placeManagementProjectorOBs">
 						<div class="col-md-3 col-sm-6 result">
 							<div class="content_box">
-								<input type="hidden" id="place<s:property value="placesDBBean.placeid"/>"  value="<s:property value="getPlaceJson()"/>" />
-								<a
+								<input type="hidden"
+									id="place<s:property value="placesDBBean.placeid"/>"
+									value="<s:property value="getPlaceJson()"/>" /> <a
 									href="<s:url  action='viewPlace'><s:param name="placeId" value="placesDBBean.placeid"></s:param></s:url>">
 									<div class="view view-fifth">
 										<img src="<s:property value="profileImagePath"/>"
@@ -142,8 +141,11 @@
 							<s:if test="editable">
 								<a class="btnEdit btn-blue"
 									href="<s:url  action='editPlace'><s:param name="placeid" value="placesDBBean.placeid"></s:param></s:url>">Edit</a>
-								<a class="btnEdit btn-red"
-									href="<s:url  action='deletePlace'><s:param name="placeid" value="placesDBBean.placeid"></s:param></s:url>">Delete</a>
+								<s:if test="placesDBBean.status.equals('DELETED')">Deleted</s:if>
+								<s:else>
+									<a class="btnEdit btn-red"
+										href="<s:url  action='deletePlace'><s:param name="placeid" value="placesDBBean.placeid"></s:param></s:url>">Delete</a>
+								</s:else>
 							</s:if>
 						</div>
 					</s:iterator>

@@ -41,6 +41,12 @@ function editPlace()
 	location.href='editPlace?placeid='+data;
 }
 
+function deletePlace()
+{
+	var data=$("#placeId").val();
+	location.href='deletePlace?placeid='+data;
+}
+
 function changePlaceApprovalStatus() {
 	var lb = new $.LoadingBox({loadingImageSrc: "images/default.gif",});
 	$.ajax({
