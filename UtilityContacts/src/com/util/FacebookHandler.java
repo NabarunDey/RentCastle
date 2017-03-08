@@ -43,7 +43,7 @@ public class FacebookHandler {
 	public static String getFBGraphUrl(String code) {
 		String fbGraphUrl = "";
 		try {
-			fbGraphUrl = "https://graph.facebook.com/oauth/access_token?"+"scope=public_profile,email"
+			fbGraphUrl = "https://graph.facebook.com/v2.8/oauth/access_token?"+"scope=email"
 					+ "&client_id=" + FB_APP_ID + "&redirect_uri="
 					+ URLEncoder.encode(REDIRECT_URI, "UTF-8")
 					+ "&client_secret=" + FB_APP_SECRET + "&code=" + code;
@@ -79,7 +79,12 @@ public class FacebookHandler {
 						+ e);
 			}
 
-			accessToken = b.toString();
+			String[] split = b.toString().split(",");
+			accessToken = split[0];
+			accessToken = accessToken.replace("\"","");
+			accessToken = accessToken.replace("{","");
+			accessToken = accessToken.replace(":","=");
+
 			if (accessToken.startsWith("{")) {
 				throw new RuntimeException("ERROR: Access Token Invalid: "
 						+ accessToken);
@@ -91,7 +96,7 @@ public class FacebookHandler {
 		String graph = null;
 		try {
 
-			String g = "https://graph.facebook.com/me?" + accessToken;
+			String g = "https://graph.facebook.com/v2.8/me?"+ accessToken+"&debug=all&fields=id%2Cname%2Cemail&format=json&method=get&pretty=0&suppress_http_code=1";
 			URL u = new URL(g);
 			URLConnection c = u.openConnection();
 			BufferedReader in = new BufferedReader(new InputStreamReader(
@@ -145,6 +150,7 @@ public class FacebookHandler {
 		userRegistrationAppServiceIB.setUsername(fbProfileData.get("id"));
 		userRegistrationAppServiceIB.setFirstname(fbProfileData.get("first_name").split(" ")[0]);
 		userRegistrationAppServiceIB.setLastname(fbProfileData.get("first_name").split(" ")[1]);
+		userRegistrationAppServiceIB.setUsername(fbProfileData.get("email"));
 
 		return userRegistrationAppServiceIB;
 	}

@@ -147,7 +147,7 @@
 											<input id="loginFB" type="button"
 												style="margin-top: 5px; background-color: #354F88; color: white; border: none; cursor: pointer"
 												value="Sign in using Facebook"
-												onclick="top.location.href='http://www.facebook.com/dialog/oauth?scope=public_profile,email&client_id=841162669353192&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction'">
+												onclick="top.location.href='http://www.facebook.com/dialog/oauth?scope=email&client_id=841162669353192&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction'">
 											<input id="loginGoogle" type="button"
 												style="margin-top: 5px; background-color: #de3b17; color: white; border: none; cursor: pointer"
 												value="Sign in using Google"
