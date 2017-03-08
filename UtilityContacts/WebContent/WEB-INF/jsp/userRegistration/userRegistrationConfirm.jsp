@@ -4,11 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>RentCastle - User Registration</title>
+<title>i-Fit - User Registration</title>
 </head>
 <body>
 	<div class="container">
-		<div class="main">This is user registration confirm.</div>
+		<div class="main">
+			<h1 style="">User Registration</h1>
+			<img src="images/checkmark.png" width="30" height="30">Thank
+			you for registering.
+		</div>
 	</div>
 </body>
 </html>

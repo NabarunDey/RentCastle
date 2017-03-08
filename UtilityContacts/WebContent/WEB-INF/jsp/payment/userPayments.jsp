@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RentCastle - Payments</title>
+<title>i-Fit - Payments</title>
 </head>
 <div class="container">
 	<div class="main">
@@ -35,14 +35,14 @@
 							Me
 							</s:if>
 							<s:else>
-							RentCastle
+							i-Fit
 							</s:else>
 							</td>
 							<td><s:if test="%{ null != #attr.userProfile && tousername.equalsIgnoreCase(#attr.userProfile.userName) }">
 							Me
 							</s:if>
 							<s:else>
-							RentCastle
+							i-Fit
 							</s:else>
 							</td>
 							<td><s:property value="datetime" /></td>

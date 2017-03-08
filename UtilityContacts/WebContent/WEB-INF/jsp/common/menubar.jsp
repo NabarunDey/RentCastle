@@ -14,7 +14,7 @@
 			<div class="header" style="width: 100%">
 				<div class="logo">
 					<a href="loadIndex"><img class="logopic"
-						src="images/RentCastleLogo.JPG" alt="" /> </a>
+						src="images/iFitLogo.png" alt="" /> </a>
 				</div>
 
 

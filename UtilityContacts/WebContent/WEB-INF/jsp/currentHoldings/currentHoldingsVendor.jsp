@@ -5,7 +5,7 @@
 <html>
 
 <head>
-<title>RentCastle - My Holdings</title>
+<title>i-Fit - My Holdings</title>
 </head>
 
 

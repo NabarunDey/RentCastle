@@ -8,7 +8,7 @@
 <html>
 <head>
 
-<title>RentCastle - <s:property
+<title>i-Fit - <s:property
 		value="context.viewPlaceProjectorOB.placesDBBean.placename" /> <s:property
 		value="context.viewPlaceProjectorOB.placesDBBean.placetype" /></title>
 

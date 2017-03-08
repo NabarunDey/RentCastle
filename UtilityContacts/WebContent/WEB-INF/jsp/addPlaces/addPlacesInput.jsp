@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RentCastle - Add Place</title>
+<title>i-Fit - Add Place</title>
 </head>
 
 

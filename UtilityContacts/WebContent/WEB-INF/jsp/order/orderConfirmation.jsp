@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RentCastle - Orders</title>
+<title>i-Fit - Orders</title>
 </head>
 
 <script type="text/javascript" src="js/order/order.js"></script>

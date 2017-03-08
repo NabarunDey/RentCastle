@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RentCastle - Payments</title>
+<title>i-Fit - Payments</title>
 </head>
 <script type="text/javascript" src="js/payment/payment.js"></script>
 

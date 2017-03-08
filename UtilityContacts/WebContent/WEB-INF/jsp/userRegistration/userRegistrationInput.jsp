@@ -8,7 +8,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>RentCastle - User Registration</title>
+<title>i-Fit - User Registration</title>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 			<div class="registration">
 				<div class="registration_left">
 					<h2>
-						new user? <span> create a rentcastle account </span>
+						new user? <span> create an i-Fit account </span>
 					</h2>
 
 					<div class="registration_form">
@@ -71,7 +71,7 @@
 							</div>
 							<div>
 								<label> <s:select label="User Type" headerKey="-1"
-										list="#{'USERTYPE':'Select User Type','CUSTOMER':'Customer', 'VENDOR':'Vendor','SERVICEPROVIDER':'Service Provider'}"
+										list="#{'USERTYPE':'Select User Type','CUSTOMER':'Customer', 'VENDOR':'Vendor'}"
 										name="usertype" value="#{'usertype'}" id="usertype" />
 								</label>
 								<s:fielderror fieldName="usertype"></s:fielderror>
@@ -82,7 +82,7 @@
 							</div>
 							<div class="sky-form">
 								<label class="checkbox"><input type="checkbox"
-									name="checkbox"><i></i>i agree to rentcastle.in &nbsp;<a
+									name="checkbox"><i></i>i agree to i-fit.in &nbsp;<a
 									class="terms" href="#"> terms of service</a> </label>
 							</div>
 						</s:form>
@@ -93,18 +93,13 @@
 					<h2>existing user</h2>
 					<a target="_top"
 						href="http://www.facebook.com/dialog/oauth?client_id=841162669353192&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunction&scope=email">
-						<div class="reg_fb">
-							<img src="images/facebook.png" alt=""><i>sign in using
-								Facebook</i>
+							<img src="images/fcbksign.png" alt="" style="width: 308px; height: 50px">
 							<div class="clear"></div>
-						</div>
 					</a>
-				</div>
-				<div class="registration_left">
 					<a target="_top"
 						href="https://accounts.google.com/o/oauth2/auth?scope=email&response_type=code&client_id=968847956660-7cs0n3ke5m69hj96hp9sfmqql34gsd4s.apps.googleusercontent.com&approval_prompt=auto&redirect_uri=http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/loginFunctionGoogle">
 						<img src="images/google-plus-sign-in.jpg" alt=""
-						style="width: 308px; height: 50px">
+						style="width: 300px; height: 40px">
 						<div class="clear"></div>
 					</a>
 				</div>

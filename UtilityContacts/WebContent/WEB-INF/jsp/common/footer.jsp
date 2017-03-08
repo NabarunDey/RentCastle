@@ -28,7 +28,7 @@
 					<h5>follow us</h5>
 					<div class="social-icons">
 						<ul>
-							<li><a href="https://www.facebook.com/RentCastle/"
+							<li><a href="https://www.facebook.com/iFitIndiaPvtLtd/"
 								target="_blank"></a></li>
 							<li><a href="#" target="_blank"></a></li>
 							<li><a href="#" target="_blank"></a></li>
@@ -38,20 +38,20 @@
 					</div>
 				</div>
 				<div class="fb-page"
-					data-href="https://www.facebook.com/RentCastle/"
+					data-href="https://www.facebook.com/iFitIndiaPvtLtd/"
 					data-small-header="true" data-adapt-container-width="true"
 					data-hide-cover="false" data-show-facepile="true">
-					<blockquote cite="https://www.facebook.com/RentCastle/"
+					<blockquote cite="https://www.facebook.com/iFitIndiaPvtLtd/"
 						class="fb-xfbml-parse-ignore">
-						<a href="https://www.facebook.com/RentCastle/">RentCastle</a>
+						<a href="https://www.facebook.com/iFitIndiaPvtLtd/">i-Fit India</a>
 					</blockquote>
 				</div>
 				<div class="fb-share-button"
-					data-href="https://www.facebook.com/RentCastle/"
+					data-href="https://www.facebook.com/iFitIndiaPvtLtd/"
 					data-layout="button_count" data-size="small"
 					data-mobile-iframe="true">
 					<a class="fb-xfbml-parse-ignore" target="_blank"
-						href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FRentCastle%2F&amp;src=sdkpreparse">Share</a>
+						href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FiFitIndiaPvtLtd%2F&amp;src=sdkpreparse">Share</a>
 				</div>
 
 				<div class="clearfix"></div>
@@ -62,7 +62,7 @@
 	<div class="footer">
 		<div class="container">
 			<div class="copy">
-				<p class="link">&copy;A product by Inflationby2</p>
+				<p class="link">&copy;A product by i-Fit India</p>
 			</div>
 		</div>
 	</div>

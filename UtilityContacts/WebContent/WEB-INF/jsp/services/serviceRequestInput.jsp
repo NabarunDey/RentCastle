@@ -11,7 +11,7 @@
 	content="Bike Servicing,Bike Repair Service,Kolkata Bike Service">
 <meta name="description"
 	content="Online Bike Servicing and Repair at Kolkata. Request for Bike Servicing and repair now at your doorstep.">
-<title>RentCastle - Bike Servicing in Kolkata at RentCastle.in</title>
+<title>i-Fit - Bike Servicing in Kolkata at i-Fit.in</title>
 </head>
 <body>
 

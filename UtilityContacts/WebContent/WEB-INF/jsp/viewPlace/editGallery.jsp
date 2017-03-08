@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RentCastle - Edit Gallery</title>
+<title>i-Fit - Edit Gallery</title>
 <link href="css/thumbnail-gallery.css" rel='stylesheet' type='text/css' />
 <script type="text/javascript" src="js/viewPlace/viewPlace.js"></script>
 

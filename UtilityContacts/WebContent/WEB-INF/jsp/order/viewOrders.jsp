@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RentCastle - Orders</title>
+<title>i-Fit - Orders</title>
 </head>
 <div class="container">
 	<div class="main">

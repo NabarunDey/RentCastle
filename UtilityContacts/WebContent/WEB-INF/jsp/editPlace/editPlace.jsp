@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RentCastle - Edit Place</title>
+<title>i-Fit - Edit Place</title>
 <script type="text/javascript" src="js/editPlace/editPlace.js"></script>
 
 </head>

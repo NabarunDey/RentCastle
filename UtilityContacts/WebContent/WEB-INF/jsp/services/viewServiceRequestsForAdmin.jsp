@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RentCastle - Services</title>
+<title>i-Fit - Services</title>
 <script type="text/javascript" src="js/services/services.js"></script>
 
 </head>
@@ -25,7 +25,7 @@
 						<th>Provider</th>
 						<th>Address</th>
 						<th>Description</th>
-						<th>RentCastleCut</th>
+						<th>i-FitCut</th>
 						<th>Status</th>
 						<th>Action</th>
 					</tr>
@@ -44,7 +44,7 @@
 							<td><s:property value="address" />,<br> <s:property
 									value="city" />-<s:property value="pin" /></td>
 							<td><s:property value="description" /></td>
-							<td><s:property value="rentcastlecut" /></td>
+							<td><s:property value="i-Fitcut" /></td>
 							<td><s:select list="{'INITIATED','COMPLETE'}"
 									id="%{'status' + #attr['servicerequestid']}"
 									headerKey="%{status}" headerValue="%{status}"

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RentCastle - Product Management</title>
+<title>i-Fit - Product Management</title>
 </head>
 <script type="text/javascript" src="js/addProduct/addProduct.js"></script>
 <style>

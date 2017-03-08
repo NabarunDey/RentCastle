@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RentCastle - Services</title>
+<title>i-Fit - Services</title>
 </head>
 <div class="container">
 	<div class="main">
@@ -28,7 +28,7 @@
 						<th>Address</th>
 						<th>Description</th>
 						<th>ApprovalStatus</th>
-						<th>RentCastleCut</th>
+						<th>i-FitCut</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -43,7 +43,7 @@
 									value="city" />-<s:property value="pin" /></td>
 							<td><s:property value="description" /></td>
 							<td><s:property value="approvalStatus" /></td>
-							<td><s:property value="rentcastlecut" /></td>
+							<td><s:property value="i-Fitcut" /></td>
 						</tr>
 					</s:iterator>
 				</tbody>

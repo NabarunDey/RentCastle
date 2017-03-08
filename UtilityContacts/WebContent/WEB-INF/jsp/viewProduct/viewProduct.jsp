@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>RentCastle - <s:property value="context.ViewProductProjectorOB.productsDBBean.productname" /> on rent.</title>
+<title>i-Fit - <s:property value="context.ViewProductProjectorOB.productsDBBean.productname" /> on rent.</title>
 
 <script type="text/javascript" src="js/viewProduct/viewProduct.js"></script>
 

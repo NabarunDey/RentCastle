@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RentCastle - My Cart</title>
+<title>i-Fit - My Cart</title>
 </head>
 
 <script type="text/javascript" src="js/cart/cart.js"></script>

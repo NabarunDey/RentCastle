@@ -5,65 +5,23 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 	<url>
-		<loc>http://www.rentcastle.in/loadIndex</loc>
+		<loc>http://www.i-fit.in/loadIndex</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/helpInput</loc>
+		<loc>http://www.i-fit.in/helpInput</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/forgotPasswordInput</loc>
+		<loc>http://www.i-fit.in/forgotPasswordInput</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/userRegistrationInput</loc>
+		<loc>http://www.i-fit.in/userRegistrationInput</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchType=Electronics
+		<loc>http://i-fit.in/searchCategory?category=Gym
 		</loc>
 	</url>
 	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=Refrigerator
+		<loc>http://i-fit.in/searchCategory?category=SwimmingPool
 		</loc>
-	</url>
-	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=WashingMachine
-		</loc>
-	</url>
-	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=Television
-		</loc>
-	</url>
-	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchType=Furniture
-		</loc>
-	</url>
-	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=Bed</loc>
-	</url>
-	<url>
-		<loc>http://www.rentcastle.in/searchByCriteria?searchSubType=Almirah
-		</loc>
-	</url>
-	<url>
-		<loc>http://www.rentcastle.in/serviceRequestInput</loc>
-	</url>
-	<url>
-		<loc>http://www.rentcastle.in/serviceRequestInput?serviceType=Bike+Servicing
-		</loc>
-	</url>
-	<url>
-		<loc>http://www.rentcastle.in/serviceRequestInput?serviceType=Car+Servicing
-		</loc>
-	</url>
-	<url>
-		<loc>http://www.rentcastle.in/viewProduct?productId=1</loc>
-	</url>
-	<url>
-		<loc>http://www.rentcastle.in/viewProduct?productId=2</loc>
-	</url>
-	<url>
-		<loc>http://www.rentcastle.in/viewProduct?productId=3</loc>
-	</url>
-	<url>
-		<loc>http://www.rentcastle.in/viewProduct?productId=4</loc>
 	</url>
 </urlset>

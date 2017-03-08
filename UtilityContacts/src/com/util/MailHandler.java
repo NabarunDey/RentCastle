@@ -84,7 +84,7 @@ public class MailHandler {
 			message.setFrom(new InternetAddress("support@i-fit.in"));
 			message.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse(emailId));
-			message.setSubject("Welcome to i_Fit");
+			message.setSubject("Welcome to i-Fit");
 			message.setText("Dear User,"
 				+ "\n\nThanks for registering @ i-Fit. Wish you a pleasant experience."
 				+"\n\nRegards,"
