@@ -53,6 +53,12 @@
 				<param name="actionName">viewPlace</param>
 			</result>
 		</action>
+		
+		<action name="updatePrice" class="viewPlaceAction" method="updatePrice">
+			<result type="redirectAction" name="success">
+				<param name="actionName">viewPlace</param>
+			</result>
+		</action>
 
 
 

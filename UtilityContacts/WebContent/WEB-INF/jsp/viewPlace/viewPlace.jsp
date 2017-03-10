@@ -178,7 +178,9 @@
 	
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -455,10 +457,10 @@
 													<div id="editFacilitiesSection" style="display: none;">
 														<s:iterator
 															value="context.viewPlaceProjectorOB.facilitiesList">
-															<div class="form-group" id = "editFacilitiesId">
+															<div class="form-group" id="editFacilitiesId">
 
 																<div>
-																	<input type="text"  class = "facilitieClassEdit"
+																	<input type="text" class="facilitieClassEdit"
 																		value="<s:property />" style="width: 600px;">
 																</div>
 																<br>
@@ -474,12 +476,14 @@
 													<input value="Edit" class="form-control btn btn-info"
 														style="width: auto;" onclick="editFacility()">
 
-													<input value="Add More" id="addFacility" 
+													<input value="Add More" id="addFacility"
 														class="btn btn-primary add" />
 													<input type="submit" value="Submit" name="Submit"
 														id="addFacilitiesSubmitButton" class="btn btn-primary add" />
-													<input value="Submit" class="form-control btn btn-info" id="editFacilitySubmitButton"
-														style="width: auto; display: none;" onclick="editFacilitySubmit()">
+													<input value="Submit" class="form-control btn btn-info"
+														id="editFacilitySubmitButton"
+														style="width: auto; display: none;"
+														onclick="editFacilitySubmit()">
 
 												</s:if>
 											</div>
@@ -506,23 +510,46 @@
 										<div class="row">
 											<div class="col-md-6">
 
-												<s:iterator value="context.viewPlaceProjectorOB.priceList">
-													<div class="form-group">
-														<s:property />
-													</div>
-												</s:iterator>
-
+												<div id="viewPriceSection">
+													<s:iterator value="context.viewPlaceProjectorOB.priceList">
+														<div class="form-group">
+															<s:property />
+														</div>
+													</s:iterator>
+												</div>
 
 												<s:if test="context.viewPlaceProjectorOB.vendor">
+
+													<div id="editPriceSection" style="display: none;">
+														<s:iterator value="context.viewPlaceProjectorOB.priceList">
+															<div class="form-group">
+
+																<div>
+																	<input type="text" class="priceClassEdit"
+																		value="<s:property />" style="width: 600px;">
+																</div>
+																<br>
+															</div>
+														</s:iterator>
+													</div>
+
+
 													<div class="form-group" id="priceSection">
 														<input type="text" name="price" style="width: 600px;"><br>
 														<br>
 													</div>
 
+													<input value="Edit" class="form-control btn btn-info"
+														style="width: auto;" onclick="editPrice()">
+
 													<input value="Add More" id="addPrice"
 														class="btn btn-primary add" />
 													<input type="submit" value="Submit" name="Submit"
-														class="btn btn-primary add" />
+														id="addPriceSubmitButton" class="btn btn-primary add" />
+													<input value="Submit" class="form-control btn btn-info"
+														id="editPriceSubmitButton"
+														style="width: auto; display: none;"
+														onclick="editPriceSubmit()">
 												</s:if>
 											</div>
 										</div>

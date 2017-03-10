@@ -160,8 +160,37 @@ public class ViewPlaceAppService {
 	{
 		if(null!= userProfile && viewPlaceAppServiceIB.getPlacesDBBean().getUsername().equals(userProfile.getUserName()))
 		{
-			String priceArr= viewPlaceAppServiceIB.getPriceDetails().replace(",", "|");
-			priceDetailsDao.updatePrice(viewPlaceAppServiceIB.getPlacesDBBean().getPriceId(), priceArr); 
+			if(StringUtils.isNotEmpty(viewPlaceAppServiceIB.getPriceDetails()))
+			{
+				String[] priceArr= viewPlaceAppServiceIB.getPriceDetails().split(",");
+				String fstr = "";
+
+				for(String x :priceArr)
+				{
+					if(StringUtils.isNotEmpty(x) && !" ".equalsIgnoreCase(x))
+						fstr = fstr+x+"|";
+				}
+				priceDetailsDao.updatePrice(viewPlaceAppServiceIB.getPlacesDBBean().getFacilitiesId(), fstr); 
+			}
+		}
+	}
+	
+	public void updatePrice(ViewPlaceAppServiceIB viewPlaceAppServiceIB)
+	{
+		if(null!= userProfile && viewPlaceAppServiceIB.getPlacesDBBean().getUsername().equals(userProfile.getUserName()))
+		{
+			if(StringUtils.isNotEmpty(viewPlaceAppServiceIB.getPriceDetails()))
+			{
+				String[] priceArr= viewPlaceAppServiceIB.getPriceDetails().split(",");
+				String fstr = "";
+
+				for(String x :priceArr)
+				{
+					if(StringUtils.isNotEmpty(x) && !" ".equalsIgnoreCase(x))
+						fstr = fstr+x+"|";
+				}
+				priceDetailsDao.replacePrice(viewPlaceAppServiceIB.getPlacesDBBean().getFacilitiesId(), fstr); 
+			}
 		}
 	}
 

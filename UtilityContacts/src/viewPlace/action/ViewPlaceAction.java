@@ -72,6 +72,16 @@ public class ViewPlaceAction{
 		viewPlaceAppService.addPrice(viewPlaceAppServiceIB);
 		return "success";
 	}
+	
+	public String updatePrice()
+	{
+		ViewPlaceAppServiceIB viewPlaceAppServiceIB = new ViewPlaceAppServiceIB();
+		viewPlaceAppServiceIB.setPriceDetails(price);
+		viewPlaceAppServiceIB.setPlacesDBBean(context.getViewPlaceProjectorOB().getPlacesDBBean());
+		viewPlaceAppService.updatePrice(viewPlaceAppServiceIB);
+		return "success";
+	}
+
 
 	public String editGallery()
 	{

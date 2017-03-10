@@ -58,12 +58,23 @@ public class PriceDetailsDao {
 		priceDetailsDBBean = template.get(PriceDetailsDBBean.class, priceId);
 		if(StringUtils.isNotEmpty(priceDetailsDBBean.getPriceDetails()))
 		{
-			priceDetailsDBBean.setPriceDetails(priceDetailsDBBean.getPriceDetails().concat(priceDetails+"|"));
+			priceDetailsDBBean.setPriceDetails(priceDetailsDBBean.getPriceDetails().concat(priceDetails));
 		}
 		else
 		{
-			priceDetailsDBBean.setPriceDetails(priceDetails+"|");
+			priceDetailsDBBean.setPriceDetails(priceDetails);
 
 		}
+	}
+	
+	public void replacePrice(int priceId, String priceDetails)
+	{
+		PriceDetailsDBBean priceDetailsDBBean = null;
+		priceDetailsDBBean = template.get(PriceDetailsDBBean.class, priceId);
+		if(StringUtils.isNotEmpty(priceDetailsDBBean.getPriceDetails()))
+		{
+			priceDetailsDBBean.setPriceDetails(priceDetails);
+		}
+		template.update(priceDetailsDBBean);
 	}
 }

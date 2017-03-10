@@ -59,6 +59,30 @@ function editFacilitySubmit()
 	location.href='updateFacilites?facilitiesDescription='+ds;
 }
 
+function editPrice()
+{
+	$("#viewPriceSection").hide();
+	$("#editPriceSection").show();
+	$("#addPriceSubmitButton").hide();
+	$("#editPriceSubmitButton").show();
+	$("#priceSection").hide();
+	$("#addPrice").hide();
+
+
+}
+
+function editPriceSubmit()
+{
+	var elements = document.getElementsByClassName("priceClassEdit");
+	var ds = '';
+	for(var i=0; i<elements.length; i++) {
+		ds += elements[i].value+',';
+	}
+
+	
+	location.href='updatePrice?price='+ds;
+}
+
 function editPlace()
 {
 	var data=$("#placeId").val();
