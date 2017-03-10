@@ -174,7 +174,15 @@
 	
 	
 	
+	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
 
 
 
@@ -190,6 +198,7 @@
 
 <link rel="stylesheet" href="css/etalage.css">
 <script>
+
 	jQuery(document).ready(function($) {
 
 		$('#etalage').etalage({
@@ -432,24 +441,46 @@
 										<div class="row">
 											<div class="col-md-6">
 
-												<s:iterator
-													value="context.viewPlaceProjectorOB.facilitiesList">
-													<div class="form-group">
-														<s:property />
-													</div>
-												</s:iterator>
-
+												<div id="viewFacilitiesSection">
+													<s:iterator
+														value="context.viewPlaceProjectorOB.facilitiesList">
+														<div class="form-group">
+															<s:property />
+														</div>
+													</s:iterator>
+												</div>
 
 												<s:if test="context.viewPlaceProjectorOB.vendor">
+
+													<div id="editFacilitiesSection" style="display: none;">
+														<s:iterator
+															value="context.viewPlaceProjectorOB.facilitiesList">
+															<div class="form-group" id = "editFacilitiesId">
+
+																<div>
+																	<input type="text"  class = "facilitieClassEdit"
+																		value="<s:property />" style="width: 600px;">
+																</div>
+																<br>
+															</div>
+														</s:iterator>
+													</div>
+
+
 													<div class="form-group" id="facilitiesSection">
 														<input type="text" name="facilitiesDescription"
 															style="width: 600px;"><br> <br>
 													</div>
+													<input value="Edit" class="form-control btn btn-info"
+														style="width: auto;" onclick="editFacility()">
 
-													<input value="Add More" id="addFacility"
+													<input value="Add More" id="addFacility" 
 														class="btn btn-primary add" />
 													<input type="submit" value="Submit" name="Submit"
-														class="btn btn-primary add" />
+														id="addFacilitiesSubmitButton" class="btn btn-primary add" />
+													<input value="Submit" class="form-control btn btn-info" id="editFacilitySubmitButton"
+														style="width: auto; display: none;" onclick="editFacilitySubmit()">
+
 												</s:if>
 											</div>
 										</div>

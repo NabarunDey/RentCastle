@@ -74,7 +74,7 @@ public class ViewPlaceAppService {
 		viewPlaceProjectorOB.setImagesList(imagesDBBeans);
 		viewPlaceProjectorOB.setPlacesDBBean(placesDBBean);
 		viewPlaceProjectorOB.setProfileImage(profileImagePath);
-		
+
 		if(null!=userProfile && placesDBBean.getUsername().equals(userProfile.getUserName()))
 			viewPlaceProjectorOB.setVendor(true);
 
@@ -98,9 +98,9 @@ public class ViewPlaceAppService {
 				ImagesDaoOB imagesDaoOB =  imagesDao.insertMultipleProductImages(fileBeans);
 
 				String imageIdConcat = "";
-				
+
 				ImagesGalleryDBBean imagesGalleryDBBean = imagesGalleryDao.getImagesGallery(placesDBBean.getImagesGalleryId());
-				
+
 				if(StringUtils.isNotEmpty(imagesGalleryDBBean.getImageids()))
 				{
 					imageIdConcat=imageIdConcat+imagesGalleryDBBean.getImageids();
@@ -120,11 +120,42 @@ public class ViewPlaceAppService {
 	{
 		if(null!= userProfile && viewPlaceAppServiceIB.getPlacesDBBean().getUsername().equals(userProfile.getUserName()))
 		{
-			String facilitiesArr= viewPlaceAppServiceIB.getFacilities().replace(",", "|");
-			facilitiesDao.updateFacilities(viewPlaceAppServiceIB.getPlacesDBBean().getFacilitiesId(), facilitiesArr); 
+			if(StringUtils.isNotEmpty(viewPlaceAppServiceIB.getFacilities()))
+			{
+				String[] facilitiesArr= viewPlaceAppServiceIB.getFacilities().split(",");
+				String fstr = "";
+
+				for(String x :facilitiesArr)
+				{
+					if(StringUtils.isNotEmpty(x) && !" ".equalsIgnoreCase(x))
+						fstr = fstr+x+"|";
+				}
+				facilitiesDao.updateFacilities(viewPlaceAppServiceIB.getPlacesDBBean().getFacilitiesId(), fstr);
+			}
+
 		}
 	}
-	
+
+	public void updateFacilities(ViewPlaceAppServiceIB viewPlaceAppServiceIB)
+	{
+		if(null!= userProfile && viewPlaceAppServiceIB.getPlacesDBBean().getUsername().equals(userProfile.getUserName()))
+		{
+			if(StringUtils.isNotEmpty(viewPlaceAppServiceIB.getFacilities()))
+			{
+				String[] facilitiesArr= viewPlaceAppServiceIB.getFacilities().split(",");
+				String fstr = "";
+
+				for(String x :facilitiesArr)
+				{
+					if(StringUtils.isNotEmpty(x) && !" ".equalsIgnoreCase(x))
+						fstr = fstr+x+"|";
+				}
+				facilitiesDao.replaceFacilities(viewPlaceAppServiceIB.getPlacesDBBean().getFacilitiesId(), fstr); 
+			}
+
+		}
+	}
+
 	public void addPrice(ViewPlaceAppServiceIB viewPlaceAppServiceIB)
 	{
 		if(null!= userProfile && viewPlaceAppServiceIB.getPlacesDBBean().getUsername().equals(userProfile.getUserName()))
@@ -133,7 +164,7 @@ public class ViewPlaceAppService {
 			priceDetailsDao.updatePrice(viewPlaceAppServiceIB.getPlacesDBBean().getPriceId(), priceArr); 
 		}
 	}
-	
+
 	public String deleteImage(PlacesDBBean placesDBBean, String imagePath)
 	{
 		String imageId ="";
@@ -154,7 +185,7 @@ public class ViewPlaceAppService {
 		}
 		return imageId;
 	}
-	
+
 	public PlacesDao getPlacesDao() {
 		return placesDao;
 	}
@@ -209,5 +240,5 @@ public class ViewPlaceAppService {
 	public void setPriceDetailsDao(PriceDetailsDao priceDetailsDao) {
 		this.priceDetailsDao = priceDetailsDao;
 	}
-	
+
 }

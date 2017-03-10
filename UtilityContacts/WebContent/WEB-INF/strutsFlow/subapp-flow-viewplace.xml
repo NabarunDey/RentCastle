@@ -48,6 +48,12 @@
 			</result>
 		</action>
 
+		<action name="updateFacilites" class="viewPlaceAction" method="updateFacilites">
+			<result type="redirectAction" name="success">
+				<param name="actionName">viewPlace</param>
+			</result>
+		</action>
+
 
 
 	</package>

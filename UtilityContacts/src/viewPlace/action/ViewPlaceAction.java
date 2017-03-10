@@ -54,6 +54,15 @@ public class ViewPlaceAction{
 		viewPlaceAppService.addFacilities(viewPlaceAppServiceIB);
 		return "success";
 	}
+	
+	public String updateFacilites()
+	{
+		ViewPlaceAppServiceIB viewPlaceAppServiceIB = new ViewPlaceAppServiceIB();
+		viewPlaceAppServiceIB.setFacilities(facilitiesDescription);
+		viewPlaceAppServiceIB.setPlacesDBBean(context.getViewPlaceProjectorOB().getPlacesDBBean());
+		viewPlaceAppService.updateFacilities(viewPlaceAppServiceIB);
+		return "success";
+	}
 
 	public String addPrice()
 	{

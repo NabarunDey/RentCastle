@@ -58,12 +58,23 @@ public class FacilitiesDao {
 		facilitiesDBBean = template.get(FacilitiesDBBean.class, failitiesId);
 		if(StringUtils.isNotEmpty(facilitiesDBBean.getFacilitiesDescription()))
 		{
-			facilitiesDBBean.setFacilitiesDescription(facilitiesDBBean.getFacilitiesDescription().concat(description+"|"));
+			facilitiesDBBean.setFacilitiesDescription(facilitiesDBBean.getFacilitiesDescription().concat(description));
 		}
 		else
 		{
-			facilitiesDBBean.setFacilitiesDescription(description+"|");
+			facilitiesDBBean.setFacilitiesDescription(description);
 
+		}
+	}
+	
+	public void replaceFacilities(int failitiesId, String description)
+	{
+		FacilitiesDBBean facilitiesDBBean = null;
+		facilitiesDBBean = template.get(FacilitiesDBBean.class, failitiesId);
+		if(StringUtils.isNotEmpty(facilitiesDBBean.getFacilitiesDescription()))
+		{
+			facilitiesDBBean.setFacilitiesDescription(description);
+			template.update(facilitiesDBBean);
 		}
 	}
 }

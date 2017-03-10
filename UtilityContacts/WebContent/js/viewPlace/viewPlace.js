@@ -32,8 +32,32 @@ $(document).ready(function() {
 	$(wrapper1).on("click",".remove_field1", function(e){ //user click on remove text
 		e.preventDefault(); $(this).parent('div').remove(); x1--;
 	})
+	
 });
 
+function editFacility()
+{
+	$("#viewFacilitiesSection").hide();
+	$("#editFacilitiesSection").show();
+	$("#addFacilitiesSubmitButton").hide();
+	$("#editFacilitySubmitButton").show();
+	$("#facilitiesSection").hide();
+	$("#addFacility").hide();
+
+
+}
+
+function editFacilitySubmit()
+{
+	var elements = document.getElementsByClassName("facilitieClassEdit");
+	var ds = '';
+	for(var i=0; i<elements.length; i++) {
+		ds += elements[i].value+',';
+	}
+
+	
+	location.href='updateFacilites?facilitiesDescription='+ds;
+}
 
 function editPlace()
 {
@@ -54,7 +78,7 @@ function changePlaceApprovalStatus() {
 		url: "changePlaceApprovalStatus",
 		data: {placeid :$('#placeId').val(), approvalStatus : $('#approvalStatus').val() } ,
 		success: function(response){
-			alert('Item approved.')
+			alert('Approval status changed.')
 		},
 		error: function(e){
 			alert('Error: ' + e);
