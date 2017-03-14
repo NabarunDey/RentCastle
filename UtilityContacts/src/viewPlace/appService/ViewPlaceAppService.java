@@ -75,7 +75,7 @@ public class ViewPlaceAppService {
 		viewPlaceProjectorOB.setPlacesDBBean(placesDBBean);
 		viewPlaceProjectorOB.setProfileImage(profileImagePath);
 
-		if(null!=userProfile && placesDBBean.getUsername().equals(userProfile.getUserName()))
+		if(null!=userProfile && placesDBBean.getUsername().equals(userProfile.getUserName()) && UserType.VENDOR.equals(userProfile.getUserType()))
 			viewPlaceProjectorOB.setVendor(true);
 
 		return viewPlaceProjectorOB;

@@ -11,6 +11,10 @@ import com.util.CommonUtility;
 
 public class ProfileManagementAction extends ActionSupport{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	String firstname;
 	String lastname;
 	String sex;

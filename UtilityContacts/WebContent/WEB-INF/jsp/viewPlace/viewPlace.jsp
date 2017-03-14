@@ -257,11 +257,7 @@
 								<s:property
 									value="context.viewPlaceProjectorOB.placesDBBean.placetype" />
 							</h4>
-							<h4>
-								Joining Amount: Rs.
-								<s:property
-									value="context.viewPlaceProjectorOB.placesDBBean.joiningFees" />
-							</h4>
+							
 							<h4>
 								Address :
 								<s:property
