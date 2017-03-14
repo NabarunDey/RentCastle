@@ -42,7 +42,7 @@
 											cssClass="form-control"></s:select>
 						</div>
 						<div>
-							<span><label>Subject</label></span> <span><textarea
+							<span><label>Details</label></span> <span><textarea
 									name="message"> </textarea></span>
 						</div>
 						<div>

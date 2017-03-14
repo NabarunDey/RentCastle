@@ -1,7 +1,14 @@
 package help.appService;
 
+import cart.projector.outputBeans.CartItem;
+
 import com.dao.HelpDao;
+import com.databaseBeans.OrdersDBBean;
+import com.databaseBeans.ProductsDBBean;
+import com.databaseBeans.UsersDBBean;
 import com.sessionBeans.UserProfile;
+import com.util.MailHandler;
+import com.util.SMSHandler;
 
 import help.appService.inputBeans.HelpAppServiceIB;
 import help.projector.outputBeans.HelpProjectorOB;
@@ -32,7 +39,18 @@ public class HelpAppService {
 	public boolean submitHelpRequest(HelpAppServiceIB helpAppServiceIB)
 	{
 		boolean result = helpDao.submitHelpRequest(helpAppServiceIB);
+		sendHelpNotifications(helpAppServiceIB);
 		return result;
+	}
+	
+	private void sendHelpNotifications(final HelpAppServiceIB helpAppServiceIB)
+	{
+		Runnable myrunnable = new Runnable() {
+			public void run() {
+				MailHandler.feedBackMail(helpAppServiceIB);
+			}
+		};
+		new Thread(myrunnable).start();
 	}
 
 	public UserProfile getUserProfile() {
