@@ -195,6 +195,10 @@ public class UsersDao {
 			{
 				usersDBBean.setUsertype(UserType.CUSTOMER);
 			}
+			if(usersDBBean.getUsertype().equals(UserType.VENDOR))
+			{
+				usersDBBean.setUsertype(UserType.VENDOR);
+			}
 			template.update(usersDBBean);
 			profileManagementDaoOB.setUserDetailsInserted(true);
 		}catch(Exception e)

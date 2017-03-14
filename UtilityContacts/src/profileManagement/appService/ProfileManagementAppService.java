@@ -9,6 +9,7 @@ import com.dao.UsersDao;
 import com.databaseBeans.UserLoginDBBean;
 import com.databaseBeans.UsersDBBean;
 import com.sessionBeans.UserProfile;
+import com.structures.userTypes.UserType;
 
 	
 public class ProfileManagementAppService {
@@ -25,7 +26,13 @@ public class ProfileManagementAppService {
 		if( profileManagementDaoOB.isUserDetailsInserted())
 		{
 			userProfile.setFirstName(profileManagementAppServiceIB.getFirstname());
-			userProfile.setUserName(profileManagementAppServiceIB.getUsername());
+			if(!UserType.ADMIN.equals(profileManagementAppServiceIB.getUsertype()))
+			{
+				userProfile.setUserType(profileManagementAppServiceIB.getUsertype());
+
+			}
+			userProfile.setPin(profileManagementAppServiceIB.getPinno());
+			userProfile.setMobile(profileManagementAppServiceIB.getMobileno1());
 			profileManagementProjectorOB.setDataUpdated(true);
 		}
 		

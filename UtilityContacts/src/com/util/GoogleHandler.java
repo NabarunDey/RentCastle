@@ -58,7 +58,7 @@ public class GoogleHandler {
              outputString += line;
          }
          JsonObject json2 = (JsonObject)new JsonParser().parse(outputString);
-         userRegistrationAppServiceIB.setUsername(json2.get("id").getAsString());
+         userRegistrationAppServiceIB.setUsername(json2.get("email").getAsString());
          userRegistrationAppServiceIB.setFirstname(json2.get("given_name").getAsString());
          userRegistrationAppServiceIB.setLastname(json2.get("family_name").getAsString());
          userRegistrationAppServiceIB.setEmail(json2.get("email").getAsString());

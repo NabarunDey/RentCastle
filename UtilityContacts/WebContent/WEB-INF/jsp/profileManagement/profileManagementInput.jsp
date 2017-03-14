@@ -45,20 +45,17 @@
 					</div>
 				</div>
 
-
-				<s:if
-					test="%{ null == context.profileManagementProjectorOB.usersDBBean.email || ''.equalsIgnoreCase(context.profileManagementProjectorOB.usersDBBean.email) }">
-
-
+				<div class="col-md-8">
+					<label class="col-md-4">User Type</label>
 					<div class="col-md-8">
-						<label class="col-md-4">Email : </label>
-						<div class="col-md-8">
-							<input type="text" class="form-control" name="email" />
-						</div>
+						<s:select list="{'CUSTOMER','VENDOR'}"
+													name="usertype" theme="simple"
+													cssStyle="width : auto;"
+													value="%{context.profileManagementProjectorOB.usersDBBean.usertype}"
+													id="usertype" cssClass="form-control"></s:select>
 					</div>
-					<br />
-					<br />
-				</s:if>
+				</div>
+				<br /> <br />
 
 
 				<div class="col-md-8">
@@ -133,33 +130,33 @@
 			</form>
 
 			<form action="changePasswordSubmit" class="basic-grey">
-			
-			<div class="col-md-8">
-				<br> <br>
 
-				<div class="line-separator"></div>
-				<br> <label class="col-md-4">Password :</label>
 				<div class="col-md-8">
-					<input type="password" class="form-control" name=password
-						value="<s:property value = 'context.profileManagementProjectorOB.userLoginDBBean.password'/>" />
+					<br> <br>
+
+					<div class="line-separator"></div>
+					<br> <label class="col-md-4">Password :</label>
+					<div class="col-md-8">
+						<input type="password" class="form-control" name=password
+							value="<s:property value = 'context.profileManagementProjectorOB.userLoginDBBean.password'/>" />
+					</div>
 				</div>
-			</div>
-			<div class="col-md-8">
-				<label class="col-md-4">Retype Password :</label>
 				<div class="col-md-8">
-					<input type="password" class="form-control" name=retypepassword
-						value="<s:property value = 'context.profileManagementProjectorOB.userLoginDBBean.password'/>" />
+					<label class="col-md-4">Retype Password :</label>
+					<div class="col-md-8">
+						<input type="password" class="form-control" name=retypepassword
+							value="<s:property value = 'context.profileManagementProjectorOB.userLoginDBBean.password'/>" />
+					</div>
 				</div>
-			</div>
 
-			<div class="col-md-8">
-				<br />
-				<div class="col-md-offset-4 col-md-8">
-					<s:submit type="button" cssClass="btn btn-primary" theme="simple" />
-					<s:reset type="button" cssClass="btn btn-danger" theme="simple" />
+				<div class="col-md-8">
+					<br />
+					<div class="col-md-offset-4 col-md-8">
+						<s:submit type="button" cssClass="btn btn-primary" theme="simple" />
+						<s:reset type="button" cssClass="btn btn-danger" theme="simple" />
 
+					</div>
 				</div>
-			</div>
 			</form>
 
 		</div>

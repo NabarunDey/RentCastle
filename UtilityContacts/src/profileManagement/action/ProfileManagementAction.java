@@ -11,7 +11,6 @@ import com.util.CommonUtility;
 
 public class ProfileManagementAction extends ActionSupport{
 
-	String username;
 	String firstname;
 	String lastname;
 	String sex;
@@ -25,7 +24,6 @@ public class ProfileManagementAction extends ActionSupport{
 	String mobileno1;
 	String mobileno2;
 	String status;
-	String email;
 	
 	public ProfileManagementAppService profileManagementAppService;
 	ProfileManagementAppContext context;
@@ -62,13 +60,6 @@ public class ProfileManagementAction extends ActionSupport{
 		this.profileManagementAppService = profileManagementAppService;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
 	public String getFirstname() {
 		return firstname;
@@ -182,14 +173,4 @@ public class ProfileManagementAction extends ActionSupport{
 		this.password = password;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	
-	
 }
