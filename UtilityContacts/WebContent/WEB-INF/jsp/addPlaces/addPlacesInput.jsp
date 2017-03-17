@@ -31,7 +31,7 @@
 				<label for="placetype" class="col-sm-2 control-label">Place
 					Type</label>
 				<div class="col-sm-4">
-					<s:select list="{'Gym','SwimmingPool'}" name="placetype"
+					<s:select list="{'Gym','SwimmingPool','YogaCenter'}" name="placetype"
 						cssClass="form-control"></s:select>
 				</div>
 			</div>

@@ -77,7 +77,7 @@
 												href="<s:url  action='searchCategory'><s:param name="qt" value="'Premium'"></s:param><s:param name="category" value="'Gym'"></s:param></s:url>">Premium</a></li>
 											<li><a
 												href="<s:url  action='searchCategory'><s:param name="qt" value="'Regular'"></s:param><s:param name="category" value="'Gym'"></s:param></s:url>">Regular
-													Machine</a></li>
+													</a></li>
 											<li><a
 												href="<s:url  action='searchCategory'><s:param name="qt" value="'Economy'"></s:param><s:param name="category" value="'Gym'"></s:param></s:url>">Economy</a></li>
 
@@ -99,9 +99,30 @@
 												href="<s:url  action='searchCategory'><s:param name="qt" value="'Premium'"></s:param><s:param name="category" value="'SwimmingPool'"></s:param></s:url>">Premium</a></li>
 											<li><a
 												href="<s:url  action='searchCategory'><s:param name="qt" value="'Regular'"></s:param><s:param name="category" value="'SwimmingPool'"></s:param></s:url>">Regular
-													Machine</a></li>
+													</a></li>
 											<li><a
 												href="<s:url  action='searchCategory'><s:param name="qt" value="'Economy'"></s:param><s:param name="category" value="'SwimmingPool'"></s:param></s:url>">Economy</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div></li>
+						
+						<li class="active grid"><a class="color4"
+						href="<s:url  action='searchCategory'><s:param name="category" value="'YogaCenter'"></s:param></s:url>">Yoga Center</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<h4>Items</h4>
+										<ul>
+											<li><a
+												href="<s:url  action='searchCategory'><s:param name="qt" value="'Premium'"></s:param><s:param name="category" value="'YogaCenter'"></s:param></s:url>">Premium</a></li>
+											<li><a
+												href="<s:url  action='searchCategory'><s:param name="qt" value="'Regular'"></s:param><s:param name="category" value="'YogaCenter'"></s:param></s:url>">Regular
+													</a></li>
+											<li><a
+												href="<s:url  action='searchCategory'><s:param name="qt" value="'Economy'"></s:param><s:param name="category" value="'YogaCenter'"></s:param></s:url>">Economy</a></li>
 										</ul>
 									</div>
 								</div>

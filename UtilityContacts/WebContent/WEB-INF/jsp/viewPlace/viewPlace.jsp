@@ -259,6 +259,12 @@
 							</h4>
 							
 							<h4>
+								Class :
+								<s:property
+									value="context.viewPlaceProjectorOB.placesDBBean.quality" />
+							</h4>
+							
+							<h4>
 								Address :
 								<s:property
 									value="context.viewPlaceProjectorOB.placesDBBean.address" />

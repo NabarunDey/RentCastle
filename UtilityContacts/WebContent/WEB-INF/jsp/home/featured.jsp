@@ -14,7 +14,7 @@
 		<div class="main">
 			<div class="content">
 				<div class="content_text">
-					<h3>Featured PLaces</h3>
+					<h2>Featured Places</h2>
 				</div>
 				<!-- grids_of_3 -->
 				<div class="row grids">

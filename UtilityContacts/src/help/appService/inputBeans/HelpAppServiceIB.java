@@ -4,13 +4,13 @@ import com.structures.category.HelpCategory;
 
 
 public class HelpAppServiceIB {
-	
+
 	private String email;
 	private String name;
 	private String mobile;
 	private HelpCategory category;
 	private String message;
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -42,6 +42,6 @@ public class HelpAppServiceIB {
 	public void setCategory(HelpCategory category) {
 		this.category = category;
 	}
-	
-	
+
+
 }

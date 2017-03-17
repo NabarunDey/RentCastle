@@ -3,7 +3,9 @@ package com.structures.place;
 public enum PlaceType {
 	
 	Gym("Gym"),
-	SwimmingPool("SwimmingPool");
+	SwimmingPool("SwimmingPool"),
+	YogaCenter("YogaCenter");
+
 	
 	private String text;
 

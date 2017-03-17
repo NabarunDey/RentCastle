@@ -13,5 +13,13 @@
 
 <%@ include file="featured.jsp" %>
 
+<%@ include file="testimonial.jsp" %>
+
+<%@ include file="ourExperts.jsp" %>
+
+<%@ include file="stats.jsp" %>
+
+
+
 </body>
 </html>
