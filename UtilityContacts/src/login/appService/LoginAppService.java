@@ -103,6 +103,7 @@ public class LoginAppService {
 			userProfile.setEmail(usersDBBean.getEmail());
 			userProfile.setMobile(usersDBBean.getMobileno1());
 			userProfile.setPassword(loginDaoOB.getUserLoginDBBean().getPassword());
+			userProfile.setTestimonialSet(false);
 			loginProjectorOB.setUserProfile(userProfile);
 		}
 

@@ -41,15 +41,18 @@ public class TestimonialsDao {
 		if(StringUtils.isNotEmpty(userName))
 		{
 
+			TestimonialsDBBean myTestimonialsDBBean =null;
 			for(TestimonialsDBBean testimonialsDBBean : testimonialsDBBeans)
 			{
 				if(testimonialsDBBean.getUsername().equals(userName))
 				{
+					myTestimonialsDBBean = testimonialsDBBean;
 					testimonialsDBBeans.remove(testimonialsDBBean);
-					testimonialsDBBeans.add(testimonialsDBBean);
-					Collections.reverse(testimonialsDBBeans);
+					break;
 				}
 			}
+			testimonialsDBBeans.add(myTestimonialsDBBean);
+			Collections.reverse(testimonialsDBBeans);
 		}
 		return testimonialsDBBeans;
 	}

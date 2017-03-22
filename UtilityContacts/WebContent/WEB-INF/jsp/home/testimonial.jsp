@@ -5,7 +5,7 @@
 	$("#testimonialSlide > div:gt(0)").hide();
 
 	setInterval(function() {
-		$('#testimonialSlide > div:first').fadeOut(0).next().fadeIn(2000).end()
+		$('#testimonialSlide > div:first').fadeOut(0).next().fadeIn(1500).end()
 				.appendTo('#testimonialSlide');
 	}, 7000);
 </script>
@@ -28,7 +28,7 @@
 			<div class="row content-row" id="testimonialSlide">
 
 				<div>
-					<s:iterator value="testimonialsDBBeans" status="stat">
+					<s:iterator value="onloadTestimonialsOB.testimonialsDBBeans" status="stat">
 
 						<s:if test="(#stat.index % 3 )==0 && #stat.index>1">
 				</div>

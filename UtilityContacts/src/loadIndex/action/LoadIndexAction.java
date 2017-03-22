@@ -18,6 +18,7 @@ import com.sessionBeans.UserProfile;
 import loadIndex.LoadIndexContext;
 import loadIndex.appService.LoadIndexAppService;
 import loadIndex.projector.outputBeans.AdsSectionProjectorOB;
+import loadIndex.projector.outputBeans.OnloadTestimonialsOB;
 import login.appService.LoginAppService;
 import login.appService.inputBeans.LoginAppServiceIB;
 import login.projector.outputBeans.LoginProjectorOB;
@@ -38,9 +39,8 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 	LoginAppService loginAppService; 
 	UserProfile userProfile;
 	String rememberMe;
-	List<TestimonialsDBBean> testimonialsDBBeans;
 	TestimonialsAppService testimonialsAppService;
-	
+	OnloadTestimonialsOB onloadTestimonialsOB;
 
 	public String loadIndex()
 	{
@@ -97,13 +97,25 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 			}
 		}
 
-		List<PlaceManagementProjectorOB> placeManagementProjectorOBs = placeManagementAppService.getFeaturedPlaces();
-		AdsSectionProjectorOB adsSectionProjectorOB = loadIndexAppService.getAdsSection();
-		
-		testimonialsDBBeans = testimonialsAppService.getOnLoadTestimonial();
-		
-		context.setPlaceManagementProjectorOBs(placeManagementProjectorOBs);
-		context.setAdsSectionProjectorOB(adsSectionProjectorOB);
+		//any code here must be copied to load index logout function below
+		if(null!= context && null== context.getPlaceManagementProjectorOBs())
+		{
+			List<PlaceManagementProjectorOB> placeManagementProjectorOBs = placeManagementAppService.getFeaturedPlaces();
+			context.setPlaceManagementProjectorOBs(placeManagementProjectorOBs);
+		}
+
+		if(null!= context && null == context.getAdsSectionProjectorOB())
+		{
+			AdsSectionProjectorOB adsSectionProjectorOB = loadIndexAppService.getAdsSection();
+			context.setAdsSectionProjectorOB(adsSectionProjectorOB);
+		}
+
+		if(null!= userProfile && !userProfile.isTestimonialSet())
+		{
+			onloadTestimonialsOB.setTestimonialsDBBeans(testimonialsAppService.getOnLoadTestimonial());
+			userProfile.setTestimonialSet(true);
+		}
+
 		return "success";
 	}
 
@@ -118,6 +130,7 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 
 		List<PlaceManagementProjectorOB> placeManagementProjectorOBs = placeManagementAppService.getFeaturedPlaces();
 		AdsSectionProjectorOB adsSectionProjectorOB = loadIndexAppService.getAdsSection();
+		onloadTestimonialsOB.setTestimonialsDBBeans(testimonialsAppService.getOnLoadTestimonial());
 		context.setPlaceManagementProjectorOBs(placeManagementProjectorOBs);
 		context.setAdsSectionProjectorOB(adsSectionProjectorOB);
 		return "success";
@@ -178,12 +191,12 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 		this.placeManagementAppService = placeManagementAppService;
 	}
 
-	public List<TestimonialsDBBean> getTestimonialsDBBeans() {
-		return testimonialsDBBeans;
+	public OnloadTestimonialsOB getOnloadTestimonialsOB() {
+		return onloadTestimonialsOB;
 	}
 
-	public void setTestimonialsDBBeans(List<TestimonialsDBBean> testimonialsDBBeans) {
-		this.testimonialsDBBeans = testimonialsDBBeans;
+	public void setOnloadTestimonialsOB(OnloadTestimonialsOB onloadTestimonialsOB) {
+		this.onloadTestimonialsOB = onloadTestimonialsOB;
 	}
 
 	public TestimonialsAppService getTestimonialsAppService() {
@@ -194,5 +207,5 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 			TestimonialsAppService testimonialsAppService) {
 		this.testimonialsAppService = testimonialsAppService;
 	}
-	
+
 }

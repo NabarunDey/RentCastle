@@ -10,7 +10,7 @@
 		<div class="content">
 			<div class="content_text">
 				<br> <br>
-				<h2>Sneek-a-Peek at our current Stats</h2>
+				<h2>Sneak-a-Peek at our current Stats</h2>
 			</div>
 		</div>
 	</div>

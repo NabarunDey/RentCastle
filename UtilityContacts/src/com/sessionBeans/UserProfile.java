@@ -13,7 +13,14 @@ public class UserProfile {
 	private String mobile;
 	private String password;
 	private String mobiledevice;
+	private boolean testimonialSet;
 	
+	public boolean isTestimonialSet() {
+		return testimonialSet;
+	}
+	public void setTestimonialSet(boolean testimonialSet) {
+		this.testimonialSet = testimonialSet;
+	}
 	public String getMobiledevice() {
 		return mobiledevice;
 	}
