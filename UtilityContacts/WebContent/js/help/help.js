@@ -19,4 +19,6 @@ function helpRequestSubmit() {
 		}
 	});
 	lb.close();
+	document.body.scrollTop = document.documentElement.scrollTop = 0;
+
 }

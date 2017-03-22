@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="testimonialsAction" class="testimonials.action.TestimonialsAction"
+		scope="request">
+		<property name="testimonialsAppService" ref="testimonialsAppService" />
+		<property name="context" ref="testimonialsAppContext" />
+	</bean>
+
+	<bean id="testimonialsAppService" class="testimonials.appService.TestimonialsAppService"
+		scope="request">
+		<property name="testimonialsDao" ref="testimonialsDao" />
+		<property name="imagesDao" ref="imagesDao" />
+		<property name="userProfile" ref="userProfile" />
+	</bean>
+
+	<bean id="testimonialsAppContext" class="testimonials.TestimonialsAppContext"
+		scope="session">
+	</bean>
+
+
+</beans>

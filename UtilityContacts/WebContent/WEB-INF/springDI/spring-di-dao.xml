@@ -77,6 +77,10 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="priceDetailsDao" class="com.dao.PriceDetailsDao">
 		<property name="template" ref="template"></property>
 	</bean>
+	
+	<bean id="testimonialsDao" class="com.dao.TestimonialsDao">
+		<property name="template" ref="template"></property>
+	</bean>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -223,5 +223,12 @@
 		<put-attribute name="body"
 			value="/WEB-INF/jsp/viewPlace/editGallery.jsp" />
 	</definition>
+	
+		<definition name="myTestimonials" extends="baseLayout">
+		<put-attribute name="title" value="RentCastle -My Testimonial" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/myTestimonial/myTestimonial.jsp" />
+	</definition>
+	
 
 </tiles-definitions>

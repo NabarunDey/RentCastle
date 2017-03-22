@@ -37,4 +37,6 @@
 	<include file="subapp-flow-addplaces.xml"></include>
 	<include file="subapp-flow-viewplace.xml"></include>
 	<include file="subapp-flow-placeManagement.xml"></include>
+	<include file="subapp-flow-testimonials.xml"></include>
+
 </struts>

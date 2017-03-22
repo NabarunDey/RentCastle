@@ -1,7 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util
+                    http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
 
 	<bean id="loadIndexAction" class="loadIndex.action.LoadIndexAction"
@@ -11,19 +15,26 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="context" ref="loadIndexContext" />
 		<property name="loginAppService" ref="loginAppService" />
 		<property name="userProfile" ref="userProfile" />
+		<property name="testimonialsDBBeans" ref="testimonialsDBBeans" />
+		<property name="testimonialsAppService" ref="testimonialsAppService" />
 	</bean>
-	
+
 	<bean id="loadIndexAppService" class="loadIndex.appService.LoadIndexAppService"
 		scope="request">
 		<property name="loadIndexProjector" ref="loadIndexProjector" />
 		<property name="dynamicContentDao" ref="dynamicContentDao" />
 	</bean>
-	
+
 	<bean id="loadIndexProjector" class="loadIndex.projector.LoadIndexProjector"
 		scope="request">
 	</bean>
-	
+
 	<bean id="loadIndexContext" class="loadIndex.LoadIndexContext">
 	</bean>
 
+
+
+	<util:list id="testimonialsDBBeans" value-type="com.databaseBeans.TestimonialsDBBean"
+		scope="session">
+	</util:list>
 </beans>

@@ -46,6 +46,8 @@
 				<value>ImagesGallery.hbm.xml</value>
 				<value>Places.hbm.xml</value>
 				<value>PriceDetails.hbm.xml</value>
+				<value>Testimonials.hbm.xml</value>
+
 			</list>
 		</property>
 
@@ -117,6 +119,9 @@
 	</bean>
 
 	<bean id="prideDetailsDBBean" class="com.databaseBeans.PriceDetailsDBBean">
+	</bean>
+
+	<bean id="testimonialsDBBean" class="com.databaseBeans.TestimonialsDBBean">
 	</bean>
 
 </beans>

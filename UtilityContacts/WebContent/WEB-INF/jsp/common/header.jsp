@@ -17,7 +17,8 @@
 			<div class="header_top">
 				<div class="top_left">
 					<h2>
-						<a href="<s:url  action='helpInput'/>">Contact Us</a> for any queries and suggestions.
+						<a href="<s:url  action='helpInput'/>">Contact Us</a> for any
+						queries and suggestions.
 					</h2>
 				</div>
 				<div class="top_right">
@@ -31,8 +32,7 @@
 								<ul class="sub_menu">
 									<li><a href="<s:url action='addPlacesInput'/>">Add
 											Place</a></li>
-									<li><a href="<s:url action='myPlaces'/>">My
-											Places</a></li>
+									<li><a href="<s:url action='myPlaces'/>">My Places</a></li>
 								</ul></li>
 							<%--
 							<li class="drop"><a href="#">Orders</a>
@@ -98,8 +98,8 @@
 									<li><a href="<s:url  action='getPaymentsAdmin'/>">Payment
 											History</a></li>
 								</ul></li> --%>
-							<li class="drop"><a
-								href="<s:url action='pendingPLaces'/>">Pending Places</a></li>
+							<li class="drop"><a href="<s:url action='pendingPLaces'/>">Pending
+									Places</a></li>
 						</s:if>
 
 						<%-- <s:if
@@ -157,17 +157,16 @@
 										<span><a href="forgotPasswordInput">Forgot your
 												password?</a></span>
 									</form>
-							</div>
-						</s:if>
-						<s:else>
-							<li class="drop"><a href="#"> ${userProfile.firstName}</a>
-								<ul class="sub_menu">
-									<li><a href="<s:url  action='logoutFunction'/>">Logout</a></li>
-									<li><a href="<s:url  action='profileManagementInput'/>">Edit
-											Profile</a></li>
-								</ul></li>
+							</div> </s:if> <s:else>
+								<li class="drop"><a href="#"> ${userProfile.firstName}</a>
+									<ul class="sub_menu">
+										<li><a href="<s:url  action='logoutFunction'/>">Logout</a></li>
+										<li><a href="<s:url  action='profileManagementInput'/>">Edit
+												Profile</a></li>
+										<li><a href="<s:url  action='myTestimonial'/>">My Testimonial</a></li>
+									</ul></li>
 
-						</s:else>
+							</s:else>
 				</div>
 				</li>
 				</ul>

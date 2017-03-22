@@ -40,6 +40,8 @@ public class ImagesDao {
 
 		ImagesDaoOB imagesDaoOB= new ImagesDaoOB();
 		ArrayList<String> imageIdsList = new ArrayList<String>();
+		ArrayList<String> imagePathList = new ArrayList<String>();
+
 		try{
 			for(FileBean fileBean: fileBeans)
 			{
@@ -58,9 +60,11 @@ public class ImagesDao {
 				imagesDBBean.setImagepath(imagePath);
 				saveImages(imagesDBBean);
 				imageIdsList.add(imageId);
+				imagePathList.add(imagePath);
 
 			}
 			imagesDaoOB.setImageIdsList(imageIdsList);
+			imagesDaoOB.setImagePathList(imagePathList);
 		}catch(Exception exception)
 		{
 		}

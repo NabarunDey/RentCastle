@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 
+import com.databaseBeans.TestimonialsDBBean;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sessionBeans.UserProfile;
 
@@ -24,6 +25,7 @@ import placeManagement.appService.PlaceManagementAppService;
 import placeManagement.appService.outputBeans.PlaceManagementProjectorOB;
 import productManagement.appService.ProductManagementAppService;
 import search.projector.outputBeans.SearchProductProjectorOB;
+import testimonials.appService.TestimonialsAppService;
 
 
 
@@ -36,6 +38,9 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 	LoginAppService loginAppService; 
 	UserProfile userProfile;
 	String rememberMe;
+	List<TestimonialsDBBean> testimonialsDBBeans;
+	TestimonialsAppService testimonialsAppService;
+	
 
 	public String loadIndex()
 	{
@@ -94,6 +99,9 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 
 		List<PlaceManagementProjectorOB> placeManagementProjectorOBs = placeManagementAppService.getFeaturedPlaces();
 		AdsSectionProjectorOB adsSectionProjectorOB = loadIndexAppService.getAdsSection();
+		
+		testimonialsDBBeans = testimonialsAppService.getOnLoadTestimonial();
+		
 		context.setPlaceManagementProjectorOBs(placeManagementProjectorOBs);
 		context.setAdsSectionProjectorOB(adsSectionProjectorOB);
 		return "success";
@@ -170,4 +178,21 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 		this.placeManagementAppService = placeManagementAppService;
 	}
 
+	public List<TestimonialsDBBean> getTestimonialsDBBeans() {
+		return testimonialsDBBeans;
+	}
+
+	public void setTestimonialsDBBeans(List<TestimonialsDBBean> testimonialsDBBeans) {
+		this.testimonialsDBBeans = testimonialsDBBeans;
+	}
+
+	public TestimonialsAppService getTestimonialsAppService() {
+		return testimonialsAppService;
+	}
+
+	public void setTestimonialsAppService(
+			TestimonialsAppService testimonialsAppService) {
+		this.testimonialsAppService = testimonialsAppService;
+	}
+	
 }
