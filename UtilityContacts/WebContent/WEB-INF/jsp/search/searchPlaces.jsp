@@ -50,10 +50,21 @@
 					</h4>
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
-							<label class="radio"><input type="radio" name="placetype"
-								value="Gym"><i></i>Gym</label> <label class="radio"><input
-								type="radio" name="placetype" value="SwimmingPool"><i></i>Swimming
-								Pool</label>
+							<s:if test="null==category || 'Gym'.equals(category)">
+								<label class="radio"><input type="radio"
+									name="placetype" value="Gym"><i></i>Gym</label>
+							</s:if>
+							<s:if test="null==category || 'SwimmingPool'.equals(category)">
+
+								<label class="radio"><input type="radio"
+									name="placetype" value="SwimmingPool"><i></i>Swimming
+									Pool</label>
+							</s:if>
+							<s:if test="null==category || 'YogaCenter'.equals(category)">
+
+								<label class="radio"><input type="radio"
+									name="placetype" value="YogaCenter"><i></i>Yoga Centers</label>
+							</s:if>
 						</div>
 					</div>
 					</section>
@@ -66,11 +77,21 @@
 					</h4>
 					<div class="row1 scroll-pane">
 						<div class="col col-4">
-							<label class="radio"><input type="radio" name="quality"
-								value="Premium"><i></i>Premium</label> <label class="radio"><input
-								type="radio" name="quality" value="Regular"><i></i>Regular</label>
-							<label class="radio"><input type="radio" name="quality"
-								value="Economy"><i></i>Economy</label>
+							<s:if test="null==qt || 'Premium'.equals(qt)">
+
+								<label class="radio"><input type="radio" name="quality"
+									value="Premium"><i></i>Premium</label>
+							</s:if>
+							<s:if test="null==qt || 'Regular'.equals(qt)">
+
+								<label class="radio"><input type="radio" name="quality"
+									value="Regular"><i></i>Regular</label>
+							</s:if>
+							<s:if test="null==qt || 'Economy'.equals(qt)">
+
+								<label class="radio"><input type="radio" name="quality"
+									value="Economy"><i></i>Economy</label>
+							</s:if>
 						</div>
 					</div>
 					</section>

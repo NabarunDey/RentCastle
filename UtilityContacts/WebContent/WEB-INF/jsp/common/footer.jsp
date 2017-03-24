@@ -12,6 +12,67 @@
 
 	<div class="footer_top">
 		<div class="container">
+
+			<div class="span_of_4">
+				<div class="span1_of_4">
+					<h4>Gyms</h4>
+					<ul class="f_nav">
+						<li><a
+							href="<s:url  action='searchCategory'><s:param name="qt" value="'Premium'"></s:param><s:param name="category" value="'Gym'"></s:param></s:url>">Premium</a></li>
+						<li><a
+							href="<s:url  action='searchCategory'><s:param name="qt" value="'Regular'"></s:param><s:param name="category" value="'Gym'"></s:param></s:url>">Regular
+						</a></li>
+						<li><a
+							href="<s:url  action='searchCategory'><s:param name="qt" value="'Economy'"></s:param><s:param name="category" value="'Gym'"></s:param></s:url>">Economy</a></li>
+
+
+					</ul>
+					<h4 class="top">Swimming Centers</h4>
+					<ul class="f_nav">
+						<li><a
+							href="<s:url  action='searchCategory'><s:param name="qt" value="'Premium'"></s:param><s:param name="category" value="'SwimmingPool'"></s:param></s:url>">Premium</a></li>
+						<li><a
+							href="<s:url  action='searchCategory'><s:param name="qt" value="'Regular'"></s:param><s:param name="category" value="'SwimmingPool'"></s:param></s:url>">Regular
+						</a></li>
+						<li><a
+							href="<s:url  action='searchCategory'><s:param name="qt" value="'Economy'"></s:param><s:param name="category" value="'SwimmingPool'"></s:param></s:url>">Economy</a></li>
+					</ul>
+				</div>
+				<div class="span1_of_4">
+					<h4>Yoga Centers</h4>
+					<ul class="f_nav">
+						<li><a
+							href="<s:url  action='searchCategory'><s:param name="qt" value="'Premium'"></s:param><s:param name="category" value="'YogaCenter'"></s:param></s:url>">Premium</a></li>
+						<li><a
+							href="<s:url  action='searchCategory'><s:param name="qt" value="'Regular'"></s:param><s:param name="category" value="'YogaCenter'"></s:param></s:url>">Regular
+						</a></li>
+						<li><a
+							href="<s:url  action='searchCategory'><s:param name="qt" value="'Economy'"></s:param><s:param name="category" value="'YogaCenter'"></s:param></s:url>">Economy</a></li>
+					</ul>
+				</div>
+				<div class="span1_of_4">
+					<h4>account</h4>
+					<ul class="f_nav">
+						<li><a href="#">login</a></li>
+						<li><a href="userRegistrationInput">create an account</a></li>
+						<li><a href="#">Frequently asked questions</a></li>
+					</ul>
+				</div>
+				<div class="span1_of_4">
+					<h4>Get in Touch</h4>
+					<ul class="f_nav">
+						<li><a href="<s:url  action='helpInput'/>">Contact Us</a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="https://www.facebook.com/iFitIndiaPvtLtd/">Follow
+								Us on Facebook</a></li>
+						<li><a href="#">Follow Us on Youtube</a></li>
+						<li><a href="#">Follow Us on Twitter</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+
 			<!-- start span_of_2 -->
 			<div class="span_of_2">
 				<div class="span1_of_2">
@@ -43,7 +104,8 @@
 					data-hide-cover="false" data-show-facepile="true">
 					<blockquote cite="https://www.facebook.com/iFitIndiaPvtLtd/"
 						class="fb-xfbml-parse-ignore">
-						<a href="https://www.facebook.com/iFitIndiaPvtLtd/">i-Fit India</a>
+						<a href="https://www.facebook.com/iFitIndiaPvtLtd/">i-Fit
+							India</a>
 					</blockquote>
 				</div>
 				<div class="fb-share-button"

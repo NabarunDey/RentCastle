@@ -47,5 +47,4 @@
 
 <!-- /.counter-section -->
 
-<br>
 

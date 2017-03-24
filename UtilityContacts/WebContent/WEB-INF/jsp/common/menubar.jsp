@@ -64,14 +64,14 @@
 
 				<!-- start header menu -->
 				<ul class="megamenu skyblue">
-					<li><a class="color1" href="loadIndex">Home</a></li>
+					<li><a class="color1" href="loadIndex" style="background: #EF5F21;color: #ffffff;border-radius: 30px;">Home</a></li>
 					<li class="grid"><a class="color2"
 						href="<s:url  action='searchCategory'><s:param name="category" value="'Gym'"></s:param></s:url>">Gym</a>
 						<div class="megapanel">
 							<div class="row">
 								<div class="col1">
 									<div class="h_nav">
-										<h4>Items</h4>
+										<h4>Categories</h4>
 										<ul>
 											<li><a
 												href="<s:url  action='searchCategory'><s:param name="qt" value="'Premium'"></s:param><s:param name="category" value="'Gym'"></s:param></s:url>">Premium</a></li>
@@ -86,14 +86,14 @@
 								</div>
 							</div>
 						</div></li>
-					<li class="active grid"><a class="color4"
+					<li class="active grid"><a class="color3"
 						href="<s:url  action='searchCategory'><s:param name="category" value="'SwimmingPool'"></s:param></s:url>">Swimming
 							Pool</a>
 						<div class="megapanel">
 							<div class="row">
 								<div class="col1">
 									<div class="h_nav">
-										<h4>Items</h4>
+										<h4>Categories</h4>
 										<ul>
 											<li><a
 												href="<s:url  action='searchCategory'><s:param name="qt" value="'Premium'"></s:param><s:param name="category" value="'SwimmingPool'"></s:param></s:url>">Premium</a></li>
@@ -114,7 +114,7 @@
 							<div class="row">
 								<div class="col1">
 									<div class="h_nav">
-										<h4>Items</h4>
+										<h4>Categories</h4>
 										<ul>
 											<li><a
 												href="<s:url  action='searchCategory'><s:param name="qt" value="'Premium'"></s:param><s:param name="category" value="'YogaCenter'"></s:param></s:url>">Premium</a></li>

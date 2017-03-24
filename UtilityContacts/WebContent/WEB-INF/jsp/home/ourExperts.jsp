@@ -5,7 +5,7 @@
 
 			<section class="why-us-setion section-padding">
 				<div class="container">
-					<div class="content_text">
+					<div class="content_text" style="margin-top: 0px">
 						<br> <br>
 						<h2>Hear it from our Experts</h2>
 					</div>
