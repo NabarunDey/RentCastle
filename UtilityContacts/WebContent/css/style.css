@@ -14,7 +14,7 @@ p {
 html, body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 100%;
-	background: #ffffff;
+	background-size: 100% auto;
 }
 
 body a {
@@ -602,16 +602,17 @@ ul.icon1 {
 
 .grid_text h3, .grid_text-middle h3 {
 	font-size: 18px;
+	color: black;
 }
 
 .grid_text h3 a, .grid_text-middle h3 a {
-	color: #555;
+	color: black;
 	text-transform: uppercase;
 }
 
 .grid_text p, .grid_text-middle p {
-	color: #777777;
-	font-size: 0.8125em;
+	color: black;
+	font-size: 0.99em;
 	text-transform: uppercase;
 }
 /* start content */
@@ -717,7 +718,7 @@ ul.icon1 {
 .span1_of_4 h4 {
 	border-bottom: 1px solid rgb(236, 236, 236);
 	font-size: 1.2em;
-	color: #555555;
+	color: black;
 	line-height: 1.8em;
 	text-transform: capitalize;
 }
@@ -725,18 +726,18 @@ ul.icon1 {
 .span1_of_4 h5 {
 	margin-top: 12%;
 	font-size: 1.2em;
-	color: #555555;
+	color: black;
 	line-height: 1.8em;
 	text-transform: capitalize;
 	display: block;
 }
 
 .span1_of_4 h5 a {
-	color: #00405d;
+	color: black;
 }
 
 .span1_of_4 h5 a:hover {
-	color: #555555;
+	color: black;
 }
 
 .span1_of_4 h5 a span {
@@ -744,7 +745,7 @@ ul.icon1 {
 }
 
 .span1_of_4 p {
-	color: #777777;
+	color: black;
 	line-height: 1.8em;
 	font-size: 0.8725em;
 }
@@ -762,7 +763,7 @@ ul.icon1 {
 .f_nav li a {
 	display: block;
 	font-size: 0.8125em;
-	color: #777777;
+	color: black;
 	text-transform: capitalize;
 	line-height: 1.8em;
 	-webkit-transition: all 0.3s ease-in-out;

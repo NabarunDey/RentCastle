@@ -7,7 +7,7 @@
 <title>i-Fit - Fitness Hub</title>
 <meta name="keywords"
 	content="i-fit,ifit,ifit india,i-fit india,Gym,Swimming Pool,Fitness Center,Yoga Center,Kolkata">
-<body>
+<body background="images/bg_img4_qe42z1.jpg">
 
 <%@ include file="sliderbar.jsp" %>
 

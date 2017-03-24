@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 </head>
-<body>
+<body  background="images/bg_img4_qe42z1_light.jpg">
 
 	<div class="footer_top">
 		<div class="container">
