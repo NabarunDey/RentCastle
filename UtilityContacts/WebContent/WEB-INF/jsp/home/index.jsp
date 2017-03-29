@@ -9,7 +9,7 @@
 	content="i-fit,ifit,ifit india,i-fit india,Gym,Swimming Pool,Fitness Center,Yoga Center,Kolkata">
 <body background="images/bg_img4_qe42z1.jpg">
 
-<%@ include file="sliderbar.jsp" %>
+<%@ include file="sliderbar.jsp" %> 
 
 <%@ include file="featured.jsp" %>
 

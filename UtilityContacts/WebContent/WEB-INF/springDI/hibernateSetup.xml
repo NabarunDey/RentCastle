@@ -9,7 +9,7 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://aaqsb6o15c1oau.cueqtxpojjik.ap-south-1.rds.amazonaws.com:3306/ebdb"></property>
+			value="jdbc:mysql://aa15pouu54nxc5m.cueqtxpojjik.ap-south-1.rds.amazonaws.com:3306/ebdb"></property>
 		<property name="username" value="rentcastledb"></property>
 		<property name="password" value="rentcastledb"></property>
 	</bean>

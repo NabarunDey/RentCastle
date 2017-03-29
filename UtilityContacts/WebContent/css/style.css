@@ -680,6 +680,7 @@ ul.icon1 {
 	bottom: 0;
 	background: rgba(141, 141, 141, 0.51);
 	padding: 10px;
+	border-radius :10%;
 }
 
 .look h4 {
@@ -860,7 +861,7 @@ ul.icon1 {
 /*-- start footer_style -- */
 .footer {
 	background: #00405d;
-	padding: 10px 20px;
+	/* padding: 10px 20px; */
 }
 
 .copy {
@@ -2978,6 +2979,10 @@ Whyus Setion
   margin-bottom: 25px;
 }
 
+.css-tab-content img {
+ border-radius: 10%;
+}
+
 @media (min-width : 992px) {
  
 
@@ -3080,4 +3085,8 @@ span.count-description.flaticon-international:before {
 
 span.count-description.flaticon-compass:before {
   content: "\e013";
+}
+
+.roundBorder img{
+	border-radius: 10%;
 }

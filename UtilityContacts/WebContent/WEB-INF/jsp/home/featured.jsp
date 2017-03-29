@@ -20,7 +20,7 @@
 				<div class="row grids">
 
 					<s:iterator value="context.placeManagementProjectorOBs">
-						<div class="col-md-3 grid1">
+						<div class="col-md-3 grid1 roundBorder">
 							<a
 								href="viewPlace?placeId=<s:property value="placesDBBean.placeid"/>">
 								<img src="<s:property value="profileImagePath"/>"

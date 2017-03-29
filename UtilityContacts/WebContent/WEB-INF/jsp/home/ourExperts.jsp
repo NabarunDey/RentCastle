@@ -39,7 +39,7 @@
 								<div class="tab-content">
 									<div role="tabpanel" class="tab-pane fade active in"
 										id="secure">
-										<div class="css-tab-content">
+										<div class="css-tab-content roundBorder">
 											<div class="row">
 												<div class="col-md-4">
 													<img

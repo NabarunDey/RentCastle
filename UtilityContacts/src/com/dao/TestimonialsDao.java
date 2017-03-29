@@ -51,7 +51,8 @@ public class TestimonialsDao {
 					break;
 				}
 			}
-			testimonialsDBBeans.add(myTestimonialsDBBean);
+			if(null!= myTestimonialsDBBean)
+				testimonialsDBBeans.add(myTestimonialsDBBean);
 			Collections.reverse(testimonialsDBBeans);
 		}
 		return testimonialsDBBeans;

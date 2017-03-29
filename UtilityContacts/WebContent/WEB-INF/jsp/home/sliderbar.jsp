@@ -58,7 +58,7 @@
 					<div class="grid_list">
 						<a
 							href='http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/<s:property value="context.adsSectionProjectorOB.dynamicContentsMap.get('adsSectionUrl1')"/>'>
-							<div class="grid_img">
+							<div class="grid_img roundBorder">
 								<img
 									src='<s:property value="context.adsSectionProjectorOB.dynamicContentsMap.get('adsSectionImage1')"/>'
 									class="img-responsive" alt="" />
@@ -80,7 +80,7 @@
 					<div class="grid_list">
 						<a
 							href='http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/<s:property value="context.adsSectionProjectorOB.dynamicContentsMap.get('adsSectionUrl2')"/>'>
-							<div class="grid_img">
+							<div class="grid_img roundBorder">
 								<img
 									src='<s:property value="context.adsSectionProjectorOB.dynamicContentsMap.get('adsSectionImage2')"/>'
 									class="img-responsive" alt="" />
@@ -101,7 +101,7 @@
 					<div class="grid_list">
 						<a
 							href='http://<%=request.getServerName() %>:<%=request.getServerPort()%>${pageContext.request.contextPath}/<s:property value="context.adsSectionProjectorOB.dynamicContentsMap.get('adsSectionUrl3')"/>'>
-							<div class="grid_img">
+							<div class="grid_img roundBorder">
 								<img
 									src='<s:property value="context.adsSectionProjectorOB.dynamicContentsMap.get('adsSectionImage3')"/>'
 									class="img-responsive" alt="" />
