@@ -207,5 +207,83 @@ public class LoadIndexAction  extends ActionSupport  implements ServletRequestAw
 			TestimonialsAppService testimonialsAppService) {
 		this.testimonialsAppService = testimonialsAppService;
 	}
+	
+	public String demo()
+	{
+		TimeZone.setDefault(TimeZone.getTimeZone("IST"));
+		if(httpServletRequest.getHeader("User-Agent").indexOf("Mobile") != -1) {
+			userProfile.setMobiledevice("true");
+		} else {
+			userProfile.setMobiledevice("false");
+		}
+
+		LoginAppServiceIB loginAppServiceIB = new LoginAppServiceIB();
+
+		String server=httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+httpServletRequest.getContextPath();
+		Cookie[] cookies = httpServletRequest.getCookies();     // request is an instance of type 
+		String userNameFoundFromCookie = null;
+		String passwordFoundFromCookie = null;
+
+
+		if((null== userProfile || StringUtils.isEmpty(userProfile.getUserName())) && null!= cookies)
+		{
+			for(int i = 0; i < cookies.length; i++)
+			{ 
+				Cookie c = cookies[i];
+				if (c.getName().equals("usernameRemembered"))
+				{
+					userNameFoundFromCookie = c.getValue();
+				}
+				if (c.getName().equals("passwordRemembered"))
+				{
+					passwordFoundFromCookie = c.getValue();
+				}
+			}  
+		}
+		if(StringUtils.isNotEmpty(userNameFoundFromCookie) && StringUtils.isNotEmpty(passwordFoundFromCookie)  )
+		{
+			loginAppServiceIB.setUsername(userNameFoundFromCookie);
+			loginAppServiceIB.setPassword(passwordFoundFromCookie);
+			LoginProjectorOB loginProjectorOB = loginAppService.login(loginAppServiceIB,server);
+		}
+
+		if(StringUtils.isNotEmpty(rememberMe) && rememberMe.equals("on")
+				&& null!= userProfile && StringUtils.isNotEmpty(userProfile.getUserName()))
+		{
+			HttpServletResponse response = ServletActionContext.getResponse();
+
+			{
+				Cookie c = new Cookie("usernameRemembered", userProfile.getUserName());
+				c.setMaxAge(24*60*60);
+				response.addCookie(c); 
+
+				Cookie c1 = new Cookie("passwordRemembered", userProfile.getPassword());
+				c1.setMaxAge(24*60*60);
+				response.addCookie(c1); 
+			}
+		}
+
+		//any code here must be copied to load index logout function below
+		if(null!= context && null== context.getPlaceManagementProjectorOBs())
+		{
+			List<PlaceManagementProjectorOB> placeManagementProjectorOBs = placeManagementAppService.getFeaturedPlaces();
+			context.setPlaceManagementProjectorOBs(placeManagementProjectorOBs);
+		}
+
+		if(null!= context && null == context.getAdsSectionProjectorOB())
+		{
+			AdsSectionProjectorOB adsSectionProjectorOB = loadIndexAppService.getAdsSection();
+			context.setAdsSectionProjectorOB(adsSectionProjectorOB);
+		}
+
+		if(null!= userProfile && !userProfile.isTestimonialSet())
+		{
+			onloadTestimonialsOB.setTestimonialsDBBeans(testimonialsAppService.getOnLoadTestimonial());
+			userProfile.setTestimonialSet(true);
+		}
+
+		return "success";
+	}
+
 
 }

@@ -12,14 +12,11 @@
 </head>
 <body>
  
-<%--
-response.sendRedirect(request.getContextPath()+"/loadIndex");
---%> 
-
-<!-- Temp redirect to fb page  -->
 <%
-response.sendRedirect("https://www.facebook.com/iFitIndiaPvtLtd/");
+response.sendRedirect(request.getContextPath()+"/loadIndex");
 %> 
+
+
 
 	<h1>Hello World From Struts2 - Spring integration</h1> 
 
